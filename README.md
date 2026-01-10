@@ -13,14 +13,13 @@
 ## 🧩 Структура директории
 
 ```
-ios-system-keyboard/
- ├── layout/pnt/
- │   ├── pnt-3-rows.yaml
- │   ├── pnt-longpress.yaml
- │   ├── pnt-macos.yaml
- │   ├── README.md
- │   ├── pontic_letters.jpg
- └── └── pontic_various_breve.jpg
+pontic/
+ ├── README.md
+ ├── pnt-3-rows.yaml
+ ├── pnt-longpress.yaml
+ ├── pnt-macos.yaml
+ ├── pontic_letters.jpg
+ └── pontic_various_breve.jpg
 ```
 
 ## Особенности понтийского алфавита
@@ -137,16 +136,15 @@ The layouts follow a unified keyboard schema and are compatible with layout gene
 ## 🧩 Directory structure
 
 ```
-ios-system-keyboard/
- ├── layout/pnt/
- │   ├── pnt-3-rows.yaml
- │   ├── pnt-longpress.yaml
- │   ├── pnt-macos.yaml
- │   ├── README.md
- ├── ├── example
- │   ├── pontic_letters.jpg
- └── └── pontic_various_breve.jpg
+pontic/
+ ├── README.md
+ ├── pnt-3-rows.yaml
+ ├── pnt-longpress.yaml
+ ├── pnt-macos.yaml
+ ├── pontic_letters.jpg
+ └── pontic_various_breve.jpg
 ```
+
 ## Features of the Pontic Alphabet
 
 [Pontic Alphabet] = [Greek Alphabet] + [Pontic letters]
