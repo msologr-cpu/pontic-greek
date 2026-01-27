@@ -11,15 +11,15 @@ macOS:
       default: |
         ; ς ε ρ τ υ θ ι ο π [ ] \ 
         α σ δ φ γ η ξ κ λ ΄ ˇ 
-        ζ χ ψ ω β ν μ , . /
+        ζ χ ψ ω β ν μ , . ?
       shift: &SHIFT |
-        : ΅ Ε Ρ Τ Υ Θ Ι Ο Π [ ] |
-        Α Σ Δ Φ Γ Η Ξ Κ Λ ΄ ˇ 
-        Ζ Χ Ψ Ω Β Ν Μ < > ?
+        : ΅ Ε Ρ Τ Υ Θ Ι Ο Π \ / |
+        Α Σ Δ Φ Γ Η Ξ Κ Λ ΄ ˘ 
+        Ζ Χ Ψ Ω Β Ν Μ ˇ  ̤ ¨
       caps: |
-        ; ΅ Ε Ρ Τ Υ Θ Ι Ο Π [ ] |
+        ; ΅ Ε Ρ Τ Υ Θ Ι Ο Π { } | 
         Α Σ Δ Φ Γ Η Ξ Κ Λ ΄ ' 
-        Ζ Χ Ψ Ω Β Ν Μ , . : 
+        Ζ Χ Ψ Ω Β Ν Μ ˇ  ̤ ¨ 
       caps+shift: *SHIFT
       alt: &ALT |       
         · ― € ® ™ ¥ ­  † œ ≈ « »
@@ -42,7 +42,7 @@ macOS:
       cmd+alt+shift: *CMD+SHIFT 
 
 deadKeys:
-  alt: [´,ˇ,΅,¨] 
-  alt+caps: [´,ˇ,΅,¨] 
+  alt: [´,ˇ,΅,¨,˘, ̤] 
+  alt+caps: [´,ˇ,΅,¨,˘, ̤] 
 
 longpress: !include pnt-longpress.yaml 
