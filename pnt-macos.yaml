@@ -22,7 +22,7 @@ macOS:
         Ζ Χ Ψ Ω Β Ν Μ ˘ ¨  ̤ 
       caps+shift: *SHIFT
       alt: &ALT |       
-        · ― € ® ™ ¥ ­  † œ ≈ « »
+        · ― € ® ™ ¥ ­≈ † " „ “ ”
         … ß ÷ ≠ © ½ ≤ ≥ ¬ ΅ ' ¦
         ` §   ç ±   ‘ ’ « » /
       alt+shift: |
@@ -46,3 +46,4 @@ deadKeys:
   alt+caps: [´,ˇ,΅,¨,˘, ̤] 
 
 longpress: !include pnt-longpress.yaml 
+
