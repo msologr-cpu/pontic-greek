@@ -99,10 +99,10 @@ pontic/
 Ϋ́ = Υ + ΅<br>
 ΰ = υ + ΅<br>
 
-Α̤ = Α + ˇ<br>
-α̤ = α + ˇ<br>
-Ο̤ = Ο + ˇ<br>
-ο̤ = ο + ˇ<br>
+Α̤ = Α +  ̤<br> 
+α̤ = α +  ̤<br>
+Ο̤ = Ο +  ̤<br>
+ο̤ = ο +  ̤<br>
 Ζ̌ = Ζ + ˇ<br>
 ζ̌ = ζ + ˇ<br>
 Ξ̌ = Ξ + ˇ<br>
@@ -124,10 +124,10 @@ pontic/
 Ϋ́ = Υ + ¨ + ΄<br>
 ΰ = υ + ¨ + ΄<br>
 
-Ά̤ = Α + ΄ + ˇ<br>
-ά̤ = α + ΄ + ˇ<br>
-Ό̤ = Ο + ΄ + ˇ<br>
-ό̤ = ο + ΄ + ˇ<br>
+Ά̤ = Α + ΄ +  ̤<br>
+ά̤ = α + ΄ +  ̤<br>
+Ό̤ = Ο + ΄ +  ̤<br>
+ό̤ = ο + ΄ +  ̤<br>
 
 ---
 
@@ -185,17 +185,21 @@ The goal is to represent all such letters using Unicode combining characters, wi
 
 | Letter | Sound (approx.)    | Base character (Hex) | Combining sequence (Hex) | Result |
 | ------ | ------------------ | -------------------- | ------------------------ | ------ |
-| Ζ      | Zh                 | U+0396               | U+0396 U+030C            | Ζ̌     |
-| ζ      | zh                 | U+03B6               | U+03B6 U+030C            | ζ̌     |
-| Ξ      | Ksh                | U+039E               | U+039E U+030C            | Ξ̌     |
-| ξ      | ksh                | U+03BE               | U+03BE U+030C            | ξ̌     |
-| Σ      | Sh                 | U+03A3               | U+03A3 U+030C            | Σ̌     |
-| σ      | sh                 | U+03C3               | U+03C3 U+030C            | σ̌     |
-| Χ      | Sh                 | U+03A7               | U+03A7 U+030C            | Χ̌     |
-| χ      | sh                 | U+03C7               | U+03C7 U+030C            | χ̌     |
-| Ψ      | Psh                | U+03A8               | U+03A8 U+030C            | Ψ̌     |
-| ψ      | psh                | U+03C8               | U+03C8 U+030C            | ψ̌     |
-
+| Ζ      | Zh            | U+0396               | U+0396 U+030C            | Ζ̌         |
+| ζ     | zh            | U+03B6               | U+03B6 U+030C            | ζ̌         |
+| Ξ     | Ksh           | U+039E               | U+039E U+030C            | Ξ̌         |
+| ξ     | ksh           | U+03BE               | U+03BE U+030C            | ξ̌         |
+| Σ     | Sh            | U+03A3               | U+03A3 U+030C            | Σ̌         |
+| σ     | sh            | U+03C3               | U+03C3 U+030C            | σ̌         |
+| ς     | sh            | U+03C2               | U+03C2 U+030C            | ς̌         |
+| Χ     | Sh            | U+03A7               | U+03A7 U+030C            | Χ̌         |
+| χ     | sh            | U+03C7               | U+03C7 U+030C            | χ̌         |
+| Ψ     | Psh           | U+03A8               | U+03A8 U+030C            | Ψ̌         |
+| ψ     | psh           | U+03C8               | U+03C8 U+030C            | ψ̌         |
+| Κ     | K (aspir.)    | U+039A               | U+039A U+030C            | Κ̌         |
+| κ     | k (aspir.)    | U+03BA               | U+03BA U+030C            | κ̌         | 
+| Γ     | g (glot stop) | U+0393               | U+0393 U+0306            | Γ̆         |
+| γ     | g (glot stop) | U+03B3               | U+03B3 U+0306            | γ̆         |
 
 ### Combined Breve Symbol
 
@@ -217,7 +221,7 @@ The operating principle for these above- and below-base diacritics is as follows
 This approach ensures Unicode-compliant encoding and consistent behavior across platforms.
 
 Ά = Α + ΄<br>
-ά = α + ΄ <br>
+ά = α + ΄<br>
 Έ = Ε + ΄<br>
 έ = ε + ΄<br>
 Ή = Η + ΄<br>
@@ -241,10 +245,10 @@ This approach ensures Unicode-compliant encoding and consistent behavior across 
 Ϋ́ = Υ + ΅<br>
 ΰ = υ + ΅<br>
 
-Α̤ = Α + ˇ<br>
-α̤ = α + ˇ<br>
-Ο̤ = Ο + ˇ<br>
-ο̤ = ο + ˇ<br>
+Α̤ = Α +  ̤<br> 
+α̤ = α +  ̤<br>
+Ο̤ = Ο +  ̤<br>
+ο̤ = ο +  ̤<br>
 Ζ̌ = Ζ + ˇ<br>
 ζ̌ = ζ + ˇ<br>
 Ξ̌ = Ξ + ˇ<br>
@@ -256,13 +260,17 @@ This approach ensures Unicode-compliant encoding and consistent behavior across 
 χ̌ = χ + ˇ<br>
 Ψ̌ = Ψ + ˇ<br>
 ψ̌ = ψ + ˇ<br>
+Κ̌ = Κ + ˇ<br>
+κ̌ = κ + ˇ<br>
+Γ̆ = Γ + ˘<br>
+γ̆ = γ + ˘<br>
 
 Ϊ́ = Ι + ¨ + ΄<br>
 ΐ = ι + ¨ + ΄<br>
 Ϋ́ = Υ + ¨ + ΄<br>
 ΰ = υ + ¨ + ΄<br>
 
-Ά̤ = Α + ΄ + ˇ<br>
-ά̤ = α + ΄ + ˇ<br>
-Ό̤ = Ο + ΄ + ˇ<br>
-ό̤ = ο + ΄ + ˇ
+Ά̤ = Α + ΄ +  ̤<br>
+ά̤ = α + ΄ +  ̤<br>
+Ό̤ = Ο + ΄ +  ̤<br>
+ό̤ = ο + ΄ +  ̤<br>
