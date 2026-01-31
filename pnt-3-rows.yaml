@@ -23,7 +23,7 @@ iOS:
       symbols-2: |
         [ ] { } # % ^ * + =
         _ \ | ~ < > $ £ ¥ •
-        \s{shiftSymbols} \s{spacer:0.25} € & @ ” ‘ \s{spacer:0.25} \s{backspace}
+        \s{shiftSymbols} \s{spacer:0.25} € & @ « » \s{spacer:0.25} \s{backspace}
   iPad-9in:
     layers:
       default: |
@@ -40,7 +40,7 @@ iOS:
         \s{shift}        " ' ; : = + / , .   \s{shift:2.0}
       alt+shift: |
         \s{spacer:0.3}   1 2 3 4 5 6 7 8 9 0 \s{backspace:1.7}
-        \s{spacer:0.6}   _ $ ` % ^ & • { } ° \s{return:1.4}
+        \s{spacer:0.6}   _ $ ` % ^ & { } « » \s{return:1.4}
         \s{shiftSymbols} ~ < > [ ] | \ ! ?   \s{shiftSymbols:2.0}
       symbols-1: |
         \s{spacer:0.3}   1 2 3 4 5 6 7 8 9 0 \s{backspace:1.7}
@@ -48,7 +48,7 @@ iOS:
         \s{shift}        " ' ; : = + / , .   \s{shift:2.0}
       symbols-2: |
         \s{spacer:0.3}   1 2 3 4 5 6 7 8 9 0 \s{backspace:1.7}
-        \s{spacer:0.6}   _ $ ` % ^ & • { } ° \s{return:1.4}
+        \s{spacer:0.6}   _ $ ` % ^ & { } « » \s{return:1.4}
         \s{shiftSymbols} ~ < > [ ] | \ ! ?   \s{shiftSymbols:2.0}
   iPad-12in:
     layers:
@@ -69,7 +69,7 @@ iOS:
         \s{shift:1.25}     ~ < > [ ] | \ ! ?     \s{shift:2.25}
       alt+shift: |
         `                1 2 3 4 5 6 7 8 9 0 ; … \s{backspace:1.5}
-        \s{tab:1.5}      _ $ ` % ^ & • { } °     \s{return}
+        \s{tab:1.5}      _ $ ` % ^ & { } « »     \s{return}
         \s{caps:1.75}      " ' : = + / , .       \s{return:0.75}
         \s{shift:1.25}     ~ < > [ ] | \ ! ?     \s{shift:2.25}
       symbols-1: |
@@ -79,7 +79,7 @@ iOS:
         \s{shift:1.25}     ~ < > [ ] | \ ! ?     \s{shift:2.25}
       symbols-2: |
         `                1 2 3 4 5 6 7 8 9 0 ; … \s{backspace:1.5}
-        \s{tab:1.5}      _ $ ` % ^ & • { } °     \s{return}
+        \s{tab:1.5}      _ $ ` % ^ & { } « »     \s{return}
         \s{caps:1.75}      " ' : = + / , .       \s{return:0.75}
         \s{shift:1.25}     ~ < > [ ] | \ ! ?     \s{shift:2.25}
 
@@ -102,3 +102,5 @@ keyNames:
   cancel: Άκυρο
   undo: Αναίρεση
   redo: Επανάληψη
+” : „ “ ” « » "
+‘ : ` ‘ ’ '
