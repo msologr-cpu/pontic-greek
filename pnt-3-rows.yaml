@@ -15,15 +15,15 @@ iOS:
       shift: |
         Ε Ρ Τ Υ Θ Ι Ο Π ´ ˇ 
         Α Σ Δ Φ Γ Η Ξ Κ Λ  ̤
-        \s{shift} Ζ Χ Ψ Ω Β Ν Μ \s{backspace}
+        \s{shift} Ζ Χ Ψ Ω Β Ν Μ \s{backspace} 
       symbols-1: |
-        1 2 3 4 5 6 7 8 9 0
-        - / : ; ( ) € & @ ”
+        1 2 3 4 5 6 7 8 9 0   
+        - / : ; ( ) " „ “ ” 
         \s{shiftSymbols} \s{spacer:0.25} . , ? ! ‘ \s{spacer:0.25} \s{backspace}
       symbols-2: |
         [ ] { } # % ^ * + =
         _ \ | ~ < > $ £ ¥ •
-        \s{shiftSymbols} \s{spacer:0.25} . , ? ! ‘ \s{spacer:0.25} \s{backspace}
+        \s{shiftSymbols} \s{spacer:0.25} € & @ ” ‘ \s{spacer:0.25} \s{backspace}
   iPad-9in:
     layers:
       default: |
@@ -36,7 +36,7 @@ iOS:
         \s{shift}        Ζ Χ Ψ Ω Β Ν Μ ¨ ˘     \s{shift:2.0}
       alt: |
         \s{spacer:0.3}   1 2 3 4 5 6 7 8 9 0 \s{backspace:1.7}
-        \s{spacer:0.6}   @ # € ^ & * - ( ) ! \s{return:1.4}
+        \s{spacer:0.6}   „ “ ” @ # € ^ * ( ) \s{return:1.4} 
         \s{shift}        " ' ; : = + / , .   \s{shift:2.0}
       alt+shift: |
         \s{spacer:0.3}   1 2 3 4 5 6 7 8 9 0 \s{backspace:1.7}
@@ -44,7 +44,7 @@ iOS:
         \s{shiftSymbols} ~ < > [ ] | \ ! ?   \s{shiftSymbols:2.0}
       symbols-1: |
         \s{spacer:0.3}   1 2 3 4 5 6 7 8 9 0 \s{backspace:1.7}
-        \s{spacer:0.6}   @ # € ^ & * - ( ) ¨ \s{return:1.4}
+        \s{spacer:0.6}   „ “ ” @ # € ^ * ( ) \s{return:1.4} 
         \s{shift}        " ' ; : = + / , .   \s{shift:2.0}
       symbols-2: |
         \s{spacer:0.3}   1 2 3 4 5 6 7 8 9 0 \s{backspace:1.7}
