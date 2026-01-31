@@ -61,6 +61,11 @@ pontic/
 | ψ     | пш           | U+03C8               | U+03C8 U+030C            | ψ̌         |
 | Κ     | Κ (придых.)  | U+039A               | U+039A U+030C            | Κ̌         |
 | κ     | κ (придых.)  | U+03BA               | U+03BA U+030C            | κ̌         | 
+
+### Буквы с бреве (◌̆) в понтийской орфографии
+
+| Буква | Звук (прим.) | Базовый символ (Hex) | Комбинируемый знак (Hex) | Результат |
+|-------|--------------|----------------------|--------------------------|-----------|
 | Γ     | Γ (смыч.)    | U+0393               | U+0393 U+0306            | Γ̆         |
 | γ     | γ (смыч.)    | U+03B3               | U+03B3 U+0306            | γ̆         |
 
@@ -116,6 +121,7 @@ pontic/
 ψ̌ = ψ + ˇ<br>
 Κ̌ = Κ + ˇ<br>
 κ̌ = κ + ˇ<br>
+
 Γ̆ = Γ + ˘<br>
 γ̆ = γ + ˘<br>
 
@@ -198,6 +204,11 @@ The goal is to represent all such letters using Unicode combining characters, wi
 | ψ     | psh           | U+03C8               | U+03C8 U+030C            | ψ̌         |
 | Κ     | K (aspir.)    | U+039A               | U+039A U+030C            | Κ̌         |
 | κ     | k (aspir.)    | U+03BA               | U+03BA U+030C            | κ̌         | 
+
+### Letters with Breve (◌̆) in Pontic Orthography
+
+| Letter | Sound (approx.)    | Base character (Hex) | Combining sequence (Hex) | Result |
+| ------ | ------------------ | -------------------- | ------------------------ | ------ |
 | Γ     | g (glot stop) | U+0393               | U+0393 U+0306            | Γ̆         |
 | γ     | g (glot stop) | U+03B3               | U+03B3 U+0306            | γ̆         |
 
@@ -262,6 +273,7 @@ This approach ensures Unicode-compliant encoding and consistent behavior across 
 ψ̌ = ψ + ˇ<br>
 Κ̌ = Κ + ˇ<br>
 κ̌ = κ + ˇ<br>
+
 Γ̆ = Γ + ˘<br>
 γ̆ = γ + ˘<br>
 
