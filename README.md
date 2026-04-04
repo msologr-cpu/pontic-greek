@@ -77,7 +77,7 @@ pontic/
 
 ## Dead Keys 
 
-Примеры использования Dead Keys и их комбинации, как это должно работать. Принцип работы у данных над/подстрочных знаков должен быть такой: сначала выбираются символы надстрочные и подстрочные, а затем к ней выбирается буква
+Примеры использования Dead Keys и их комбинации, как это должно работать. Принцип работы у данных над/подстрочных знаков должен быть такай же, как и в классическом греческом алфавите: сначала выбираются символы надстрочные и подстрочные, а затем к ним выбирается буква
 
 Ά = Α + ΄<br>
 ά = α + ΄<br>
@@ -225,9 +225,9 @@ Examples of dead key usage and their combinations are provided to illustrate the
 
 The operating principle for these above- and below-base diacritics is as follows:
 
-- first, a base letter is entered
+- first, one or more combining diacritical marks are entered 
 
-- then, one or more combining diacritical marks are applied to it
+- then, a base letter is applied to it/them
 
 This approach ensures Unicode-compliant encoding and consistent behavior across platforms.
 
