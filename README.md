@@ -223,7 +223,7 @@ However, examples of its usage in natural language contexts are provided for pot
 
 Examples of dead key usage and their combinations are provided to illustrate the intended behavior.
 
-The operating principle for these above- and below-base diacritics is as follows:
+The operating principle for these above- and below-base diacritics is as in Greek keyboard:
 
 - first, one or more combining diacritical marks are entered 
 
