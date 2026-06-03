@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE keyboard PUBLIC "" "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
+<!--
+  Pontic Greek Keyboard Layout for macOS
+  =======================================
+  Based on standard Modern Greek keyboard layout.
+
+  PONTIC ADDITIONS (compared to standard Greek):
+    Key '  (physical apostrophe, code 39) → ˇ dead key (caron)
+       ˇ + ζ = ζ̌  |  ˇ + χ = χ̌  |  ˇ + σ = σ̌  |  ˇ + κ = κ̌
+       ˇ + ξ = ξ̌  |  ˇ + ψ = ψ̌
+    Key /  (physical slash, code 44)      → ̤ dead key (dot below)
+       ̤ + α = α̤  |  ̤ + ο = ο̤
+    Shift+,  (code 43)                    → ˘ dead key (breve)
+       ˘ + γ = γ̆
+
+  Standard ΄ tonos dead key remains on ; position (code 41).
+
+  INSTALL:
+    Run install_macos.sh  — OR —
+    Copy this file to ~/Library/Keyboard Layouts/
+    Then: System Settings → Keyboard → Input Sources → [+] → Other → Pontic Greek
+-->
+<keyboard group="126" id="-21487" name="Pontic Greek" maxout="2">
+
+  <layouts>
+    <layout first="0"  last="17" modifiers="Modifiers" mapSet="ANSI-QWERTY"/>
+    <layout first="18" last="18" modifiers="Modifiers" mapSet="ANSI-QWERTY"/>
+    <layout first="21" last="23" modifiers="Modifiers" mapSet="ANSI-QWERTY"/>
+    <layout first="25" last="26" modifiers="Modifiers" mapSet="ANSI-QWERTY"/>
+    <layout first="28" last="29" modifiers="Modifiers" mapSet="ANSI-QWERTY"/>
+  </layouts>
+
+  <!-- Modifier combinations → key map indices -->
+  <modifierMap id="Modifiers" defaultIndex="0">
+    <keyMapSelect mapIndex="0">
+      <modifier keys=""/>                          <!-- default            -->
+    </keyMapSelect>
+    <keyMapSelect mapIndex="1">
+      <modifier keys="anyShift caps?"/>            <!-- Shift (± CapsLock) -->
+      <modifier keys="caps"/>                      <!-- CapsLock alone     -->
+    </keyMapSelect>
+    <keyMapSelect mapIndex="2">
+      <modifier keys="anyOption"/>                 <!-- Option/Alt         -->
+    </keyMapSelect>
+    <keyMapSelect mapIndex="3">
+      <modifier keys="anyShift anyOption"/>        <!-- Shift + Option     -->
+    </keyMapSelect>
+  </modifierMap>
+
+  <keyMapSet id="ANSI-QWERTY">
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         MAP 0 — Default
+         Row Q: ; ς ε ρ τ υ θ ι ο π [ ] \
+         Row A: α σ δ φ γ η ξ κ λ ΄ ˇ
+         Row Z: ζ χ ψ ω β ν μ , . ̤
+         ═══════════════════════════════════════════════════════════════ -->
+    <keyMap index="0">
+      <!-- number row -->
+      <key code="50" output="`"/>
+      <key code="18" output="1"/>
+      <key code="19" output="2"/>
+      <key code="20" output="3"/>
+      <key code="21" output="4"/>
+      <key code="23" output="5"/>
+      <key code="22" output="6"/>
+      <key code="26" output="7"/>
+      <key code="28" output="8"/>
+      <key code="25" output="9"/>
+      <key code="29" output="0"/>
+      <key code="27" output="-"/>
+      <key code="24" output="="/>
+      <!-- top row -->
+      <key code="12" output=";"/>
+      <key code="13" output="ς"/>
+      <key code="14" action="lo-epsilon"/>
+      <key code="15" output="ρ"/>
+      <key code="17" output="τ"/>
+      <key code="16" action="lo-upsilon"/>
+      <key code="32" output="θ"/>
+      <key code="34" action="lo-iota"/>
+      <key code="31" action="lo-omicron"/>
+      <key code="35" output="π"/>
+      <key code="33" output="["/>
+      <key code="30" output="]"/>
+      <key code="42" output="\"/>
+      <!-- home row -->
+      <key code="0"  action="lo-alpha"/>
+      <key code="1"  action="lo-sigma"/>
+      <key code="2"  output="δ"/>
+      <key code="3"  output="φ"/>
+      <key code="5"  action="lo-gamma"/>
+      <key code="4"  action="lo-eta"/>
+      <key code="38" action="lo-xi"/>
+      <key code="40" action="lo-kappa"/>
+      <key code="37" output="λ"/>
+      <key code="41" action="dead-tonos"/>          <!-- ΄ standard Greek accent -->
+      <key code="39" action="dead-caron"/>          <!-- ˇ PONTIC               -->
+      <!-- bottom row -->
+      <key code="6"  action="lo-zeta"/>
+      <key code="7"  action="lo-chi"/>
+      <key code="8"  action="lo-psi"/>
+      <key code="9"  action="lo-omega"/>
+      <key code="11" output="β"/>
+      <key code="45" output="ν"/>
+      <key code="46" output="μ"/>
+      <key code="43" output=","/>
+      <key code="47" output="."/>
+      <key code="44" action="dead-dotbelow"/>       <!-- ̤ PONTIC               -->
+      <!-- control -->
+      <key code="49" action="space"/>
+      <key code="36" output="&#x000D;"/>
+      <key code="76" output="&#x0003;"/>
+      <key code="51" output="&#x0008;"/>
+      <key code="48" output="&#x0009;"/>
+      <key code="53" output="&#x001B;"/>
+    </keyMap>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         MAP 1 — Shift / CapsLock
+         Row Q: : ΅ Ε Ρ Τ Υ Θ Ι Ο Π \ / |
+         Row A: Α Σ Δ Φ Γ Η Ξ Κ Λ ΄ ˇ
+         Row Z: Ζ Χ Ψ Ω Β Ν Μ ˘ ¨ ̤
+         ═══════════════════════════════════════════════════════════════ -->
+    <keyMap index="1">
+      <!-- number row shift -->
+      <key code="50" output="~"/>
+      <key code="18" output="!"/>
+      <key code="19" output="@"/>
+      <key code="20" output="#"/>
+      <key code="21" output="$"/>
+      <key code="23" output="%"/>
+      <key code="22" output="^"/>
+      <key code="26" output="&amp;"/>
+      <key code="28" output="*"/>
+      <key code="25" output="("/>
+      <key code="29" output=")"/>
+      <key code="27" output="_"/>
+      <key code="24" output="+"/>
+      <!-- top row shift -->
+      <key code="12" output=":"/>
+      <key code="13" output="΅"/>
+      <key code="14" action="up-epsilon"/>
+      <key code="15" output="Ρ"/>
+      <key code="17" output="Τ"/>
+      <key code="16" action="up-upsilon"/>
+      <key code="32" output="Θ"/>
+      <key code="34" action="up-iota"/>
+      <key code="31" action="up-omicron"/>
+      <key code="35" output="Π"/>
+      <key code="33" output="\"/>
+      <key code="30" output="/"/>
+      <key code="42" output="|"/>
+      <!-- home row shift -->
+      <key code="0"  action="up-alpha"/>
+      <key code="1"  action="up-sigma"/>
+      <key code="2"  output="Δ"/>
+      <key code="3"  output="Φ"/>
+      <key code="5"  action="up-gamma"/>
+      <key code="4"  action="up-eta"/>
+      <key code="38" action="up-xi"/>
+      <key code="40" action="up-kappa"/>
+      <key code="37" output="Λ"/>
+      <key code="41" action="dead-tonos"/>
+      <key code="39" action="dead-caron"/>
+      <!-- bottom row shift -->
+      <key code="6"  action="up-zeta"/>
+      <key code="7"  action="up-chi"/>
+      <key code="8"  action="up-psi"/>
+      <key code="9"  action="up-omega"/>
+      <key code="11" output="Β"/>
+      <key code="45" output="Ν"/>
+      <key code="46" output="Μ"/>
+      <key code="43" action="dead-breve"/>          <!-- ˘ PONTIC               -->
+      <key code="47" output="¨"/>
+      <key code="44" action="dead-dotbelow"/>
+      <!-- control -->
+      <key code="49" action="space"/>
+      <key code="36" output="&#x000D;"/>
+      <key code="76" output="&#x0003;"/>
+      <key code="51" output="&#x0008;"/>
+      <key code="48" output="&#x0009;"/>
+      <key code="53" output="&#x001B;"/>
+    </keyMap>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         MAP 2 — Option / Alt
+         ═══════════════════════════════════════════════════════════════ -->
+    <keyMap index="2">
+      <!-- number row -->
+      <key code="50" output="&#x00A7;"/>
+      <key code="18" output="¡"/>
+      <key code="19" output="™"/>
+      <key code="20" output="£"/>
+      <key code="21" output="¢"/>
+      <key code="23" output="∞"/>
+      <key code="22" output="§"/>
+      <key code="26" output="¶"/>
+      <key code="28" output="•"/>
+      <key code="25" output="ª"/>
+      <key code="29" output="º"/>
+      <key code="27" output="–"/>
+      <key code="24" output="≠"/>
+      <!-- top row alt -->
+      <key code="12" output="·"/>
+      <key code="13" output="―"/>
+      <key code="14" output="€"/>
+      <key code="15" output="®"/>
+      <key code="17" output="™"/>
+      <key code="16" output="¥"/>
+      <key code="32" output="†"/>
+      <key code="34" output="&#x201C;"/>
+      <key code="31" output="&#x201E;"/>
+      <key code="35" output="&#x201D;"/>
+      <key code="33" output="&#x201C;"/>
+      <key code="30" output="&#x2018;"/>
+      <key code="42" output="¦"/>
+      <!-- home row alt -->
+      <key code="0"  output="…"/>
+      <key code="1"  output="ß"/>
+      <key code="2"  output="÷"/>
+      <key code="3"  output="≠"/>
+      <key code="5"  output="©"/>
+      <key code="4"  output="½"/>
+      <key code="38" output="≤"/>
+      <key code="40" output="≥"/>
+      <key code="37" output="¬"/>
+      <key code="41" output="΅"/>
+      <key code="39" output="&#x2019;"/>
+      <!-- bottom row alt -->
+      <key code="6"  output="`"/>
+      <key code="7"  output="§"/>
+      <key code="8"  output="ç"/>
+      <key code="9"  output="±"/>
+      <key code="11" output="·"/>
+      <key code="45" output="&#x2018;"/>
+      <key code="46" output="&#x2019;"/>
+      <key code="43" output="«"/>
+      <key code="47" output="»"/>
+      <key code="44" output="/"/>
+      <key code="49" output="&#x00A0;"/>            <!-- non-breaking space -->
+    </keyMap>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         MAP 3 — Shift + Option
+         ═══════════════════════════════════════════════════════════════ -->
+    <keyMap index="3">
+      <key code="18" output="⁄"/>
+      <key code="19" output="€"/>
+      <key code="20" output="‹"/>
+      <key code="21" output="›"/>
+      <key code="23" output="ﬁ"/>
+      <key code="22" output="ﬂ"/>
+      <key code="26" output="‡"/>
+      <key code="28" output="°"/>
+      <key code="25" output="·"/>
+      <key code="29" output="‚"/>
+      <key code="27" output="—"/>
+      <key code="24" output="±"/>
+      <key code="43" output="‹"/>
+      <key code="47" output="›"/>
+      <key code="49" output="&#x00A0;"/>
+    </keyMap>
+
+  </keyMapSet>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       ACTIONS
+       ═══════════════════════════════════════════════════════════════════ -->
+  <actions>
+
+    <!-- ── Dead keys ── -->
+
+    <!-- ΄ Tonos — standard Greek accent (code 41, both layers) -->
+    <action id="dead-tonos">
+      <when state="none"      next="tonos"/>
+      <when state="tonos"     output="΄"/>
+      <when state="caron"     output="ˇ"  next="tonos"/>
+      <when state="dotbelow"  output="&#x0324;" next="tonos"/>
+      <when state="breve"     output="˘"  next="tonos"/>
+    </action>
+
+    <!-- ˇ Caron — PONTIC dead key (code 39, default + shift) -->
+    <action id="dead-caron">
+      <when state="none"      next="caron"/>
+      <when state="caron"     output="ˇ"/>
+      <when state="tonos"     output="΄"  next="caron"/>
+      <when state="dotbelow"  output="&#x0324;" next="caron"/>
+      <when state="breve"     output="˘"  next="caron"/>
+    </action>
+
+    <!-- ̤ Dot-below — PONTIC dead key (code 44, default + shift) -->
+    <action id="dead-dotbelow">
+      <when state="none"      next="dotbelow"/>
+      <when state="dotbelow"  output="&#x0324;"/>
+      <when state="tonos"     output="΄"  next="dotbelow"/>
+      <when state="caron"     output="ˇ"  next="dotbelow"/>
+      <when state="breve"     output="˘"  next="dotbelow"/>
+    </action>
+
+    <!-- ˘ Breve — PONTIC dead key (Shift+,, code 43 shift) -->
+    <action id="dead-breve">
+      <when state="none"      next="breve"/>
+      <when state="breve"     output="˘"/>
+      <when state="tonos"     output="΄"  next="breve"/>
+      <when state="caron"     output="ˇ"  next="breve"/>
+      <when state="dotbelow"  output="&#x0324;" next="breve"/>
+    </action>
+
+    <!-- Space terminates any dead state -->
+    <action id="space">
+      <when state="none"      output=" "/>
+      <when state="tonos"     output="΄ "/>
+      <when state="caron"     output="ˇ "/>
+      <when state="dotbelow"  output="&#x0324; "/>
+      <when state="breve"     output="˘ "/>
+    </action>
+
+    <!-- ── α / Α ── -->
+    <action id="lo-alpha">
+      <when state="none"      output="α"/>
+      <when state="tonos"     output="ά"/>
+      <when state="dotbelow"  output="α&#x0324;"/>
+      <when state="caron"     output="ˇα"/>
+      <when state="breve"     output="˘α"/>
+    </action>
+    <action id="up-alpha">
+      <when state="none"      output="Α"/>
+      <when state="tonos"     output="Ά"/>
+      <when state="dotbelow"  output="Α&#x0324;"/>
+      <when state="caron"     output="ˇΑ"/>
+      <when state="breve"     output="˘Α"/>
+    </action>
+
+    <!-- ── ε / Ε ── -->
+    <action id="lo-epsilon">
+      <when state="none"      output="ε"/>
+      <when state="tonos"     output="έ"/>
+      <when state="caron"     output="ˇε"/>
+      <when state="dotbelow"  output="&#x0324;ε"/>
+      <when state="breve"     output="˘ε"/>
+    </action>
+    <action id="up-epsilon">
+      <when state="none"      output="Ε"/>
+      <when state="tonos"     output="Έ"/>
+      <when state="caron"     output="ˇΕ"/>
+      <when state="dotbelow"  output="&#x0324;Ε"/>
+      <when state="breve"     output="˘Ε"/>
+    </action>
+
+    <!-- ── η / Η ── -->
+    <action id="lo-eta">
+      <when state="none"      output="η"/>
+      <when state="tonos"     output="ή"/>
+      <when state="caron"     output="ˇη"/>
+      <when state="dotbelow"  output="&#x0324;η"/>
+      <when state="breve"     output="˘η"/>
+    </action>
+    <action id="up-eta">
+      <when state="none"      output="Η"/>
+      <when state="tonos"     output="Ή"/>
+      <when state="caron"     output="ˇΗ"/>
+      <when state="dotbelow"  output="&#x0324;Η"/>
+      <when state="breve"     output="˘Η"/>
+    </action>
+
+    <!-- ── ι / Ι ── -->
+    <action id="lo-iota">
+      <when state="none"      output="ι"/>
+      <when state="tonos"     output="ί"/>
+      <when state="caron"     output="ˇι"/>
+      <when state="dotbelow"  output="&#x0324;ι"/>
+      <when state="breve"     output="˘ι"/>
+    </action>
+    <action id="up-iota">
+      <when state="none"      output="Ι"/>
+      <when state="tonos"     output="Ί"/>
+      <when state="caron"     output="ˇΙ"/>
+      <when state="dotbelow"  output="&#x0324;Ι"/>
+      <when state="breve"     output="˘Ι"/>
+    </action>
+
+    <!-- ── ο / Ο ── -->
+    <action id="lo-omicron">
+      <when state="none"      output="ο"/>
+      <when state="tonos"     output="ό"/>
+      <when state="dotbelow"  output="ο&#x0324;"/>
+      <when state="caron"     output="ˇο"/>
+      <when state="breve"     output="˘ο"/>
+    </action>
+    <action id="up-omicron">
+      <when state="none"      output="Ο"/>
+      <when state="tonos"     output="Ό"/>
+      <when state="dotbelow"  output="Ο&#x0324;"/>
+      <when state="caron"     output="ˇΟ"/>
+      <when state="breve"     output="˘Ο"/>
+    </action>
+
+    <!-- ── υ / Υ ── -->
+    <action id="lo-upsilon">
+      <when state="none"      output="υ"/>
+      <when state="tonos"     output="ύ"/>
+      <when state="caron"     output="ˇυ"/>
+      <when state="dotbelow"  output="&#x0324;υ"/>
+      <when state="breve"     output="˘υ"/>
+    </action>
+    <action id="up-upsilon">
+      <when state="none"      output="Υ"/>
+      <when state="tonos"     output="Ύ"/>
+      <when state="caron"     output="ˇΥ"/>
+      <when state="dotbelow"  output="&#x0324;Υ"/>
+      <when state="breve"     output="˘Υ"/>
+    </action>
+
+    <!-- ── ω / Ω ── -->
+    <action id="lo-omega">
+      <when state="none"      output="ω"/>
+      <when state="tonos"     output="ώ"/>
+      <when state="caron"     output="ˇω"/>
+      <when state="dotbelow"  output="&#x0324;ω"/>
+      <when state="breve"     output="˘ω"/>
+    </action>
+    <action id="up-omega">
+      <when state="none"      output="Ω"/>
+      <when state="tonos"     output="Ώ"/>
+      <when state="caron"     output="ˇΩ"/>
+      <when state="dotbelow"  output="&#x0324;Ω"/>
+      <when state="breve"     output="˘Ω"/>
+    </action>
+
+    <!-- ── σ / Σ ── -->
+    <action id="lo-sigma">
+      <when state="none"      output="σ"/>
+      <when state="caron"     output="σ&#x030C;"/>
+      <when state="tonos"     output="΄σ"/>
+      <when state="dotbelow"  output="&#x0324;σ"/>
+      <when state="breve"     output="˘σ"/>
+    </action>
+    <action id="up-sigma">
+      <when state="none"      output="Σ"/>
+      <when state="caron"     output="Σ&#x030C;"/>
+      <when state="tonos"     output="΄Σ"/>
+      <when state="dotbelow"  output="&#x0324;Σ"/>
+      <when state="breve"     output="˘Σ"/>
+    </action>
+
+    <!-- ── ζ / Ζ ── -->
+    <action id="lo-zeta">
+      <when state="none"      output="ζ"/>
+      <when state="caron"     output="ζ&#x030C;"/>
+      <when state="tonos"     output="΄ζ"/>
+      <when state="dotbelow"  output="&#x0324;ζ"/>
+      <when state="breve"     output="˘ζ"/>
+    </action>
+    <action id="up-zeta">
+      <when state="none"      output="Ζ"/>
+      <when state="caron"     output="Ζ&#x030C;"/>
+      <when state="tonos"     output="΄Ζ"/>
+      <when state="dotbelow"  output="&#x0324;Ζ"/>
+      <when state="breve"     output="˘Ζ"/>
+    </action>
+
+    <!-- ── χ / Χ ── -->
+    <action id="lo-chi">
+      <when state="none"      output="χ"/>
+      <when state="caron"     output="χ&#x030C;"/>
+      <when state="tonos"     output="΄χ"/>
+      <when state="dotbelow"  output="&#x0324;χ"/>
+      <when state="breve"     output="˘χ"/>
+    </action>
+    <action id="up-chi">
+      <when state="none"      output="Χ"/>
+      <when state="caron"     output="Χ&#x030C;"/>
+      <when state="tonos"     output="΄Χ"/>
+      <when state="dotbelow"  output="&#x0324;Χ"/>
+      <when state="breve"     output="˘Χ"/>
+    </action>
+
+    <!-- ── ψ / Ψ ── -->
+    <action id="lo-psi">
+      <when state="none"      output="ψ"/>
+      <when state="caron"     output="ψ&#x030C;"/>
+      <when state="tonos"     output="΄ψ"/>
+      <when state="dotbelow"  output="&#x0324;ψ"/>
+      <when state="breve"     output="˘ψ"/>
+    </action>
+    <action id="up-psi">
+      <when state="none"      output="Ψ"/>
+      <when state="caron"     output="Ψ&#x030C;"/>
+      <when state="tonos"     output="΄Ψ"/>
+      <when state="dotbelow"  output="&#x0324;Ψ"/>
+      <when state="breve"     output="˘Ψ"/>
+    </action>
+
+    <!-- ── ξ / Ξ ── -->
+    <action id="lo-xi">
+      <when state="none"      output="ξ"/>
+      <when state="caron"     output="ξ&#x030C;"/>
+      <when state="tonos"     output="΄ξ"/>
+      <when state="dotbelow"  output="&#x0324;ξ"/>
+      <when state="breve"     output="˘ξ"/>
+    </action>
+    <action id="up-xi">
+      <when state="none"      output="Ξ"/>
+      <when state="caron"     output="Ξ&#x030C;"/>
+      <when state="tonos"     output="΄Ξ"/>
+      <when state="dotbelow"  output="&#x0324;Ξ"/>
+      <when state="breve"     output="˘Ξ"/>
+    </action>
+
+    <!-- ── κ / Κ ── -->
+    <action id="lo-kappa">
+      <when state="none"      output="κ"/>
+      <when state="caron"     output="κ&#x030C;"/>
+      <when state="tonos"     output="΄κ"/>
+      <when state="dotbelow"  output="&#x0324;κ"/>
+      <when state="breve"     output="˘κ"/>
+    </action>
+    <action id="up-kappa">
+      <when state="none"      output="Κ"/>
+      <when state="caron"     output="Κ&#x030C;"/>
+      <when state="tonos"     output="΄Κ"/>
+      <when state="dotbelow"  output="&#x0324;Κ"/>
+      <when state="breve"     output="˘Κ"/>
+    </action>
+
+    <!-- ── γ / Γ  (breve for γ̆ Γ̆) ── -->
+    <action id="lo-gamma">
+      <when state="none"      output="γ"/>
+      <when state="breve"     output="γ&#x0306;"/>
+      <when state="caron"     output="ˇγ"/>
+      <when state="tonos"     output="΄γ"/>
+      <when state="dotbelow"  output="&#x0324;γ"/>
+    </action>
+    <action id="up-gamma">
+      <when state="none"      output="Γ"/>
+      <when state="breve"     output="Γ&#x0306;"/>
+      <when state="caron"     output="ˇΓ"/>
+      <when state="tonos"     output="΄Γ"/>
+      <when state="dotbelow"  output="&#x0324;Γ"/>
+    </action>
+
+  </actions>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       TERMINATORS — output when a dead state is cancelled
+       (Return, Tab, Escape, arrow keys, etc.)
+       ═══════════════════════════════════════════════════════════════════ -->
+  <terminators>
+    <when state="tonos"    output="΄"/>
+    <when state="caron"    output="ˇ"/>
+    <when state="dotbelow" output="&#x0324;"/>
+    <when state="breve"    output="˘"/>
+  </terminators>
+
+</keyboard>
