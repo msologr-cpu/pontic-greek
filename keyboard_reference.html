@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Понтийская Греческая Раскладка — Таблица Соответствий</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap');
+
+  :root {
+    --bg:        #0f1117;
+    --bg2:       #181c27;
+    --bg3:       #1f2435;
+    --border:    #2e3350;
+    --text:      #e8eaf0;
+    --muted:     #7a82a0;
+    --accent:    #6c8fef;
+    --gold:      #f5b731;
+    --green:     #4caf8c;
+    --red:       #e05c6a;
+    --purple:    #9b6ef3;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 32px 24px;
+  }
+
+  /* ── Header ── */
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+  }
+  .header p {
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .badge {
+    display: inline-block;
+    background: var(--gold);
+    color: #111;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 20px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  /* ── Section titles ── */
+  h2 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 36px 0 14px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gold);
+    margin: 20px 0 10px;
+  }
+
+  /* ── Comparison table ── */
+  .table-wrap {
+    overflow-x: auto;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+  }
+  thead th {
+    background: var(--bg3);
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 10px 12px;
+    text-align: center;
+    border-bottom: 2px solid var(--border);
+    white-space: nowrap;
+  }
+  thead th:first-child { text-align: left; }
+  tbody tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+  tbody tr:hover { background: rgba(108,143,239,0.06); }
+  tbody td {
+    padding: 8px 12px;
+    border-bottom: 1px solid rgba(46,51,80,0.5);
+    text-align: center;
+    vertical-align: middle;
+  }
+  tbody td:first-child {
+    text-align: left;
+    font-weight: 600;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .key-label {
+    font-family: monospace;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1px 6px;
+    font-size: 12px;
+  }
+  .cell-pair {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+  .lo { color: var(--text); font-size: 15px; font-family: 'Noto Serif', serif; }
+  .up { color: var(--muted); font-size: 12px; font-family: 'Noto Serif', serif; }
+  /* Pontic special keys */
+  .pontic-special td.col-pontic {
+    background: rgba(245,183,49,0.08);
+  }
+  .dead-key {
+    display: inline-block;
+    background: var(--gold);
+    color: #111;
+    font-weight: 700;
+    font-size: 15px;
+    border-radius: 4px;
+    padding: 1px 8px;
+    font-family: 'Noto Serif', serif;
+  }
+  .dead-key.purple {
+    background: var(--purple);
+    color: #fff;
+  }
+  .dead-key.green {
+    background: var(--green);
+    color: #111;
+  }
+  .note-tag {
+    font-size: 10px;
+    color: var(--gold);
+    font-weight: 700;
+    margin-top: 2px;
+    letter-spacing: 0.5px;
+  }
+  .same { color: var(--muted); font-size: 12px; }
+
+  /* ── Dead keys section ── */
+  .dead-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    margin-top: 4px;
+  }
+  .dead-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+  .dead-card-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .dead-card-title .key-big {
+    font-size: 22px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-family: 'Noto Serif', serif;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .key-big.gold  { background: rgba(245,183,49,0.15);  color: var(--gold);   border: 1px solid rgba(245,183,49,0.4); }
+  .key-big.purp  { background: rgba(155,110,243,0.15); color: var(--purple); border: 1px solid rgba(155,110,243,0.4); }
+  .key-big.grn   { background: rgba(76,175,140,0.15);  color: var(--green);  border: 1px solid rgba(76,175,140,0.4); }
+  .key-big.blue  { background: rgba(108,143,239,0.15); color: var(--accent); border: 1px solid rgba(108,143,239,0.4); }
+  .dead-card-title .info { font-size: 13px; }
+  .dead-card-title .info strong { display: block; font-size: 14px; margin-bottom: 2px; }
+  .dead-card-title .info span { color: var(--muted); font-size: 12px; }
+
+  .combo-list { list-style: none; }
+  .combo-list li {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(46,51,80,0.4);
+    font-size: 14px;
+  }
+  .combo-list li:last-child { border-bottom: none; }
+  .kk {
+    font-family: monospace;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1px 7px;
+    font-size: 13px;
+    min-width: 32px;
+    text-align: center;
+  }
+  .arr { color: var(--muted); margin: 0 8px; font-size: 13px; }
+  .result {
+    font-family: 'Noto Serif', serif;
+    font-size: 20px;
+    font-weight: 700;
+    min-width: 36px;
+  }
+  .result.gold   { color: var(--gold); }
+  .result.purp   { color: var(--purple); }
+  .result.grn    { color: var(--green); }
+  .result.blue   { color: var(--accent); }
+  .result-name {
+    color: var(--muted);
+    font-size: 11px;
+    margin-left: auto;
+    text-align: right;
+    flex: 1;
+  }
+
+  /* ── Cheat sheet ── */
+  .cheat {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    font-family: 'Noto Serif', serif;
+    font-size: 15px;
+    line-height: 2.2;
+  }
+  .cheat-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 20px;
+    margin-bottom: 6px;
+  }
+  .cheat-item {
+    white-space: nowrap;
+  }
+  .cheat-item .kk {
+    font-family: monospace;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 0px 5px;
+    font-size: 12px;
+  }
+  .cheat-item .arr { color: var(--muted); margin: 0 4px; }
+  .cheat-cat {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+    margin-top: 10px;
+    margin-bottom: 2px;
+  }
+
+  /* ── Legend ── */
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    margin-top: 12px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+
+  /* ── Print ── */
+  @media print {
+    body { background: #fff; color: #111; padding: 12px; }
+    :root {
+      --bg: #fff; --bg2: #f8f8f8; --bg3: #efefef;
+      --border: #ddd; --text: #111; --muted: #666;
+      --accent: #3355bb; --gold: #c08000;
+      --green: #1a7a5e; --red: #a02030; --purple: #6030bb;
+    }
+    .header { border-color: #ddd; }
+    h2 { color: #3355bb; }
+    .dead-grid { grid-template-columns: 1fr 1fr; }
+    table { font-size: 12px; }
+  }
+
+  @media (max-width: 700px) {
+    .dead-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Понтийская Греческая Раскладка <span class="badge">АЛЬФА</span></h1>
+  <p>Таблица соответствий клавиш · Инструкция по вводу · macOS · Июнь 2026</p>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════ -->
+<h2>Таблица соответствий клавиш</h2>
+<p style="color:var(--muted);font-size:13px;margin-bottom:12px;">
+  Показан ввод без нажатия Shift (нижний регистр) / с Shift (верхний регистр).
+  <strong style="color:var(--gold)">Золотой фон</strong> = понтийские изменения (отличие от стандартной греческой).
+</p>
+
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>Физическая<br>клавиша</th>
+      <th>🇬🇧 Английский<br><small>lo / SHIFT</small></th>
+      <th>🇷🇺 Русский<br><small>lo / SHIFT</small></th>
+      <th>🇬🇷 Греческий<br><small>lo / SHIFT</small></th>
+      <th>🏔 Понтийский<br><small>lo / SHIFT</small></th>
+      <th>Примечание</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- ── Number row ── -->
+    <tr>
+      <td><span class="key-label">` ~</span></td>
+      <td><div class="cell-pair"><span class="lo">`</span><span class="up">~</span></div></td>
+      <td><div class="cell-pair"><span class="lo">ё</span><span class="up">Ё</span></div></td>
+      <td><div class="cell-pair"><span class="lo">`</span><span class="up">~</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">`</span><span class="up">~</span></div></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="key-label">1 !</span></td>
+      <td><div class="cell-pair"><span class="lo">1</span><span class="up">!</span></div></td>
+      <td><div class="cell-pair"><span class="lo">1</span><span class="up">!</span></div></td>
+      <td><div class="cell-pair"><span class="lo">1</span><span class="up">!</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">1</span><span class="up">!</span></div></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="key-label">2 @</span></td>
+      <td><div class="cell-pair"><span class="lo">2</span><span class="up">@</span></div></td>
+      <td><div class="cell-pair"><span class="lo">2</span><span class="up">"</span></div></td>
+      <td><div class="cell-pair"><span class="lo">2</span><span class="up">@</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">2</span><span class="up">@</span></div></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="key-label">3 #</span></td>
+      <td><div class="cell-pair"><span class="lo">3</span><span class="up">#</span></div></td>
+      <td><div class="cell-pair"><span class="lo">3</span><span class="up">№</span></div></td>
+      <td><div class="cell-pair"><span class="lo">3</span><span class="up">#</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">3</span><span class="up">#</span></div></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="key-label">4–0</span></td>
+      <td><div class="cell-pair"><span class="lo">4 5 6 7 8 9 0</span></div></td>
+      <td><span class="same">аналогично</span></td>
+      <td><span class="same">аналогично</span></td>
+      <td class="col-pontic"><span class="same">аналогично</span></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="key-label">- _</span></td>
+      <td><div class="cell-pair"><span class="lo">-</span><span class="up">_</span></div></td>
+      <td><div class="cell-pair"><span class="lo">-</span><span class="up">_</span></div></td>
+      <td><div class="cell-pair"><span class="lo">-</span><span class="up">_</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">-</span><span class="up">_</span></div></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="key-label">= +</span></td>
+      <td><div class="cell-pair"><span class="lo">=</span><span class="up">+</span></div></td>
+      <td><div class="cell-pair"><span class="lo">=</span><span class="up">+</span></div></td>
+      <td><div class="cell-pair"><span class="lo">=</span><span class="up">+</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">=</span><span class="up">+</span></div></td>
+      <td></td>
+    </tr>
+
+    <!-- ── Top row ── -->
+    <tr>
+      <td><span class="key-label">Q</span></td>
+      <td><div class="cell-pair"><span class="lo">q</span><span class="up">Q</span></div></td>
+      <td><div class="cell-pair"><span class="lo">й</span><span class="up">Й</span></div></td>
+      <td><div class="cell-pair"><span class="lo">;</span><span class="up">:</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">;</span><span class="up">:</span></div></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="key-label">W</span></td>
+      <td><div class="cell-pair"><span class="lo">w</span><span class="up">W</span></div></td>
+      <td><div class="cell-pair"><span class="lo">ц</span><span class="up">Ц</span></div></td>
+      <td><div class="cell-pair"><span class="lo">ς</span><span class="up">΅</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">ς</span><span class="up">΅</span></div></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="key-label">E</span></td>
+      <td><div class="cell-pair"><span class="lo">e</span><span class="up">E</span></div></td>
+      <td><div class="cell-pair"><span class="lo">у</span><span class="up">У</span></div></td>
+      <td><div class="cell-pair"><span class="lo">ε</span><span class="up">Ε</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">ε</span><span class="up">Ε</span></div></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="key-label">R</span></td>
+      <td><div class="cell-pair"><span class="lo">r</span><span class="up">R</span></div></td>
+      <td><div class="cell-pair"><span class="lo">к</span><span class="up">К</span></div></td>
+      <td><div class="cell-pair"><span class="lo">ρ</span><span class="up">Ρ</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">ρ</span><span class="up">Ρ</span></div></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="key-label">T</span></td>
+      <td><div class="cell-pair"><span class="lo">t</span><span class="up">T</span></div></td>
+      <td><div class="cell-pair"><span class="lo">е</span><span class="up">Е</span></div></td>
+      <td><div class="cell-pair"><span class="lo">τ</span><span class="up">Τ</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">τ</span><span class="up">Τ</span></div></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="key-label">Y</span></td>
+      <td><div class="cell-pair"><span class="lo">y</span><span class="up">Y</span></div></td>
+      <td><div class="cell-pair"><span class="lo">н</span><span class="up">Н</span></div></td>
+      <td><div class="cell-pair"><span class="lo">υ</span><span class="up">Υ</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">υ</span><span class="up">Υ</span></div></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="key-label">U</span></td>
+      <td><div class="cell-pair"><span class="lo">u</span><span class="up">U</span></div></td>
+      <td><div class="cell-pair"><span class="lo">г</span><span class="up">Г</span></div></td>
+      <td><div class="cell-pair"><span class="lo">θ</span><span class="up">Θ</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">θ</span><span class="up">Θ</span></div></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="key-label">I</span></td>
+      <td><div class="cell-pair"><span class="lo">i</span><span class="up">I</span></div></td>
+      <td><div class="cell-pair"><span class="lo">ш</span><span class="up">Ш</span></div></td>
+      <td><div class="cell-pair"><span class="lo">ι</span><span class="up">Ι</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">ι</span><span class="up">Ι</span></div></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="key-label">O</span></td>
+      <td><div class="cell-pair"><span class="lo">o</span><span class="up">O</span></div></td>
+      <td><div class="cell-pair"><span class="lo">щ</span><span class="up">Щ</span></div></td>
+      <td><div class="cell-pair"><span class="lo">ο</span><span class="up">Ο</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">ο</span><span class="up">Ο</span></div></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="key-label">P</span></td>
+      <td><div class="cell-pair"><span class="lo">p</span><span class="up">P</span></div></td>
+      <td><div class="cell-pair"><span class="lo">з</span><span class="up">З</span></div></td>
+      <td><div class="cell-pair"><span class="lo">π</span><span class="up">Π</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">π</span><span class="up">Π</span></div></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="key-label">[ {</span></td>
+      <td><div class="cell-pair"><span class="lo">[</span><span class="up">{</span></div></td>
+      <td><div class="cell-pair"><span class="lo">х</span><span class="up">Х</span></div></td>
+      <td><div class="cell-pair"><span class="lo">[</span><span class="up">\</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">[</span><span class="up">\</span></div></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="key-label">] }</span></td>
+      <td><div class="cell-pair"><span class="lo">]</span><span class="up">}</span></div></td>
+      <td><div class="cell-pair"><span class="lo">ъ</span><span class="up">Ъ</span></div></td>
+      <td><div class="cell-pair"><span class="lo">]</span><span class="up">/</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">]</span><span class="up">/</span></div></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="key-label">\ |</span></td>
+      <td><div class="cell-pair"><span class="lo">\</span><span class="up">|</span></div></td>
+      <td><div class="cell-pair"><span class="lo">\</span><span class="up">|</span></div></td>
+      <td><div class="cell-pair"><span class="lo">\</span><span class="up">|</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">\</span><span class="up">|</span></div></td>
+      <td></td>
+    </tr>
+
+    <!-- ── Home row ── -->
+    <tr>
+      <td><span class="key-label">A</span></td>
+      <td><div class="cell-pair"><span class="lo">a</span><span class="up">A</span></div></td>
+      <td><div class="cell-pair"><span class="lo">ф</span><span class="up">Ф</span></div></td>
+      <td><div class="cell-pair"><span class="lo">α</span><span class="up">Α</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">α</span><span class="up">Α</span></div></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="key-label">S</span></td>
+      <td><div class="cell-pair"><span class="lo">s</span><span class="up">S</span></div></td>
+      <td><div class="cell-pair"><span class="lo">ы</span><span class="up">Ы</span></div></td>
+      <td><div class="cell-pair"><span class="lo">σ</span><span class="up">Σ</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">σ</span><span class="up">Σ</span></div></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="key-label">D</span></td>
+      <td><div class="cell-pair"><span class="lo">d</span><span class="up">D</span></div></td>
+      <td><div class="cell-pair"><span class="lo">в</span><span class="up">В</span></div></td>
+      <td><div class="cell-pair"><span class="lo">δ</span><span class="up">Δ</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">δ</span><span class="up">Δ</span></div></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="key-label">F</span></td>
+      <td><div class="cell-pair"><span class="lo">f</span><span class="up">F</span></div></td>
+      <td><div class="cell-pair"><span class="lo">а</span><span class="up">А</span></div></td>
+      <td><div class="cell-pair"><span class="lo">φ</span><span class="up">Φ</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">φ</span><span class="up">Φ</span></div></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="key-label">G</span></td>
+      <td><div class="cell-pair"><span class="lo">g</span><span class="up">G</span></div></td>
+      <td><div class="cell-pair"><span class="lo">п</span><span class="up">П</span></div></td>
+      <td><div class="cell-pair"><span class="lo">γ</span><span class="up">Γ</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">γ</span><span class="up">Γ</span></div></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="key-label">H</span></td>
+      <td><div class="cell-pair"><span class="lo">h</span><span class="up">H</span></div></td>
+      <td><div class="cell-pair"><span class="lo">р</span><span class="up">Р</span></div></td>
+      <td><div class="cell-pair"><span class="lo">η</span><span class="up">Η</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">η</span><span class="up">Η</span></div></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="key-label">J</span></td>
+      <td><div class="cell-pair"><span class="lo">j</span><span class="up">J</span></div></td>
+      <td><div class="cell-pair"><span class="lo">о</span><span class="up">О</span></div></td>
+      <td><div class="cell-pair"><span class="lo">ξ</span><span class="up">Ξ</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">ξ</span><span class="up">Ξ</span></div></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="key-label">K</span></td>
+      <td><div class="cell-pair"><span class="lo">k</span><span class="up">K</span></div></td>
+      <td><div class="cell-pair"><span class="lo">л</span><span class="up">Л</span></div></td>
+      <td><div class="cell-pair"><span class="lo">κ</span><span class="up">Κ</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">κ</span><span class="up">Κ</span></div></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="key-label">L</span></td>
+      <td><div class="cell-pair"><span class="lo">l</span><span class="up">L</span></div></td>
+      <td><div class="cell-pair"><span class="lo">д</span><span class="up">Д</span></div></td>
+      <td><div class="cell-pair"><span class="lo">λ</span><span class="up">Λ</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">λ</span><span class="up">Λ</span></div></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="key-label">; :</span></td>
+      <td><div class="cell-pair"><span class="lo">;</span><span class="up">:</span></div></td>
+      <td><div class="cell-pair"><span class="lo">ж</span><span class="up">Ж</span></div></td>
+      <td><div class="cell-pair"><span class="lo" style="color:var(--accent)">΄</span><span class="up" style="color:var(--accent)">΄</span></div><div class="note-tag" style="color:var(--accent)">мёртв.клав.</div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo" style="color:var(--accent)">΄</span><span class="up" style="color:var(--accent)">΄</span></div><div class="note-tag" style="color:var(--accent)">тонос (греч.)</div></td>
+      <td>Стандартный тонос ΄ как в греческом</td>
+    </tr>
+    <!-- PONTIC SPECIAL: apostrophe -->
+    <tr class="pontic-special">
+      <td><span class="key-label">' "</span></td>
+      <td><div class="cell-pair"><span class="lo">'</span><span class="up">"</span></div></td>
+      <td><div class="cell-pair"><span class="lo">э</span><span class="up">Э</span></div></td>
+      <td><div class="cell-pair"><span class="lo">'</span><span class="up">"</span></div></td>
+      <td class="col-pontic">
+        <span class="dead-key">ˇ</span>
+        <div class="note-tag">★ ГАЧЕК</div>
+      </td>
+      <td style="color:var(--gold);font-size:12px;font-weight:600;">Понтийская клавиша<br>ζ̌ χ̌ σ̌ κ̌ ξ̌ ψ̌</td>
+    </tr>
+
+    <!-- ── Bottom row ── -->
+    <tr>
+      <td><span class="key-label">Z</span></td>
+      <td><div class="cell-pair"><span class="lo">z</span><span class="up">Z</span></div></td>
+      <td><div class="cell-pair"><span class="lo">я</span><span class="up">Я</span></div></td>
+      <td><div class="cell-pair"><span class="lo">ζ</span><span class="up">Ζ</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">ζ</span><span class="up">Ζ</span></div></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="key-label">X</span></td>
+      <td><div class="cell-pair"><span class="lo">x</span><span class="up">X</span></div></td>
+      <td><div class="cell-pair"><span class="lo">ч</span><span class="up">Ч</span></div></td>
+      <td><div class="cell-pair"><span class="lo">χ</span><span class="up">Χ</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">χ</span><span class="up">Χ</span></div></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="key-label">C</span></td>
+      <td><div class="cell-pair"><span class="lo">c</span><span class="up">C</span></div></td>
+      <td><div class="cell-pair"><span class="lo">с</span><span class="up">С</span></div></td>
+      <td><div class="cell-pair"><span class="lo">ψ</span><span class="up">Ψ</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">ψ</span><span class="up">Ψ</span></div></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="key-label">V</span></td>
+      <td><div class="cell-pair"><span class="lo">v</span><span class="up">V</span></div></td>
+      <td><div class="cell-pair"><span class="lo">м</span><span class="up">М</span></div></td>
+      <td><div class="cell-pair"><span class="lo">ω</span><span class="up">Ω</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">ω</span><span class="up">Ω</span></div></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="key-label">B</span></td>
+      <td><div class="cell-pair"><span class="lo">b</span><span class="up">B</span></div></td>
+      <td><div class="cell-pair"><span class="lo">и</span><span class="up">И</span></div></td>
+      <td><div class="cell-pair"><span class="lo">β</span><span class="up">Β</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">β</span><span class="up">Β</span></div></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="key-label">N</span></td>
+      <td><div class="cell-pair"><span class="lo">n</span><span class="up">N</span></div></td>
+      <td><div class="cell-pair"><span class="lo">т</span><span class="up">Т</span></div></td>
+      <td><div class="cell-pair"><span class="lo">ν</span><span class="up">Ν</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">ν</span><span class="up">Ν</span></div></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="key-label">M</span></td>
+      <td><div class="cell-pair"><span class="lo">m</span><span class="up">M</span></div></td>
+      <td><div class="cell-pair"><span class="lo">ь</span><span class="up">Ь</span></div></td>
+      <td><div class="cell-pair"><span class="lo">μ</span><span class="up">Μ</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">μ</span><span class="up">Μ</span></div></td>
+      <td></td>
+    </tr>
+    <!-- PONTIC SPECIAL: comma (shift = breve) -->
+    <tr class="pontic-special">
+      <td><span class="key-label">, &lt;</span></td>
+      <td><div class="cell-pair"><span class="lo">,</span><span class="up">&lt;</span></div></td>
+      <td><div class="cell-pair"><span class="lo">б</span><span class="up">Б</span></div></td>
+      <td><div class="cell-pair"><span class="lo">,</span><span class="up">,</span></div></td>
+      <td class="col-pontic">
+        <div class="cell-pair">
+          <span class="lo">,</span>
+          <span class="dead-key green" style="font-size:14px">˘</span>
+        </div>
+        <div class="note-tag" style="color:var(--green)">★ БРЕВЕ (Shift+,)</div>
+      </td>
+      <td style="color:var(--green);font-size:12px;font-weight:600;">Shift+, → бреве<br>γ̆ Γ̆</td>
+    </tr>
+    <tr>
+      <td><span class="key-label">. &gt;</span></td>
+      <td><div class="cell-pair"><span class="lo">.</span><span class="up">&gt;</span></div></td>
+      <td><div class="cell-pair"><span class="lo">ю</span><span class="up">Ю</span></div></td>
+      <td><div class="cell-pair"><span class="lo">.</span><span class="up">¨</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">.</span><span class="up">¨</span></div></td>
+      <td></td>
+    </tr>
+    <!-- PONTIC SPECIAL: slash (dot-below) -->
+    <tr class="pontic-special">
+      <td><span class="key-label">/ ?</span></td>
+      <td><div class="cell-pair"><span class="lo">/</span><span class="up">?</span></div></td>
+      <td><div class="cell-pair"><span class="lo">.</span><span class="up">,</span></div></td>
+      <td><div class="cell-pair"><span class="lo">/</span><span class="up">?</span></div></td>
+      <td class="col-pontic">
+        <span class="dead-key purple">̤</span>
+        <div class="note-tag" style="color:var(--purple)">★ ДВЕ ТОЧКИ</div>
+      </td>
+      <td style="color:var(--purple);font-size:12px;font-weight:600;">Понтийская клавиша<br>α̤ ο̤ Α̤ Ο̤</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:var(--gold);opacity:.6"></div> Понтийское изменение (3 клавиши)</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--accent);opacity:.5"></div> Стандартная мёртвая клавиша греческого</div>
+  <div class="legend-item"><div class="legend-dot" style="background:rgba(255,255,255,.06);border:1px solid var(--border)"></div> Без изменений от греческой раскладки</div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════ -->
+<h2>Как набирать понтийские символы</h2>
+<p style="color:var(--muted);font-size:13px;margin-bottom:16px;">
+  <strong>Мёртвая клавиша</strong> — это клавиша, которая сама по себе ничего не печатает, а ждёт следующего нажатия.
+  Сначала нажмите мёртвую клавишу, потом — нужную букву.
+</p>
+
+<div class="dead-grid">
+
+  <!-- Card 1: Caron -->
+  <div class="dead-card">
+    <div class="dead-card-title">
+      <div class="key-big gold">ˇ</div>
+      <div class="info">
+        <strong>Гачек (Caron)</strong>
+        <span>Клавиша <code>'</code> (апостроф) — на любом слое</span>
+      </div>
+    </div>
+    <ul class="combo-list">
+      <li><span class="kk">'</span><span class="arr">+</span><span class="kk">Z (ζ)</span><span class="arr">→</span><span class="result gold">ζ̌</span><span class="result-name">зета с гачеком</span></li>
+      <li><span class="kk">'</span><span class="arr">+</span><span class="kk">X (χ)</span><span class="arr">→</span><span class="result gold">χ̌</span><span class="result-name">хи с гачеком</span></li>
+      <li><span class="kk">'</span><span class="arr">+</span><span class="kk">S (σ)</span><span class="arr">→</span><span class="result gold">σ̌</span><span class="result-name">сигма с гачеком</span></li>
+      <li><span class="kk">'</span><span class="arr">+</span><span class="kk">K (κ)</span><span class="arr">→</span><span class="result gold">κ̌</span><span class="result-name">каппа с гачеком</span></li>
+      <li><span class="kk">'</span><span class="arr">+</span><span class="kk">J (ξ)</span><span class="arr">→</span><span class="result gold">ξ̌</span><span class="result-name">кси с гачеком</span></li>
+      <li><span class="kk">'</span><span class="arr">+</span><span class="kk">C (ψ)</span><span class="arr">→</span><span class="result gold">ψ̌</span><span class="result-name">пси с гачеком</span></li>
+      <li><span class="kk">Shift+'</span><span class="arr">+</span><span class="kk">Shift+Z</span><span class="arr">→</span><span class="result gold">Ζ̌</span><span class="result-name">верхний регистр</span></li>
+      <li><span class="kk">'</span><span class="arr">+</span><span class="kk">Пробел</span><span class="arr">→</span><span class="result gold">ˇ</span><span class="result-name">сам символ</span></li>
+    </ul>
+  </div>
+
+  <!-- Card 2: Dot below -->
+  <div class="dead-card">
+    <div class="dead-card-title">
+      <div class="key-big purp">̤</div>
+      <div class="info">
+        <strong>Две точки снизу (Dot Below)</strong>
+        <span>Клавиша <code>/</code> (слэш) — «секретная» клавиша</span>
+      </div>
+    </div>
+    <ul class="combo-list">
+      <li><span class="kk">/</span><span class="arr">+</span><span class="kk">A (α)</span><span class="arr">→</span><span class="result purp">α̤</span><span class="result-name">альфа с точками</span></li>
+      <li><span class="kk">/</span><span class="arr">+</span><span class="kk">O (ο)</span><span class="arr">→</span><span class="result purp">ο̤</span><span class="result-name">омикрон с точками</span></li>
+      <li><span class="kk">/</span><span class="arr">+</span><span class="kk">Shift+A</span><span class="arr">→</span><span class="result purp">Α̤</span><span class="result-name">верхний регистр</span></li>
+      <li><span class="kk">/</span><span class="arr">+</span><span class="kk">Shift+O</span><span class="arr">→</span><span class="result purp">Ο̤</span><span class="result-name">верхний регистр</span></li>
+      <li><span class="kk">/</span><span class="arr">+</span><span class="kk">Пробел</span><span class="arr">→</span><span class="result purp">̤</span><span class="result-name">сам символ</span></li>
+    </ul>
+  </div>
+
+  <!-- Card 3: Breve -->
+  <div class="dead-card">
+    <div class="dead-card-title">
+      <div class="key-big grn">˘</div>
+      <div class="info">
+        <strong>Бреве (Breve)</strong>
+        <span>Клавиши <code>Shift + ,</code></span>
+      </div>
+    </div>
+    <ul class="combo-list">
+      <li><span class="kk">Shift+,</span><span class="arr">+</span><span class="kk">G (γ)</span><span class="arr">→</span><span class="result grn">γ̆</span><span class="result-name">гамма с бреве</span></li>
+      <li><span class="kk">Shift+,</span><span class="arr">+</span><span class="kk">Shift+G</span><span class="arr">→</span><span class="result grn">Γ̆</span><span class="result-name">верхний регистр</span></li>
+      <li><span class="kk">Shift+,</span><span class="arr">+</span><span class="kk">Пробел</span><span class="arr">→</span><span class="result grn">˘</span><span class="result-name">сам символ</span></li>
+    </ul>
+  </div>
+
+  <!-- Card 4: Tonos -->
+  <div class="dead-card">
+    <div class="dead-card-title">
+      <div class="key-big blue">΄</div>
+      <div class="info">
+        <strong>Тонос (стандартный греческий)</strong>
+        <span>Клавиша <code>;</code> (точка с запятой)</span>
+      </div>
+    </div>
+    <ul class="combo-list">
+      <li><span class="kk">;</span><span class="arr">+</span><span class="kk">A (α)</span><span class="arr">→</span><span class="result blue">ά</span><span class="result-name">альфа с ударением</span></li>
+      <li><span class="kk">;</span><span class="arr">+</span><span class="kk">E (ε)</span><span class="arr">→</span><span class="result blue">έ</span><span class="result-name">эпсилон</span></li>
+      <li><span class="kk">;</span><span class="arr">+</span><span class="kk">H (η)</span><span class="arr">→</span><span class="result blue">ή</span><span class="result-name">эта</span></li>
+      <li><span class="kk">;</span><span class="arr">+</span><span class="kk">I (ι)</span><span class="arr">→</span><span class="result blue">ί</span><span class="result-name">йота</span></li>
+      <li><span class="kk">;</span><span class="arr">+</span><span class="kk">O (ο)</span><span class="arr">→</span><span class="result blue">ό</span><span class="result-name">омикрон</span></li>
+      <li><span class="kk">;</span><span class="arr">+</span><span class="kk">Y (υ)</span><span class="arr">→</span><span class="result blue">ύ</span><span class="result-name">ипсилон</span></li>
+      <li><span class="kk">;</span><span class="arr">+</span><span class="kk">V (ω)</span><span class="arr">→</span><span class="result blue">ώ</span><span class="result-name">омега</span></li>
+      <li><span class="kk">;</span><span class="arr">+</span><span class="kk">Пробел</span><span class="arr">→</span><span class="result blue">΄</span><span class="result-name">сам символ</span></li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════ -->
+<h2>Быстрая шпаргалка — все понтийские символы</h2>
+
+<div class="cheat">
+  <div class="cheat-cat">Гачек ˇ → нажать ' потом букву</div>
+  <div class="cheat-row">
+    <span class="cheat-item"><span class="kk">'</span>+<span class="kk">ζ</span> <span class="arr">→</span> ζ̌</span>
+    <span class="cheat-item"><span class="kk">'</span>+<span class="kk">χ</span> <span class="arr">→</span> χ̌</span>
+    <span class="cheat-item"><span class="kk">'</span>+<span class="kk">σ</span> <span class="arr">→</span> σ̌</span>
+    <span class="cheat-item"><span class="kk">'</span>+<span class="kk">κ</span> <span class="arr">→</span> κ̌</span>
+    <span class="cheat-item"><span class="kk">'</span>+<span class="kk">ξ</span> <span class="arr">→</span> ξ̌</span>
+    <span class="cheat-item"><span class="kk">'</span>+<span class="kk">ψ</span> <span class="arr">→</span> ψ̌</span>
+  </div>
+  <div class="cheat-row" style="font-size:13px;color:var(--muted)">
+    <span class="cheat-item">Ζ̌ Χ̌ Σ̌ Κ̌ Ξ̌ Ψ̌ — то же с Shift</span>
+  </div>
+
+  <div class="cheat-cat">Две точки снизу ̤ → нажать / потом букву</div>
+  <div class="cheat-row">
+    <span class="cheat-item"><span class="kk">/</span>+<span class="kk">α</span> <span class="arr">→</span> α̤</span>
+    <span class="cheat-item"><span class="kk">/</span>+<span class="kk">ο</span> <span class="arr">→</span> ο̤</span>
+    <span class="cheat-item"><span class="kk">/</span>+<span class="kk">Α</span> <span class="arr">→</span> Α̤</span>
+    <span class="cheat-item"><span class="kk">/</span>+<span class="kk">Ο</span> <span class="arr">→</span> Ο̤</span>
+  </div>
+
+  <div class="cheat-cat">Бреве ˘ → нажать Shift+, потом букву</div>
+  <div class="cheat-row">
+    <span class="cheat-item"><span class="kk">Shift+,</span>+<span class="kk">γ</span> <span class="arr">→</span> γ̆</span>
+    <span class="cheat-item"><span class="kk">Shift+,</span>+<span class="kk">Γ</span> <span class="arr">→</span> Γ̆</span>
+  </div>
+
+  <div class="cheat-cat">Тонос ΄ (ударение) → нажать ; потом гласную</div>
+  <div class="cheat-row">
+    <span class="cheat-item"><span class="kk">;</span>+<span class="kk">α</span> <span class="arr">→</span> ά</span>
+    <span class="cheat-item"><span class="kk">;</span>+<span class="kk">ε</span> <span class="arr">→</span> έ</span>
+    <span class="cheat-item"><span class="kk">;</span>+<span class="kk">η</span> <span class="arr">→</span> ή</span>
+    <span class="cheat-item"><span class="kk">;</span>+<span class="kk">ι</span> <span class="arr">→</span> ί</span>
+    <span class="cheat-item"><span class="kk">;</span>+<span class="kk">ο</span> <span class="arr">→</span> ό</span>
+    <span class="cheat-item"><span class="kk">;</span>+<span class="kk">υ</span> <span class="arr">→</span> ύ</span>
+    <span class="cheat-item"><span class="kk">;</span>+<span class="kk">ω</span> <span class="arr">→</span> ώ</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════ -->
+<h2>Установка на macOS</h2>
+<div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:20px;font-size:14px;line-height:2">
+  <p><strong>Шаг 1.</strong> Откройте Терминал и выполните:</p>
+  <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 14px;font-size:13px;margin:8px 0;overflow-x:auto">cd /путь/к/папке/pontic
+bash install_macos.sh</pre>
+  <p><strong>Шаг 2.</strong> Системные настройки → Клавиатура → Источники ввода → <strong>[+]</strong> → Другой → <strong>Pontic Greek</strong></p>
+  <p><strong>Шаг 3.</strong> Переключение: <kbd>Cmd+Space</kbd> или значок в меню-баре</p>
+</div>
+
+<div style="text-align:center;color:var(--muted);font-size:12px;margin-top:32px;padding-top:16px;border-top:1px solid var(--border)">
+  Понтийская Греческая Раскладка · macOS · Альфа-версия · Июнь 2026
+</div>
+
+</body>
+</html>
