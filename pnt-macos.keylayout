@@ -73,7 +73,7 @@
       <key code="24" output="="/>
       <!-- top row -->
       <key code="12" output=";"/>
-      <key code="13" output="ς"/>
+      <key code="13" action="lo-final-sigma"/>
       <key code="14" action="lo-epsilon"/>
       <key code="15" output="ρ"/>
       <key code="17" output="τ"/>
@@ -140,7 +140,7 @@
       <key code="24" output="+"/>
       <!-- top row shift -->
       <key code="12" output=":"/>
-      <key code="13" output="΅"/>
+      <key code="13" action="up-dialytika-tonos"/>
       <key code="14" action="up-epsilon"/>
       <key code="15" output="Ρ"/>
       <key code="17" output="Τ"/>
@@ -443,6 +443,23 @@
       <when state="tonos"     output="΄Σ"/>
       <when state="dotbelow"  output="&#x0324;Σ"/>
       <when state="breve"     output="˘Σ"/>
+    </action>
+
+    <!-- ── ς (final sigma) ── -->
+    <action id="lo-final-sigma">
+      <when state="none"      output="ς"/>
+      <when state="caron"     output="ς&#x030C;"/>
+      <when state="tonos"     output="΄ς"/>
+      <when state="dotbelow"  output="&#x0324;ς"/>
+      <when state="breve"     output="˘ς"/>
+    </action>
+    <!-- ΅ (dialytika tonos) for Shift layer -->
+    <action id="up-dialytika-tonos">
+      <when state="none"      output="΅"/>
+      <when state="caron"     output="ˇ΅"/>
+      <when state="tonos"     output="΄΅"/>
+      <when state="dotbelow"  output="&#x0324;΅"/>
+      <when state="breve"     output="˘΅"/>
     </action>
 
     <!-- ── ζ / Ζ ── -->
