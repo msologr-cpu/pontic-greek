@@ -1,0 +1,71 @@
+name: Build Windows EXE
+
+on:
+  push:
+    paths:
+      - 'PonticKeyboard.ahk'
+      - 'pontic_windows.ahk'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install AutoHotkey v2
+        shell: pwsh
+        run: |
+          $url = "https://www.autohotkey.com/download/ahk-v2.exe"
+          Invoke-WebRequest -Uri $url -OutFile "ahk-v2-setup.exe"
+          Start-Process -FilePath "ahk-v2-setup.exe" -ArgumentList "/S" -Wait
+          # Find Ahk2Exe compiler
+          $compilerPaths = @(
+            "C:\Program Files\AutoHotkey\Compiler\Ahk2Exe.exe",
+            "C:\Program Files\AutoHotkey\v2\Compiler\Ahk2Exe.exe",
+            "$env:LOCALAPPDATA\Programs\AutoHotkey\Compiler\Ahk2Exe.exe"
+          )
+          foreach ($p in $compilerPaths) {
+            if (Test-Path $p) {
+              Write-Output "Found compiler at: $p"
+              echo "AHK2EXE=$p" >> $env:GITHUB_ENV
+              break
+            }
+          }
+          # List installation for debugging
+          Get-ChildItem "C:\Program Files\AutoHotkey" -Recurse -ErrorAction SilentlyContinue | Select-Object FullName
+
+      - name: Compile to EXE
+        shell: pwsh
+        run: |
+          if (-not $env:AHK2EXE) {
+            # Fallback: search for it
+            $found = Get-ChildItem "C:\Program Files" -Recurse -Filter "Ahk2Exe.exe" -ErrorAction SilentlyContinue | Select-Object -First 1
+            if ($found) {
+              $env:AHK2EXE = $found.FullName
+            } else {
+              Write-Error "Ahk2Exe.exe not found"
+              exit 1
+            }
+          }
+          Write-Output "Using compiler: $env:AHK2EXE"
+          & "$env:AHK2EXE" /in "PonticKeyboard.ahk" /out "PonticKeyboard.exe"
+
+      - name: Upload EXE artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: PonticKeyboard
+          path: PonticKeyboard.exe
+
+      - name: Commit EXE to repo
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add PonticKeyboard.exe
+          if git diff --staged --quiet; then
+            echo "No changes to EXE"
+          else
+            git commit -m "chore: rebuild PonticKeyboard.exe (auto)"
+            git push
+          fi
