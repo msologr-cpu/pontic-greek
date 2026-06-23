@@ -13,64 +13,47 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install AutoHotkey v2
+      - name: Download AutoHotkey v2 portable
         shell: pwsh
         run: |
-          # Download AHK v2 installer from GitHub releases
+          # Get latest release info
           $release = Invoke-RestMethod "https://api.github.com/repos/AutoHotkey/AutoHotkey/releases/latest"
-          $asset = $release.assets | Where-Object { $_.name -match '.*Setup\.exe$' } | Select-Object -First 1
-          if (-not $asset) {
-            # Fallback: try direct download
-            $asset = $release.assets | Where-Object { $_.name -match '\.exe$' } | Select-Object -First 1
-          }
-          Write-Output "Downloading: $($asset.browser_download_url)"
-          Invoke-WebRequest -Uri $asset.browser_download_url -OutFile "ahk-setup.exe"
+          Write-Output "Latest release: $($release.tag_name)"
           
-          # Silent install
-          Start-Process -FilePath ".\ahk-setup.exe" -ArgumentList "/S" -Wait -NoNewWindow
-          Start-Sleep -Seconds 5
-          
-          # Find installation
-          $searchPaths = @(
-            "C:\Program Files\AutoHotkey",
-            "$env:LOCALAPPDATA\Programs\AutoHotkey",
-            "C:\Program Files (x86)\AutoHotkey"
-          )
-          foreach ($base in $searchPaths) {
-            if (Test-Path $base) {
-              Write-Output "Found AHK at: $base"
-              Get-ChildItem $base -Recurse -Filter "*.exe" | Select-Object FullName
-            }
+          # Find the zip asset (portable)
+          $zipAsset = $release.assets | Where-Object { $_.name -match '\.zip$' } | Select-Object -First 1
+          if (-not $zipAsset) {
+            Write-Error "No zip asset found in release"
+            Write-Output "Available assets:"
+            $release.assets | ForEach-Object { Write-Output "  $($_.name)" }
+            exit 1
           }
+          
+          Write-Output "Downloading: $($zipAsset.name)"
+          Invoke-WebRequest -Uri $zipAsset.browser_download_url -OutFile "ahk.zip"
+          
+          # Extract
+          Expand-Archive -Path "ahk.zip" -DestinationPath "ahk" -Force
+          Write-Output "Extracted contents:"
+          Get-ChildItem "ahk" -Recurse -Filter "*.exe" | Select-Object FullName
 
       - name: Compile to EXE
         shell: pwsh
         run: |
-          # Search for Ahk2Exe compiler
-          $searchPaths = @(
-            "C:\Program Files\AutoHotkey",
-            "$env:LOCALAPPDATA\Programs\AutoHotkey",
-            "C:\Program Files (x86)\AutoHotkey"
-          )
-          $compiler = $null
-          foreach ($base in $searchPaths) {
-            $found = Get-ChildItem $base -Recurse -Filter "Ahk2Exe.exe" -ErrorAction SilentlyContinue | Select-Object -First 1
-            if ($found) {
-              $compiler = $found.FullName
-              break
-            }
-          }
+          $compiler = Get-ChildItem "ahk" -Recurse -Filter "Ahk2Exe.exe" -ErrorAction SilentlyContinue | Select-Object -First 1
           if (-not $compiler) {
-            Write-Error "Ahk2Exe.exe not found in any search path"
+            Write-Error "Ahk2Exe.exe not found in portable distribution"
+            Get-ChildItem "ahk" -Recurse | Select-Object FullName
             exit 1
           }
-          Write-Output "Using compiler: $compiler"
-          & "$compiler" /in "PonticKeyboard.ahk" /out "PonticKeyboard.exe"
+          Write-Output "Using compiler: $($compiler.FullName)"
+          & "$($compiler.FullName)" /in "PonticKeyboard.ahk" /out "PonticKeyboard.exe"
+          Start-Sleep -Seconds 3
           if (-not (Test-Path "PonticKeyboard.exe")) {
-            Write-Error "Compilation failed — PonticKeyboard.exe not created"
+            Write-Error "Compilation failed"
             exit 1
           }
-          Write-Output "Successfully compiled PonticKeyboard.exe"
+          Write-Output "Success: PonticKeyboard.exe created"
           Get-Item "PonticKeyboard.exe" | Select-Object Name, Length
 
       - name: Upload EXE artifact
