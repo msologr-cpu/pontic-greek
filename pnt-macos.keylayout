@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboard PUBLIC "" "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
 <!--
-  Pontic Greek Keyboard Layout for macOS
+  Pontic Greek Keyboard Layout for macOS — v1.2
   =======================================
   Based on standard Modern Greek keyboard layout.
 
-  PONTIC ADDITIONS (compared to standard Greek):
-    Key '  (physical apostrophe, code 39) → ˇ dead key (caron)
-       ˇ + ζ = ζ̌  |  ˇ + χ = χ̌  |  ˇ + σ = σ̌  |  ˇ + κ = κ̌
-       ˇ + ξ = ξ̌  |  ˇ + ψ = ψ̌
-    Key /  (physical slash, code 44)      → ̤ dead key (dot below)
-       ̤ + α = α̤  |  ̤ + ο = ο̤
-    Shift+,  (code 43)                    → ˘ dead key (breve)
-       ˘ + γ = γ̆
+  PONTIC ADDITION (compared to standard Greek):
+    Key /  (physical slash, code 44) → unified PONTIC dead key
+       Automatically applies the correct diacritical mark per letter:
+         pontic + ζ = ζ̌  |  pontic + χ = χ̌  |  pontic + σ = σ̌  |  pontic + ς = ς̌
+         pontic + κ = κ̌  |  pontic + ξ = ξ̌  |  pontic + ψ = ψ̌   (caron)
+         pontic + γ = γ̆                                          (breve)
+         pontic + α = α̤  |  pontic + ο = ο̤                       (diaeresis below)
 
   Standard ΄ tonos dead key remains on ; position (code 41).
+  Key ' (apostrophe, code 39) is now a normal key (outputs ' or ").
+  Shift+, (code 43) is now a normal key (outputs <).
 
   INSTALL:
     Run install_macos.sh  — OR —
@@ -53,8 +54,8 @@
     <!-- ═══════════════════════════════════════════════════════════════
          MAP 0 — Default
          Row Q: ; ς ε ρ τ υ θ ι ο π [ ] \
-         Row A: α σ δ φ γ η ξ κ λ ΄ ˇ
-         Row Z: ζ χ ψ ω β ν μ , . ̤
+         Row A: α σ δ φ γ η ξ κ λ ΄ '
+         Row Z: ζ χ ψ ω β ν μ , . ̤→pontic
          ═══════════════════════════════════════════════════════════════ -->
     <keyMap index="0">
       <!-- number row -->
@@ -96,7 +97,7 @@
       <key code="40" action="lo-kappa"/>
       <key code="37" output="λ"/>
       <key code="41" action="dead-tonos"/>          <!-- ΄ standard Greek accent -->
-      <key code="39" action="dead-caron"/>          <!-- ˇ PONTIC               -->
+      <key code="39" output="'"/>                   <!-- apostrophe — normal key now -->
       <!-- bottom row -->
       <key code="6"  action="lo-zeta"/>
       <key code="7"  action="lo-chi"/>
@@ -107,7 +108,7 @@
       <key code="46" output="μ"/>
       <key code="43" output=","/>
       <key code="47" output="."/>
-      <key code="44" action="dead-dotbelow"/>       <!-- ̤ PONTIC               -->
+      <key code="44" action="dead-pontic"/>          <!-- / → PONTIC unified dead key -->
       <!-- control -->
       <key code="49" action="space"/>
       <key code="36" output="&#x000D;"/>
@@ -120,8 +121,8 @@
     <!-- ═══════════════════════════════════════════════════════════════
          MAP 1 — Shift / CapsLock
          Row Q: : ΅ Ε Ρ Τ Υ Θ Ι Ο Π \ / |
-         Row A: Α Σ Δ Φ Γ Η Ξ Κ Λ ΄ ˇ
-         Row Z: Ζ Χ Ψ Ω Β Ν Μ ˘ ¨ ̤
+         Row A: Α Σ Δ Φ Γ Η Ξ Κ Λ ΄ "
+         Row Z: Ζ Χ Ψ Ω Β Ν Μ < > ?
          ═══════════════════════════════════════════════════════════════ -->
     <keyMap index="1">
       <!-- number row shift -->
@@ -163,7 +164,7 @@
       <key code="40" action="up-kappa"/>
       <key code="37" output="Λ"/>
       <key code="41" action="dead-tonos"/>
-      <key code="39" action="dead-caron"/>
+      <key code="39" output="&quot;"/>               <!-- " — normal key now -->
       <!-- bottom row shift -->
       <key code="6"  action="up-zeta"/>
       <key code="7"  action="up-chi"/>
@@ -172,9 +173,9 @@
       <key code="11" output="Β"/>
       <key code="45" output="Ν"/>
       <key code="46" output="Μ"/>
-      <key code="43" action="dead-breve"/>          <!-- ˘ PONTIC               -->
-      <key code="47" output="¨"/>
-      <key code="44" action="dead-dotbelow"/>
+      <key code="43" output="&lt;"/>                  <!-- < — normal key now -->
+      <key code="47" output=">"/>
+      <key code="44" action="dead-pontic"/>           <!-- Shift+/ still pontic -->
       <!-- control -->
       <key code="49" action="space"/>
       <key code="36" output="&#x000D;"/>
@@ -276,286 +277,202 @@
     <action id="dead-tonos">
       <when state="none"      next="tonos"/>
       <when state="tonos"     output="΄"/>
-      <when state="caron"     output="ˇ"  next="tonos"/>
-      <when state="dotbelow"  output="&#x0324;" next="tonos"/>
-      <when state="breve"     output="˘"  next="tonos"/>
+      <when state="pontic"    output="/"  next="tonos"/>
     </action>
 
-    <!-- ˇ Caron — PONTIC dead key (code 39, default + shift) -->
-    <action id="dead-caron">
-      <when state="none"      next="caron"/>
-      <when state="caron"     output="ˇ"/>
-      <when state="tonos"     output="΄"  next="caron"/>
-      <when state="dotbelow"  output="&#x0324;" next="caron"/>
-      <when state="breve"     output="˘"  next="caron"/>
-    </action>
-
-    <!-- ̤ Dot-below — PONTIC dead key (code 44, default + shift) -->
-    <action id="dead-dotbelow">
-      <when state="none"      next="dotbelow"/>
-      <when state="dotbelow"  output="&#x0324;"/>
-      <when state="tonos"     output="΄"  next="dotbelow"/>
-      <when state="caron"     output="ˇ"  next="dotbelow"/>
-      <when state="breve"     output="˘"  next="dotbelow"/>
-    </action>
-
-    <!-- ˘ Breve — PONTIC dead key (Shift+,, code 43 shift) -->
-    <action id="dead-breve">
-      <when state="none"      next="breve"/>
-      <when state="breve"     output="˘"/>
-      <when state="tonos"     output="΄"  next="breve"/>
-      <when state="caron"     output="ˇ"  next="breve"/>
-      <when state="dotbelow"  output="&#x0324;" next="breve"/>
+    <!-- / Pontic — unified PONTIC dead key (code 44, default + shift) -->
+    <action id="dead-pontic">
+      <when state="none"      next="pontic"/>
+      <when state="pontic"    output="/"/>
+      <when state="tonos"     output="΄"  next="pontic"/>
     </action>
 
     <!-- Space terminates any dead state -->
     <action id="space">
       <when state="none"      output=" "/>
       <when state="tonos"     output="΄ "/>
-      <when state="caron"     output="ˇ "/>
-      <when state="dotbelow"  output="&#x0324; "/>
-      <when state="breve"     output="˘ "/>
+      <when state="pontic"    output="/ "/>
     </action>
 
-    <!-- ── α / Α ── -->
+    <!-- ── α / Α — pontic → diaeresis below (̤) ── -->
     <action id="lo-alpha">
       <when state="none"      output="α"/>
       <when state="tonos"     output="ά"/>
-      <when state="dotbelow"  output="α&#x0324;"/>
-      <when state="caron"     output="ˇα"/>
-      <when state="breve"     output="˘α"/>
+      <when state="pontic"    output="α&#x0324;"/>
     </action>
     <action id="up-alpha">
       <when state="none"      output="Α"/>
       <when state="tonos"     output="Ά"/>
-      <when state="dotbelow"  output="Α&#x0324;"/>
-      <when state="caron"     output="ˇΑ"/>
-      <when state="breve"     output="˘Α"/>
+      <when state="pontic"    output="Α&#x0324;"/>
     </action>
 
     <!-- ── ε / Ε ── -->
     <action id="lo-epsilon">
       <when state="none"      output="ε"/>
       <when state="tonos"     output="έ"/>
-      <when state="caron"     output="ˇε"/>
-      <when state="dotbelow"  output="&#x0324;ε"/>
-      <when state="breve"     output="˘ε"/>
+      <when state="pontic"    output="/ε"/>
     </action>
     <action id="up-epsilon">
       <when state="none"      output="Ε"/>
       <when state="tonos"     output="Έ"/>
-      <when state="caron"     output="ˇΕ"/>
-      <when state="dotbelow"  output="&#x0324;Ε"/>
-      <when state="breve"     output="˘Ε"/>
+      <when state="pontic"    output="/Ε"/>
     </action>
 
     <!-- ── η / Η ── -->
     <action id="lo-eta">
       <when state="none"      output="η"/>
       <when state="tonos"     output="ή"/>
-      <when state="caron"     output="ˇη"/>
-      <when state="dotbelow"  output="&#x0324;η"/>
-      <when state="breve"     output="˘η"/>
+      <when state="pontic"    output="/η"/>
     </action>
     <action id="up-eta">
       <when state="none"      output="Η"/>
       <when state="tonos"     output="Ή"/>
-      <when state="caron"     output="ˇΗ"/>
-      <when state="dotbelow"  output="&#x0324;Η"/>
-      <when state="breve"     output="˘Η"/>
+      <when state="pontic"    output="/Η"/>
     </action>
 
     <!-- ── ι / Ι ── -->
     <action id="lo-iota">
       <when state="none"      output="ι"/>
       <when state="tonos"     output="ί"/>
-      <when state="caron"     output="ˇι"/>
-      <when state="dotbelow"  output="&#x0324;ι"/>
-      <when state="breve"     output="˘ι"/>
+      <when state="pontic"    output="/ι"/>
     </action>
     <action id="up-iota">
       <when state="none"      output="Ι"/>
       <when state="tonos"     output="Ί"/>
-      <when state="caron"     output="ˇΙ"/>
-      <when state="dotbelow"  output="&#x0324;Ι"/>
-      <when state="breve"     output="˘Ι"/>
+      <when state="pontic"    output="/Ι"/>
     </action>
 
-    <!-- ── ο / Ο ── -->
+    <!-- ── ο / Ο — pontic → diaeresis below (̤) ── -->
     <action id="lo-omicron">
       <when state="none"      output="ο"/>
       <when state="tonos"     output="ό"/>
-      <when state="dotbelow"  output="ο&#x0324;"/>
-      <when state="caron"     output="ˇο"/>
-      <when state="breve"     output="˘ο"/>
+      <when state="pontic"    output="ο&#x0324;"/>
     </action>
     <action id="up-omicron">
       <when state="none"      output="Ο"/>
       <when state="tonos"     output="Ό"/>
-      <when state="dotbelow"  output="Ο&#x0324;"/>
-      <when state="caron"     output="ˇΟ"/>
-      <when state="breve"     output="˘Ο"/>
+      <when state="pontic"    output="Ο&#x0324;"/>
     </action>
 
     <!-- ── υ / Υ ── -->
     <action id="lo-upsilon">
       <when state="none"      output="υ"/>
       <when state="tonos"     output="ύ"/>
-      <when state="caron"     output="ˇυ"/>
-      <when state="dotbelow"  output="&#x0324;υ"/>
-      <when state="breve"     output="˘υ"/>
+      <when state="pontic"    output="/υ"/>
     </action>
     <action id="up-upsilon">
       <when state="none"      output="Υ"/>
       <when state="tonos"     output="Ύ"/>
-      <when state="caron"     output="ˇΥ"/>
-      <when state="dotbelow"  output="&#x0324;Υ"/>
-      <when state="breve"     output="˘Υ"/>
+      <when state="pontic"    output="/Υ"/>
     </action>
 
     <!-- ── ω / Ω ── -->
     <action id="lo-omega">
       <when state="none"      output="ω"/>
       <when state="tonos"     output="ώ"/>
-      <when state="caron"     output="ˇω"/>
-      <when state="dotbelow"  output="&#x0324;ω"/>
-      <when state="breve"     output="˘ω"/>
+      <when state="pontic"    output="/ω"/>
     </action>
     <action id="up-omega">
       <when state="none"      output="Ω"/>
       <when state="tonos"     output="Ώ"/>
-      <when state="caron"     output="ˇΩ"/>
-      <when state="dotbelow"  output="&#x0324;Ω"/>
-      <when state="breve"     output="˘Ω"/>
+      <when state="pontic"    output="/Ω"/>
     </action>
 
-    <!-- ── σ / Σ ── -->
+    <!-- ── σ / Σ — pontic → caron (̌) ── -->
     <action id="lo-sigma">
       <when state="none"      output="σ"/>
-      <when state="caron"     output="σ&#x030C;"/>
+      <when state="pontic"    output="σ&#x030C;"/>
       <when state="tonos"     output="΄σ"/>
-      <when state="dotbelow"  output="&#x0324;σ"/>
-      <when state="breve"     output="˘σ"/>
     </action>
     <action id="up-sigma">
       <when state="none"      output="Σ"/>
-      <when state="caron"     output="Σ&#x030C;"/>
+      <when state="pontic"    output="Σ&#x030C;"/>
       <when state="tonos"     output="΄Σ"/>
-      <when state="dotbelow"  output="&#x0324;Σ"/>
-      <when state="breve"     output="˘Σ"/>
     </action>
 
-    <!-- ── ς (final sigma) ── -->
+    <!-- ── ς (final sigma) — pontic → caron (̌) ── -->
     <action id="lo-final-sigma">
       <when state="none"      output="ς"/>
-      <when state="caron"     output="ς&#x030C;"/>
+      <when state="pontic"    output="ς&#x030C;"/>
       <when state="tonos"     output="΄ς"/>
-      <when state="dotbelow"  output="&#x0324;ς"/>
-      <when state="breve"     output="˘ς"/>
     </action>
     <!-- ΅ (dialytika tonos) for Shift layer -->
     <action id="up-dialytika-tonos">
       <when state="none"      output="΅"/>
-      <when state="caron"     output="ˇ΅"/>
+      <when state="pontic"    output="/΅"/>
       <when state="tonos"     output="΄΅"/>
-      <when state="dotbelow"  output="&#x0324;΅"/>
-      <when state="breve"     output="˘΅"/>
     </action>
 
-    <!-- ── ζ / Ζ ── -->
+    <!-- ── ζ / Ζ — pontic → caron (̌) ── -->
     <action id="lo-zeta">
       <when state="none"      output="ζ"/>
-      <when state="caron"     output="ζ&#x030C;"/>
+      <when state="pontic"    output="ζ&#x030C;"/>
       <when state="tonos"     output="΄ζ"/>
-      <when state="dotbelow"  output="&#x0324;ζ"/>
-      <when state="breve"     output="˘ζ"/>
     </action>
     <action id="up-zeta">
       <when state="none"      output="Ζ"/>
-      <when state="caron"     output="Ζ&#x030C;"/>
+      <when state="pontic"    output="Ζ&#x030C;"/>
       <when state="tonos"     output="΄Ζ"/>
-      <when state="dotbelow"  output="&#x0324;Ζ"/>
-      <when state="breve"     output="˘Ζ"/>
     </action>
 
-    <!-- ── χ / Χ ── -->
+    <!-- ── χ / Χ — pontic → caron (̌) ── -->
     <action id="lo-chi">
       <when state="none"      output="χ"/>
-      <when state="caron"     output="χ&#x030C;"/>
+      <when state="pontic"    output="χ&#x030C;"/>
       <when state="tonos"     output="΄χ"/>
-      <when state="dotbelow"  output="&#x0324;χ"/>
-      <when state="breve"     output="˘χ"/>
     </action>
     <action id="up-chi">
       <when state="none"      output="Χ"/>
-      <when state="caron"     output="Χ&#x030C;"/>
+      <when state="pontic"    output="Χ&#x030C;"/>
       <when state="tonos"     output="΄Χ"/>
-      <when state="dotbelow"  output="&#x0324;Χ"/>
-      <when state="breve"     output="˘Χ"/>
     </action>
 
-    <!-- ── ψ / Ψ ── -->
+    <!-- ── ψ / Ψ — pontic → caron (̌) ── -->
     <action id="lo-psi">
       <when state="none"      output="ψ"/>
-      <when state="caron"     output="ψ&#x030C;"/>
+      <when state="pontic"    output="ψ&#x030C;"/>
       <when state="tonos"     output="΄ψ"/>
-      <when state="dotbelow"  output="&#x0324;ψ"/>
-      <when state="breve"     output="˘ψ"/>
     </action>
     <action id="up-psi">
       <when state="none"      output="Ψ"/>
-      <when state="caron"     output="Ψ&#x030C;"/>
+      <when state="pontic"    output="Ψ&#x030C;"/>
       <when state="tonos"     output="΄Ψ"/>
-      <when state="dotbelow"  output="&#x0324;Ψ"/>
-      <when state="breve"     output="˘Ψ"/>
     </action>
 
-    <!-- ── ξ / Ξ ── -->
+    <!-- ── ξ / Ξ — pontic → caron (̌) ── -->
     <action id="lo-xi">
       <when state="none"      output="ξ"/>
-      <when state="caron"     output="ξ&#x030C;"/>
+      <when state="pontic"    output="ξ&#x030C;"/>
       <when state="tonos"     output="΄ξ"/>
-      <when state="dotbelow"  output="&#x0324;ξ"/>
-      <when state="breve"     output="˘ξ"/>
     </action>
     <action id="up-xi">
       <when state="none"      output="Ξ"/>
-      <when state="caron"     output="Ξ&#x030C;"/>
+      <when state="pontic"    output="Ξ&#x030C;"/>
       <when state="tonos"     output="΄Ξ"/>
-      <when state="dotbelow"  output="&#x0324;Ξ"/>
-      <when state="breve"     output="˘Ξ"/>
     </action>
 
-    <!-- ── κ / Κ ── -->
+    <!-- ── κ / Κ — pontic → caron (̌) ── -->
     <action id="lo-kappa">
       <when state="none"      output="κ"/>
-      <when state="caron"     output="κ&#x030C;"/>
+      <when state="pontic"    output="κ&#x030C;"/>
       <when state="tonos"     output="΄κ"/>
-      <when state="dotbelow"  output="&#x0324;κ"/>
-      <when state="breve"     output="˘κ"/>
     </action>
     <action id="up-kappa">
       <when state="none"      output="Κ"/>
-      <when state="caron"     output="Κ&#x030C;"/>
+      <when state="pontic"    output="Κ&#x030C;"/>
       <when state="tonos"     output="΄Κ"/>
-      <when state="dotbelow"  output="&#x0324;Κ"/>
-      <when state="breve"     output="˘Κ"/>
     </action>
 
-    <!-- ── γ / Γ  (breve for γ̆ Γ̆) ── -->
+    <!-- ── γ / Γ — pontic → breve (̆) ── -->
     <action id="lo-gamma">
       <when state="none"      output="γ"/>
-      <when state="breve"     output="γ&#x0306;"/>
-      <when state="caron"     output="ˇγ"/>
+      <when state="pontic"    output="γ&#x0306;"/>
       <when state="tonos"     output="΄γ"/>
-      <when state="dotbelow"  output="&#x0324;γ"/>
     </action>
     <action id="up-gamma">
       <when state="none"      output="Γ"/>
-      <when state="breve"     output="Γ&#x0306;"/>
-      <when state="caron"     output="ˇΓ"/>
+      <when state="pontic"    output="Γ&#x0306;"/>
       <when state="tonos"     output="΄Γ"/>
-      <when state="dotbelow"  output="&#x0324;Γ"/>
     </action>
 
   </actions>
@@ -566,9 +483,7 @@
        ═══════════════════════════════════════════════════════════════════ -->
   <terminators>
     <when state="tonos"    output="΄"/>
-    <when state="caron"    output="ˇ"/>
-    <when state="dotbelow" output="&#x0324;"/>
-    <when state="breve"    output="˘"/>
+    <when state="pontic"   output="/"/>
   </terminators>
 
 </keyboard>
