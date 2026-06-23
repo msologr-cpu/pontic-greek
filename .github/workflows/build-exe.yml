@@ -16,40 +16,62 @@ jobs:
       - name: Install AutoHotkey v2
         shell: pwsh
         run: |
-          $url = "https://www.autohotkey.com/download/ahk-v2.exe"
-          Invoke-WebRequest -Uri $url -OutFile "ahk-v2-setup.exe"
-          Start-Process -FilePath "ahk-v2-setup.exe" -ArgumentList "/S" -Wait
-          # Find Ahk2Exe compiler
-          $compilerPaths = @(
-            "C:\Program Files\AutoHotkey\Compiler\Ahk2Exe.exe",
-            "C:\Program Files\AutoHotkey\v2\Compiler\Ahk2Exe.exe",
-            "$env:LOCALAPPDATA\Programs\AutoHotkey\Compiler\Ahk2Exe.exe"
+          # Download AHK v2 installer from GitHub releases
+          $release = Invoke-RestMethod "https://api.github.com/repos/AutoHotkey/AutoHotkey/releases/latest"
+          $asset = $release.assets | Where-Object { $_.name -match '.*Setup\.exe$' } | Select-Object -First 1
+          if (-not $asset) {
+            # Fallback: try direct download
+            $asset = $release.assets | Where-Object { $_.name -match '\.exe$' } | Select-Object -First 1
+          }
+          Write-Output "Downloading: $($asset.browser_download_url)"
+          Invoke-WebRequest -Uri $asset.browser_download_url -OutFile "ahk-setup.exe"
+          
+          # Silent install
+          Start-Process -FilePath ".\ahk-setup.exe" -ArgumentList "/S" -Wait -NoNewWindow
+          Start-Sleep -Seconds 5
+          
+          # Find installation
+          $searchPaths = @(
+            "C:\Program Files\AutoHotkey",
+            "$env:LOCALAPPDATA\Programs\AutoHotkey",
+            "C:\Program Files (x86)\AutoHotkey"
           )
-          foreach ($p in $compilerPaths) {
-            if (Test-Path $p) {
-              Write-Output "Found compiler at: $p"
-              echo "AHK2EXE=$p" >> $env:GITHUB_ENV
-              break
+          foreach ($base in $searchPaths) {
+            if (Test-Path $base) {
+              Write-Output "Found AHK at: $base"
+              Get-ChildItem $base -Recurse -Filter "*.exe" | Select-Object FullName
             }
           }
-          # List installation for debugging
-          Get-ChildItem "C:\Program Files\AutoHotkey" -Recurse -ErrorAction SilentlyContinue | Select-Object FullName
 
       - name: Compile to EXE
         shell: pwsh
         run: |
-          if (-not $env:AHK2EXE) {
-            # Fallback: search for it
-            $found = Get-ChildItem "C:\Program Files" -Recurse -Filter "Ahk2Exe.exe" -ErrorAction SilentlyContinue | Select-Object -First 1
+          # Search for Ahk2Exe compiler
+          $searchPaths = @(
+            "C:\Program Files\AutoHotkey",
+            "$env:LOCALAPPDATA\Programs\AutoHotkey",
+            "C:\Program Files (x86)\AutoHotkey"
+          )
+          $compiler = $null
+          foreach ($base in $searchPaths) {
+            $found = Get-ChildItem $base -Recurse -Filter "Ahk2Exe.exe" -ErrorAction SilentlyContinue | Select-Object -First 1
             if ($found) {
-              $env:AHK2EXE = $found.FullName
-            } else {
-              Write-Error "Ahk2Exe.exe not found"
-              exit 1
+              $compiler = $found.FullName
+              break
             }
           }
-          Write-Output "Using compiler: $env:AHK2EXE"
-          & "$env:AHK2EXE" /in "PonticKeyboard.ahk" /out "PonticKeyboard.exe"
+          if (-not $compiler) {
+            Write-Error "Ahk2Exe.exe not found in any search path"
+            exit 1
+          }
+          Write-Output "Using compiler: $compiler"
+          & "$compiler" /in "PonticKeyboard.ahk" /out "PonticKeyboard.exe"
+          if (-not (Test-Path "PonticKeyboard.exe")) {
+            Write-Error "Compilation failed — PonticKeyboard.exe not created"
+            exit 1
+          }
+          Write-Output "Successfully compiled PonticKeyboard.exe"
+          Get-Item "PonticKeyboard.exe" | Select-Object Name, Length
 
       - name: Upload EXE artifact
         uses: actions/upload-artifact@v4
