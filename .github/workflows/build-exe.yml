@@ -6,6 +6,8 @@ on:
       - 'PonticKeyboard.ahk'
       - 'PonticKeyboard_v2.ahk'
       - 'pontic_windows.ahk'
+      - 'PonticKeyboard_v3.ahk'
+      - 'PonticKeyboard_v3_3keys.ahk'
   workflow_dispatch:
 
 permissions:
@@ -68,6 +70,28 @@ jobs:
             Write-Output "OK: PonticKeyboard_v2.exe $($(Get-Item 'PonticKeyboard_v2.exe').Length) bytes"
           } else { Write-Error "Failed"; exit 1 }
 
+      - name: Compile PonticKeyboard_v3.exe
+        shell: pwsh
+        run: |
+          $compiler = Get-ChildItem "ahk" -Recurse -Filter "Ahk2Exe.exe" | Select-Object -First 1
+          $ahkExe = Get-ChildItem "ahk" -Filter "AutoHotkey*.exe" | Select-Object -First 1
+          & "$($compiler.FullName)" /in "PonticKeyboard_v3.ahk" /out "PonticKeyboard_v3.exe" /base "$($ahkExe.FullName)"
+          Start-Sleep -Seconds 3
+          if (Test-Path "PonticKeyboard_v3.exe") {
+            Write-Output "OK: PonticKeyboard_v3.exe $($(Get-Item 'PonticKeyboard_v3.exe').Length) bytes"
+          } else { Write-Error "Failed"; exit 1 }
+
+      - name: Compile PonticKeyboard_v3_3keys.exe
+        shell: pwsh
+        run: |
+          $compiler = Get-ChildItem "ahk" -Recurse -Filter "Ahk2Exe.exe" | Select-Object -First 1
+          $ahkExe = Get-ChildItem "ahk" -Filter "AutoHotkey*.exe" | Select-Object -First 1
+          & "$($compiler.FullName)" /in "PonticKeyboard_v3_3keys.ahk" /out "PonticKeyboard_v3_3keys.exe" /base "$($ahkExe.FullName)"
+          Start-Sleep -Seconds 3
+          if (Test-Path "PonticKeyboard_v3_3keys.exe") {
+            Write-Output "OK: PonticKeyboard_v3_3keys.exe $($(Get-Item 'PonticKeyboard_v3_3keys.exe').Length) bytes"
+          } else { Write-Error "Failed"; exit 1 }
+
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -75,13 +99,15 @@ jobs:
           path: |
             PonticKeyboard.exe
             PonticKeyboard_v2.exe
+            PonticKeyboard_v3.exe
+            PonticKeyboard_v3_3keys.exe
 
       - name: Commit EXEs to repo
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add PonticKeyboard.exe PonticKeyboard_v2.exe
+          git add PonticKeyboard.exe PonticKeyboard_v2.exe PonticKeyboard_v3.exe PonticKeyboard_v3_3keys.exe
           if git diff --staged --quiet; then
             echo "No changes"
           else
