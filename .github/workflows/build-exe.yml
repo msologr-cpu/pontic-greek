@@ -112,5 +112,6 @@ jobs:
             echo "No changes"
           else
             git commit -m "chore: rebuild PonticKeyboard exe files (auto)"
+            git pull --rebase origin main
             git push
           fi
