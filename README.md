@@ -1,10 +1,23 @@
-# Понтийский язык для греческой клавиатуры на iOS/macOS
+# Понтийская раскладка (Ποντιακά) — Windows / macOS / iOS
 
-Представленный датасет **Понтийского (Ποντιακά)** содержит данные для системной клавиатуры на iOS/macOS для греческой раскладки.  
-Датасет подготовлен для использования в системах ввода (например, Apple Keyboard, Unicode CLDR и других).
-Основой для датасета послужили стандартные раскладки греческого языка (не политонические) на различных типах устройств iOS/macOS.
+> **Текущая версия Windows:** **v3.1** (Июль 2026)  
+> **Текущая версия macOS:** **v3.0**
+
+## 📥 Быстрое скачивание
+
+### 🪟 Windows (готовые .exe, без установки):
+- **[PonticKeyboard_v3.exe](https://github.com/msologr-cpu/pontic-greek/releases/download/v3.1/PonticKeyboard_v3.exe)** — Единая клавиша `/` *(рекомендуется)*
+- **[PonticKeyboard_v3_3keys.exe](https://github.com/msologr-cpu/pontic-greek/releases/download/v3.1/PonticKeyboard_v3_3keys.exe)** — Раздельные 3 клавиши `,` `.` `/`
+- 📖 [Подробная инструкция для Windows](ИНСТРУКЦИЯ_WINDOWS.md)
+
+### 🍎 macOS:
+- **[pnt-macos-v3.keylayout](https://github.com/msologr-cpu/pontic-greek/raw/main/pnt-macos-v3.keylayout)** (с поддержкой Cmd+C/V и ά̤/ό̤)
+- 📖 [Подробная инструкция для macOS](ИНСТРУКЦИЯ.md)
+
+---
 
 ## 📘 Описание
+
 
 Датасет для расскладки клавиатуры основан на современном дизайне, используемом в iOS и macOS.
 
