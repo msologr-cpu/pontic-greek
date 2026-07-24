@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package>
+  <System>
+    <KeymanDeveloperVersion>18.0.0.0</KeymanDeveloperVersion>
+    <FileVersion>7.0</FileVersion>
+  </System>
+  <Options>
+    <FollowKeyboardVersion/>
+  </Options>
+  <Info>
+    <Name URL="">Pontic Greek</Name>
+    <Copyright URL="">© 2024-2026 Pontic Greek Keyboard Project</Copyright>
+    <Author URL="">Pontic Greek Community</Author>
+    <Version>1.0</Version>
+    <Description>Понтийская греческая клавиатура с поддержкой гачека (ˇ), бреве (˘) и двух точек снизу. Для iPhone, Android и десктопов.</Description>
+  </Info>
+  <Files>
+    <File>
+      <Name>..\build\pontic_greek.js</Name>
+      <Description>Keyboard Pontic Greek (web/touch)</Description>
+      <CopyLocation>0</CopyLocation>
+      <FileType>.js</FileType>
+    </File>
+    <File>
+      <Name>welcome.htm</Name>
+      <Description>Welcome page</Description>
+      <CopyLocation>0</CopyLocation>
+      <FileType>.htm</FileType>
+    </File>
+  </Files>
+  <Keyboards>
+    <Keyboard>
+      <Name>Pontic Greek</Name>
+      <ID>pontic_greek</ID>
+      <Version>1.0</Version>
+      <Languages>
+        <Language ID="pnt">Pontic Greek</Language>
+        <Language ID="el">Greek</Language>
+      </Languages>
+    </Keyboard>
+  </Keyboards>
+</Package>

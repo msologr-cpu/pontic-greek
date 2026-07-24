@@ -1,0 +1,39 @@
+{
+  "id": "pontic_greek",
+  "name": "Pontic Greek",
+  "license": "mit",
+  "authorName": "Pontic Greek Community",
+  "description": "<p>Понтийская греческая клавиатура с поддержкой гачека (ˇ), бреве (˘) и двух точек снизу. Для iPhone, Android и десктопов.</p>",
+  "languages": {
+    "pnt": {
+      "examples": [],
+      "languageName": "Pontic",
+      "displayName": "Pontic"
+    },
+    "el": {
+      "examples": [],
+      "languageName": "Greek",
+      "displayName": "Greek"
+    }
+  },
+  "lastModifiedDate": "2026-07-24T08:12:20.992Z",
+  "packageFilename": "pontic_greek.kmp",
+  "packageFileSize": 5529,
+  "jsFilename": "pontic_greek.js",
+  "jsFileSize": 25939,
+  "packageIncludes": [
+    "welcome"
+  ],
+  "version": "1.0",
+  "encodings": [
+    "unicode"
+  ],
+  "platformSupport": {
+    "mobileWeb": "full",
+    "desktopWeb": "full",
+    "android": "full",
+    "ios": "full"
+  },
+  "minKeymanVersion": "10.0",
+  "helpLink": "https://help.keyman.com/keyboard/pontic_greek"
+}
