@@ -1,21 +1,24 @@
-c Pontic Greek Keyboard for Keyman
-c Понтийская Греческая Раскладка — iOS / Android / Desktop
+c Pontic Greek Keyboard for Keyman — v2.0
+c Понтийская Греческая Раскладка — iOS / Android
 c
-c Dead keys:
-c   / (slash) → гачек (caron ˇ), бреве (breve ˘), две точки снизу (diaeresis below ̤)
-c   On mobile: long-press for all diacritics
+c v2.0 fixes:
+c - Fixed uppercase Theta (was outputting lowercase θ)
+c - Added ALL missing T_ rules for uppercase accented vowels
+c - Added ALL missing T_ rules for punctuation and symbols
+c - Added tonos dead key (T_TONOS) for mobile
+c - Added pontic dead key (T_PONTIC_DK) for caron/breve/dbelow
+c - Added apostrophe key
 c
-c Version: 1.0
 c License: MIT
 
 store(&VERSION) '10.0'
 store(&NAME) 'Pontic Greek'
 store(&COPYRIGHT) '© 2024-2026 Pontic Greek Keyboard Project'
-store(&KEYBOARDVERSION) '1.0'
+store(&KEYBOARDVERSION) '2.0'
 store(&TARGETS) 'mobile'
 store(&LAYOUTFILE) 'pontic_greek.keyman-touch-layout'
 store(&MESSAGE) 'Понтийская Греческая Клавиатура / Pontic Greek Keyboard'
-store(&KMW_HELPTEXT) 'Pontic Greek keyboard with special diacritics: caron (ˇ), breve (˘), diaeresis below (̤)'
+store(&KMW_HELPTEXT) 'Pontic Greek keyboard with caron, breve, diaeresis below'
 
 begin Unicode > use(main)
 
@@ -24,64 +27,65 @@ group(main) using keys
 c =============================================================================
 c Standard Greek layout — lowercase
 c =============================================================================
-+ [K_A] > U+03B1      c α alpha
-+ [K_B] > U+03B2      c β beta
-+ [K_G] > U+03B3      c γ gamma
-+ [K_D] > U+03B4      c δ delta
-+ [K_E] > U+03B5      c ε epsilon
-+ [K_Z] > U+03B6      c ζ zeta
-+ [K_H] > U+03B7      c η eta
-+ [K_U] > U+03B8      c θ theta
-+ [K_I] > U+03B9      c ι iota
-+ [K_K] > U+03BA      c κ kappa
-+ [K_L] > U+03BB      c λ lambda
-+ [K_M] > U+03BC      c μ mu
-+ [K_N] > U+03BD      c ν nu
-+ [K_J] > U+03BE      c ξ xi
-+ [K_O] > U+03BF      c ο omicron
-+ [K_P] > U+03C0      c π pi
-+ [K_R] > U+03C1      c ρ rho
-+ [K_S] > U+03C3      c σ sigma (medial)
-+ [K_W] > U+03C2      c ς sigma (final)
-+ [K_T] > U+03C4      c τ tau
-+ [K_Y] > U+03C5      c υ upsilon
-+ [K_F] > U+03C6      c φ phi
-+ [K_X] > U+03C7      c χ chi
-+ [K_C] > U+03C8      c ψ psi
-+ [K_V] > U+03C9      c ω omega
++ [K_A] > U+03B1      c α
++ [K_B] > U+03B2      c β
++ [K_G] > U+03B3      c γ
++ [K_D] > U+03B4      c δ
++ [K_E] > U+03B5      c ε
++ [K_Z] > U+03B6      c ζ
++ [K_H] > U+03B7      c η
++ [K_U] > U+03B8      c θ
++ [K_I] > U+03B9      c ι
++ [K_K] > U+03BA      c κ
++ [K_L] > U+03BB      c λ
++ [K_M] > U+03BC      c μ
++ [K_N] > U+03BD      c ν
++ [K_J] > U+03BE      c ξ
++ [K_O] > U+03BF      c ο
++ [K_P] > U+03C0      c π
++ [K_R] > U+03C1      c ρ
++ [K_S] > U+03C3      c σ
++ [K_W] > U+03C2      c ς
++ [K_T] > U+03C4      c τ
++ [K_Y] > U+03C5      c υ
++ [K_F] > U+03C6      c φ
++ [K_X] > U+03C7      c χ
++ [K_C] > U+03C8      c ψ
++ [K_V] > U+03C9      c ω
 
 c =============================================================================
 c Standard Greek layout — UPPERCASE
 c =============================================================================
-+ [SHIFT K_A] > U+0391    c Α Alpha
-+ [SHIFT K_B] > U+0392    c Β Beta
-+ [SHIFT K_G] > U+0393    c Γ Gamma
-+ [SHIFT K_D] > U+0394    c Δ Delta
-+ [SHIFT K_E] > U+0395    c Ε Epsilon
-+ [SHIFT K_Z] > U+0396    c Ζ Zeta
-+ [SHIFT K_H] > U+0397    c Η Eta
-+ [SHIFT K_U] > U+03B8    c Θ Theta
-+ [SHIFT K_I] > U+0399    c Ι Iota
-+ [SHIFT K_K] > U+039A    c Κ Kappa
-+ [SHIFT K_L] > U+039B    c Λ Lambda
-+ [SHIFT K_M] > U+039C    c Μ Mu
-+ [SHIFT K_N] > U+039D    c Ν Nu
-+ [SHIFT K_J] > U+039E    c Ξ Xi
-+ [SHIFT K_O] > U+039F    c Ο Omicron
-+ [SHIFT K_P] > U+03A0    c Π Pi
-+ [SHIFT K_R] > U+03A1    c Ρ Rho
-+ [SHIFT K_S] > U+03A3    c Σ Sigma
-+ [SHIFT K_T] > U+03A4    c Τ Tau
-+ [SHIFT K_Y] > U+03A5    c Υ Upsilon
-+ [SHIFT K_F] > U+03A6    c Φ Phi
-+ [SHIFT K_X] > U+03A7    c Χ Chi
-+ [SHIFT K_C] > U+03A8    c Ψ Psi
-+ [SHIFT K_V] > U+03A9    c Ω Omega
++ [SHIFT K_A] > U+0391    c Α
++ [SHIFT K_B] > U+0392    c Β
++ [SHIFT K_G] > U+0393    c Γ
++ [SHIFT K_D] > U+0394    c Δ
++ [SHIFT K_E] > U+0395    c Ε
++ [SHIFT K_Z] > U+0396    c Ζ
++ [SHIFT K_H] > U+0397    c Η
++ [SHIFT K_U] > U+0398    c Θ  ← v2.0 fix: was U+03B8 (lowercase!)
++ [SHIFT K_I] > U+0399    c Ι
++ [SHIFT K_K] > U+039A    c Κ
++ [SHIFT K_L] > U+039B    c Λ
++ [SHIFT K_M] > U+039C    c Μ
++ [SHIFT K_N] > U+039D    c Ν
++ [SHIFT K_J] > U+039E    c Ξ
++ [SHIFT K_O] > U+039F    c Ο
++ [SHIFT K_P] > U+03A0    c Π
++ [SHIFT K_R] > U+03A1    c Ρ
++ [SHIFT K_S] > U+03A3    c Σ
++ [SHIFT K_T] > U+03A4    c Τ
++ [SHIFT K_Y] > U+03A5    c Υ
++ [SHIFT K_F] > U+03A6    c Φ
++ [SHIFT K_X] > U+03A7    c Χ
++ [SHIFT K_C] > U+03A8    c Ψ
++ [SHIFT K_V] > U+03A9    c Ω
 
 c =============================================================================
-c Tonos (acute accent) — dead key on semicolon (;) = Greek tonos key
+c Tonos (acute accent) — dead key via K_COLON or touch T_TONOS
 c =============================================================================
 + [K_COLON] > dk(tonos)
++ [T_TONOS] > dk(tonos)
 
 dk(tonos) + [K_A] > U+03AC    c ά
 dk(tonos) + [K_E] > U+03AD    c έ
@@ -99,36 +103,34 @@ dk(tonos) + [SHIFT K_O] > U+038C    c Ό
 dk(tonos) + [SHIFT K_Y] > U+038E    c Ύ
 dk(tonos) + [SHIFT K_V] > U+038F    c Ώ
 
-c Tonos + space = literal semicolon
-dk(tonos) + [K_SPACE] > ';'
-c Tonos + tonos = dialytika tonos (΅)
-dk(tonos) + [K_COLON] > U+0385
+dk(tonos) + [K_SPACE] > U+0384     c ΄ tonos mark
+dk(tonos) + [K_COLON] > U+0385     c ΅ dialytika tonos
 
 c =============================================================================
-c Dialytika (diaeresis) on ι and υ
+c Dialytika (diaeresis) — dead key via SHIFT+semicolon
 c =============================================================================
-c ϊ ϋ are produced via shift-; (΅ dead key) then vowel, or dedicated keys
 + [SHIFT K_COLON] > dk(dialytika)
 
 dk(dialytika) + [K_I] > U+03CA    c ϊ
 dk(dialytika) + [K_Y] > U+03CB    c ϋ
 dk(dialytika) + [SHIFT K_I] > U+03AA    c Ϊ
 dk(dialytika) + [SHIFT K_Y] > U+03AB    c Ϋ
-dk(dialytika) + [K_SPACE] > U+0385    c ΅ dialytika tonos
+dk(dialytika) + [K_SPACE] > U+00A8  c ¨
 
 c =============================================================================
-c PONTIC DEAD KEY: / (slash) — гачек (caron), бреве (breve), две точки снизу
+c PONTIC DEAD KEY: / (desktop) or T_PONTIC_DK (mobile)
 c =============================================================================
 + [K_SLASH] > dk(pontic)
++ [T_PONTIC_DK] > dk(pontic)
 
 c --- Гачек / Caron (U+030C) ---
-dk(pontic) + [K_Z] > U+03B6 U+030C    c ζ̌ zeta caron
-dk(pontic) + [K_X] > U+03C7 U+030C    c χ̌ chi caron
-dk(pontic) + [K_S] > U+03C3 U+030C    c σ̌ sigma caron (medial)
-dk(pontic) + [K_W] > U+03C2 U+030C    c ς̌ sigma caron (final)
-dk(pontic) + [K_K] > U+03BA U+030C    c κ̌ kappa caron
-dk(pontic) + [K_J] > U+03BE U+030C    c ξ̌ xi caron
-dk(pontic) + [K_C] > U+03C8 U+030C    c ψ̌ psi caron
+dk(pontic) + [K_Z] > U+03B6 U+030C    c ζ̌
+dk(pontic) + [K_X] > U+03C7 U+030C    c χ̌
+dk(pontic) + [K_S] > U+03C3 U+030C    c σ̌
+dk(pontic) + [K_W] > U+03C2 U+030C    c ς̌
+dk(pontic) + [K_K] > U+03BA U+030C    c κ̌
+dk(pontic) + [K_J] > U+03BE U+030C    c ξ̌
+dk(pontic) + [K_C] > U+03C8 U+030C    c ψ̌
 
 dk(pontic) + [SHIFT K_Z] > U+0396 U+030C    c Ζ̌
 dk(pontic) + [SHIFT K_X] > U+03A7 U+030C    c Χ̌
@@ -138,7 +140,7 @@ dk(pontic) + [SHIFT K_J] > U+039E U+030C    c Ξ̌
 dk(pontic) + [SHIFT K_C] > U+03A8 U+030C    c Ψ̌
 
 c --- Бреве / Breve (U+0306) ---
-dk(pontic) + [K_G] > U+03B3 U+0306    c γ̆ gamma breve
+dk(pontic) + [K_G] > U+03B3 U+0306    c γ̆
 dk(pontic) + [SHIFT K_G] > U+0393 U+0306    c Γ̆
 
 c --- Две точки снизу / Diaeresis Below (U+0324) ---
@@ -147,8 +149,9 @@ dk(pontic) + [K_O] > U+03BF U+0324    c ο̤
 dk(pontic) + [SHIFT K_A] > U+0391 U+0324    c Α̤
 dk(pontic) + [SHIFT K_O] > U+039F U+0324    c Ο̤
 
-c --- Tonos + diaeresis below (chained: / then ; then vowel) ---
+c --- Chained: pontic + tonos + vowel ---
 dk(pontic) + [K_COLON] > dk(pontic_tonos)
+dk(pontic) + [T_TONOS] > dk(pontic_tonos)
 
 dk(pontic_tonos) + [K_A] > U+03AC U+0324    c ά̤
 dk(pontic_tonos) + [K_O] > U+03CC U+0324    c ό̤
@@ -156,15 +159,14 @@ dk(pontic_tonos) + [SHIFT K_A] > U+0386 U+0324    c Ά̤
 dk(pontic_tonos) + [SHIFT K_O] > U+038C U+0324    c Ό̤
 dk(pontic_tonos) + [K_SPACE] > '/' ';'
 
-c --- Pontic dead key + space = literal slash ---
+c --- Pontic + space = literal slash ---
 dk(pontic) + [K_SPACE] > '/'
 
 c =============================================================================
-c Custom keys for touch layout (T_ prefix = touch-only keys)
-c These map subkey IDs from the touch layout to their Unicode output
+c TOUCH-ONLY KEYS (T_ prefix) — long-press subkeys
 c =============================================================================
 
-c --- Caron subkeys ---
+c --- Lowercase caron subkeys ---
 + [T_ZETA_CARON] > U+03B6 U+030C         c ζ̌
 + [T_CHI_CARON] > U+03C7 U+030C          c χ̌
 + [T_SIGMA_CARON] > U+03C3 U+030C        c σ̌
@@ -173,6 +175,7 @@ c --- Caron subkeys ---
 + [T_XI_CARON] > U+03BE U+030C           c ξ̌
 + [T_PSI_CARON] > U+03C8 U+030C          c ψ̌
 
+c --- Uppercase caron subkeys ---
 + [T_ZETA_CARON_UC] > U+0396 U+030C      c Ζ̌
 + [T_CHI_CARON_UC] > U+03A7 U+030C       c Χ̌
 + [T_SIGMA_CARON_UC] > U+03A3 U+030C     c Σ̌
@@ -184,22 +187,26 @@ c --- Breve subkeys ---
 + [T_GAMMA_BREVE] > U+03B3 U+0306        c γ̆
 + [T_GAMMA_BREVE_UC] > U+0393 U+0306     c Γ̆
 
-c --- Diaeresis below subkeys ---
+c --- Diaeresis below subkeys (lowercase) ---
 + [T_ALPHA_DBELOW] > U+03B1 U+0324       c α̤
 + [T_OMICRON_DBELOW] > U+03BF U+0324     c ο̤
+
+c --- Diaeresis below subkeys (uppercase) ---
 + [T_ALPHA_DBELOW_UC] > U+0391 U+0324    c Α̤
 + [T_OMICRON_DBELOW_UC] > U+039F U+0324  c Ο̤
 
-c --- Tonos + diaeresis below subkeys ---
+c --- Tonos + diaeresis below subkeys (lowercase) ---
 + [T_ALPHA_TONOS_DBELOW] > U+03AC U+0324    c ά̤
 + [T_OMICRON_TONOS_DBELOW] > U+03CC U+0324  c ό̤
+
+c --- Tonos + diaeresis below subkeys (uppercase) ---
 + [T_ALPHA_TONOS_DBELOW_UC] > U+0386 U+0324 c Ά̤
 + [T_OMICRON_TONOS_DBELOW_UC] > U+038C U+0324 c Ό̤
 
 c --- Sigma final subkey ---
 + [T_SIGMA_FINAL] > U+03C2               c ς
 
-c --- Accented vowel subkeys ---
+c --- Accented vowel subkeys (LOWERCASE) ---
 + [T_ALPHA_TONOS] > U+03AC               c ά
 + [T_EPSILON_TONOS] > U+03AD             c έ
 + [T_ETA_TONOS] > U+03AE                 c ή
@@ -212,8 +219,83 @@ c --- Accented vowel subkeys ---
 + [T_UPSILON_DIALYTIKA_TONOS] > U+03B0  c ΰ
 + [T_OMEGA_TONOS] > U+03CE               c ώ
 
+c --- Accented vowel subkeys (UPPERCASE) — v2.0 added ---
++ [T_ALPHA_TONOS_UC] > U+0386            c Ά
++ [T_EPSILON_TONOS_UC] > U+0388          c Έ
++ [T_ETA_TONOS_UC] > U+0389              c Ή
++ [T_IOTA_TONOS_UC] > U+038A             c Ί
++ [T_IOTA_DIALYTIKA_UC] > U+03AA        c Ϊ
++ [T_UPSILON_DIALYTIKA_UC] > U+03AB     c Ϋ
++ [T_OMICRON_TONOS_UC] > U+038C          c Ό
++ [T_UPSILON_TONOS_UC] > U+038E          c Ύ
++ [T_OMEGA_TONOS_UC] > U+038F            c Ώ
+
 c =============================================================================
-c Punctuation and numbers
+c PUNCTUATION AND SYMBOL TOUCH KEYS — v2.0 added
+c =============================================================================
+
+c --- Basic punctuation ---
++ [T_COMMA] > ','
++ [T_QUESTION] > '?'
++ [T_EXCLAIM] > '!'
++ [T_COLON] > ':'
++ [T_SEMICOLON] > ';'
++ [T_APOSTROPHE] > U+0027                c '
+
+c --- Numeric layer keys ---
++ [T_HYPHEN] > '-'
++ [T_SLASH] > '/'
++ [T_COLON2] > ':'
++ [T_SEMICOLON2] > ';'
++ [T_LPAREN] > '('
++ [T_RPAREN] > ')'
++ [T_EURO] > U+20AC                      c €
++ [T_DOLLAR] > '$'
++ [T_RUBLE] > U+20BD                     c ₽
++ [T_POUND] > U+00A3                     c £
++ [T_AMPERSAND] > '&'
++ [T_AT] > '@'
++ [T_DQUOTE] > '"'
++ [T_LQUOTE] > U+201E                    c „
++ [T_RQUOTE] > U+201C                    c "
++ [T_RQUOTE2] > U+201D                   c "
++ [T_LGUILL] > U+00AB                    c «
++ [T_RGUILL] > U+00BB                    c »
++ [T_PERIOD2] > '.'
++ [T_COMMA2] > ','
++ [T_QUESTION2] > '?'
++ [T_EXCLAIM2] > '!'
++ [T_SQUOTE] > U+0027                    c '
+
+c --- Symbol layer keys ---
++ [T_LBRKT] > '['
++ [T_RBRKT] > ']'
++ [T_LBRACE] > '{'
++ [T_RBRACE] > '}'
++ [T_HASH] > '#'
++ [T_PERCENT] > '%'
++ [T_CARET] > '^'
++ [T_STAR] > '*'
++ [T_PLUS] > '+'
++ [T_EQUALS] > '='
++ [T_UNDERSCORE] > '_'
++ [T_BACKSLASH] > '\'
++ [T_PIPE] > '|'
++ [T_TILDE] > '~'
++ [T_LT] > '<'
++ [T_GT] > '>'
++ [T_DOLLAR2] > '$'
++ [T_POUND2] > U+00A3                    c £
++ [T_YEN] > U+00A5                       c ¥
++ [T_BULLET] > U+2022                    c •
++ [T_PERIOD3] > '.'
++ [T_COMMA3] > ','
++ [T_QUESTION3] > '?'
++ [T_EXCLAIM3] > '!'
++ [T_SQUOTE2] > U+0027                   c '
+
+c =============================================================================
+c Standard keyboard punctuation
 c =============================================================================
 + [K_1] > '1'
 + [K_2] > '2'
