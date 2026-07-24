@@ -2,16 +2,19 @@
 #SingleInstance Off
 
 ; ==============================================================================
-; Понтийская Греческая Раскладка (Pontic Greek) — Windows AHK v3.1
+; Понтийская Греческая Раскладка (Pontic Greek) — Windows AHK v3.2
 ; ==============================================================================
 ; Единая понтийская мёртвая клавиша / (слэш) поверх стандартной греческой
 ; раскладки Windows.
 ;
+; Изменения v3.2:
+; - Исправлено: σ̌ между гласными (ασ̌α) — определение σ/ς по ФИЗИЧЕСКОЙ
+;   клавише (S=0x53 → σ̌, W=0x57 → ς̌), а не по символу из InputHook.
+;   Windows преобразовывает σ→ς в контексте слова, теперь это не влияет.
+;
 ; Изменения v3.1:
-; - Исправлено: ς̌ (конечная сигма с гачеком) теперь корректно выводится при
-;   нажатии / + W (конечная сигма ς).
-; - Исправлено: устранена ошибка "Could not close the previous instance".
-;   Скрипт корректно закрывает старые экземпляры (включая запущенные от админа).
+; - Устранена ошибка "Could not close the previous instance".
+; - Хуки работают только при активной греческой раскладке.
 ;
 ; Требования:
 ; 1. В Windows должна быть выбрана стандартная ГРЕЧЕСКАЯ раскладка.
@@ -40,7 +43,7 @@ ClosePreviousInstances() {
                 result := MsgBox(
                     "Обнаружена ранее запущенная копия клавиатуры.`n`n"
                   . "Закрыть старую копию и запустить новую?",
-                    "Pontic Keyboard v3.1", "YesNo Icon?"
+                    "Pontic Keyboard v3.2", "YesNo Icon?"
                 )
                 if (result == "Yes") {
                     try {
@@ -56,6 +59,15 @@ ClosePreviousInstances() {
     }
 }
 ClosePreviousInstances()
+
+; Callback для определения физической клавиши (Virtual Key Code)
+; Windows может преобразовывать σ→ς в контексте слова, но VK всегда точный:
+; S key = VK 0x53 = медиальная σ, W key = VK 0x57 = конечная ς
+global g_LastVK := 0
+HandleKeyDown(ih, vk, sc) {
+    global g_LastVK
+    g_LastVK := vk
+}
 
 ; Проверка: активна ли греческая раскладка (0x0408 = Greek)
 IsGreekLayout() {
@@ -82,14 +94,19 @@ SendCombining(base, combining) {
 ; ЕДИНАЯ ПОНТИЙСКАЯ КЛАВИША: / (слэш / vkBF)
 ; ---------------------------------------------------------
 $*vkBF:: {
+    global g_LastVK
+
     if !IsGreekLayout() {
         Send("{Blind}{vkBF}")
         return
     }
 
     isShift := GetKeyState("Shift", "P")
+    g_LastVK := 0
 
     ih := InputHook("L1 T2")
+    ih.KeyOpt("{All}", "N")     ; Уведомления обо всех клавишах → OnKeyDown
+    ih.OnKeyDown := HandleKeyDown
     ih.Start()
     ih.Wait()
 
@@ -112,12 +129,17 @@ $*vkBF:: {
         SendCombining(0x03C7, 0x030C) ; χ̌
     else if (char == "Χ")
         SendCombining(0x03A7, 0x030C) ; Χ̌
-    else if (char == "σ")
-        SendCombining(0x03C3, 0x030C) ; σ̌ (медиальная сигма с гачеком)
+    else if (char == "σ" || char == "ς") {
+        ; Определяем σ̌/ς̌ по ФИЗИЧЕСКОЙ клавише, не по символу.
+        ; Windows преобразовывает σ→ς в контексте слова (между гласными),
+        ; но VK код всегда точный: S=0x53 (медиальная), W=0x57 (конечная).
+        if (g_LastVK == 0x57)  ; W key → конечная сигма
+            SendCombining(0x03C2, 0x030C) ; ς̌
+        else  ; S key (0x53) или другая → медиальная сигма
+            SendCombining(0x03C3, 0x030C) ; σ̌
+    }
     else if (char == "Σ")
-        SendCombining(0x03A3, 0x030C) ; Σ̌ (заглавная сигма с гачеком)
-    else if (char == "ς")
-        SendCombining(0x03C2, 0x030C) ; ς̌ (конечная сигма с гачеком)
+        SendCombining(0x03A3, 0x030C) ; Σ̌
     else if (char == "κ")
         SendCombining(0x03BA, 0x030C) ; κ̌
     else if (char == "Κ")
