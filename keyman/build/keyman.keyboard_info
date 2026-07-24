@@ -16,15 +16,15 @@
       "displayName": "Greek"
     }
   },
-  "lastModifiedDate": "2026-07-24T08:12:20.992Z",
+  "lastModifiedDate": "2026-07-24T08:12:31.000Z",
   "packageFilename": "pontic_greek.kmp",
-  "packageFileSize": 5529,
+  "packageFileSize": 6225,
   "jsFilename": "pontic_greek.js",
-  "jsFileSize": 25939,
+  "jsFileSize": 33230,
   "packageIncludes": [
     "welcome"
   ],
-  "version": "1.0",
+  "version": "2.0",
   "encodings": [
     "unicode"
   ],
