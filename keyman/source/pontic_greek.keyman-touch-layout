@@ -271,33 +271,73 @@
                 "id": "K_NUMLOCK",
                 "text": "*123*",
                 "sp": 1,
-                "width": 130,
+                "width": 110,
                 "nextlayer": "numeric"
               },
               {
-                "id": "K_LOPT",
-                "text": "*Menu*",
-                "sp": 1,
-                "width": 100
+                "id": "T_COMMA",
+                "text": ",",
+                "width": 90,
+                "sk": [
+                  {
+                    "id": "T_SEMICOLON",
+                    "text": ";"
+                  },
+                  {
+                    "id": "T_COLON",
+                    "text": ":"
+                  },
+                  {
+                    "id": "T_LPAREN",
+                    "text": "("
+                  },
+                  {
+                    "id": "T_RPAREN",
+                    "text": ")"
+                  },
+                  {
+                    "id": "T_HYPHEN",
+                    "text": "-"
+                  },
+                  {
+                    "id": "T_SLASH",
+                    "text": "/"
+                  }
+                ]
               },
               {
                 "id": "K_SPACE",
                 "text": "",
-                "width": 350
+                "width": 330
               },
               {
                 "id": "T_APOSTROPHE",
                 "text": "'",
-                "width": 60
-              },
-              {
-                "id": "K_PERIOD",
-                "text": ".",
+                "width": 90,
                 "sk": [
                   {
-                    "id": "T_COMMA",
-                    "text": ","
+                    "id": "T_RSQUOTE",
+                    "text": "’"
                   },
+                  {
+                    "id": "T_DQUOTE",
+                    "text": "\""
+                  },
+                  {
+                    "id": "T_LGUILL",
+                    "text": "«"
+                  },
+                  {
+                    "id": "T_RGUILL",
+                    "text": "»"
+                  }
+                ]
+              },
+              {
+                "id": "T_PERIOD",
+                "text": ".",
+                "width": 90,
+                "sk": [
                   {
                     "id": "T_QUESTION",
                     "text": "?"
@@ -307,12 +347,8 @@
                     "text": "!"
                   },
                   {
-                    "id": "T_COLON",
-                    "text": ":"
-                  },
-                  {
-                    "id": "T_SEMICOLON",
-                    "text": ";"
+                    "id": "T_ELLIPSIS",
+                    "text": "…"
                   }
                 ]
               },
@@ -320,7 +356,7 @@
                 "id": "K_ENTER",
                 "text": "*Enter*",
                 "sp": 1,
-                "width": 130
+                "width": 110
               }
             ]
           }
@@ -340,18 +376,15 @@
                     "id": "T_EPSILON_TONOS_UC",
                     "text": "Έ"
                   }
-                ],
-                "nextlayer": "default"
+                ]
               },
               {
                 "id": "K_R",
-                "text": "Ρ",
-                "nextlayer": "default"
+                "text": "Ρ"
               },
               {
                 "id": "K_T",
-                "text": "Τ",
-                "nextlayer": "default"
+                "text": "Τ"
               },
               {
                 "id": "K_Y",
@@ -365,13 +398,11 @@
                     "id": "T_UPSILON_DIALYTIKA_UC",
                     "text": "Ϋ"
                   }
-                ],
-                "nextlayer": "default"
+                ]
               },
               {
                 "id": "K_U",
-                "text": "Θ",
-                "nextlayer": "default"
+                "text": "Θ"
               },
               {
                 "id": "K_I",
@@ -385,8 +416,7 @@
                     "id": "T_IOTA_DIALYTIKA_UC",
                     "text": "Ϊ"
                   }
-                ],
-                "nextlayer": "default"
+                ]
               },
               {
                 "id": "K_O",
@@ -404,13 +434,11 @@
                     "id": "T_OMICRON_TONOS_DBELOW_UC",
                     "text": "Ό̤"
                   }
-                ],
-                "nextlayer": "default"
+                ]
               },
               {
                 "id": "K_P",
-                "text": "Π",
-                "nextlayer": "default"
+                "text": "Π"
               },
               {
                 "id": "T_TONOS",
@@ -443,8 +471,7 @@
                     "id": "T_ALPHA_TONOS_DBELOW_UC",
                     "text": "Ά̤"
                   }
-                ],
-                "nextlayer": "default"
+                ]
               },
               {
                 "id": "K_S",
@@ -454,18 +481,15 @@
                     "id": "T_SIGMA_CARON_UC",
                     "text": "Σ̌"
                   }
-                ],
-                "nextlayer": "default"
+                ]
               },
               {
                 "id": "K_D",
-                "text": "Δ",
-                "nextlayer": "default"
+                "text": "Δ"
               },
               {
                 "id": "K_F",
-                "text": "Φ",
-                "nextlayer": "default"
+                "text": "Φ"
               },
               {
                 "id": "K_G",
@@ -475,8 +499,7 @@
                     "id": "T_GAMMA_BREVE_UC",
                     "text": "Γ̆"
                   }
-                ],
-                "nextlayer": "default"
+                ]
               },
               {
                 "id": "K_H",
@@ -486,8 +509,7 @@
                     "id": "T_ETA_TONOS_UC",
                     "text": "Ή"
                   }
-                ],
-                "nextlayer": "default"
+                ]
               },
               {
                 "id": "K_J",
@@ -497,8 +519,7 @@
                     "id": "T_XI_CARON_UC",
                     "text": "Ξ̌"
                   }
-                ],
-                "nextlayer": "default"
+                ]
               },
               {
                 "id": "K_K",
@@ -508,13 +529,11 @@
                     "id": "T_KAPPA_CARON_UC",
                     "text": "Κ̌"
                   }
-                ],
-                "nextlayer": "default"
+                ]
               },
               {
                 "id": "K_L",
-                "text": "Λ",
-                "nextlayer": "default"
+                "text": "Λ"
               }
             ]
           },
@@ -536,8 +555,7 @@
                     "id": "T_ZETA_CARON_UC",
                     "text": "Ζ̌"
                   }
-                ],
-                "nextlayer": "default"
+                ]
               },
               {
                 "id": "K_X",
@@ -547,8 +565,7 @@
                     "id": "T_CHI_CARON_UC",
                     "text": "Χ̌"
                   }
-                ],
-                "nextlayer": "default"
+                ]
               },
               {
                 "id": "K_C",
@@ -558,8 +575,7 @@
                     "id": "T_PSI_CARON_UC",
                     "text": "Ψ̌"
                   }
-                ],
-                "nextlayer": "default"
+                ]
               },
               {
                 "id": "K_V",
@@ -569,23 +585,19 @@
                     "id": "T_OMEGA_TONOS_UC",
                     "text": "Ώ"
                   }
-                ],
-                "nextlayer": "default"
+                ]
               },
               {
                 "id": "K_B",
-                "text": "Β",
-                "nextlayer": "default"
+                "text": "Β"
               },
               {
                 "id": "K_N",
-                "text": "Ν",
-                "nextlayer": "default"
+                "text": "Ν"
               },
               {
                 "id": "K_M",
-                "text": "Μ",
-                "nextlayer": "default"
+                "text": "Μ"
               },
               {
                 "id": "K_BKSP",
@@ -602,49 +614,92 @@
                 "id": "K_NUMLOCK",
                 "text": "*123*",
                 "sp": 1,
-                "width": 130,
+                "width": 110,
                 "nextlayer": "numeric"
               },
               {
-                "id": "K_LOPT",
-                "text": "*Menu*",
-                "sp": 1,
-                "width": 100
+                "id": "T_COMMA_S",
+                "text": ",",
+                "width": 90,
+                "sk": [
+                  {
+                    "id": "T_SEMICOLON_S",
+                    "text": ";"
+                  },
+                  {
+                    "id": "T_COLON_S",
+                    "text": ":"
+                  },
+                  {
+                    "id": "T_LPAREN_S",
+                    "text": "("
+                  },
+                  {
+                    "id": "T_RPAREN_S",
+                    "text": ")"
+                  },
+                  {
+                    "id": "T_HYPHEN_S",
+                    "text": "-"
+                  },
+                  {
+                    "id": "T_SLASH_S",
+                    "text": "/"
+                  }
+                ]
               },
               {
                 "id": "K_SPACE",
                 "text": "",
-                "width": 350
+                "width": 330
               },
               {
-                "id": "T_APOSTROPHE",
+                "id": "T_APOSTROPHE_S",
                 "text": "'",
-                "width": 60
-              },
-              {
-                "id": "K_PERIOD",
-                "text": ".",
+                "width": 90,
                 "sk": [
                   {
-                    "id": "T_COMMA",
-                    "text": ","
+                    "id": "T_RSQUOTE_S",
+                    "text": "’"
                   },
                   {
-                    "id": "T_QUESTION",
+                    "id": "T_DQUOTE_S",
+                    "text": "\""
+                  },
+                  {
+                    "id": "T_LGUILL_S",
+                    "text": "«"
+                  },
+                  {
+                    "id": "T_RGUILL_S",
+                    "text": "»"
+                  }
+                ]
+              },
+              {
+                "id": "T_PERIOD_S",
+                "text": ".",
+                "width": 90,
+                "sk": [
+                  {
+                    "id": "T_QUESTION_S",
                     "text": "?"
                   },
                   {
-                    "id": "T_EXCLAIM",
+                    "id": "T_EXCLAIM_S",
                     "text": "!"
+                  },
+                  {
+                    "id": "T_ELLIPSIS_S",
+                    "text": "…"
                   }
-                ],
-                "nextlayer": "default"
+                ]
               },
               {
                 "id": "K_ENTER",
                 "text": "*Enter*",
                 "sp": 1,
-                "width": 130
+                "width": 110
               }
             ]
           }
@@ -1307,28 +1362,73 @@
                 "id": "K_NUMLOCK",
                 "text": "*123*",
                 "sp": 1,
-                "width": 130,
+                "width": 110,
                 "nextlayer": "numeric"
               },
               {
-                "id": "K_LOPT",
-                "text": "*Menu*",
-                "sp": 1,
-                "width": 100
+                "id": "T_COMMA",
+                "text": ",",
+                "width": 90,
+                "sk": [
+                  {
+                    "id": "T_SEMICOLON",
+                    "text": ";"
+                  },
+                  {
+                    "id": "T_COLON",
+                    "text": ":"
+                  },
+                  {
+                    "id": "T_LPAREN",
+                    "text": "("
+                  },
+                  {
+                    "id": "T_RPAREN",
+                    "text": ")"
+                  },
+                  {
+                    "id": "T_HYPHEN",
+                    "text": "-"
+                  },
+                  {
+                    "id": "T_SLASH",
+                    "text": "/"
+                  }
+                ]
               },
               {
                 "id": "K_SPACE",
                 "text": "",
-                "width": 500
+                "width": 330
               },
               {
-                "id": "K_PERIOD",
-                "text": ".",
+                "id": "T_APOSTROPHE",
+                "text": "'",
+                "width": 90,
                 "sk": [
                   {
-                    "id": "T_COMMA",
-                    "text": ","
+                    "id": "T_RSQUOTE",
+                    "text": "’"
                   },
+                  {
+                    "id": "T_DQUOTE",
+                    "text": "\""
+                  },
+                  {
+                    "id": "T_LGUILL",
+                    "text": "«"
+                  },
+                  {
+                    "id": "T_RGUILL",
+                    "text": "»"
+                  }
+                ]
+              },
+              {
+                "id": "T_PERIOD",
+                "text": ".",
+                "width": 90,
+                "sk": [
                   {
                     "id": "T_QUESTION",
                     "text": "?"
@@ -1336,6 +1436,10 @@
                   {
                     "id": "T_EXCLAIM",
                     "text": "!"
+                  },
+                  {
+                    "id": "T_ELLIPSIS",
+                    "text": "…"
                   }
                 ]
               },
@@ -1343,7 +1447,7 @@
                 "id": "K_ENTER",
                 "text": "*Enter*",
                 "sp": 1,
-                "width": 130
+                "width": 110
               }
             ]
           }
@@ -1363,18 +1467,15 @@
                     "id": "T_EPSILON_TONOS_UC",
                     "text": "Έ"
                   }
-                ],
-                "nextlayer": "default"
+                ]
               },
               {
                 "id": "K_R",
-                "text": "Ρ",
-                "nextlayer": "default"
+                "text": "Ρ"
               },
               {
                 "id": "K_T",
-                "text": "Τ",
-                "nextlayer": "default"
+                "text": "Τ"
               },
               {
                 "id": "K_Y",
@@ -1388,13 +1489,11 @@
                     "id": "T_UPSILON_DIALYTIKA_UC",
                     "text": "Ϋ"
                   }
-                ],
-                "nextlayer": "default"
+                ]
               },
               {
                 "id": "K_U",
-                "text": "Θ",
-                "nextlayer": "default"
+                "text": "Θ"
               },
               {
                 "id": "K_I",
@@ -1408,8 +1507,7 @@
                     "id": "T_IOTA_DIALYTIKA_UC",
                     "text": "Ϊ"
                   }
-                ],
-                "nextlayer": "default"
+                ]
               },
               {
                 "id": "K_O",
@@ -1427,13 +1525,11 @@
                     "id": "T_OMICRON_TONOS_DBELOW_UC",
                     "text": "Ό̤"
                   }
-                ],
-                "nextlayer": "default"
+                ]
               },
               {
                 "id": "K_P",
-                "text": "Π",
-                "nextlayer": "default"
+                "text": "Π"
               },
               {
                 "id": "T_TONOS",
@@ -1467,8 +1563,7 @@
                     "id": "T_ALPHA_TONOS_DBELOW_UC",
                     "text": "Ά̤"
                   }
-                ],
-                "nextlayer": "default"
+                ]
               },
               {
                 "id": "K_S",
@@ -1478,18 +1573,15 @@
                     "id": "T_SIGMA_CARON_UC",
                     "text": "Σ̌"
                   }
-                ],
-                "nextlayer": "default"
+                ]
               },
               {
                 "id": "K_D",
-                "text": "Δ",
-                "nextlayer": "default"
+                "text": "Δ"
               },
               {
                 "id": "K_F",
-                "text": "Φ",
-                "nextlayer": "default"
+                "text": "Φ"
               },
               {
                 "id": "K_G",
@@ -1499,8 +1591,7 @@
                     "id": "T_GAMMA_BREVE_UC",
                     "text": "Γ̆"
                   }
-                ],
-                "nextlayer": "default"
+                ]
               },
               {
                 "id": "K_H",
@@ -1510,8 +1601,7 @@
                     "id": "T_ETA_TONOS_UC",
                     "text": "Ή"
                   }
-                ],
-                "nextlayer": "default"
+                ]
               },
               {
                 "id": "K_J",
@@ -1521,8 +1611,7 @@
                     "id": "T_XI_CARON_UC",
                     "text": "Ξ̌"
                   }
-                ],
-                "nextlayer": "default"
+                ]
               },
               {
                 "id": "K_K",
@@ -1532,13 +1621,11 @@
                     "id": "T_KAPPA_CARON_UC",
                     "text": "Κ̌"
                   }
-                ],
-                "nextlayer": "default"
+                ]
               },
               {
                 "id": "K_L",
-                "text": "Λ",
-                "nextlayer": "default"
+                "text": "Λ"
               },
               {
                 "id": "T_APOSTROPHE",
@@ -1564,8 +1651,7 @@
                     "id": "T_ZETA_CARON_UC",
                     "text": "Ζ̌"
                   }
-                ],
-                "nextlayer": "default"
+                ]
               },
               {
                 "id": "K_X",
@@ -1575,8 +1661,7 @@
                     "id": "T_CHI_CARON_UC",
                     "text": "Χ̌"
                   }
-                ],
-                "nextlayer": "default"
+                ]
               },
               {
                 "id": "K_C",
@@ -1586,8 +1671,7 @@
                     "id": "T_PSI_CARON_UC",
                     "text": "Ψ̌"
                   }
-                ],
-                "nextlayer": "default"
+                ]
               },
               {
                 "id": "K_V",
@@ -1597,23 +1681,19 @@
                     "id": "T_OMEGA_TONOS_UC",
                     "text": "Ώ"
                   }
-                ],
-                "nextlayer": "default"
+                ]
               },
               {
                 "id": "K_B",
-                "text": "Β",
-                "nextlayer": "default"
+                "text": "Β"
               },
               {
                 "id": "K_N",
-                "text": "Ν",
-                "nextlayer": "default"
+                "text": "Ν"
               },
               {
                 "id": "K_M",
-                "text": "Μ",
-                "nextlayer": "default"
+                "text": "Μ"
               },
               {
                 "id": "K_BKSP",
@@ -1630,30 +1710,92 @@
                 "id": "K_NUMLOCK",
                 "text": "*123*",
                 "sp": 1,
-                "width": 130,
+                "width": 110,
                 "nextlayer": "numeric"
               },
               {
-                "id": "K_LOPT",
-                "text": "*Menu*",
-                "sp": 1,
-                "width": 100
+                "id": "T_COMMA_S",
+                "text": ",",
+                "width": 90,
+                "sk": [
+                  {
+                    "id": "T_SEMICOLON_S",
+                    "text": ";"
+                  },
+                  {
+                    "id": "T_COLON_S",
+                    "text": ":"
+                  },
+                  {
+                    "id": "T_LPAREN_S",
+                    "text": "("
+                  },
+                  {
+                    "id": "T_RPAREN_S",
+                    "text": ")"
+                  },
+                  {
+                    "id": "T_HYPHEN_S",
+                    "text": "-"
+                  },
+                  {
+                    "id": "T_SLASH_S",
+                    "text": "/"
+                  }
+                ]
               },
               {
                 "id": "K_SPACE",
                 "text": "",
-                "width": 500
+                "width": 330
               },
               {
-                "id": "K_PERIOD",
+                "id": "T_APOSTROPHE_S",
+                "text": "'",
+                "width": 90,
+                "sk": [
+                  {
+                    "id": "T_RSQUOTE_S",
+                    "text": "’"
+                  },
+                  {
+                    "id": "T_DQUOTE_S",
+                    "text": "\""
+                  },
+                  {
+                    "id": "T_LGUILL_S",
+                    "text": "«"
+                  },
+                  {
+                    "id": "T_RGUILL_S",
+                    "text": "»"
+                  }
+                ]
+              },
+              {
+                "id": "T_PERIOD_S",
                 "text": ".",
-                "nextlayer": "default"
+                "width": 90,
+                "sk": [
+                  {
+                    "id": "T_QUESTION_S",
+                    "text": "?"
+                  },
+                  {
+                    "id": "T_EXCLAIM_S",
+                    "text": "!"
+                  },
+                  {
+                    "id": "T_ELLIPSIS_S",
+                    "text": "…"
+                  }
+                ]
               },
               {
                 "id": "K_ENTER",
                 "text": "*Enter*",
                 "sp": 1,
-                "width": 130
+                "width": 110
               }
             ]
           }

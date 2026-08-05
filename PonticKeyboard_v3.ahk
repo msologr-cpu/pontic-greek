@@ -2,31 +2,34 @@
 #SingleInstance Off
 
 ; ==============================================================================
-; Понтийская Греческая Раскладка (Pontic Greek) — Windows AHK v3.4
+; Понтийская Греческая Раскладка (Pontic Greek) — Windows AHK v3.5
 ; ==============================================================================
 ; Единая понтийская мёртвая клавиша / (слэш) поверх стандартной греческой
 ; раскладки Windows.
 ;
-; Изменения v3.4:
-; - Исправлен баг MS Word с подменой σ̌ → ς̌ между гласными: отправка медиальной
-;   сигмы σ̌ выполняется атомарно через буфер обмена (Clipboard), что блокирует
-;   поклавишный механизм автозамены конечной сигмы MS Word.
-;
-; Изменения v3.3:
-; - Защита от автозамены MS Word: при наборе τ' или Τ' скрипт автоматически
-;   выводит типографский апостроф τ’ / Τ’ (U+2019). Это полностью блокирует
-;   встроенный баг MS Word, который принудительно заменял τ' → τα'.
-;
-; Изменения v3.2:
-; - Исправлено: σ̌ между гласными (ασ̌α) — определение σ/ς по ФИЗИЧЕСКОЙ
-;   клавише (S=0x53 → σ̌, W=0x57 → ς̌).
+; Изменения v3.5 (ГЛАВНОЕ ОБНОВЛЕНИЕ):
+; - НАСТОЯЩЕЕ решение проблем MS Word: скрипт теперь САМ ОТКЛЮЧАЕТ в MS Word
+;   автозамену (AutoCorrect), из-за которой ломались σ̌ и τ'. Раньше мы пытались
+;   «обмануть» Word — это не срабатывало. Теперь причина устраняется в корне.
+; - Уведомление при запуске с НОМЕРОМ ВЕРСИИ — теперь всегда видно, какая
+;   именно версия работает.
+; - Меню в трее: «О программе», «Диагностика», «Починить MS Word», «Выход».
+; - Окно ДИАГНОСТИКИ (Ctrl+Alt+P): показывает версию, активную раскладку,
+;   программу и состояние MS Word. Скриншот этого окна помогает найти проблему.
+; - Надёжное определение греческой раскладки (с запасным способом).
+; - Надёжная вставка через буфер обмена (ClipWait + корректные задержки).
 ;
 ; Требования:
 ; 1. В Windows должна быть выбрана стандартная ГРЕЧЕСКАЯ раскладка.
 ; 2. Установлен AutoHotkey v2 (или запуск готового .exe).
 ; ==============================================================================
 
+global APP_VERSION := "3.5"
+global APP_TITLE := "Понтийская клавиатура v" APP_VERSION
+global APP_VARIANT := "Вариант 1: одна клавиша /"
+
 TraySetIcon("shell32.dll", 268)
+A_IconTip := APP_TITLE "`n" APP_VARIANT
 
 ; Разрешаем отправку сообщений от процессов с меньшими правами (UIPI Bypass)
 try {
@@ -34,7 +37,9 @@ try {
     DllCall("User32\ChangeWindowMessageFilter", "UInt", 0x0111, "UInt", 1) ; WM_COMMAND
 }
 
-; Собственное корректное управление единственным экземпляром
+; ==============================================================================
+; Управление единственным экземпляром
+; ==============================================================================
 ClosePreviousInstances() {
     DetectHiddenWindows(true)
     ourPID := ProcessExist()
@@ -48,7 +53,7 @@ ClosePreviousInstances() {
                 result := MsgBox(
                     "Обнаружена ранее запущенная копия клавиатуры.`n`n"
                   . "Закрыть старую копию и запустить новую?",
-                    "Pontic Keyboard v3.4", "YesNo Icon?"
+                    APP_TITLE, "YesNo Icon?"
                 )
                 if (result == "Yes") {
                     try {
@@ -65,42 +70,121 @@ ClosePreviousInstances() {
 }
 ClosePreviousInstances()
 
-; Callback для определения физической клавиши (Virtual Key Code)
-global g_LastVK := 0
-HandleKeyDown(ih, vk, sc) {
-    global g_LastVK
-    g_LastVK := vk
+; ==============================================================================
+; ОПРЕДЕЛЕНИЕ РАСКЛАДКИ
+; ==============================================================================
+GetActiveHKL() {
+    try {
+        hwnd := WinGetID("A")
+        tid := DllCall("GetWindowThreadProcessId", "Ptr", hwnd, "Ptr", 0)
+        h := DllCall("GetKeyboardLayout", "UInt", tid, "Ptr")
+        if (h != 0)
+            return h
+    }
+    ; Запасной способ: раскладка текущего потока
+    return DllCall("GetKeyboardLayout", "UInt", 0, "Ptr")
 }
 
-; Проверка: активна ли греческая раскладка (0x0408 = Greek)
 IsGreekLayout() {
+    return (GetActiveHKL() & 0xFFFF) == 0x0408
+}
+
+; ==============================================================================
+; ИСПРАВЛЕНИЕ MS WORD — отключение автозамены, ломающей понтийские символы
+; ==============================================================================
+; Причина проблем носителя языка:
+;   1) σ̌ → ς̌  : Word считает комбинируемый гачек (U+030C) НЕ-буквой, поэтому
+;                решает, что σ стоит в конце слова, и меняет её на конечную ς.
+;   2) τ' → τα': греческий список автозамены Word содержит подобные правила.
+; Обе функции живут в AutoCorrect. Единственное надёжное решение — выключить их.
+; ==============================================================================
+global g_WordFixed := false
+global g_WordLastPID := 0
+
+FixWordAutoCorrect(silent := true) {
+    global g_WordFixed
     try {
-        threadId := DllCall("GetWindowThreadProcessId", "Ptr", WinGetID("A"), "Ptr", 0)
-        hkl := DllCall("GetKeyboardLayout", "UInt", threadId, "Ptr")
-        return (hkl & 0xFFFF) == 0x0408
+        w := ComObjActive("Word.Application")
     } catch {
+        if !silent {
+            MsgBox(
+                "MS Word сейчас не запущен.`n`n"
+              . "Откройте Word и снова выберите этот пункт меню,`n"
+              . "либо просто начните печатать — исправление применится само.",
+                APP_TITLE, "Icon!"
+            )
+        }
         return false
     }
+
+    ; Отключаем всё, что вмешивается в набор
+    try w.AutoCorrect.ReplaceText := false
+    try w.AutoCorrect.ReplaceTextFromSpellingChecker := false
+    try w.AutoCorrect.CorrectSentenceCaps := false
+    try w.AutoCorrect.CorrectInitialCaps := false
+    try w.AutoCorrect.CorrectCapsLock := false
+    try w.AutoCorrect.CorrectDays := false
+    try w.AutoCorrect.CorrectHangulAndAlphabet := false
+    try w.Options.AutoFormatAsYouTypeReplaceQuotes := false
+    try w.Options.AutoFormatAsYouTypeReplaceSymbols := false
+    try w.Options.AutoFormatAsYouTypeReplaceOrdinals := false
+
+    g_WordFixed := true
+
+    if !silent {
+        MsgBox(
+            "Готово! Автозамена MS Word отключена.`n`n"
+          . "Теперь σ̌ между гласными и τ' должны вводиться правильно.",
+            APP_TITLE, "Iconi"
+        )
+    }
+    return true
 }
 
-; Функция для отправки текста
+; Следим за запуском Word и применяем исправление автоматически
+WordWatch() {
+    global g_WordFixed, g_WordLastPID
+    pid := ProcessExist("WINWORD.EXE")
+    if (pid == 0) {
+        g_WordFixed := false
+        g_WordLastPID := 0
+        return
+    }
+    if (pid != g_WordLastPID) {
+        g_WordLastPID := pid
+        g_WordFixed := false
+    }
+    if !g_WordFixed
+        FixWordAutoCorrect(true)
+}
+SetTimer(WordWatch, 4000)
+SetTimer(() => WordWatch(), -1500)
+
+; ==============================================================================
+; ОТПРАВКА СИМВОЛОВ
+; ==============================================================================
 SendU(chars) {
     SendText(chars)
 }
 
-; Безопасная вставка через буфер обмена для блокировки автозамены MS Word
+; Надёжная вставка через буфер обмена (страховка от посимвольной автозамены)
 PasteText(str) {
     clipSaved := ClipboardAll()
+    A_Clipboard := ""
     A_Clipboard := str
-    Send("^v")
-    Sleep(50)
-    A_Clipboard := clipSaved
+    if !ClipWait(1, 1) {
+        SendText(str)
+        try A_Clipboard := clipSaved
+        return
+    }
+    SendInput("^v")
+    Sleep(150)
+    try A_Clipboard := clipSaved
 }
 
-; Функция для отправки комбинируемых символов (base + combining mark)
+; Отправка комбинируемых символов (база + комбинируемый знак)
 SendCombining(base, combining) {
-    ; Для медиальной сигмы σ (0x03C3) вставляем через буфер обмена,
-    ; чтобы MS Word не срабатывал на автозамену σ -> ς
+    ; Медиальная сигма σ (U+03C3) — вставляем атомарно через буфер обмена
     if (base == 0x03C3) {
         PasteText(Chr(base) Chr(combining))
     } else {
@@ -108,9 +192,15 @@ SendCombining(base, combining) {
     }
 }
 
-; ---------------------------------------------------------
+; ==============================================================================
 ; ЕДИНАЯ ПОНТИЙСКАЯ КЛАВИША: / (слэш / vkBF)
-; ---------------------------------------------------------
+; ==============================================================================
+global g_LastVK := 0
+HandleKeyDown(ih, vk, sc) {
+    global g_LastVK
+    g_LastVK := vk
+}
+
 $*vkBF:: {
     global g_LastVK
 
@@ -204,10 +294,107 @@ $*vkBF:: {
     }
 }
 
-; ---------------------------------------------------------
-; Защита от автозамены MS Word для апострофа после τ / Τ
-; ---------------------------------------------------------
+; ==============================================================================
+; Страховка: типографский апостроф после τ / Τ (на случай, если автозамену
+; Word отключить не удалось — например, в старых версиях Office)
+; ==============================================================================
 #HotIf IsGreekLayout()
 :?*:τ'::τ’
 :?*:Τ'::Τ’
 #HotIf
+
+; ==============================================================================
+; ДИАГНОСТИКА (Ctrl+Alt+P)
+; ==============================================================================
+ShowDiagnostics(*) {
+    global APP_VERSION, APP_TITLE, APP_VARIANT, g_WordFixed
+
+    hklText := "не определена"
+    layoutText := "?"
+    winTitle := "?"
+    winProc := "?"
+
+    try {
+        hwnd := WinGetID("A")
+        tid := DllCall("GetWindowThreadProcessId", "Ptr", hwnd, "Ptr", 0)
+        hkl := DllCall("GetKeyboardLayout", "UInt", tid, "Ptr")
+        langId := hkl & 0xFFFF
+        hklText := Format("0x{:04X}", langId)
+        layoutText := (langId == 0x0408) ? "ГРЕЧЕСКАЯ — верно"
+                    : (langId == 0x0419) ? "Русская — переключитесь на греческую!"
+                    : (langId == 0x0409) ? "Английская — переключитесь на греческую!"
+                    : "Другая — переключитесь на греческую!"
+        winTitle := WinGetTitle(hwnd)
+        winProc := WinGetProcessName(hwnd)
+    }
+
+    wordState := "MS Word не запущен"
+    if ProcessExist("WINWORD.EXE") {
+        try {
+            w := ComObjActive("Word.Application")
+            rt := w.AutoCorrect.ReplaceText
+            wordState := rt ? "Word запущен, автозамена ВКЛЮЧЕНА (это плохо)"
+                            : "Word запущен, автозамена ОТКЛЮЧЕНА — всё верно"
+        } catch {
+            wordState := "Word запущен, но связаться с ним не удалось"
+        }
+    }
+
+    MsgBox(
+        "ДИАГНОСТИКА ПОНТИЙСКОЙ КЛАВИАТУРЫ`n"
+      . "————————————————————————`n`n"
+      . "Версия скрипта: " APP_VERSION "`n"
+      . "Файл: " A_ScriptName "`n"
+      . "Раскладка: " APP_VARIANT "`n`n"
+      . "Активная программа: " winProc "`n"
+      . "Окно: " winTitle "`n`n"
+      . "Раскладка клавиатуры: " hklText "`n"
+      . "  → " layoutText "`n`n"
+      . "MS Word: " wordState "`n`n"
+      . "————————————————————————`n"
+      . "Если что-то не работает — сделайте`n"
+      . "снимок этого окна и пришлите его.",
+        APP_TITLE " — Диагностика", "Iconi"
+    )
+}
+^!p::ShowDiagnostics()
+
+; ==============================================================================
+; МЕНЮ В ТРЕЕ
+; ==============================================================================
+ShowAbout(*) {
+    MsgBox(
+        APP_TITLE "`n"
+      . APP_VARIANT "`n`n"
+      . "Как печатать:`n"
+      . "  /  + ζ χ σ ς κ ξ ψ  →  ζ̌ χ̌ σ̌ ς̌ κ̌ ξ̌ ψ̌  (гачек)`n"
+      . "  /  + γ               →  γ̆              (бреве)`n"
+      . "  /  + α ο ά ό         →  α̤ ο̤ ά̤ ό̤        (две точки снизу)`n`n"
+      . "Важно: раскладка Windows должна быть ГРЕЧЕСКОЙ.`n"
+      . "Переключение: Alt+Shift или Win+Пробел.`n`n"
+      . "Диагностика: Ctrl+Alt+P",
+        APP_TITLE, "Iconi"
+    )
+}
+
+A_TrayMenu.Delete()
+A_TrayMenu.Add(APP_TITLE, ShowAbout)
+A_TrayMenu.SetIcon(APP_TITLE, "shell32.dll", 268)
+A_TrayMenu.Default := APP_TITLE
+A_TrayMenu.Add()
+A_TrayMenu.Add("О программе / Как печатать", ShowAbout)
+A_TrayMenu.Add("Диагностика (Ctrl+Alt+P)", ShowDiagnostics)
+A_TrayMenu.Add("Починить MS Word (отключить автозамену)", (*) => FixWordAutoCorrect(false))
+A_TrayMenu.Add()
+A_TrayMenu.Add("Выход", (*) => ExitApp())
+
+; ==============================================================================
+; УВЕДОМЛЕНИЕ О ЗАПУСКЕ — чтобы всегда было видно номер работающей версии
+; ==============================================================================
+TrayTip(
+    "Версия " APP_VERSION " запущена.`n"
+  . APP_VARIANT "`n"
+  . "Не забудьте включить греческую раскладку.",
+    APP_TITLE, 0x1
+)
+SetTimer(() => TrayTip(), -6000)

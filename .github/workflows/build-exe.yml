@@ -8,6 +8,7 @@ on:
       - 'pontic_windows.ahk'
       - 'PonticKeyboard_v3.ahk'
       - 'PonticKeyboard_v3_3keys.ahk'
+      - '.github/workflows/build-exe.yml'
   workflow_dispatch:
 
 permissions:
@@ -19,6 +20,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Read version from source
+        id: ver
+        shell: pwsh
+        run: |
+          $src = Get-Content "PonticKeyboard_v3.ahk" -Raw
+          if ($src -match 'APP_VERSION\s*:=\s*"([\d.]+)"') {
+            $v = $Matches[1]
+          } else {
+            Write-Error "APP_VERSION not found in PonticKeyboard_v3.ahk"; exit 1
+          }
+          Write-Output "Detected version: $v"
+          "version=$v" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+
       - name: Setup AutoHotkey v2 with compiler
         shell: pwsh
         run: |
@@ -28,7 +42,7 @@ jobs:
           $zipAsset = $release.assets | Where-Object { $_.name -match '\.zip$' } | Select-Object -First 1
           Invoke-WebRequest -Uri $zipAsset.browser_download_url -OutFile "ahk.zip"
           Expand-Archive -Path "ahk.zip" -DestinationPath "ahk" -Force
-          
+
           # 2. Download Ahk2Exe compiler
           $compRelease = Invoke-RestMethod "https://api.github.com/repos/AutoHotkey/Ahk2Exe/releases/latest"
           Write-Output "Ahk2Exe release: $($compRelease.tag_name)"
@@ -38,14 +52,14 @@ jobs:
             New-Item -ItemType Directory -Path "ahk/Compiler" -Force | Out-Null
             Expand-Archive -Path "ahk2exe.zip" -DestinationPath "ahk/Compiler" -Force
           } else {
-            # Fallback: download Ahk2Exe.exe directly from source
+            New-Item -ItemType Directory -Path "ahk/Compiler" -Force | Out-Null
             Invoke-WebRequest -Uri "https://github.com/AutoHotkey/Ahk2Exe/releases/latest/download/Ahk2Exe.exe" -OutFile "ahk/Compiler/Ahk2Exe.exe"
           }
-          
+
           Write-Output "=== AHK directory ==="
           Get-ChildItem "ahk" -Recurse -Filter "*.exe" | Select-Object FullName
 
-      - name: Compile PonticKeyboard.exe (unified)
+      - name: Compile all EXE files
         shell: pwsh
         run: |
           $compiler = Get-ChildItem "ahk" -Recurse -Filter "Ahk2Exe.exe" | Select-Object -First 1
@@ -53,54 +67,65 @@ jobs:
           $ahkExe = Get-ChildItem "ahk" -Filter "AutoHotkey*.exe" | Select-Object -First 1
           Write-Output "Compiler: $($compiler.FullName)"
           Write-Output "Base: $($ahkExe.FullName)"
-          & "$($compiler.FullName)" /in "PonticKeyboard.ahk" /out "PonticKeyboard.exe" /base "$($ahkExe.FullName)"
-          Start-Sleep -Seconds 3
-          if (Test-Path "PonticKeyboard.exe") {
-            Write-Output "OK: PonticKeyboard.exe $($(Get-Item 'PonticKeyboard.exe').Length) bytes"
-          } else { Write-Error "Failed"; exit 1 }
 
-      - name: Compile PonticKeyboard_v2.exe (split keys)
+          $targets = @(
+            @{ In = "PonticKeyboard.ahk";           Out = "PonticKeyboard.exe" },
+            @{ In = "PonticKeyboard_v2.ahk";        Out = "PonticKeyboard_v2.exe" },
+            @{ In = "PonticKeyboard_v3.ahk";        Out = "PonticKeyboard_v3.exe" },
+            @{ In = "PonticKeyboard_v3_3keys.ahk";  Out = "PonticKeyboard_v3_3keys.exe" }
+          )
+
+          foreach ($t in $targets) {
+            & "$($compiler.FullName)" /in $t.In /out $t.Out /base "$($ahkExe.FullName)"
+            Start-Sleep -Seconds 3
+            if (Test-Path $t.Out) {
+              Write-Output "OK: $($t.Out) $((Get-Item $t.Out).Length) bytes"
+            } else {
+              Write-Error "Failed to compile $($t.In)"; exit 1
+            }
+          }
+
+      - name: Verify version is embedded in EXE
         shell: pwsh
         run: |
-          $compiler = Get-ChildItem "ahk" -Recurse -Filter "Ahk2Exe.exe" | Select-Object -First 1
-          $ahkExe = Get-ChildItem "ahk" -Filter "AutoHotkey*.exe" | Select-Object -First 1
-          & "$($compiler.FullName)" /in "PonticKeyboard_v2.ahk" /out "PonticKeyboard_v2.exe" /base "$($ahkExe.FullName)"
-          Start-Sleep -Seconds 3
-          if (Test-Path "PonticKeyboard_v2.exe") {
-            Write-Output "OK: PonticKeyboard_v2.exe $($(Get-Item 'PonticKeyboard_v2.exe').Length) bytes"
-          } else { Write-Error "Failed"; exit 1 }
+          $v = "${{ steps.ver.outputs.version }}"
+          $failed = $false
+          foreach ($f in @("PonticKeyboard_v3.exe", "PonticKeyboard_v3_3keys.exe")) {
+            $bytes = [System.IO.File]::ReadAllBytes($f)
+            # AHK scripts are embedded as UTF-8; search for the version string
+            $text = [System.Text.Encoding]::UTF8.GetString($bytes)
+            if ($text -match [regex]::Escape("APP_VERSION := `"$v`"")) {
+              Write-Output "OK: $f contains version $v"
+            } else {
+              Write-Output "ERROR: $f does NOT contain version $v"
+              $failed = $true
+            }
+          }
+          if ($failed) { Write-Error "Version verification failed"; exit 1 }
 
-      - name: Compile PonticKeyboard_v3.exe
+      - name: Create versioned copies and release ZIP
         shell: pwsh
         run: |
-          $compiler = Get-ChildItem "ahk" -Recurse -Filter "Ahk2Exe.exe" | Select-Object -First 1
-          $ahkExe = Get-ChildItem "ahk" -Filter "AutoHotkey*.exe" | Select-Object -First 1
-          & "$($compiler.FullName)" /in "PonticKeyboard_v3.ahk" /out "PonticKeyboard_v3.exe" /base "$($ahkExe.FullName)"
-          Start-Sleep -Seconds 3
-          if (Test-Path "PonticKeyboard_v3.exe") {
-            Write-Output "OK: PonticKeyboard_v3.exe $($(Get-Item 'PonticKeyboard_v3.exe').Length) bytes"
-          } else { Write-Error "Failed"; exit 1 }
-
-      - name: Compile PonticKeyboard_v3_3keys.exe
-        shell: pwsh
-        run: |
-          $compiler = Get-ChildItem "ahk" -Recurse -Filter "Ahk2Exe.exe" | Select-Object -First 1
-          $ahkExe = Get-ChildItem "ahk" -Filter "AutoHotkey*.exe" | Select-Object -First 1
-          & "$($compiler.FullName)" /in "PonticKeyboard_v3_3keys.ahk" /out "PonticKeyboard_v3_3keys.exe" /base "$($ahkExe.FullName)"
-          Start-Sleep -Seconds 3
-          if (Test-Path "PonticKeyboard_v3_3keys.exe") {
-            Write-Output "OK: PonticKeyboard_v3_3keys.exe $($(Get-Item 'PonticKeyboard_v3_3keys.exe').Length) bytes"
-          } else { Write-Error "Failed"; exit 1 }
+          $v = "${{ steps.ver.outputs.version }}"
+          New-Item -ItemType Directory -Path "dist" -Force | Out-Null
+          Copy-Item "PonticKeyboard_v3.exe"       "dist/PonticKeyboard_v$v.exe"
+          Copy-Item "PonticKeyboard_v3_3keys.exe" "dist/PonticKeyboard_v${v}_3keys.exe"
+          if (Test-Path "ИНСТРУКЦИЯ_WINDOWS.md") {
+            Copy-Item "ИНСТРУКЦИЯ_WINDOWS.md" "dist/ИНСТРУКЦИЯ.md"
+          }
+          Compress-Archive -Path "dist/*" -DestinationPath "PonticKeyboard_v$v.zip" -Force
+          Write-Output "=== dist ==="
+          Get-ChildItem "dist" | Select-Object Name, Length
+          Write-Output "ZIP: PonticKeyboard_v$v.zip $((Get-Item "PonticKeyboard_v$v.zip").Length) bytes"
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: PonticKeyboard
+          name: PonticKeyboard-v${{ steps.ver.outputs.version }}
           path: |
+            dist/*
             PonticKeyboard.exe
             PonticKeyboard_v2.exe
-            PonticKeyboard_v3.exe
-            PonticKeyboard_v3_3keys.exe
 
       - name: Commit EXEs to repo
         shell: bash
@@ -109,9 +134,43 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add PonticKeyboard.exe PonticKeyboard_v2.exe PonticKeyboard_v3.exe PonticKeyboard_v3_3keys.exe
           if git diff --staged --quiet; then
-            echo "No changes"
+            echo "No changes to exe files"
           else
-            git commit -m "chore: rebuild PonticKeyboard exe files (auto)"
-            git pull --rebase origin main
-            git push
+            git commit -m "chore: rebuild PonticKeyboard exe files v${{ steps.ver.outputs.version }} (auto)"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+            echo "Pushed rebuilt EXEs to ${GITHUB_REF_NAME}"
+          fi
+
+      - name: Publish GitHub Release
+        if: github.ref == 'refs/heads/main'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          V="${{ steps.ver.outputs.version }}"
+          {
+            echo "Готовые файлы для Windows. Скачайте один из вариантов:"
+            echo ""
+            echo "* **PonticKeyboard_v$V.exe** — вариант 1: одна клавиша /"
+            echo "* **PonticKeyboard_v${V}_3keys.exe** — вариант 2: три клавиши , . /"
+            echo "* **PonticKeyboard_v$V.zip** — оба файла вместе с инструкцией"
+            echo ""
+            echo "Номер работающей версии виден при запуске (уведомление в трее)"
+            echo "и в окне диагностики (Ctrl+Alt+P)."
+          } > release_notes.md
+
+          if gh release view "v$V" >/dev/null 2>&1; then
+            echo "Release v$V exists - updating assets"
+            gh release upload "v$V" \
+              "dist/PonticKeyboard_v$V.exe" \
+              "dist/PonticKeyboard_v${V}_3keys.exe" \
+              "PonticKeyboard_v$V.zip" --clobber
+          else
+            gh release create "v$V" \
+              "dist/PonticKeyboard_v$V.exe" \
+              "dist/PonticKeyboard_v${V}_3keys.exe" \
+              "PonticKeyboard_v$V.zip" \
+              --title "Понтийская клавиатура v$V" \
+              --notes-file release_notes.md
           fi
