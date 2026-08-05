@@ -1,7 +1,11 @@
-c Pontic Greek Keyboard for Keyman — v3.1
+c Pontic Greek Keyboard for Keyman — v3.5
 c Понтийская Греческая Раскладка — iOS / Android / Desktop
 c
-c v3.1 fixes (по отзыву носителя языка):
+c ЕДИНАЯ НУМЕРАЦИЯ ВЕРСИЙ: номер версии теперь общий для всех платформ
+c (Windows, Android, iOS, macOS). Раньше Windows была на 3.4, а мобильная
+c раскладка на 3.0 — это только сбивало с толку. Теперь везде 3.5.
+c
+c v3.5 fixes (по отзыву носителя языка):
 c - ЗАГЛАВНЫЕ БУКВЫ: убран nextlayer=default со всех клавиш shift-слоя.
 c   Именно он ломал ввод прописных букв на Android (слой переключался
 c   раньше, чем символ успевал вставиться).
@@ -24,7 +28,7 @@ c License: MIT
 store(&VERSION) '10.0'
 store(&NAME) 'Pontic Greek'
 store(&COPYRIGHT) '© 2024-2026 Pontic Greek Keyboard Project'
-store(&KEYBOARDVERSION) '3.1'
+store(&KEYBOARDVERSION) '3.5'
 store(&TARGETS) 'mobile'
 store(&LAYOUTFILE) 'pontic_greek.keyman-touch-layout'
 store(&MESSAGE) 'Понтийская Греческая Клавиатура / Pontic Greek Keyboard'
