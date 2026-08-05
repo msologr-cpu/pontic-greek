@@ -10,7 +10,7 @@
   3) рисуем контуры глифов вручную.
 Так картинка показывает именно то, что увидит телефон.
 """
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageChops, ImageDraw, ImageFont
 from fontTools.ttLib import TTFont
 from fontTools.pens.basePen import BasePen
 import uharfbuzz as hb
@@ -100,8 +100,16 @@ def shape(path, text):
             for i, p in zip(buf.glyph_infos, buf.glyph_positions)]
 
 
-def draw_text(draw, ttf_path, tt, text, x, y, size=SIZE):
-    """Рисует строку с учётом GPOS-позиционирования от HarfBuzz."""
+def draw_text(img, ttf_path, tt, text, x, y, size=SIZE):
+    """
+    Рисует строку с учётом GPOS-позиционирования от HarfBuzz.
+
+    ВАЖНО про «дырки» в буквах: у σ, α, ο, Φ и др. есть внутренний контур.
+    Если рисовать каждый контур обычной заливкой, внутренний контур
+    закрашивается — и буква превращается в чёрное пятно.
+    Поэтому контуры каждого глифа накладываются друг на друга через XOR:
+    внешний контур заливает форму, внутренний — вычитает из неё дырку.
+    """
     upem = tt['head'].unitsPerEm
     scale = size / upem
     gs = tt.getGlyphSet()
@@ -112,8 +120,17 @@ def draw_text(draw, ttf_path, tt, text, x, y, size=SIZE):
         name = order[gid]
         pen = PolygonPen(gs, scale, x + (pen_x + dx) * scale, y - dy * scale)
         gs[name].draw(pen)
-        for contour in pen.done():
-            draw.polygon(contour, fill='black')
+        contours = pen.done()
+
+        if contours:
+            # Маска глифа: каждый контур накладываем по XOR
+            glyph_mask = Image.new('1', img.size, 0)
+            for contour in contours:
+                one = Image.new('1', img.size, 0)
+                ImageDraw.Draw(one).polygon(contour, fill=1)
+                glyph_mask = ImageChops.logical_xor(glyph_mask, one)
+            img.paste((0, 0, 0), (0, 0), glyph_mask)
+
         pen_x += adv
 
 
@@ -137,8 +154,8 @@ def main():
     baseline = 205
     for text, note in ROWS:
         d.text((40, baseline - 30), note, font=small, fill='#555')
-        draw_text(d, BEFORE, tt_before, text, 360, baseline)
-        draw_text(d, AFTER, tt_after, text, 760, baseline)
+        draw_text(img, BEFORE, tt_before, text, 360, baseline)
+        draw_text(img, AFTER, tt_after, text, 760, baseline)
         d.line([(720, baseline - 75), (720, baseline + 25)], fill='#eee', width=1)
         baseline += 112
 
