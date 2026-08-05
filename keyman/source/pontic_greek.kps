@@ -11,7 +11,7 @@
     <Name URL="">Pontic Greek</Name>
     <Copyright URL="">© 2024-2026 Pontic Greek Keyboard Project</Copyright>
     <Author URL="">Pontic Greek Community</Author>
-    <Version>3.0</Version>
+    <Version>3.1</Version>
     <Description>Понтийская греческая клавиатура с поддержкой гачека (ˇ), бреве (˘) и двух точек снизу. Для iPhone, Android и десктопов.</Description>
   </Info>
   <Files>
@@ -32,7 +32,7 @@
     <Keyboard>
       <Name>Pontic Greek</Name>
       <ID>pontic_greek</ID>
-      <Version>3.0</Version>
+      <Version>3.1</Version>
       <Languages>
         <Language ID="pnt">Pontic Greek</Language>
         <Language ID="el">Greek</Language>

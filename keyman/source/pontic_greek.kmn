@@ -1,5 +1,16 @@
-c Pontic Greek Keyboard for Keyman — v3.0
+c Pontic Greek Keyboard for Keyman — v3.1
 c Понтийская Греческая Раскладка — iOS / Android / Desktop
+c
+c v3.1 fixes (по отзыву Дмитрия Ивановича):
+c - ЗАГЛАВНЫЕ БУКВЫ: убран nextlayer=default со всех клавиш shift-слоя.
+c   Именно он ломал ввод прописных букв на Android (слой переключался
+c   раньше, чем символ успевал вставиться).
+c - ПУНКТУАЦИЯ: запятая и апостроф теперь ОТДЕЛЬНЫЕ ВИДИМЫЕ клавиши в
+c   нижнем ряду, а не спрятаны в долгом нажатии. Под ними в долгом нажатии:
+c     ,  →  ;  :  (  )  -  /
+c     '  →  ’  "  «  »
+c     .  →  ?  !  …
+c   Все клавиши продублированы для shift-слоя (суффикс _S).
 c
 c v3.0 fixes:
 c - Dual Tonos support: press vowel THEN tonos (α + ΄ → ά) OR tonos THEN vowel (΄ + α → ά)
@@ -13,7 +24,7 @@ c License: MIT
 store(&VERSION) '10.0'
 store(&NAME) 'Pontic Greek'
 store(&COPYRIGHT) '© 2024-2026 Pontic Greek Keyboard Project'
-store(&KEYBOARDVERSION) '3.0'
+store(&KEYBOARDVERSION) '3.1'
 store(&TARGETS) 'mobile'
 store(&LAYOUTFILE) 'pontic_greek.keyman-touch-layout'
 store(&MESSAGE) 'Понтийская Греческая Клавиатура / Pontic Greek Keyboard'
@@ -333,20 +344,82 @@ c =============================================================================
 c PUNCTUATION AND SYMBOL TOUCH KEYS
 c =============================================================================
 
-c --- Basic punctuation & Apostrophe ---
+c --- Нижний ряд: запятая, апостроф, точка + их долгие нажатия ---
+c Каждая клавиша описана в 4 вариантах: default/shift-слой × без/с SHIFT,
+c чтобы ввод срабатывал при любом состоянии клавиатуры.
+
 + [T_COMMA] > ','
-+ [T_QUESTION] > '?'
-+ [T_EXCLAIM] > '!'
-+ [T_COLON] > ':'
-+ [T_SEMICOLON] > ';'
++ [SHIFT T_COMMA] > ','
++ [T_COMMA_S] > ','
++ [SHIFT T_COMMA_S] > ','
+
++ [T_PERIOD] > '.'
++ [SHIFT T_PERIOD] > '.'
++ [T_PERIOD_S] > '.'
++ [SHIFT T_PERIOD_S] > '.'
+
 + [T_APOSTROPHE] > U+0027                c '
 + [SHIFT T_APOSTROPHE] > U+0027
++ [T_APOSTROPHE_S] > U+0027
++ [SHIFT T_APOSTROPHE_S] > U+0027
 
-+ [SHIFT T_COMMA] > ','
++ [T_QUESTION] > '?'
 + [SHIFT T_QUESTION] > '?'
++ [T_QUESTION_S] > '?'
++ [SHIFT T_QUESTION_S] > '?'
+
++ [T_EXCLAIM] > '!'
 + [SHIFT T_EXCLAIM] > '!'
++ [T_EXCLAIM_S] > '!'
++ [SHIFT T_EXCLAIM_S] > '!'
+
++ [T_COLON] > ':'
 + [SHIFT T_COLON] > ':'
++ [T_COLON_S] > ':'
++ [SHIFT T_COLON_S] > ':'
+
++ [T_SEMICOLON] > ';'
 + [SHIFT T_SEMICOLON] > ';'
++ [T_SEMICOLON_S] > ';'
++ [SHIFT T_SEMICOLON_S] > ';'
+
++ [T_ELLIPSIS] > U+2026                  c …
++ [SHIFT T_ELLIPSIS] > U+2026
++ [T_ELLIPSIS_S] > U+2026
++ [SHIFT T_ELLIPSIS_S] > U+2026
+
++ [T_RSQUOTE] > U+2019                   c ’
++ [SHIFT T_RSQUOTE] > U+2019
++ [T_RSQUOTE_S] > U+2019
++ [SHIFT T_RSQUOTE_S] > U+2019
+
++ [T_DQUOTE_S] > '"'
++ [SHIFT T_DQUOTE_S] > '"'
++ [SHIFT T_DQUOTE] > '"'
+
++ [T_LGUILL_S] > U+00AB                  c «
++ [SHIFT T_LGUILL_S] > U+00AB
++ [SHIFT T_LGUILL] > U+00AB
+
++ [T_RGUILL_S] > U+00BB                  c »
++ [SHIFT T_RGUILL_S] > U+00BB
++ [SHIFT T_RGUILL] > U+00BB
+
++ [T_LPAREN_S] > '('
++ [SHIFT T_LPAREN_S] > '('
++ [SHIFT T_LPAREN] > '('
+
++ [T_RPAREN_S] > ')'
++ [SHIFT T_RPAREN_S] > ')'
++ [SHIFT T_RPAREN] > ')'
+
++ [T_HYPHEN_S] > '-'
++ [SHIFT T_HYPHEN_S] > '-'
++ [SHIFT T_HYPHEN] > '-'
+
++ [T_SLASH_S] > '/'
++ [SHIFT T_SLASH_S] > '/'
++ [SHIFT T_SLASH] > '/'
 
 c --- Numeric layer keys ---
 + [T_HYPHEN] > '-'
