@@ -271,13 +271,19 @@
                 "id": "K_NUMLOCK",
                 "text": "*123*",
                 "sp": 1,
-                "width": 110,
+                "width": 100,
                 "nextlayer": "numeric"
+              },
+              {
+                "id": "K_LOPT",
+                "text": "*Menu*",
+                "sp": 1,
+                "width": 100
               },
               {
                 "id": "T_COMMA",
                 "text": ",",
-                "width": 90,
+                "width": 85,
                 "sk": [
                   {
                     "id": "T_SEMICOLON",
@@ -308,12 +314,12 @@
               {
                 "id": "K_SPACE",
                 "text": "",
-                "width": 330
+                "width": 280
               },
               {
                 "id": "T_APOSTROPHE",
                 "text": "'",
-                "width": 90,
+                "width": 85,
                 "sk": [
                   {
                     "id": "T_RSQUOTE",
@@ -336,7 +342,7 @@
               {
                 "id": "T_PERIOD",
                 "text": ".",
-                "width": 90,
+                "width": 85,
                 "sk": [
                   {
                     "id": "T_QUESTION",
@@ -356,7 +362,7 @@
                 "id": "K_ENTER",
                 "text": "*Enter*",
                 "sp": 1,
-                "width": 110
+                "width": 100
               }
             ]
           }
@@ -614,13 +620,19 @@
                 "id": "K_NUMLOCK",
                 "text": "*123*",
                 "sp": 1,
-                "width": 110,
+                "width": 100,
                 "nextlayer": "numeric"
+              },
+              {
+                "id": "K_LOPT",
+                "text": "*Menu*",
+                "sp": 1,
+                "width": 100
               },
               {
                 "id": "T_COMMA_S",
                 "text": ",",
-                "width": 90,
+                "width": 85,
                 "sk": [
                   {
                     "id": "T_SEMICOLON_S",
@@ -651,12 +663,12 @@
               {
                 "id": "K_SPACE",
                 "text": "",
-                "width": 330
+                "width": 280
               },
               {
                 "id": "T_APOSTROPHE_S",
                 "text": "'",
-                "width": 90,
+                "width": 85,
                 "sk": [
                   {
                     "id": "T_RSQUOTE_S",
@@ -679,7 +691,7 @@
               {
                 "id": "T_PERIOD_S",
                 "text": ".",
-                "width": 90,
+                "width": 85,
                 "sk": [
                   {
                     "id": "T_QUESTION_S",
@@ -699,7 +711,7 @@
                 "id": "K_ENTER",
                 "text": "*Enter*",
                 "sp": 1,
-                "width": 110
+                "width": 100
               }
             ]
           }
@@ -1362,13 +1374,19 @@
                 "id": "K_NUMLOCK",
                 "text": "*123*",
                 "sp": 1,
-                "width": 110,
+                "width": 100,
                 "nextlayer": "numeric"
+              },
+              {
+                "id": "K_LOPT",
+                "text": "*Menu*",
+                "sp": 1,
+                "width": 100
               },
               {
                 "id": "T_COMMA",
                 "text": ",",
-                "width": 90,
+                "width": 85,
                 "sk": [
                   {
                     "id": "T_SEMICOLON",
@@ -1399,12 +1417,12 @@
               {
                 "id": "K_SPACE",
                 "text": "",
-                "width": 330
+                "width": 280
               },
               {
                 "id": "T_APOSTROPHE",
                 "text": "'",
-                "width": 90,
+                "width": 85,
                 "sk": [
                   {
                     "id": "T_RSQUOTE",
@@ -1427,7 +1445,7 @@
               {
                 "id": "T_PERIOD",
                 "text": ".",
-                "width": 90,
+                "width": 85,
                 "sk": [
                   {
                     "id": "T_QUESTION",
@@ -1447,7 +1465,7 @@
                 "id": "K_ENTER",
                 "text": "*Enter*",
                 "sp": 1,
-                "width": 110
+                "width": 100
               }
             ]
           }
@@ -1710,13 +1728,19 @@
                 "id": "K_NUMLOCK",
                 "text": "*123*",
                 "sp": 1,
-                "width": 110,
+                "width": 100,
                 "nextlayer": "numeric"
+              },
+              {
+                "id": "K_LOPT",
+                "text": "*Menu*",
+                "sp": 1,
+                "width": 100
               },
               {
                 "id": "T_COMMA_S",
                 "text": ",",
-                "width": 90,
+                "width": 85,
                 "sk": [
                   {
                     "id": "T_SEMICOLON_S",
@@ -1747,12 +1771,12 @@
               {
                 "id": "K_SPACE",
                 "text": "",
-                "width": 330
+                "width": 280
               },
               {
                 "id": "T_APOSTROPHE_S",
                 "text": "'",
-                "width": 90,
+                "width": 85,
                 "sk": [
                   {
                     "id": "T_RSQUOTE_S",
@@ -1775,7 +1799,7 @@
               {
                 "id": "T_PERIOD_S",
                 "text": ".",
-                "width": 90,
+                "width": 85,
                 "sk": [
                   {
                     "id": "T_QUESTION_S",
@@ -1795,7 +1819,7 @@
                 "id": "K_ENTER",
                 "text": "*Enter*",
                 "sp": 1,
-                "width": 110
+                "width": 100
               }
             ]
           }
