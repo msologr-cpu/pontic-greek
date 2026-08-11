@@ -1,14 +1,23 @@
 # Понтийская раскладка (Ποντιακά) — Windows / macOS / iOS
 
-> **Текущая версия Windows:** **v3.1** (Июль 2026)  
-> **Текущая версия macOS:** **v3.0**
+> **Текущая версия (единая для всех платформ):** **v4.1** (Август 2026)
 
 ## 📥 Быстрое скачивание
 
+Последний релиз всегда здесь:
+**https://github.com/msologr-cpu/pontic-greek/releases/latest**
+
 ### 🪟 Windows (готовые .exe, без установки):
-- **[PonticKeyboard_v3.exe](https://github.com/msologr-cpu/pontic-greek/releases/download/v3.1/PonticKeyboard_v3.exe)** — Единая клавиша `/` *(рекомендуется)*
-- **[PonticKeyboard_v3_3keys.exe](https://github.com/msologr-cpu/pontic-greek/releases/download/v3.1/PonticKeyboard_v3_3keys.exe)** — Раздельные 3 клавиши `,` `.` `/`
+- **PonticKeyboard_v4.1.exe** — Единая клавиша `/` *(рекомендуется)*
+- **PonticKeyboard_v4.1_3keys.exe** — Раздельные 3 клавиши `,` `.` `/`
 - 📖 [Подробная инструкция для Windows](ИНСТРУКЦИЯ_WINDOWS.md)
+
+### 📱 Телефон (Android / iPhone) — Keyman:
+- **pontic_greek.kmp** — пакет клавиатуры со встроенным шрифтом Pontic Sans
+
+### 🔤 Шрифты (свободные, OFL):
+- **font/PonticSans-Regular.ttf** — рубленый
+- **font/PonticSerif-Regular.ttf** — с засечками, ближе к Cambria/Brill
 
 ### 🍎 macOS:
 - **[pnt-macos-v3.keylayout](https://github.com/msologr-cpu/pontic-greek/raw/main/pnt-macos-v3.keylayout)** (с поддержкой Cmd+C/V и ά̤/ό̤)

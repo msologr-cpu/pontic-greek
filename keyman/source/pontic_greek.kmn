@@ -1,11 +1,23 @@
-c Pontic Greek Keyboard for Keyman — v4.0
+c Pontic Greek Keyboard for Keyman — v4.1
 c Понтийская Греческая Раскладка — iOS / Android / Desktop
 c
 c ЕДИНАЯ НУМЕРАЦИЯ ВЕРСИЙ: номер версии общий для всех платформ
-c (Windows, Android, iOS, macOS). Раньше Windows была на 3.4, а мобильная
-c раскладка на 3.0 — это только сбивало с толку.
+c (Windows, Android, iOS, macOS, шрифты). Одна цифра на весь релиз, чтобы у
+c пользователя всё сходилось: и телефон, и компьютер, и шрифты — 4.1.
 c
-c v4.0:
+c v4.1:
+c - ИСПРАВЛЕН ГАЧЕК НАД СТРОЧНОЙ χ. Отзыв носитель языка: «в приложении Keyman у χ
+c   гачек сдвинулся вправо». Причина: у χ в исходном Noto Sans НЕ было
+c   GPOS-якоря вовсе (её просто забыли в списке v4.0), поэтому знак вставал
+c   по ширине буквы и уезжал вправо. В build_font.py χ добавлена в список,
+c   якорь теперь по центру глифа (проверено HarfBuzz: mark_x −292, как у σ/κ).
+c - Скрипт сборки шрифта переписан: высота якоря вычисляется из реальных
+c   габаритов глифа, а не задаётся числом — это позволяет собрать тем же
+c   скриптом и Pontic Serif (по просьбе носитель языка, похож на Cambria).
+c - Windows (AHK): исправлена конечная сигма ς̌ — раньше и W, и S давали
+c   медиальную σ̌; теперь сигма определяется по символу раскладки.
+c
+c v3.6:
 c - ГАЧЕК БОЛЬШЕ НЕ НАЛЕЗАЕТ НА БУКВЫ. В пакет встроен собственный шрифт
 c   Pontic Sans (DisplayFont + OSKFont).
 c   Причина проблемы: в Noto Sans GPOS-якоря для комбинируемого гачека U+030C
@@ -40,7 +52,7 @@ c License: MIT
 store(&VERSION) '10.0'
 store(&NAME) 'Pontic Greek'
 store(&COPYRIGHT) '© 2024-2026 Pontic Greek Keyboard Project'
-store(&KEYBOARDVERSION) '4.0'
+store(&KEYBOARDVERSION) '4.1'
 store(&TARGETS) 'mobile'
 store(&LAYOUTFILE) 'pontic_greek.keyman-touch-layout'
 store(&MESSAGE) 'Понтийская Греческая Клавиатура / Pontic Greek Keyboard'
