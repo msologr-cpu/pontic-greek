@@ -26,57 +26,86 @@ from fontTools.ttLib import TTFont
 from fontTools.pens.boundsPen import BoundsPen
 from fontTools.ttLib.tables.otTables import Anchor, BaseRecord
 
-SRC = 'font/work/NotoSans.ttf'
-DST = 'font/work/PonticSans-Regular.ttf'
+VERSION = '4.1'
 
-FAMILY = 'Pontic Sans'
-VERSION = '4.0'
+# Готовые сборки: имя → (исходник, результат, семейство).
+# Noto Sans и Noto Serif распространяются по OFL, поэтому производные шрифты
+# можно свободно раздавать — при условии переименования (Reserved Font Name).
+BUILDS = {
+    'sans': {
+        'src': 'font/work/NotoSans.ttf',
+        'dst': 'font/work/PonticSans-Regular.ttf',
+        'family': 'Pontic Sans',
+    },
+    'serif': {
+        'src': 'font/work/NotoSerif.ttf',
+        'dst': 'font/work/PonticSerif-Regular.ttf',
+        'family': 'Pontic Serif',
+    },
+}
 
 # Буквы, которым нужен якорь для знаков СВЕРХУ (гачек U+030C, бреве U+0306).
-# Значение — высота якоря. Для строчных обычной высоты берём x-height 536,
-# для высоких строчных (ξ ζ ψ) — их реальный верх 760,
-# для заглавных — cap-height 714.
-TOP_TARGETS = {
-    0x3BE: 760,  # ξ  xi          — высокая строчная
-    0x3B6: 760,  # ζ  zeta        — высокая строчная
-    0x3C8: 760,  # ψ  psi         — высокая строчная
-    0x3C3: 536,  # σ  sigma
-    0x3C2: 536,  # ς  sigma final
-    0x3B3: 536,  # γ  gamma       — для бреве γ̆
-    0x3A3: 714,  # Σ  SIGMA
-    0x39E: 714,  # Ξ  XI
-    0x3A8: 714,  # Ψ  PSI
-    0x393: 714,  # Γ  GAMMA       — для бреве Γ̆
-}
+# Высоту НЕ задаём числом: она вычисляется из самого глифа (его верхняя
+# граница). Так один и тот же скрипт правильно работает и для Sans, и для
+# Serif, у которых разные x-height и cap-height.
+TOP_TARGETS = [
+    0x3BE,  # ξ  xi
+    0x3B6,  # ζ  zeta
+    0x3C8,  # ψ  psi
+    0x3C3,  # σ  sigma
+    0x3C2,  # ς  sigma final
+    0x3C7,  # χ  chi    — БЫЛА ПРОПУЩЕНА в v4.0: якоря не было ни в Noto Sans,
+            #             ни в нашем шрифте, поэтому гачек уезжал ВПРАВО
+            #             (ставился по ширине буквы). Отзыв Д.И.: «сбой
+            #             произошёл со строчной χ — гачек сдвинулся вправо».
+    0x3BA,  # κ  kappa
+    0x3B3,  # γ  gamma  — для бреве γ̆
+    0x3A3,  # Σ  SIGMA
+    0x39E,  # Ξ  XI
+    0x3A8,  # Ψ  PSI
+    0x3A7,  # Χ  CHI
+    0x39A,  # Κ  KAPPA
+    0x396,  # Ζ  ZETA
+    0x393,  # Γ  GAMMA  — для бреве Γ̆
+]
 
 # Буквы, которым нужен якорь для знака СНИЗУ (две точки U+0324).
 # Ставится под базовой линией.
-BOTTOM_TARGETS = {
-    0x3AC: 0,    # ά  alpha tonos
-    0x3CC: 0,    # ό  omicron tonos
-    0x386: 0,    # Ά  ALPHA tonos
-    0x38C: 0,    # Ό  OMICRON tonos
-}
+BOTTOM_TARGETS = [
+    0x3B1,  # α
+    0x3BF,  # ο
+    0x391,  # Α
+    0x39F,  # Ο
+    0x3AC,  # ά  alpha tonos
+    0x3CC,  # ό  omicron tonos
+    0x386,  # Ά  ALPHA tonos
+    0x38C,  # Ό  OMICRON tonos
+]
 
-# Эти же буквы с тоносом нуждаются и в верхнем якоре — на случай,
-# если пользователь наберёт их с гачеком.
-TOP_TARGETS_TONOS = {
-    0x3AC: 700,  # ά
-    0x3CC: 700,  # ό
-    0x386: 900,  # Ά
-    0x38C: 900,  # Ό
-}
+
+def glyph_bounds(font, glyph_name):
+    """Габариты видимой части буквы: (xmin, ymin, xmax, ymax)."""
+    gs = font.getGlyphSet()
+    bp = BoundsPen(gs)
+    gs[glyph_name].draw(bp)
+    return bp.bounds
 
 
 def glyph_center_x(font, glyph_name):
     """Горизонтальный центр видимой части буквы."""
-    gs = font.getGlyphSet()
-    bp = BoundsPen(gs)
-    gs[glyph_name].draw(bp)
-    if not bp.bounds:
+    b = glyph_bounds(font, glyph_name)
+    if not b:
         return font['hmtx'][glyph_name][0] // 2
-    xmin, _, xmax, _ = bp.bounds
+    xmin, _, xmax, _ = b
     return round((xmin + xmax) / 2)
+
+
+def glyph_top_y(font, glyph_name):
+    """Верхняя граница буквы — сюда крепится знак сверху (гачек, бреве)."""
+    b = glyph_bounds(font, glyph_name)
+    if not b:
+        return round(font['head'].unitsPerEm * 0.7)
+    return round(b[3])
 
 
 def iter_markbase_subtables(gpos):
@@ -89,8 +118,15 @@ def iter_markbase_subtables(gpos):
                 yield sub
 
 
-def add_base_anchors(font, sub, targets, label):
-    """Добавляет якоря для указанных букв в подтаблицу MarkBasePos."""
+def add_base_anchors(font, sub, targets, label, side):
+    """Добавляет якоря для указанных букв в подтаблицу MarkBasePos.
+
+    targets — список кодпойнтов.
+    side    — 'top' (знак сверху: Y = верх буквы) или 'bottom' (Y = базовая
+              линия, т.е. 0). Высота больше не задаётся вручную числом:
+              она берётся из реальных габаритов глифа, поэтому скрипт
+              одинаково верно работает и для Sans, и для Serif.
+    """
     cmap = font.getBestCmap()
     order = font.getGlyphOrder()
     gid = {g: i for i, g in enumerate(order)}
@@ -99,12 +135,14 @@ def add_base_anchors(font, sub, targets, label):
     existing = dict(zip(sub.BaseCoverage.glyphs, sub.BaseArray.BaseRecord))
 
     added = []
-    for cp, y in targets.items():
+    for cp in targets:
         gn = cmap.get(cp)
         if not gn:
             continue
         if gn in existing:
             continue  # якорь уже есть — не трогаем
+
+        y = glyph_top_y(font, gn) if side == 'top' else 0
 
         anchor = Anchor()
         anchor.Format = 1
@@ -134,15 +172,15 @@ def add_base_anchors(font, sub, targets, label):
     return len(added)
 
 
-def rename_font(font):
-    """Переименовываем, чтобы шрифт не конфликтовал с системным Noto Sans."""
+def rename_font(font, family):
+    """Переименовываем, чтобы шрифт не конфликтовал с системным Noto."""
     name = font['name']
-    full = f'{FAMILY} Regular'
-    ps = FAMILY.replace(' ', '') + '-Regular'
+    full = f'{family} Regular'
+    ps = family.replace(' ', '') + '-Regular'
     values = {
-        1: FAMILY,
+        1: family,
         2: 'Regular',
-        3: f'{FAMILY} {VERSION}',
+        3: f'{family} {VERSION}',
         4: full,
         5: f'Version {VERSION}',
         6: ps,
@@ -152,9 +190,10 @@ def rename_font(font):
         name.setName(val, nid, 1, 0, 0)
 
 
-def main():
-    font = TTFont(SRC)
-    print(f"Открыт {SRC}")
+def build_one(src, dst, family):
+    font = TTFont(src)
+    print(f"\n=== Сборка {family} ===")
+    print(f"Открыт {src}")
 
     gpos = font['GPOS']
     cmap = font.getBestCmap()
@@ -168,16 +207,28 @@ def main():
         marks = set(sub.MarkCoverage.glyphs)
         if caron in marks or breve in marks:
             print("Подтаблица со знаками СВЕРХУ (гачек/бреве):")
-            total += add_base_anchors(font, sub, TOP_TARGETS, 'верх')
-            total += add_base_anchors(font, sub, TOP_TARGETS_TONOS, 'верх+тонос')
+            total += add_base_anchors(font, sub, TOP_TARGETS, 'верх', 'top')
         if dbelow in marks:
             print("Подтаблица со знаком СНИЗУ (две точки):")
-            total += add_base_anchors(font, sub, BOTTOM_TARGETS, 'низ')
+            total += add_base_anchors(font, sub, BOTTOM_TARGETS, 'низ', 'bottom')
 
-    rename_font(font)
-    font.save(DST)
-    print(f"\nВсего добавлено якорей: {total}")
-    print(f"Сохранено: {DST}")
+    rename_font(font, family)
+    font.save(dst)
+    print(f"Всего добавлено якорей: {total}")
+    print(f"Сохранено: {dst}")
+    return total
+
+
+def main():
+    import sys
+    which = sys.argv[1] if len(sys.argv) > 1 else 'sans'
+    names = list(BUILDS) if which == 'all' else [which]
+    for n in names:
+        b = BUILDS[n]
+        try:
+            build_one(b['src'], b['dst'], b['family'])
+        except FileNotFoundError:
+            print(f"\n[пропуск {b['family']}] нет исходника {b['src']}")
 
 
 if __name__ == '__main__':

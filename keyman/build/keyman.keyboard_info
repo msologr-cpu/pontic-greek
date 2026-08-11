@@ -18,13 +18,14 @@
   },
   "lastModifiedDate": "2026-07-24T09:12:52.000Z",
   "packageFilename": "pontic_greek.kmp",
-  "packageFileSize": 6849,
+  "packageFileSize": 320392,
   "jsFilename": "pontic_greek.js",
-  "jsFileSize": 40754,
+  "jsFileSize": 44672,
   "packageIncludes": [
-    "welcome"
+    "welcome",
+    "fonts"
   ],
-  "version": "3.0",
+  "version": "4.1",
   "encodings": [
     "unicode"
   ],

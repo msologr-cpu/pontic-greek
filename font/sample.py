@@ -15,9 +15,18 @@ from fontTools.ttLib import TTFont
 from fontTools.pens.basePen import BasePen
 import uharfbuzz as hb
 
-BEFORE = 'font/work/NotoSans.ttf'
-AFTER = 'font/work/PonticSans-Regular.ttf'
-OUT = 'font/sample_before_after.png'
+import sys
+
+# По умолчанию — Sans. Можно передать пресет 'serif' первым аргументом,
+# либо явно указать BEFORE AFTER OUT.
+PRESETS = {
+    'sans': ('font/work/NotoSans.ttf', 'font/work/PonticSans-Regular.ttf',
+             'font/sample_before_after.png', 'Noto Sans', 'Pontic Sans'),
+    'serif': ('font/work/NotoSerif.ttf', 'font/work/PonticSerif-Regular.ttf',
+              'font/sample_serif_before_after.png', 'Noto Serif', 'Pontic Serif'),
+}
+_preset = sys.argv[1] if len(sys.argv) > 1 and sys.argv[1] in PRESETS else 'sans'
+BEFORE, AFTER, OUT, BEFORE_NAME, AFTER_NAME = PRESETS[_preset]
 
 ROWS = [
     ('ξ̌ ζ̌ ψ̌', 'строчные высокие'),
@@ -147,8 +156,8 @@ def main():
     small = ImageFont.truetype(AFTER, 16)
 
     d.text((40, 28), 'Понтийские знаки: было и стало', font=ui, fill='black')
-    d.text((360, 92), 'БЫЛО (Noto Sans)', font=small, fill='#c00')
-    d.text((760, 92), 'СТАЛО (Pontic Sans)', font=small, fill='#080')
+    d.text((360, 92), f'БЫЛО ({BEFORE_NAME})', font=small, fill='#c00')
+    d.text((760, 92), f'СТАЛО ({AFTER_NAME})', font=small, fill='#080')
     d.line([(40, 118), (W - 40, 118)], fill='#ddd', width=1)
 
     baseline = 205
