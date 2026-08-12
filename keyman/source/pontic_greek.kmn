@@ -1,9 +1,19 @@
-c Pontic Greek Keyboard for Keyman — v4.1
+c Pontic Greek Keyboard for Keyman — v5.0
 c Понтийская Греческая Раскладка — iOS / Android / Desktop
 c
 c ЕДИНАЯ НУМЕРАЦИЯ ВЕРСИЙ: номер версии общий для всех платформ
 c (Windows, Android, iOS, macOS, шрифты). Одна цифра на весь релиз, чтобы у
-c пользователя всё сходилось: и телефон, и компьютер, и шрифты — 4.1.
+c пользователя всё сходилось: и телефон, и компьютер, и шрифты — 5.0.
+c
+c v5.0:
+c - ПОЛНОЕ СЕМЕЙСТВО ШРИФТОВ: Pontic Sans и Pontic Serif теперь в четырёх
+c   начертаниях — Regular, Italic, Bold, Bold Italic (просьба носитель языка: нужен
+c   контраст обычный/полужирный и настоящий курсив, а не просто наклон).
+c   Собираются из variable-шрифтов Noto через fontTools.instancer.
+c - ЦЕНТРИРОВАНИЕ ГАЧЕКА над ψ ξ ζ (учтён длинный нижний хвост) и наклонная
+c   поправка для курсивов — гачек строго по центру каждой буквы во всех 8
+c   начертаниях (проверено HarfBuzz: отклонение ≤ 1 ед.). Отзыв носитель языка: «над
+c   строчной ψ в Pontic Serif гачек немного сдвинут влево» — исправлено.
 c
 c v4.1:
 c - ИСПРАВЛЕН ГАЧЕК НАД СТРОЧНОЙ χ. Отзыв носитель языка: «в приложении Keyman у χ
@@ -52,7 +62,7 @@ c License: MIT
 store(&VERSION) '10.0'
 store(&NAME) 'Pontic Greek'
 store(&COPYRIGHT) '© 2024-2026 Pontic Greek Keyboard Project'
-store(&KEYBOARDVERSION) '4.1'
+store(&KEYBOARDVERSION) '5.0'
 store(&TARGETS) 'mobile'
 store(&LAYOUTFILE) 'pontic_greek.keyman-touch-layout'
 store(&MESSAGE) 'Понтийская Греческая Клавиатура / Pontic Greek Keyboard'

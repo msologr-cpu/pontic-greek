@@ -1,6 +1,6 @@
 # Понтийская раскладка (Ποντιακά) — Windows / macOS / iOS
 
-> **Текущая версия (единая для всех платформ):** **v4.1** (Август 2026)
+> **Текущая версия (единая для всех платформ):** **v5.0** (Август 2026)
 
 ## 📥 Быстрое скачивание
 
@@ -8,16 +8,19 @@
 **https://github.com/msologr-cpu/pontic-greek/releases/latest**
 
 ### 🪟 Windows (готовые .exe, без установки):
-- **PonticKeyboard_v4.1.exe** — Единая клавиша `/` *(рекомендуется)*
-- **PonticKeyboard_v4.1_3keys.exe** — Раздельные 3 клавиши `,` `.` `/`
+- **PonticKeyboard_v5.0.exe** — Единая клавиша `/` *(рекомендуется)*
+- **PonticKeyboard_v5.0_3keys.exe** — Раздельные 3 клавиши `,` `.` `/`
 - 📖 [Подробная инструкция для Windows](ИНСТРУКЦИЯ_WINDOWS.md)
 
 ### 📱 Телефон (Android / iPhone) — Keyman:
 - **pontic_greek.kmp** — пакет клавиатуры со встроенным шрифтом Pontic Sans
 
-### 🔤 Шрифты (свободные, OFL):
-- **font/PonticSans-Regular.ttf** — рубленый
-- **font/PonticSerif-Regular.ttf** — с засечками, ближе к Cambria/Brill
+### 🔤 Шрифты (свободные, OFL) — по 4 начертания в каждом семействе:
+- **Pontic Sans** — рубленый: Regular, Italic, Bold, Bold Italic
+- **Pontic Serif** — с засечками (ближе к Cambria/Brill): Regular, Italic, Bold, Bold Italic
+
+Начертания связаны в семейство, поэтому в Word работают кнопки
+полужирного (Ctrl+B) и курсива (Ctrl+I).
 
 ### 🍎 macOS:
 - **[pnt-macos-v3.keylayout](https://github.com/msologr-cpu/pontic-greek/raw/main/pnt-macos-v3.keylayout)** (с поддержкой Cmd+C/V и ά̤/ό̤)
