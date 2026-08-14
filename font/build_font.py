@@ -165,15 +165,23 @@ def glyph_center_x(font, glyph_name, codepoint=None):
     xmin, ymin, xmax, ymax = b
 
     # Для асимметричных букв (ψ ξ ζ) центр всего bounding box не годится:
-    # у них длинный нижний хвост, уводящий центр вбок. Берём центр ВЕРХНЕЙ
-    # ПОЛОВИНЫ глифа — это визуальный центр той части буквы, над которой
+    # у них длинный нижний хвост, уводящий центр вбок. Берём центр ВЕРХНИХ
+    # 15% высоты глифа — это захватывает только верхушку стержня, над которой
     # стоит гачек.
+    #
+    # Почему не «верхняя половина»: у ψ bounding box от -240 до 760,
+    # середина = 260. Практически все точки выше 260, так что «верхняя
+    # половина» ≈ весь глиф, и центр не сдвигается. Top-15% = точки
+    # выше y=610, и для Serif ψ это даёт центр ~383 (между двумя
+    # верхними точками стержня 358 и 408), что точно совпадает с
+    # визуальным центром.
     if codepoint and codepoint in ASYMMETRIC_DESCENDERS:
         gs = font.getGlyphSet()
         pc = PointCollector(gs)
         gs[glyph_name].draw(pc)
-        mid_y = (ymin + ymax) / 2
-        upper_points = [p for p in pc.points if p[1] > mid_y]
+        height = ymax - ymin
+        cutoff_y = ymin + height * 0.85  # верхние 15%
+        upper_points = [p for p in pc.points if p[1] > cutoff_y]
         if upper_points:
             ux_min = min(p[0] for p in upper_points)
             ux_max = max(p[0] for p in upper_points)
