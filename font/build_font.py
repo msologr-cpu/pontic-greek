@@ -151,43 +151,62 @@ def glyph_bounds(font, glyph_name):
     return bp.bounds
 
 
-def glyph_center_x(font, glyph_name, codepoint=None):
-    """Горизонтальный центр видимой части буквы.
+def glyph_center_x(font, glyph_name, codepoint=None, target_y=0):
+    """Горизонтальный центр буквы на заданной высоте.
 
-    Для букв с длинным нижним выносным элементом (ψ, ξ, ζ) вычисляет
-    центр по верхней половине глифа, чтобы гачек стоял ровно над
-    визуальным центром буквы, а не сдвигался из-за асимметричного хвоста.
+    Для **прямых** начертаний — центр bounding box (с поправкой на
+    асимметричные хвосты у ψ, ξ, ζ).
+
+    Для **курсивных** начертаний — центр bounding box + поправка на
+    наклон. Курсивный глиф наклонён вправо: чем выше точка, тем
+    правее она смещена. Якорь для знака сверху (y=536..803) должен
+    стоять правее якоря для знака снизу (y=0). Смещение вычисляется
+    как target_y × tan(italic_angle).
+
+    Эту формулу используют и дизайнеры Noto: для alpha Italic
+    нижний якорь (y=0) стоит на x=209, а верхний (y=536) — на x=315,
+    разница 106 ≈ 536 × tan(12°) = 114.
     """
+    import math
+
     b = glyph_bounds(font, glyph_name)
     if not b:
         return font['hmtx'][glyph_name][0] // 2
 
     xmin, ymin, xmax, ymax = b
 
-    # Для асимметричных букв (ψ ξ ζ) центр всего bounding box не годится:
-    # у них длинный нижний хвост, уводящий центр вбок. Берём центр ВЕРХНИХ
-    # 15% высоты глифа — это захватывает только верхушку стержня, над которой
-    # стоит гачек.
-    #
-    # Почему не «верхняя половина»: у ψ bounding box от -240 до 760,
-    # середина = 260. Практически все точки выше 260, так что «верхняя
-    # половина» ≈ весь глиф, и центр не сдвигается. Top-15% = точки
-    # выше y=610, и для Serif ψ это даёт центр ~383 (между двумя
-    # верхними точками стержня 358 и 408), что точно совпадает с
-    # визуальным центром.
+    # Базовый центр — по bounding box
+    cx = (xmin + xmax) / 2
+
+    # Для асимметричных букв (ψ ξ ζ) — центр верхних 15%
     if codepoint and codepoint in ASYMMETRIC_DESCENDERS:
         gs = font.getGlyphSet()
         pc = PointCollector(gs)
         gs[glyph_name].draw(pc)
         height = ymax - ymin
-        cutoff_y = ymin + height * 0.85  # верхние 15%
+        cutoff_y = ymin + height * 0.85
         upper_points = [p for p in pc.points if p[1] > cutoff_y]
         if upper_points:
-            ux_min = min(p[0] for p in upper_points)
-            ux_max = max(p[0] for p in upper_points)
-            return round((ux_min + ux_max) / 2)
+            cx = (min(p[0] for p in upper_points) + max(p[0] for p in upper_points)) / 2
 
-    return round((xmin + xmax) / 2)
+    # Поправка на italic: сдвигаем X пропорционально высоте Y
+    italic_angle = abs(font['post'].italicAngle)
+    if italic_angle > 0.5:
+        tan_a = math.tan(math.radians(italic_angle))
+        # В курсиве bounding box уже «растянут» вправо от наклона.
+        # Нам нужен центр буквы на БАЗОВОЙ ЛИНИИ (y=0), а затем
+        # прибавить наклонное смещение до target_y.
+        #
+        # Оценка baseline-центра: advance_width / 2 — это то, что
+        # дизайнер видит как «середину буквы» при наборе. Для
+        # прямых шрифтов advance_center ≈ bounds_center, а для
+        # курсивных advance_center — лучшее приближение к центру
+        # на базовой линии.
+        adv = font['hmtx'][glyph_name][0]
+        baseline_cx = adv / 2
+        cx = baseline_cx + target_y * tan_a
+
+    return round(cx)
 
 
 def glyph_top_y(font, glyph_name):
@@ -222,49 +241,17 @@ def _find_mark_class(sub, mark_codepoints, cmap):
     return 0  # fallback
 
 
-def _glyph_center_x_raw(font, glyph_name):
-    """Геометрический центр глифа целиком (для знака-марки)."""
-    b = glyph_bounds(font, glyph_name)
-    if not b:
-        return 0
-    return (b[0] + b[2]) / 2
-
-
-def top_mark_slant_offset(font, sub, cmap):
-    """Смещение гачека из-за наклона начертания (курсив).
-
-    В mark-to-base знак ставится так, что его точка привязки (markAnchor)
-    совмещается с base-anchor. Но у КУРСИВНОГО гачека геометрический центр
-    не совпадает с точкой привязки — знак нарисован наклонным. Поэтому,
-    если ставить base-anchor просто в центр буквы, гачек уезжает вбок
-    (у Noto Serif Italic — на ~105 единиц вправо; отзыв носитель языка про ψ).
-
-    Возвращаем (caron_center − markAnchor_x). На эту величину нужно
-    СДВИНУТЬ base-anchor в обратную сторону, чтобы центр знака попал точно
-    над центром буквы. Для прямых начертаний смещение ≈ 0.
-    """
-    caron = cmap.get(0x30C)
-    if not caron or caron not in sub.MarkCoverage.glyphs:
-        return 0
-    mi = sub.MarkCoverage.glyphs.index(caron)
-    a = sub.MarkArray.MarkRecord[mi].MarkAnchor
-    if a is None:
-        return 0
-    return _glyph_center_x_raw(font, caron) - a.XCoordinate
-
-
 def add_base_anchors(font, sub, targets, label, side):
     """Добавляет якоря для указанных букв в подтаблицу MarkBasePos.
 
     targets — список кодпойнтов.
     side    — 'top' (знак сверху: Y = верх буквы) или 'bottom' (Y = 0).
 
-    Обрабатывает два случая:
-    1) Глифа нет в BaseCoverage — добавляем полную запись.
-    2) Глиф есть, но его якорь для нужного класса = None — заполняем
-       якорь, сохраняя остальные классы нетронутыми. Это бывает в
-       Noto Serif Italic, где coverage широкий, но якоря заданы не
-       для всех классов.
+    Всегда перезаписывает якоря для наших целевых букв, потому что:
+    - у многих букв якорей нет вовсе (None);
+    - у тех, где якоря есть, они могут не учитывать italic slant;
+    - наш алгоритм (advance_center + italic correction) даёт
+      единообразный результат для всех букв.
     """
     cmap = font.getBestCmap()
     order = font.getGlyphOrder()
@@ -272,12 +259,9 @@ def add_base_anchors(font, sub, targets, label, side):
 
     # Определяем номер класса для нашего типа марки
     if side == 'top':
-        mark_class = _find_mark_class(sub, [0x30C, 0x306], cmap)  # caron, breve
-        # Поправка на наклон знака сверху (важна для курсива)
-        slant = top_mark_slant_offset(font, sub, cmap)
+        mark_class = _find_mark_class(sub, [0x30C, 0x306], cmap)
     else:
-        mark_class = _find_mark_class(sub, [0x324], cmap)  # dbelow
-        slant = 0
+        mark_class = _find_mark_class(sub, [0x324], cmap)
 
     # Существующие записи: имя глифа -> BaseRecord
     existing = dict(zip(sub.BaseCoverage.glyphs, sub.BaseArray.BaseRecord))
@@ -288,29 +272,11 @@ def add_base_anchors(font, sub, targets, label, side):
         if not gn:
             continue
 
-        # Проверяем, есть ли уже РЕАЛЬНЫЙ якорь для нужного класса
-        if gn in existing:
-            rec = existing[gn]
-            if mark_class < len(rec.BaseAnchor) and rec.BaseAnchor[mark_class] is not None:
-                # Родной якорь есть. В ПРЯМЫХ начертаниях он идеален — не трогаем.
-                # В КУРСИВЕ (slant заметный) родные якоря дают неровный вид:
-                # у разных букв гачек «плывёт» вправо по-разному. Чтобы курсив
-                # был единообразным, перезаписываем верхние якоря наших целевых
-                # букв на строго центрированные (с наклонной поправкой).
-                if not (side == 'top' and abs(slant) > 8):
-                    continue  # прямое начертание или нижний знак — не трогаем
-
         y = glyph_top_y(font, gn) if side == 'top' else 0
 
         anchor = Anchor()
         anchor.Format = 1
-        # Центр буквы минус наклонное смещение знака. Поправку применяем ко
-        # ВСЕМ буквам, чтобы гачек стоял строго по центру каждой — и в прямых,
-        # и в курсивных начертаниях. Так все буквы выглядят единообразно
-        # (в отличие от родного Noto, где в курсиве знак «плывёт» вправо
-        # по-разному у разных букв). Для прямых начертаний slant ≈ 0.
-        cx = glyph_center_x(font, gn, codepoint=cp) - slant
-        anchor.XCoordinate = round(cx)
+        anchor.XCoordinate = glyph_center_x(font, gn, codepoint=cp, target_y=y)
         anchor.YCoordinate = y
 
         if gn in existing:
