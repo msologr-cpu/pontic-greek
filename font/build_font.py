@@ -151,62 +151,35 @@ def glyph_bounds(font, glyph_name):
     return bp.bounds
 
 
-def glyph_center_x(font, glyph_name, codepoint=None, target_y=0):
-    """Горизонтальный центр буквы на заданной высоте.
+def glyph_visual_center_x(font, glyph_name, side='top', codepoint=None):
+    """Вычисляет точный визуальный центр контура буквы в зоне крепления знака.
 
-    Для **прямых** начертаний — центр bounding box (с поправкой на
-    асимметричные хвосты у ψ, ξ, ζ).
-
-    Для **курсивных** начертаний — центр bounding box + поправка на
-    наклон. Курсивный глиф наклонён вправо: чем выше точка, тем
-    правее она смещена. Якорь для знака сверху (y=536..803) должен
-    стоять правее якоря для знака снизу (y=0). Смещение вычисляется
-    как target_y × tan(italic_angle).
-
-    Эту формулу используют и дизайнеры Noto: для alpha Italic
-    нижний якорь (y=0) стоит на x=209, а верхний (y=536) — на x=315,
-    разница 106 ≈ 536 × tan(12°) = 114.
+    - Для знаков СВЕРХУ (гачек, бреве): берёт центр точек в верхней зоне (top 20% высоты).
+      Это автоматически учитывает реальный наклон курсива, асимметричные хвосты и т.д.
+    - Для знаков СНИЗУ (две точки): берёт центр точек в нижней зоне (bottom 25% высоты).
     """
-    import math
-
     b = glyph_bounds(font, glyph_name)
     if not b:
         return font['hmtx'][glyph_name][0] // 2
 
-    xmin, ymin, xmax, ymax = b
+    gs = font.getGlyphSet()
+    pc = PointCollector(gs)
+    gs[glyph_name].draw(pc)
 
-    # Базовый центр — по bounding box
-    cx = (xmin + xmax) / 2
+    h = b[3] - b[1]
+    if side == 'top':
+        # Для знака сверху: смотрим на верхушку буквы
+        top_y_thresh = b[1] + h * 0.80
+        pts = [p for p in pc.points if p[1] >= top_y_thresh]
+    else:
+        # Для знака снизу: смотрим на основание буквы
+        bot_y_thresh = b[1] + h * 0.25
+        pts = [p for p in pc.points if p[1] <= bot_y_thresh]
 
-    # Для асимметричных букв (ψ ξ ζ) — центр верхних 15%
-    if codepoint and codepoint in ASYMMETRIC_DESCENDERS:
-        gs = font.getGlyphSet()
-        pc = PointCollector(gs)
-        gs[glyph_name].draw(pc)
-        height = ymax - ymin
-        cutoff_y = ymin + height * 0.85
-        upper_points = [p for p in pc.points if p[1] > cutoff_y]
-        if upper_points:
-            cx = (min(p[0] for p in upper_points) + max(p[0] for p in upper_points)) / 2
+    if pts:
+        return (min(p[0] for p in pts) + max(p[0] for p in pts)) / 2
 
-    # Поправка на italic: сдвигаем X пропорционально высоте Y
-    italic_angle = abs(font['post'].italicAngle)
-    if italic_angle > 0.5:
-        tan_a = math.tan(math.radians(italic_angle))
-        # В курсиве bounding box уже «растянут» вправо от наклона.
-        # Нам нужен центр буквы на БАЗОВОЙ ЛИНИИ (y=0), а затем
-        # прибавить наклонное смещение до target_y.
-        #
-        # Оценка baseline-центра: advance_width / 2 — это то, что
-        # дизайнер видит как «середину буквы» при наборе. Для
-        # прямых шрифтов advance_center ≈ bounds_center, а для
-        # курсивных advance_center — лучшее приближение к центру
-        # на базовой линии.
-        adv = font['hmtx'][glyph_name][0]
-        baseline_cx = adv / 2
-        cx = baseline_cx + target_y * tan_a
-
-    return round(cx)
+    return (b[0] + b[2]) / 2
 
 
 def glyph_top_y(font, glyph_name):
@@ -241,27 +214,51 @@ def _find_mark_class(sub, mark_codepoints, cmap):
     return 0  # fallback
 
 
+def _get_mark_offset(font, sub, mark_codepoints, cmap):
+    """Вычисляет смещение геометрического центра знака относительно его MarkAnchor.X.
+
+    Когда MarkAnchor знака совмещается с BaseAnchor буквы, геометрический центр знака
+    оказывается в точке:
+        caron_center_on_screen = BaseAnchor.X + (mark_geom_center - mark_anchor.X)
+
+    Поэтому, чтобы центр знака попал точно в целевой визуальный центр буквы (target_x),
+    BaseAnchor должен быть равен:
+        BaseAnchor.X = target_x - (mark_geom_center - mark_anchor.X)
+    """
+    gs = font.getGlyphSet()
+    for cp in mark_codepoints:
+        gn = cmap.get(cp)
+        if gn and gn in sub.MarkCoverage.glyphs:
+            mi = sub.MarkCoverage.glyphs.index(gn)
+            mrec = sub.MarkArray.MarkRecord[mi]
+            if mrec.MarkAnchor is not None:
+                bp = BoundsPen(gs)
+                gs[gn].draw(bp)
+                if bp.bounds:
+                    geom_center = (bp.bounds[0] + bp.bounds[2]) / 2
+                    return geom_center - mrec.MarkAnchor.XCoordinate
+    return 0.0
+
+
 def add_base_anchors(font, sub, targets, label, side):
     """Добавляет якоря для указанных букв в подтаблицу MarkBasePos.
 
     targets — список кодпойнтов.
     side    — 'top' (знак сверху: Y = верх буквы) или 'bottom' (Y = 0).
-
-    Всегда перезаписывает якоря для наших целевых букв, потому что:
-    - у многих букв якорей нет вовсе (None);
-    - у тех, где якоря есть, они могут не учитывать italic slant;
-    - наш алгоритм (advance_center + italic correction) даёт
-      единообразный результат для всех букв.
     """
     cmap = font.getBestCmap()
     order = font.getGlyphOrder()
     gid = {g: i for i, g in enumerate(order)}
 
-    # Определяем номер класса для нашего типа марки
+    # Определяем номер класса и смещение знака
     if side == 'top':
-        mark_class = _find_mark_class(sub, [0x30C, 0x306], cmap)
+        mark_cps = [0x30C, 0x306]  # caron, breve
+        mark_class = _find_mark_class(sub, mark_cps, cmap)
+        mark_offset = _get_mark_offset(font, sub, mark_cps, cmap)
     else:
-        mark_class = _find_mark_class(sub, [0x324], cmap)
+        mark_cps = [0x324]         # dbelow
+        mark_class = _find_mark_class(sub, mark_cps, cmap)
+        mark_offset = _get_mark_offset(font, sub, mark_cps, cmap)
 
     # Существующие записи: имя глифа -> BaseRecord
     existing = dict(zip(sub.BaseCoverage.glyphs, sub.BaseArray.BaseRecord))
@@ -274,9 +271,13 @@ def add_base_anchors(font, sub, targets, label, side):
 
         y = glyph_top_y(font, gn) if side == 'top' else 0
 
+        # Точный визуальный центр буквы с вычетом смещения точки привязки знака
+        target_center_x = glyph_visual_center_x(font, gn, side=side, codepoint=cp)
+        base_anchor_x = round(target_center_x - mark_offset)
+
         anchor = Anchor()
         anchor.Format = 1
-        anchor.XCoordinate = glyph_center_x(font, gn, codepoint=cp, target_y=y)
+        anchor.XCoordinate = base_anchor_x
         anchor.YCoordinate = y
 
         if gn in existing:
