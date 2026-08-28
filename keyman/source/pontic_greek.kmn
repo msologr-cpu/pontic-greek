@@ -62,7 +62,7 @@ c License: MIT
 store(&VERSION) '10.0'
 store(&NAME) 'Pontic Greek'
 store(&COPYRIGHT) '© 2024-2026 Pontic Greek Keyboard Project'
-store(&KEYBOARDVERSION) '5.0'
+store(&KEYBOARDVERSION) '5.1'
 store(&TARGETS) 'mobile'
 store(&LAYOUTFILE) 'pontic_greek.keyman-touch-layout'
 store(&MESSAGE) 'Понтийская Греческая Клавиатура / Pontic Greek Keyboard'

@@ -36,10 +36,12 @@ from fontTools.pens.boundsPen import BoundsPen
 from fontTools.pens.basePen import BasePen
 from fontTools.ttLib.tables.otTables import Anchor, BaseRecord
 
+from optical_shift import apply_optical_shift, OPTICAL_SHIFT
+
 import os
 import sys
 
-VERSION = '5.0'
+VERSION = '5.1'
 
 # ---------------------------------------------------------------------------
 # Конфигурация сборок
@@ -432,6 +434,17 @@ def build_one(font_or_path, dst, family, style_name):
         if dbelow and dbelow in marks:
             print("Подтаблица со знаком СНИЗУ (две точки):")
             total += add_base_anchors(font, sub, BOTTOM_TARGETS, 'низ', 'bottom')
+
+    # Оптическая поправка по замечанию носитель языка (v5.1): гачек над ξ ζ χ Σ Ξ Ζ Χ
+    # сдвигаем немного вправо. Математический центр у этих букв верный, но
+    # глаз воспринимает его смещённым — у букв с диагоналями и острыми
+    # верхушками оптический центр правее геометрического.
+    # ψ и Ψ намеренно не трогаем: носитель языка подтвердил, что они уже стоят верно.
+    shifted = apply_optical_shift(font, OPTICAL_SHIFT)
+    if shifted:
+        print(f"Оптическая поправка (+{OPTICAL_SHIFT}):")
+        for ch, old, new in shifted:
+            print(f"      {ch}  {old} -> {new}")
 
     rename_font(font, family, style_name)
     font.save(dst)
