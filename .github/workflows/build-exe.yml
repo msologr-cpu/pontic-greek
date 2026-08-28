@@ -36,16 +36,42 @@ jobs:
 
       - name: Setup AutoHotkey v2 with compiler
         shell: pwsh
+        env:
+          # Без токена анонимные запросы к api.github.com упираются в общий
+          # лимит IP-адреса раннера и сборка падает с «API rate limit exceeded».
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          $headers = @{
+            'Authorization' = "Bearer $env:GH_TOKEN"
+            'User-Agent'    = 'pontic-greek-build'
+          }
+
+          # Повтор при временных сбоях сети / лимитов
+          function Invoke-WithRetry($Action, $Description, $Tries = 4) {
+            for ($i = 1; $i -le $Tries; $i++) {
+              try {
+                return & $Action
+              } catch {
+                Write-Output "Попытка ${i}/${Tries} не удалась ($Description): $_"
+                if ($i -eq $Tries) { throw }
+                Start-Sleep -Seconds ([Math]::Pow(2, $i) * 5)
+              }
+            }
+          }
+
           # 1. Download AHK v2 portable
-          $release = Invoke-RestMethod "https://api.github.com/repos/AutoHotkey/AutoHotkey/releases/latest"
+          $release = Invoke-WithRetry {
+            Invoke-RestMethod "https://api.github.com/repos/AutoHotkey/AutoHotkey/releases/latest" -Headers $headers
+          } "AHK release info"
           Write-Output "AHK release: $($release.tag_name)"
           $zipAsset = $release.assets | Where-Object { $_.name -match '\.zip$' } | Select-Object -First 1
           Invoke-WebRequest -Uri $zipAsset.browser_download_url -OutFile "ahk.zip"
           Expand-Archive -Path "ahk.zip" -DestinationPath "ahk" -Force
 
           # 2. Download Ahk2Exe compiler
-          $compRelease = Invoke-RestMethod "https://api.github.com/repos/AutoHotkey/Ahk2Exe/releases/latest"
+          $compRelease = Invoke-WithRetry {
+            Invoke-RestMethod "https://api.github.com/repos/AutoHotkey/Ahk2Exe/releases/latest" -Headers $headers
+          } "Ahk2Exe release info"
           Write-Output "Ahk2Exe release: $($compRelease.tag_name)"
           $compAsset = $compRelease.assets | Where-Object { $_.name -match '\.zip$' } | Select-Object -First 1
           if ($compAsset) {
