@@ -26,7 +26,7 @@
 ; - Надёжное определение греческой раскладки и вставка через буфер обмена.
 ; ==============================================================================
 
-global APP_VERSION := "5.0"
+global APP_VERSION := "5.1"
 global APP_TITLE := "Понтийская клавиатура v" APP_VERSION
 global APP_VARIANT := "Вариант 2: три клавиши , . /"
 
@@ -91,13 +91,30 @@ IsGreekLayout() {
 }
 
 ; ==============================================================================
-; ИСПРАВЛЕНИЕ MS WORD — отключение автозамены, ломающей понтийские символы
+; MS WORD — аккуратное вмешательство (v5.1)
+; ==============================================================================
+; Подробное описание причины и решения — в PonticKeyboard_v3.ahk.
+; Коротко: версии 4.0–5.0 выключали в Word «умные кавычки» глобально и
+; навсегда (запись в реестр). Из-за этого у Д.И. апостроф на клавише «Э»
+; стал давать прямой штрих ' вместо правильных ‘ ’ — во всех документах,
+; даже при выключенной понтийской раскладке.
+; Теперь эту настройку не трогаем, а если она выключена — включаем обратно.
 ; ==============================================================================
 global g_WordFixed := false
 global g_WordLastPID := 0
+global g_RemovedEntries := []
+global g_QuotesHealed := false
+
+IsHarmfulEntry(name, value) {
+    if (StrLen(name) > 3)
+        return false
+    if !(InStr(name, "'") || InStr(name, "’"))
+        return false
+    return (StrLen(value) > StrLen(name))
+}
 
 FixWordAutoCorrect(silent := true) {
-    global g_WordFixed
+    global g_WordFixed, g_RemovedEntries, g_QuotesHealed
     try {
         w := ComObjActive("Word.Application")
     } catch {
@@ -112,28 +129,91 @@ FixWordAutoCorrect(silent := true) {
         return false
     }
 
-    try w.AutoCorrect.ReplaceText := false
-    try w.AutoCorrect.ReplaceTextFromSpellingChecker := false
-    try w.AutoCorrect.CorrectSentenceCaps := false
-    try w.AutoCorrect.CorrectInitialCaps := false
-    try w.AutoCorrect.CorrectCapsLock := false
-    try w.AutoCorrect.CorrectDays := false
-    try w.AutoCorrect.CorrectHangulAndAlphabet := false
-    try w.Options.AutoFormatAsYouTypeReplaceQuotes := false
-    try w.Options.AutoFormatAsYouTypeReplaceSymbols := false
-    try w.Options.AutoFormatAsYouTypeReplaceOrdinals := false
+    ; Лечим след прошлых версий: возвращаем «умные кавычки»
+    healed := false
+    try {
+        if (w.Options.AutoFormatAsYouTypeReplaceQuotes = false) {
+            w.Options.AutoFormatAsYouTypeReplaceQuotes := true
+            healed := true
+            g_QuotesHealed := true
+        }
+    }
+
+    ; Убираем только вредные записи автозамены, запомнив их
+    if (g_RemovedEntries.Length = 0) {
+        try {
+            entries := w.AutoCorrect.Entries
+            doomed := []
+            for e in entries {
+                try {
+                    if IsHarmfulEntry(e.Name, e.Value)
+                        doomed.Push({name: e.Name, value: e.Value})
+                }
+            }
+            for item in doomed {
+                try {
+                    entries.Item(item.name).Delete()
+                    g_RemovedEntries.Push(item)
+                }
+            }
+        }
+    }
 
     g_WordFixed := true
 
     if !silent {
+        msg := "Настройки MS Word проверены.`n`n"
+        if healed
+            msg .= "• «Умные кавычки» были выключены — включил обратно.`n"
+                .  "  Апостроф снова печатается правильно: ‘κ’`n"
+        else
+            msg .= "• «Умные кавычки» включены — апостроф ‘κ’ работает.`n"
+        if (g_RemovedEntries.Length > 0)
+            msg .= "• Убрано вредных правил автозамены: "
+                .  g_RemovedEntries.Length "`n"
+        msg .= "`nПри выходе из программы всё вернётся как было."
+        MsgBox(msg, APP_TITLE, "Iconi")
+    }
+    return true
+}
+
+RestoreWordSettings(silent := true) {
+    global g_RemovedEntries
+    try {
+        w := ComObjActive("Word.Application")
+    } catch {
+        if !silent
+            MsgBox("MS Word сейчас не запущен.`n`nОткройте Word и выберите "
+                 . "этот пункт снова.", APP_TITLE, "Icon!")
+        return false
+    }
+
+    try w.Options.AutoFormatAsYouTypeReplaceQuotes := true
+
+    restored := 0
+    try {
+        for item in g_RemovedEntries {
+            try {
+                w.AutoCorrect.Entries.Add(item.name, item.value)
+                restored++
+            }
+        }
+    }
+    g_RemovedEntries := []
+
+    if !silent {
         MsgBox(
-            "Готово! Автозамена MS Word отключена.`n`n"
-          . "Теперь σ̌ между гласными и τ' должны вводиться правильно.",
+            "Настройки MS Word восстановлены.`n`n"
+          . "• «Умные кавычки» включены — апостроф ‘κ’ печатается верно.`n"
+          . "• Возвращено правил автозамены: " restored "`n`n"
+          . "Перезапускать Word не нужно.",
             APP_TITLE, "Iconi"
         )
     }
     return true
 }
+
+OnExit((*) => RestoreWordSettings(true))
 
 WordWatch() {
     global g_WordFixed, g_WordLastPID
@@ -455,7 +535,8 @@ A_TrayMenu.Default := APP_TITLE
 A_TrayMenu.Add()
 A_TrayMenu.Add("О программе / Как печатать", ShowAbout)
 A_TrayMenu.Add("Диагностика (Ctrl+Alt+P)", ShowDiagnostics)
-A_TrayMenu.Add("Починить MS Word (отключить автозамену)", (*) => FixWordAutoCorrect(false))
+A_TrayMenu.Add("Проверить настройки MS Word", (*) => FixWordAutoCorrect(false))
+A_TrayMenu.Add("Восстановить апостроф ‘κ’ в Word", (*) => RestoreWordSettings(false))
 A_TrayMenu.Add()
 A_TrayMenu.Add("Выход", (*) => ExitApp())
 

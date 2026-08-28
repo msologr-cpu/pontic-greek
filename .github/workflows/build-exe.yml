@@ -8,6 +8,7 @@ on:
       - 'pontic_windows.ahk'
       - 'PonticKeyboard_v3.ahk'
       - 'PonticKeyboard_v3_3keys.ahk'
+      - 'PonticWordRestore.ahk'
       - '.github/workflows/build-exe.yml'
   workflow_dispatch:
 
@@ -72,7 +73,8 @@ jobs:
             @{ In = "PonticKeyboard.ahk";           Out = "PonticKeyboard.exe" },
             @{ In = "PonticKeyboard_v2.ahk";        Out = "PonticKeyboard_v2.exe" },
             @{ In = "PonticKeyboard_v3.ahk";        Out = "PonticKeyboard_v3.exe" },
-            @{ In = "PonticKeyboard_v3_3keys.ahk";  Out = "PonticKeyboard_v3_3keys.exe" }
+            @{ In = "PonticKeyboard_v3_3keys.ahk";  Out = "PonticKeyboard_v3_3keys.exe" },
+            @{ In = "PonticWordRestore.ahk";        Out = "PonticWordRestore.exe" }
           )
 
           foreach ($t in $targets) {
@@ -110,6 +112,7 @@ jobs:
           New-Item -ItemType Directory -Path "dist" -Force | Out-Null
           Copy-Item "PonticKeyboard_v3.exe"       "dist/PonticKeyboard_v$v.exe"
           Copy-Item "PonticKeyboard_v3_3keys.exe" "dist/PonticKeyboard_v${v}_3keys.exe"
+          Copy-Item "PonticWordRestore.exe"       "dist/PonticWordRestore.exe"
           if (Test-Path "ИНСТРУКЦИЯ_WINDOWS.md") {
             Copy-Item "ИНСТРУКЦИЯ_WINDOWS.md" "dist/ИНСТРУКЦИЯ.md"
           }
@@ -132,7 +135,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add PonticKeyboard.exe PonticKeyboard_v2.exe PonticKeyboard_v3.exe PonticKeyboard_v3_3keys.exe
+          git add PonticKeyboard.exe PonticKeyboard_v2.exe PonticKeyboard_v3.exe PonticKeyboard_v3_3keys.exe PonticWordRestore.exe
           if git diff --staged --quiet; then
             echo "No changes to exe files"
           else
