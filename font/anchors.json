@@ -1,0 +1,3329 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-09-29T20:29:07Z",
+  "sourceFontsVersion": "5.1",
+  "fonts": {
+    "PonticSans-Regular": {
+      "upem": 1000,
+      "metrics": {
+        "xHeight": 536,
+        "capHeight": 714,
+        "ascender": 1069,
+        "descender": -293,
+        "baseline": 0
+      },
+      "marks": {
+        "030C": {
+          "anchor": {
+            "x": 0,
+            "y": 536
+          },
+          "note": "гачек / caron"
+        },
+        "0306": {
+          "anchor": {
+            "x": 1,
+            "y": 536
+          },
+          "note": "бреве / breve"
+        },
+        "0324": {
+          "anchor": {
+            "x": -1,
+            "y": 0
+          },
+          "note": "две точки снизу / diaeresis below"
+        },
+        "0331": {
+          "anchor": {
+            "x": 0,
+            "y": 0
+          },
+          "note": "черта снизу / macron below"
+        },
+        "0307": {
+          "anchor": {
+            "x": 0,
+            "y": 536
+          },
+          "note": "точка сверху / dot above"
+        },
+        "0301": {
+          "anchor": {
+            "x": -272,
+            "y": 536
+          },
+          "note": "тонос / acute"
+        },
+        "0308": {
+          "anchor": {
+            "x": -1,
+            "y": 536
+          },
+          "note": "диалитика / diaeresis"
+        }
+      },
+      "bases": {
+        "0386": {
+          "char": "Ά",
+          "top": {
+            "x": 387,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 244
+          },
+          "bottom": {
+            "x": 388,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 388
+          }
+        },
+        "038C": {
+          "char": "Ό",
+          "top": {
+            "x": 505,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 408
+          },
+          "bottom": {
+            "x": 503,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 504
+          }
+        },
+        "0391": {
+          "char": "Α",
+          "top": {
+            "x": 318,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 320
+          },
+          "bottom": {
+            "x": 318,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 319
+          }
+        },
+        "0393": {
+          "char": "Γ",
+          "top": {
+            "x": 286,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 286
+          },
+          "bottom": null
+        },
+        "0396": {
+          "char": "Ζ",
+          "top": {
+            "x": 289,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 286
+          },
+          "bottom": {
+            "x": 297,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 286
+          }
+        },
+        "039A": {
+          "char": "Κ",
+          "top": {
+            "x": 338,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 352
+          },
+          "bottom": {
+            "x": 330,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 358
+          }
+        },
+        "039E": {
+          "char": "Ξ",
+          "top": {
+            "x": 315,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 312
+          },
+          "bottom": null
+        },
+        "039F": {
+          "char": "Ο",
+          "top": {
+            "x": 391,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 389
+          },
+          "bottom": {
+            "x": 389,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 390
+          }
+        },
+        "03A3": {
+          "char": "Σ",
+          "top": {
+            "x": 290,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 284
+          },
+          "bottom": null
+        },
+        "03A7": {
+          "char": "Χ",
+          "top": {
+            "x": 295,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 292
+          },
+          "bottom": {
+            "x": 293,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 293
+          }
+        },
+        "03A8": {
+          "char": "Ψ",
+          "top": {
+            "x": 411,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 410
+          },
+          "bottom": null
+        },
+        "03AC": {
+          "char": "ά",
+          "top": {
+            "x": 291,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 371
+          },
+          "bottom": {
+            "x": 328,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 328
+          }
+        },
+        "03B1": {
+          "char": "α",
+          "top": {
+            "x": 291,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 322
+          },
+          "bottom": {
+            "x": 342,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 342
+          }
+        },
+        "03B3": {
+          "char": "γ",
+          "top": {
+            "x": 260,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 243
+          },
+          "bottom": null
+        },
+        "03B5": {
+          "char": "ε",
+          "top": {
+            "x": 261,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 250
+          },
+          "bottom": {
+            "x": 267,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 236
+          }
+        },
+        "03B6": {
+          "char": "ζ",
+          "top": {
+            "x": 273,
+            "y": 760,
+            "origin": "computed",
+            "visualCenterX": 271
+          },
+          "bottom": null
+        },
+        "03B7": {
+          "char": "η",
+          "top": {
+            "x": 246,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 306
+          },
+          "bottom": {
+            "x": 129,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 484
+          }
+        },
+        "03B9": {
+          "char": "ι",
+          "top": {
+            "x": 134,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 126
+          },
+          "bottom": {
+            "x": 198,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 196
+          }
+        },
+        "03BA": {
+          "char": "κ",
+          "top": {
+            "x": 297,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 297
+          },
+          "bottom": {
+            "x": 267,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 305
+          }
+        },
+        "03BE": {
+          "char": "ξ",
+          "top": {
+            "x": 273,
+            "y": 760,
+            "origin": "computed",
+            "visualCenterX": 271
+          },
+          "bottom": null
+        },
+        "03BF": {
+          "char": "ο",
+          "top": {
+            "x": 303,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 302
+          },
+          "bottom": {
+            "x": 304,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 304
+          }
+        },
+        "03C2": {
+          "char": "ς",
+          "top": {
+            "x": 295,
+            "y": 540,
+            "origin": "computed",
+            "visualCenterX": 266
+          },
+          "bottom": null
+        },
+        "03C3": {
+          "char": "σ",
+          "top": {
+            "x": 354,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 354
+          },
+          "bottom": null
+        },
+        "03C5": {
+          "char": "υ",
+          "top": {
+            "x": 282,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 297
+          },
+          "bottom": {
+            "x": 287,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 278
+          }
+        },
+        "03C7": {
+          "char": "χ",
+          "top": {
+            "x": 313,
+            "y": 539,
+            "origin": "computed",
+            "visualCenterX": 308
+          },
+          "bottom": null
+        },
+        "03C8": {
+          "char": "ψ",
+          "top": {
+            "x": 373,
+            "y": 760,
+            "origin": "computed",
+            "visualCenterX": 373
+          },
+          "bottom": null
+        },
+        "03C9": {
+          "char": "ω",
+          "top": {
+            "x": 400,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 405
+          },
+          "bottom": {
+            "x": 400,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 400
+          }
+        },
+        "03CC": {
+          "char": "ό",
+          "top": {
+            "x": 303,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 383
+          },
+          "bottom": {
+            "x": 303,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 304
+          }
+        }
+      },
+      "file": "PonticSans-Regular.ttf"
+    },
+    "PonticSans-Italic": {
+      "upem": 1000,
+      "metrics": {
+        "xHeight": 536,
+        "capHeight": 714,
+        "ascender": 1069,
+        "descender": -293,
+        "baseline": 0
+      },
+      "marks": {
+        "030C": {
+          "anchor": {
+            "x": 76,
+            "y": 536
+          },
+          "note": "гачек / caron"
+        },
+        "0306": {
+          "anchor": {
+            "x": 66,
+            "y": 536
+          },
+          "note": "бреве / breve"
+        },
+        "0324": {
+          "anchor": {
+            "x": -51,
+            "y": 0
+          },
+          "note": "две точки снизу / diaeresis below"
+        },
+        "0331": {
+          "anchor": {
+            "x": -56,
+            "y": 0
+          },
+          "note": "черта снизу / macron below"
+        },
+        "0307": {
+          "anchor": {
+            "x": 59,
+            "y": 536
+          },
+          "note": "точка сверху / dot above"
+        },
+        "0301": {
+          "anchor": {
+            "x": -191,
+            "y": 536
+          },
+          "note": "тонос / acute"
+        },
+        "0308": {
+          "anchor": {
+            "x": 58,
+            "y": 536
+          },
+          "note": "диалитика / diaeresis"
+        }
+      },
+      "bases": {
+        "0386": {
+          "char": "Ά",
+          "top": {
+            "x": 445,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 352
+          },
+          "bottom": {
+            "x": 307,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 297
+          }
+        },
+        "038C": {
+          "char": "Ό",
+          "top": {
+            "x": 569,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 444
+          },
+          "bottom": {
+            "x": 484,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 479
+          }
+        },
+        "0391": {
+          "char": "Α",
+          "top": {
+            "x": 376,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 378
+          },
+          "bottom": {
+            "x": 240,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 228
+          }
+        },
+        "0393": {
+          "char": "Γ",
+          "top": {
+            "x": 364,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 373
+          },
+          "bottom": null
+        },
+        "0396": {
+          "char": "Ζ",
+          "top": {
+            "x": 356,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 354
+          },
+          "bottom": {
+            "x": 215,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 220
+          }
+        },
+        "039A": {
+          "char": "Κ",
+          "top": {
+            "x": 422,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 422
+          },
+          "bottom": {
+            "x": 248,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 276
+          }
+        },
+        "039E": {
+          "char": "Ξ",
+          "top": {
+            "x": 366,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 358
+          },
+          "bottom": null
+        },
+        "039F": {
+          "char": "Ο",
+          "top": {
+            "x": 456,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 395
+          },
+          "bottom": {
+            "x": 376,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 366
+          }
+        },
+        "03A3": {
+          "char": "Σ",
+          "top": {
+            "x": 364,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 358
+          },
+          "bottom": null
+        },
+        "03A7": {
+          "char": "Χ",
+          "top": {
+            "x": 363,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 360
+          },
+          "bottom": {
+            "x": 207,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 211
+          }
+        },
+        "03A8": {
+          "char": "Ψ",
+          "top": {
+            "x": 501,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 504
+          },
+          "bottom": null
+        },
+        "03AC": {
+          "char": "ά",
+          "top": {
+            "x": 304,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 435
+          },
+          "bottom": {
+            "x": 295,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 278
+          }
+        },
+        "03B1": {
+          "char": "α",
+          "top": {
+            "x": 304,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 331
+          },
+          "bottom": {
+            "x": 296,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 278
+          }
+        },
+        "03B3": {
+          "char": "γ",
+          "top": {
+            "x": 270,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 262
+          },
+          "bottom": null
+        },
+        "03B5": {
+          "char": "ε",
+          "top": {
+            "x": 282,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 266
+          },
+          "bottom": {
+            "x": 199,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 197
+          }
+        },
+        "03B6": {
+          "char": "ζ",
+          "top": {
+            "x": 309,
+            "y": 760,
+            "origin": "computed",
+            "visualCenterX": 317
+          },
+          "bottom": null
+        },
+        "03B7": {
+          "char": "η",
+          "top": {
+            "x": 313,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 332
+          },
+          "bottom": {
+            "x": 50,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 346
+          }
+        },
+        "03B9": {
+          "char": "ι",
+          "top": {
+            "x": 188,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 180
+          },
+          "bottom": {
+            "x": 171,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 157
+          }
+        },
+        "03BA": {
+          "char": "κ",
+          "top": {
+            "x": 336,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 332
+          },
+          "bottom": {
+            "x": 191,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 232
+          }
+        },
+        "03BE": {
+          "char": "ξ",
+          "top": {
+            "x": 332,
+            "y": 760,
+            "origin": "computed",
+            "visualCenterX": 340
+          },
+          "bottom": null
+        },
+        "03BF": {
+          "char": "ο",
+          "top": {
+            "x": 322,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 302
+          },
+          "bottom": {
+            "x": 280,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 262
+          }
+        },
+        "03C2": {
+          "char": "ς",
+          "top": {
+            "x": 328,
+            "y": 546,
+            "origin": "computed",
+            "visualCenterX": 280
+          },
+          "bottom": null
+        },
+        "03C3": {
+          "char": "σ",
+          "top": {
+            "x": 381,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 355
+          },
+          "bottom": {
+            "x": 237,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 258
+          }
+        },
+        "03C5": {
+          "char": "υ",
+          "top": {
+            "x": 322,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 338
+          },
+          "bottom": {
+            "x": 215,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 264
+          }
+        },
+        "03C7": {
+          "char": "χ",
+          "top": {
+            "x": 339,
+            "y": 539,
+            "origin": "computed",
+            "visualCenterX": 322
+          },
+          "bottom": null
+        },
+        "03C8": {
+          "char": "ψ",
+          "top": {
+            "x": 456,
+            "y": 760,
+            "origin": "computed",
+            "visualCenterX": 458
+          },
+          "bottom": null
+        },
+        "03C9": {
+          "char": "ω",
+          "top": {
+            "x": 457,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 424
+          },
+          "bottom": {
+            "x": 353,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 374
+          }
+        },
+        "03CC": {
+          "char": "ό",
+          "top": {
+            "x": 322,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 453
+          },
+          "bottom": {
+            "x": 277,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 260
+          }
+        }
+      },
+      "file": "PonticSans-Italic.ttf"
+    },
+    "PonticSans-Bold": {
+      "upem": 1000,
+      "metrics": {
+        "xHeight": 546,
+        "capHeight": 714,
+        "ascender": 1069,
+        "descender": -293,
+        "baseline": 0
+      },
+      "marks": {
+        "030C": {
+          "anchor": {
+            "x": -4,
+            "y": 546
+          },
+          "note": "гачек / caron"
+        },
+        "0306": {
+          "anchor": {
+            "x": 1,
+            "y": 546
+          },
+          "note": "бреве / breve"
+        },
+        "0324": {
+          "anchor": {
+            "x": -1,
+            "y": 0
+          },
+          "note": "две точки снизу / diaeresis below"
+        },
+        "0331": {
+          "anchor": {
+            "x": 0,
+            "y": 0
+          },
+          "note": "черта снизу / macron below"
+        },
+        "0307": {
+          "anchor": {
+            "x": 0,
+            "y": 546
+          },
+          "note": "точка сверху / dot above"
+        },
+        "0301": {
+          "anchor": {
+            "x": -283,
+            "y": 546
+          },
+          "note": "тонос / acute"
+        },
+        "0308": {
+          "anchor": {
+            "x": -1,
+            "y": 546
+          },
+          "note": "диалитика / diaeresis"
+        }
+      },
+      "bases": {
+        "0386": {
+          "char": "Ά",
+          "top": {
+            "x": 450,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 300
+          },
+          "bottom": {
+            "x": 450,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 450
+          }
+        },
+        "038C": {
+          "char": "Ό",
+          "top": {
+            "x": 566,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 447
+          },
+          "bottom": {
+            "x": 569,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 569
+          }
+        },
+        "0391": {
+          "char": "Α",
+          "top": {
+            "x": 345,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 345
+          },
+          "bottom": {
+            "x": 346,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 346
+          }
+        },
+        "0393": {
+          "char": "Γ",
+          "top": {
+            "x": 272,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 284
+          },
+          "bottom": null
+        },
+        "0396": {
+          "char": "Ζ",
+          "top": {
+            "x": 279,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 290
+          },
+          "bottom": {
+            "x": 309,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 290
+          }
+        },
+        "039A": {
+          "char": "Κ",
+          "top": {
+            "x": 364,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 376
+          },
+          "bottom": {
+            "x": 348,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 377
+          }
+        },
+        "039E": {
+          "char": "Ξ",
+          "top": {
+            "x": 303,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 313
+          },
+          "bottom": null
+        },
+        "039F": {
+          "char": "Ο",
+          "top": {
+            "x": 396,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 396
+          },
+          "bottom": {
+            "x": 395,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 395
+          }
+        },
+        "03A3": {
+          "char": "Σ",
+          "top": {
+            "x": 280,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 290
+          },
+          "bottom": null
+        },
+        "03A7": {
+          "char": "Χ",
+          "top": {
+            "x": 324,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 333
+          },
+          "bottom": {
+            "x": 335,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 334
+          }
+        },
+        "03A8": {
+          "char": "Ψ",
+          "top": {
+            "x": 428,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 440
+          },
+          "bottom": null
+        },
+        "03AC": {
+          "char": "ά",
+          "top": {
+            "x": 306,
+            "y": 546,
+            "origin": "computed",
+            "visualCenterX": 374
+          },
+          "bottom": {
+            "x": 334,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 338
+          }
+        },
+        "03B1": {
+          "char": "α",
+          "top": {
+            "x": 306,
+            "y": 546,
+            "origin": "computed",
+            "visualCenterX": 331
+          },
+          "bottom": {
+            "x": 335,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 350
+          }
+        },
+        "03B3": {
+          "char": "γ",
+          "top": {
+            "x": 275,
+            "y": 546,
+            "origin": "computed",
+            "visualCenterX": 266
+          },
+          "bottom": null
+        },
+        "03B5": {
+          "char": "ε",
+          "top": {
+            "x": 277,
+            "y": 546,
+            "origin": "computed",
+            "visualCenterX": 267
+          },
+          "bottom": {
+            "x": 275,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 246
+          }
+        },
+        "03B6": {
+          "char": "ζ",
+          "top": {
+            "x": 265,
+            "y": 760,
+            "origin": "computed",
+            "visualCenterX": 276
+          },
+          "bottom": null
+        },
+        "03B7": {
+          "char": "η",
+          "top": {
+            "x": 275,
+            "y": 546,
+            "origin": "computed",
+            "visualCenterX": 322
+          },
+          "bottom": {
+            "x": 149,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 497
+          }
+        },
+        "03B9": {
+          "char": "ι",
+          "top": {
+            "x": 154,
+            "y": 546,
+            "origin": "computed",
+            "visualCenterX": 152
+          },
+          "bottom": {
+            "x": 218,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 224
+          }
+        },
+        "03BA": {
+          "char": "κ",
+          "top": {
+            "x": 330,
+            "y": 546,
+            "origin": "computed",
+            "visualCenterX": 342
+          },
+          "bottom": {
+            "x": 305,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 349
+          }
+        },
+        "03BE": {
+          "char": "ξ",
+          "top": {
+            "x": 276,
+            "y": 760,
+            "origin": "computed",
+            "visualCenterX": 286
+          },
+          "bottom": null
+        },
+        "03BF": {
+          "char": "ο",
+          "top": {
+            "x": 313,
+            "y": 546,
+            "origin": "computed",
+            "visualCenterX": 310
+          },
+          "bottom": {
+            "x": 314,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 314
+          }
+        },
+        "03C2": {
+          "char": "ς",
+          "top": {
+            "x": 269,
+            "y": 556,
+            "origin": "computed",
+            "visualCenterX": 281
+          },
+          "bottom": null
+        },
+        "03C3": {
+          "char": "σ",
+          "top": {
+            "x": 352,
+            "y": 547,
+            "origin": "computed",
+            "visualCenterX": 364
+          },
+          "bottom": null
+        },
+        "03C5": {
+          "char": "υ",
+          "top": {
+            "x": 311,
+            "y": 546,
+            "origin": "computed",
+            "visualCenterX": 318
+          },
+          "bottom": {
+            "x": 308,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 304
+          }
+        },
+        "03C7": {
+          "char": "χ",
+          "top": {
+            "x": 320,
+            "y": 553,
+            "origin": "computed",
+            "visualCenterX": 316
+          },
+          "bottom": null
+        },
+        "03C8": {
+          "char": "ψ",
+          "top": {
+            "x": 403,
+            "y": 760,
+            "origin": "computed",
+            "visualCenterX": 415
+          },
+          "bottom": null
+        },
+        "03C9": {
+          "char": "ω",
+          "top": {
+            "x": 434,
+            "y": 546,
+            "origin": "computed",
+            "visualCenterX": 426
+          },
+          "bottom": {
+            "x": 434,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 434
+          }
+        },
+        "03CC": {
+          "char": "ό",
+          "top": {
+            "x": 313,
+            "y": 546,
+            "origin": "computed",
+            "visualCenterX": 381
+          },
+          "bottom": {
+            "x": 313,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 313
+          }
+        }
+      },
+      "file": "PonticSans-Bold.ttf"
+    },
+    "PonticSans-BoldItalic": {
+      "upem": 1000,
+      "metrics": {
+        "xHeight": 546,
+        "capHeight": 714,
+        "ascender": 1069,
+        "descender": -293,
+        "baseline": 0
+      },
+      "marks": {
+        "030C": {
+          "anchor": {
+            "x": 75,
+            "y": 546
+          },
+          "note": "гачек / caron"
+        },
+        "0306": {
+          "anchor": {
+            "x": 65,
+            "y": 546
+          },
+          "note": "бреве / breve"
+        },
+        "0324": {
+          "anchor": {
+            "x": -56,
+            "y": 0
+          },
+          "note": "две точки снизу / diaeresis below"
+        },
+        "0331": {
+          "anchor": {
+            "x": -57,
+            "y": 0
+          },
+          "note": "черта снизу / macron below"
+        },
+        "0307": {
+          "anchor": {
+            "x": 59,
+            "y": 546
+          },
+          "note": "точка сверху / dot above"
+        },
+        "0301": {
+          "anchor": {
+            "x": -171,
+            "y": 546
+          },
+          "note": "тонос / acute"
+        },
+        "0308": {
+          "anchor": {
+            "x": 58,
+            "y": 546
+          },
+          "note": "диалитика / diaeresis"
+        }
+      },
+      "bases": {
+        "0386": {
+          "char": "Ά",
+          "top": {
+            "x": 514,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 386
+          },
+          "bottom": {
+            "x": 374,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 358
+          }
+        },
+        "038C": {
+          "char": "Ό",
+          "top": {
+            "x": 623,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 475
+          },
+          "bottom": {
+            "x": 530,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 516
+          }
+        },
+        "0391": {
+          "char": "Α",
+          "top": {
+            "x": 410,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 405
+          },
+          "bottom": {
+            "x": 273,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 254
+          }
+        },
+        "0393": {
+          "char": "Γ",
+          "top": {
+            "x": 373,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 376
+          },
+          "bottom": null
+        },
+        "0396": {
+          "char": "Ζ",
+          "top": {
+            "x": 362,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 344
+          },
+          "bottom": {
+            "x": 205,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 222
+          }
+        },
+        "039A": {
+          "char": "Κ",
+          "top": {
+            "x": 449,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 441
+          },
+          "bottom": {
+            "x": 275,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 292
+          }
+        },
+        "039E": {
+          "char": "Ξ",
+          "top": {
+            "x": 381,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 361
+          },
+          "bottom": null
+        },
+        "039F": {
+          "char": "Ο",
+          "top": {
+            "x": 455,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 393
+          },
+          "bottom": {
+            "x": 364,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 349
+          }
+        },
+        "03A3": {
+          "char": "Σ",
+          "top": {
+            "x": 372,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 356
+          },
+          "bottom": null
+        },
+        "03A7": {
+          "char": "Χ",
+          "top": {
+            "x": 395,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 398
+          },
+          "bottom": {
+            "x": 247,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 248
+          }
+        },
+        "03A8": {
+          "char": "Ψ",
+          "top": {
+            "x": 531,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 528
+          },
+          "bottom": null
+        },
+        "03AC": {
+          "char": "ά",
+          "top": {
+            "x": 307,
+            "y": 546,
+            "origin": "computed",
+            "visualCenterX": 407
+          },
+          "bottom": {
+            "x": 308,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 296
+          }
+        },
+        "03B1": {
+          "char": "α",
+          "top": {
+            "x": 299,
+            "y": 546,
+            "origin": "computed",
+            "visualCenterX": 341
+          },
+          "bottom": {
+            "x": 314,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 296
+          }
+        },
+        "03B3": {
+          "char": "γ",
+          "top": {
+            "x": 279,
+            "y": 546,
+            "origin": "computed",
+            "visualCenterX": 283
+          },
+          "bottom": null
+        },
+        "03B5": {
+          "char": "ε",
+          "top": {
+            "x": 299,
+            "y": 546,
+            "origin": "computed",
+            "visualCenterX": 284
+          },
+          "bottom": {
+            "x": 216,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 208
+          }
+        },
+        "03B6": {
+          "char": "ζ",
+          "top": {
+            "x": 346,
+            "y": 760,
+            "origin": "computed",
+            "visualCenterX": 328
+          },
+          "bottom": null
+        },
+        "03B7": {
+          "char": "η",
+          "top": {
+            "x": 367,
+            "y": 546,
+            "origin": "computed",
+            "visualCenterX": 344
+          },
+          "bottom": {
+            "x": 78,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 354
+          }
+        },
+        "03B9": {
+          "char": "ι",
+          "top": {
+            "x": 204,
+            "y": 546,
+            "origin": "computed",
+            "visualCenterX": 202
+          },
+          "bottom": {
+            "x": 204,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 185
+          }
+        },
+        "03BA": {
+          "char": "κ",
+          "top": {
+            "x": 375,
+            "y": 546,
+            "origin": "computed",
+            "visualCenterX": 374
+          },
+          "bottom": {
+            "x": 226,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 264
+          }
+        },
+        "03BE": {
+          "char": "ξ",
+          "top": {
+            "x": 363,
+            "y": 760,
+            "origin": "computed",
+            "visualCenterX": 351
+          },
+          "bottom": null
+        },
+        "03BF": {
+          "char": "ο",
+          "top": {
+            "x": 344,
+            "y": 546,
+            "origin": "computed",
+            "visualCenterX": 314
+          },
+          "bottom": {
+            "x": 286,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 272
+          }
+        },
+        "03C2": {
+          "char": "ς",
+          "top": {
+            "x": 346,
+            "y": 556,
+            "origin": "computed",
+            "visualCenterX": 300
+          },
+          "bottom": null
+        },
+        "03C3": {
+          "char": "σ",
+          "top": {
+            "x": 404,
+            "y": 546,
+            "origin": "computed",
+            "visualCenterX": 369
+          },
+          "bottom": {
+            "x": 244,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 278
+          }
+        },
+        "03C5": {
+          "char": "υ",
+          "top": {
+            "x": 341,
+            "y": 546,
+            "origin": "computed",
+            "visualCenterX": 353
+          },
+          "bottom": {
+            "x": 231,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 278
+          }
+        },
+        "03C7": {
+          "char": "χ",
+          "top": {
+            "x": 361,
+            "y": 553,
+            "origin": "computed",
+            "visualCenterX": 342
+          },
+          "bottom": null
+        },
+        "03C8": {
+          "char": "ψ",
+          "top": {
+            "x": 504,
+            "y": 760,
+            "origin": "computed",
+            "visualCenterX": 500
+          },
+          "bottom": null
+        },
+        "03C9": {
+          "char": "ω",
+          "top": {
+            "x": 484,
+            "y": 546,
+            "origin": "computed",
+            "visualCenterX": 456
+          },
+          "bottom": {
+            "x": 368,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 404
+          }
+        },
+        "03CC": {
+          "char": "ό",
+          "top": {
+            "x": 344,
+            "y": 546,
+            "origin": "computed",
+            "visualCenterX": 444
+          },
+          "bottom": {
+            "x": 303,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 282
+          }
+        }
+      },
+      "file": "PonticSans-BoldItalic.ttf"
+    },
+    "PonticSerif-Regular": {
+      "upem": 1000,
+      "metrics": {
+        "xHeight": 536,
+        "capHeight": 714,
+        "ascender": 1069,
+        "descender": -293,
+        "baseline": 0
+      },
+      "marks": {
+        "030C": {
+          "anchor": {
+            "x": -292,
+            "y": 536
+          },
+          "note": "гачек / caron"
+        },
+        "0306": {
+          "anchor": {
+            "x": 0,
+            "y": 536
+          },
+          "note": "бреве / breve"
+        },
+        "0324": {
+          "anchor": {
+            "x": 0,
+            "y": 0
+          },
+          "note": "две точки снизу / diaeresis below"
+        },
+        "0331": {
+          "anchor": {
+            "x": 0,
+            "y": 0
+          },
+          "note": "черта снизу / macron below"
+        },
+        "0307": {
+          "anchor": {
+            "x": 0,
+            "y": 536
+          },
+          "note": "точка сверху / dot above"
+        },
+        "0301": {
+          "anchor": {
+            "x": -245,
+            "y": 536
+          },
+          "note": "тонос / acute"
+        },
+        "0308": {
+          "anchor": {
+            "x": 0,
+            "y": 536
+          },
+          "note": "диалитика / diaeresis"
+        }
+      },
+      "bases": {
+        "0386": {
+          "char": "Ά",
+          "top": {
+            "x": 353,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 246
+          },
+          "bottom": {
+            "x": 352,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 352
+          }
+        },
+        "038C": {
+          "char": "Ό",
+          "top": {
+            "x": 371,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 282
+          },
+          "bottom": {
+            "x": 370,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 370
+          }
+        },
+        "0391": {
+          "char": "Α",
+          "top": {
+            "x": 353,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 356
+          },
+          "bottom": {
+            "x": 352,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 352
+          }
+        },
+        "0393": {
+          "char": "Γ",
+          "top": {
+            "x": 308,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 284
+          },
+          "bottom": null
+        },
+        "0396": {
+          "char": "Ζ",
+          "top": {
+            "x": 298,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 297
+          },
+          "bottom": {
+            "x": 296,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 293
+          }
+        },
+        "039A": {
+          "char": "Κ",
+          "top": {
+            "x": 389,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 353
+          },
+          "bottom": {
+            "x": 399,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 375
+          }
+        },
+        "039E": {
+          "char": "Ξ",
+          "top": {
+            "x": 326,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 326
+          },
+          "bottom": null
+        },
+        "039F": {
+          "char": "Ο",
+          "top": {
+            "x": 371,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 368
+          },
+          "bottom": {
+            "x": 370,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 370
+          }
+        },
+        "03A3": {
+          "char": "Σ",
+          "top": {
+            "x": 294,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 291
+          },
+          "bottom": null
+        },
+        "03A7": {
+          "char": "Χ",
+          "top": {
+            "x": 355,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 324
+          },
+          "bottom": {
+            "x": 330,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 330
+          }
+        },
+        "03A8": {
+          "char": "Ψ",
+          "top": {
+            "x": 420,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 417
+          },
+          "bottom": null
+        },
+        "03AC": {
+          "char": "ά",
+          "top": {
+            "x": 270,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 338
+          },
+          "bottom": {
+            "x": 340,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 340
+          }
+        },
+        "03B1": {
+          "char": "α",
+          "top": {
+            "x": 270,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 362
+          },
+          "bottom": {
+            "x": 333,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 352
+          }
+        },
+        "03B3": {
+          "char": "γ",
+          "top": {
+            "x": 261,
+            "y": 544,
+            "origin": "computed",
+            "visualCenterX": 235
+          },
+          "bottom": null
+        },
+        "03B5": {
+          "char": "ε",
+          "top": {
+            "x": 273,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 262
+          },
+          "bottom": null
+        },
+        "03B6": {
+          "char": "ζ",
+          "top": {
+            "x": 281,
+            "y": 786,
+            "origin": "computed",
+            "visualCenterX": 266
+          },
+          "bottom": null
+        },
+        "03B7": {
+          "char": "η",
+          "top": {
+            "x": 271,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 282
+          },
+          "bottom": {
+            "x": 172,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 495
+          }
+        },
+        "03B9": {
+          "char": "ι",
+          "top": {
+            "x": 123,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 119
+          },
+          "bottom": null
+        },
+        "03BA": {
+          "char": "κ",
+          "top": {
+            "x": 286,
+            "y": 541,
+            "origin": "computed",
+            "visualCenterX": 286
+          },
+          "bottom": null
+        },
+        "03BE": {
+          "char": "ξ",
+          "top": {
+            "x": 245,
+            "y": 786,
+            "origin": "computed",
+            "visualCenterX": 241
+          },
+          "bottom": null
+        },
+        "03BF": {
+          "char": "ο",
+          "top": {
+            "x": 289,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 287
+          },
+          "bottom": {
+            "x": 288,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 288
+          }
+        },
+        "03C2": {
+          "char": "ς",
+          "top": {
+            "x": 260,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 261
+          },
+          "bottom": null
+        },
+        "03C3": {
+          "char": "σ",
+          "top": {
+            "x": 340,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 340
+          },
+          "bottom": null
+        },
+        "03C5": {
+          "char": "υ",
+          "top": {
+            "x": 250,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 238
+          },
+          "bottom": null
+        },
+        "03C7": {
+          "char": "χ",
+          "top": {
+            "x": 309,
+            "y": 539,
+            "origin": "computed",
+            "visualCenterX": 294
+          },
+          "bottom": null
+        },
+        "03C8": {
+          "char": "ψ",
+          "top": {
+            "x": 382,
+            "y": 761,
+            "origin": "computed",
+            "visualCenterX": 383
+          },
+          "bottom": null
+        },
+        "03C9": {
+          "char": "ω",
+          "top": {
+            "x": 399,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 421
+          },
+          "bottom": {
+            "x": 399,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 398
+          }
+        },
+        "03CC": {
+          "char": "ό",
+          "top": {
+            "x": 289,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 357
+          },
+          "bottom": {
+            "x": 288,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 288
+          }
+        }
+      },
+      "file": "PonticSerif-Regular.ttf"
+    },
+    "PonticSerif-Italic": {
+      "upem": 1000,
+      "metrics": {
+        "xHeight": 536,
+        "capHeight": 714,
+        "ascender": 1069,
+        "descender": -293,
+        "baseline": 0
+      },
+      "marks": {
+        "030C": {
+          "anchor": {
+            "x": 74,
+            "y": 536
+          },
+          "note": "гачек / caron"
+        },
+        "0306": {
+          "anchor": {
+            "x": 71,
+            "y": 536
+          },
+          "note": "бреве / breve"
+        },
+        "0324": {
+          "anchor": {
+            "x": -50,
+            "y": 0
+          },
+          "note": "две точки снизу / diaeresis below"
+        },
+        "0331": {
+          "anchor": {
+            "x": -62,
+            "y": 0
+          },
+          "note": "черта снизу / macron below"
+        },
+        "0307": {
+          "anchor": {
+            "x": 68,
+            "y": 536
+          },
+          "note": "точка сверху / dot above"
+        },
+        "0301": {
+          "anchor": {
+            "x": -190,
+            "y": 536
+          },
+          "note": "тонос / acute"
+        },
+        "0308": {
+          "anchor": {
+            "x": 54,
+            "y": 536
+          },
+          "note": "диалитика / diaeresis"
+        }
+      },
+      "bases": {
+        "0386": {
+          "char": "Ά",
+          "top": null,
+          "bottom": {
+            "x": 388,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 364
+          }
+        },
+        "038C": {
+          "char": "Ό",
+          "top": null,
+          "bottom": {
+            "x": 377,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 352
+          }
+        },
+        "0391": {
+          "char": "Α",
+          "top": null,
+          "bottom": {
+            "x": 388,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 364
+          }
+        },
+        "0393": {
+          "char": "Γ",
+          "top": {
+            "x": 388,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 372
+          },
+          "bottom": null
+        },
+        "0396": {
+          "char": "Ζ",
+          "top": {
+            "x": 317,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 384
+          },
+          "bottom": {
+            "x": 246,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 268
+          }
+        },
+        "039A": {
+          "char": "Κ",
+          "top": {
+            "x": 411,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 440
+          },
+          "bottom": {
+            "x": 293,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 306
+          }
+        },
+        "039E": {
+          "char": "Ξ",
+          "top": {
+            "x": 359,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 428
+          },
+          "bottom": null
+        },
+        "039F": {
+          "char": "Ο",
+          "top": null,
+          "bottom": {
+            "x": 357,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 352
+          }
+        },
+        "03A3": {
+          "char": "Σ",
+          "top": {
+            "x": 273,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 340
+          },
+          "bottom": null
+        },
+        "03A7": {
+          "char": "Χ",
+          "top": {
+            "x": 376,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 413
+          },
+          "bottom": {
+            "x": 273,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 277
+          }
+        },
+        "03A8": {
+          "char": "Ψ",
+          "top": {
+            "x": 468,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 528
+          },
+          "bottom": null
+        },
+        "03AC": {
+          "char": "ά",
+          "top": {
+            "x": 315,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 408
+          },
+          "bottom": {
+            "x": 346,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 321
+          }
+        },
+        "03B1": {
+          "char": "α",
+          "top": {
+            "x": 315,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 407
+          },
+          "bottom": {
+            "x": 337,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 328
+          }
+        },
+        "03B3": {
+          "char": "γ",
+          "top": {
+            "x": 324,
+            "y": 541,
+            "origin": "computed",
+            "visualCenterX": 300
+          },
+          "bottom": null
+        },
+        "03B5": {
+          "char": "ε",
+          "top": {
+            "x": 330,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 305
+          },
+          "bottom": null
+        },
+        "03B6": {
+          "char": "ζ",
+          "top": {
+            "x": 285,
+            "y": 803,
+            "origin": "computed",
+            "visualCenterX": 330
+          },
+          "bottom": null
+        },
+        "03B7": {
+          "char": "η",
+          "top": {
+            "x": 322,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 321
+          },
+          "bottom": {
+            "x": 111,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 383
+          }
+        },
+        "03B9": {
+          "char": "ι",
+          "top": {
+            "x": 181,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 177
+          },
+          "bottom": null
+        },
+        "03BA": {
+          "char": "κ",
+          "top": {
+            "x": 255,
+            "y": 541,
+            "origin": "computed",
+            "visualCenterX": 360
+          },
+          "bottom": null
+        },
+        "03BE": {
+          "char": "ξ",
+          "top": {
+            "x": 281,
+            "y": 803,
+            "origin": "computed",
+            "visualCenterX": 342
+          },
+          "bottom": null
+        },
+        "03BF": {
+          "char": "ο",
+          "top": {
+            "x": 344,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 327
+          },
+          "bottom": {
+            "x": 278,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 253
+          }
+        },
+        "03C2": {
+          "char": "ς",
+          "top": {
+            "x": 244,
+            "y": 550,
+            "origin": "computed",
+            "visualCenterX": 282
+          },
+          "bottom": null
+        },
+        "03C3": {
+          "char": "σ",
+          "top": {
+            "x": 300,
+            "y": 544,
+            "origin": "computed",
+            "visualCenterX": 373
+          },
+          "bottom": null
+        },
+        "03C5": {
+          "char": "υ",
+          "top": {
+            "x": 296,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 286
+          },
+          "bottom": null
+        },
+        "03C7": {
+          "char": "χ",
+          "top": {
+            "x": 283,
+            "y": 539,
+            "origin": "computed",
+            "visualCenterX": 336
+          },
+          "bottom": null
+        },
+        "03C8": {
+          "char": "ψ",
+          "top": {
+            "x": 429,
+            "y": 760,
+            "origin": "computed",
+            "visualCenterX": 495
+          },
+          "bottom": null
+        },
+        "03C9": {
+          "char": "ω",
+          "top": {
+            "x": 437,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 449
+          },
+          "bottom": {
+            "x": 361,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 376
+          }
+        },
+        "03CC": {
+          "char": "ό",
+          "top": {
+            "x": 344,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 437
+          },
+          "bottom": {
+            "x": 290,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 264
+          }
+        }
+      },
+      "file": "PonticSerif-Italic.ttf"
+    },
+    "PonticSerif-Bold": {
+      "upem": 1000,
+      "metrics": {
+        "xHeight": 536,
+        "capHeight": 714,
+        "ascender": 1069,
+        "descender": -293,
+        "baseline": 0
+      },
+      "marks": {
+        "030C": {
+          "anchor": {
+            "x": -312,
+            "y": 536
+          },
+          "note": "гачек / caron"
+        },
+        "0306": {
+          "anchor": {
+            "x": -1,
+            "y": 536
+          },
+          "note": "бреве / breve"
+        },
+        "0324": {
+          "anchor": {
+            "x": 0,
+            "y": 0
+          },
+          "note": "две точки снизу / diaeresis below"
+        },
+        "0331": {
+          "anchor": {
+            "x": 0,
+            "y": 0
+          },
+          "note": "черта снизу / macron below"
+        },
+        "0307": {
+          "anchor": {
+            "x": 1,
+            "y": 536
+          },
+          "note": "точка сверху / dot above"
+        },
+        "0301": {
+          "anchor": {
+            "x": -245,
+            "y": 536
+          },
+          "note": "тонос / acute"
+        },
+        "0308": {
+          "anchor": {
+            "x": -1,
+            "y": 536
+          },
+          "note": "диалитика / diaeresis"
+        }
+      },
+      "bases": {
+        "0386": {
+          "char": "Ά",
+          "top": {
+            "x": 377,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 257
+          },
+          "bottom": {
+            "x": 378,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 378
+          }
+        },
+        "038C": {
+          "char": "Ό",
+          "top": {
+            "x": 394,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 286
+          },
+          "bottom": {
+            "x": 393,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 393
+          }
+        },
+        "0391": {
+          "char": "Α",
+          "top": {
+            "x": 377,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 382
+          },
+          "bottom": {
+            "x": 378,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 378
+          }
+        },
+        "0393": {
+          "char": "Γ",
+          "top": {
+            "x": 318,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 300
+          },
+          "bottom": null
+        },
+        "0396": {
+          "char": "Ζ",
+          "top": {
+            "x": 333,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 333
+          },
+          "bottom": {
+            "x": 334,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 330
+          }
+        },
+        "039A": {
+          "char": "Κ",
+          "top": {
+            "x": 397,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 367
+          },
+          "bottom": {
+            "x": 419,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 381
+          }
+        },
+        "039E": {
+          "char": "Ξ",
+          "top": {
+            "x": 342,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 340
+          },
+          "bottom": null
+        },
+        "039F": {
+          "char": "Ο",
+          "top": {
+            "x": 394,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 392
+          },
+          "bottom": {
+            "x": 393,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 393
+          }
+        },
+        "03A3": {
+          "char": "Σ",
+          "top": {
+            "x": 324,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 322
+          },
+          "bottom": null
+        },
+        "03A7": {
+          "char": "Χ",
+          "top": {
+            "x": 413,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 364
+          },
+          "bottom": {
+            "x": 367,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 366
+          }
+        },
+        "03A8": {
+          "char": "Ψ",
+          "top": {
+            "x": 480,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 481
+          },
+          "bottom": null
+        },
+        "03AC": {
+          "char": "ά",
+          "top": {
+            "x": 276,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 349
+          },
+          "bottom": {
+            "x": 351,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 351
+          }
+        },
+        "03B1": {
+          "char": "α",
+          "top": {
+            "x": 287,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 380
+          },
+          "bottom": {
+            "x": 353,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 364
+          }
+        },
+        "03B3": {
+          "char": "γ",
+          "top": {
+            "x": 264,
+            "y": 544,
+            "origin": "computed",
+            "visualCenterX": 245
+          },
+          "bottom": null
+        },
+        "03B5": {
+          "char": "ε",
+          "top": {
+            "x": 287,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 276
+          },
+          "bottom": null
+        },
+        "03B6": {
+          "char": "ζ",
+          "top": {
+            "x": 277,
+            "y": 792,
+            "origin": "computed",
+            "visualCenterX": 276
+          },
+          "bottom": null
+        },
+        "03B7": {
+          "char": "η",
+          "top": {
+            "x": 271,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 296
+          },
+          "bottom": {
+            "x": 183,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 505
+          }
+        },
+        "03B9": {
+          "char": "ι",
+          "top": {
+            "x": 149,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 146
+          },
+          "bottom": null
+        },
+        "03BA": {
+          "char": "κ",
+          "top": {
+            "x": 314,
+            "y": 540,
+            "origin": "computed",
+            "visualCenterX": 315
+          },
+          "bottom": null
+        },
+        "03BE": {
+          "char": "ξ",
+          "top": {
+            "x": 266,
+            "y": 790,
+            "origin": "computed",
+            "visualCenterX": 252
+          },
+          "bottom": null
+        },
+        "03BF": {
+          "char": "ο",
+          "top": {
+            "x": 307,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 305
+          },
+          "bottom": {
+            "x": 306,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 306
+          }
+        },
+        "03C2": {
+          "char": "ς",
+          "top": {
+            "x": 276,
+            "y": 549,
+            "origin": "computed",
+            "visualCenterX": 277
+          },
+          "bottom": null
+        },
+        "03C3": {
+          "char": "σ",
+          "top": {
+            "x": 354,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 354
+          },
+          "bottom": null
+        },
+        "03C5": {
+          "char": "υ",
+          "top": {
+            "x": 297,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 262
+          },
+          "bottom": null
+        },
+        "03C7": {
+          "char": "χ",
+          "top": {
+            "x": 337,
+            "y": 543,
+            "origin": "computed",
+            "visualCenterX": 322
+          },
+          "bottom": null
+        },
+        "03C8": {
+          "char": "ψ",
+          "top": {
+            "x": 422,
+            "y": 760,
+            "origin": "computed",
+            "visualCenterX": 421
+          },
+          "bottom": null
+        },
+        "03C9": {
+          "char": "ω",
+          "top": {
+            "x": 410,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 420
+          },
+          "bottom": {
+            "x": 410,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 411
+          }
+        },
+        "03CC": {
+          "char": "ό",
+          "top": {
+            "x": 307,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 364
+          },
+          "bottom": {
+            "x": 306,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 306
+          }
+        }
+      },
+      "file": "PonticSerif-Bold.ttf"
+    },
+    "PonticSerif-BoldItalic": {
+      "upem": 1000,
+      "metrics": {
+        "xHeight": 536,
+        "capHeight": 714,
+        "ascender": 1069,
+        "descender": -293,
+        "baseline": 0
+      },
+      "marks": {
+        "030C": {
+          "anchor": {
+            "x": 75,
+            "y": 536
+          },
+          "note": "гачек / caron"
+        },
+        "0306": {
+          "anchor": {
+            "x": 57,
+            "y": 536
+          },
+          "note": "бреве / breve"
+        },
+        "0324": {
+          "anchor": {
+            "x": -41,
+            "y": 0
+          },
+          "note": "две точки снизу / diaeresis below"
+        },
+        "0331": {
+          "anchor": {
+            "x": -48,
+            "y": 0
+          },
+          "note": "черта снизу / macron below"
+        },
+        "0307": {
+          "anchor": {
+            "x": 61,
+            "y": 536
+          },
+          "note": "точка сверху / dot above"
+        },
+        "0301": {
+          "anchor": {
+            "x": -241,
+            "y": 536
+          },
+          "note": "тонос / acute"
+        },
+        "0308": {
+          "anchor": {
+            "x": 56,
+            "y": 536
+          },
+          "note": "диалитика / diaeresis"
+        }
+      },
+      "bases": {
+        "0386": {
+          "char": "Ά",
+          "top": null,
+          "bottom": {
+            "x": 413,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 389
+          }
+        },
+        "038C": {
+          "char": "Ό",
+          "top": null,
+          "bottom": {
+            "x": 406,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 382
+          }
+        },
+        "0391": {
+          "char": "Α",
+          "top": null,
+          "bottom": {
+            "x": 413,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 389
+          }
+        },
+        "0393": {
+          "char": "Γ",
+          "top": {
+            "x": 396,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 392
+          },
+          "bottom": null
+        },
+        "0396": {
+          "char": "Ζ",
+          "top": {
+            "x": 431,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 439
+          },
+          "bottom": {
+            "x": 276,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 286
+          }
+        },
+        "039A": {
+          "char": "Κ",
+          "top": {
+            "x": 497,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 463
+          },
+          "bottom": {
+            "x": 314,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 334
+          }
+        },
+        "039E": {
+          "char": "Ξ",
+          "top": {
+            "x": 417,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 422
+          },
+          "bottom": null
+        },
+        "039F": {
+          "char": "Ο",
+          "top": null,
+          "bottom": {
+            "x": 406,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 382
+          }
+        },
+        "03A3": {
+          "char": "Σ",
+          "top": {
+            "x": 386,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 385
+          },
+          "bottom": null
+        },
+        "03A7": {
+          "char": "Χ",
+          "top": {
+            "x": 502,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 458
+          },
+          "bottom": {
+            "x": 309,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 320
+          }
+        },
+        "03A8": {
+          "char": "Ψ",
+          "top": {
+            "x": 586,
+            "y": 714,
+            "origin": "computed",
+            "visualCenterX": 586
+          },
+          "bottom": null
+        },
+        "03AC": {
+          "char": "ά",
+          "top": {
+            "x": 321,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 408
+          },
+          "bottom": {
+            "x": 360,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 336
+          }
+        },
+        "03B1": {
+          "char": "α",
+          "top": {
+            "x": 321,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 430
+          },
+          "bottom": {
+            "x": 345,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 344
+          }
+        },
+        "03B3": {
+          "char": "γ",
+          "top": {
+            "x": 347,
+            "y": 545,
+            "origin": "computed",
+            "visualCenterX": 322
+          },
+          "bottom": null
+        },
+        "03B5": {
+          "char": "ε",
+          "top": {
+            "x": 350,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 325
+          },
+          "bottom": null
+        },
+        "03B6": {
+          "char": "ζ",
+          "top": {
+            "x": 340,
+            "y": 797,
+            "origin": "computed",
+            "visualCenterX": 346
+          },
+          "bottom": null
+        },
+        "03B7": {
+          "char": "η",
+          "top": {
+            "x": 332,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 346
+          },
+          "bottom": {
+            "x": 132,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 403
+          }
+        },
+        "03B9": {
+          "char": "ι",
+          "top": {
+            "x": 186,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 189
+          },
+          "bottom": null
+        },
+        "03BA": {
+          "char": "κ",
+          "top": {
+            "x": 385,
+            "y": 540,
+            "origin": "computed",
+            "visualCenterX": 372
+          },
+          "bottom": null
+        },
+        "03BE": {
+          "char": "ξ",
+          "top": {
+            "x": 363,
+            "y": 795,
+            "origin": "computed",
+            "visualCenterX": 356
+          },
+          "bottom": null
+        },
+        "03BF": {
+          "char": "ο",
+          "top": {
+            "x": 366,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 352
+          },
+          "bottom": {
+            "x": 296,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 272
+          }
+        },
+        "03C2": {
+          "char": "ς",
+          "top": {
+            "x": 338,
+            "y": 549,
+            "origin": "computed",
+            "visualCenterX": 304
+          },
+          "bottom": null
+        },
+        "03C3": {
+          "char": "σ",
+          "top": {
+            "x": 410,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 391
+          },
+          "bottom": null
+        },
+        "03C5": {
+          "char": "υ",
+          "top": {
+            "x": 338,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 308
+          },
+          "bottom": null
+        },
+        "03C7": {
+          "char": "χ",
+          "top": {
+            "x": 378,
+            "y": 543,
+            "origin": "computed",
+            "visualCenterX": 370
+          },
+          "bottom": null
+        },
+        "03C8": {
+          "char": "ψ",
+          "top": {
+            "x": 524,
+            "y": 760,
+            "origin": "computed",
+            "visualCenterX": 528
+          },
+          "bottom": null
+        },
+        "03C9": {
+          "char": "ω",
+          "top": {
+            "x": 452,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 450
+          },
+          "bottom": {
+            "x": 376,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 391
+          }
+        },
+        "03CC": {
+          "char": "ό",
+          "top": {
+            "x": 366,
+            "y": 536,
+            "origin": "computed",
+            "visualCenterX": 453
+          },
+          "bottom": {
+            "x": 308,
+            "y": 0,
+            "origin": "computed",
+            "visualCenterX": 284
+          }
+        }
+      },
+      "file": "PonticSerif-BoldItalic.ttf"
+    }
+  }
+}
