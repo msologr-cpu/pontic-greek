@@ -41,7 +41,7 @@ from optical_shift import apply_optical_shift, OPTICAL_SHIFT
 import os
 import sys
 
-VERSION = '5.1'
+VERSION = '6.0'
 
 # ---------------------------------------------------------------------------
 # Конфигурация сборок

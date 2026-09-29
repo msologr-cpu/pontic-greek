@@ -15,7 +15,7 @@ from fontTools.pens.basePen import BasePen
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from optical_shift import iter_markbase_subtables
 
-VERSION = "5.1"
+VERSION = "6.0"
 
 FONT_FILES = [
     "PonticSans-Regular.ttf",

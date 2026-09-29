@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pontic Fonts v6.0 — Витрина и тестирование шрифтов</title>
+<style>
+  @font-face {
+    font-family: 'Pontic Sans';
+    src: url('font/PonticSans-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Pontic Sans';
+    src: url('font/PonticSans-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'Pontic Sans';
+    src: url('font/PonticSans-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Pontic Sans';
+    src: url('font/PonticSans-BoldItalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  @font-face {
+    font-family: 'Pontic Serif';
+    src: url('font/PonticSerif-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Pontic Serif';
+    src: url('font/PonticSerif-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'Pontic Serif';
+    src: url('font/PonticSerif-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Pontic Serif';
+    src: url('font/PonticSerif-BoldItalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  :root {
+    --bg: #ffffff;
+    --surface: #f8fafc;
+    --border: #e2e8f0;
+    --text: #0f172a;
+    --muted: #64748b;
+    --accent: #2563eb;
+    --badge-bg: #dbeafe;
+    --badge-text: #1e40af;
+  }
+
+  [data-theme="dark"] {
+    --bg: #090d16;
+    --surface: #131b2e;
+    --border: #232f48;
+    --text: #f8fafc;
+    --muted: #94a3b8;
+    --accent: #3b82f6;
+    --badge-bg: #1e293b;
+    --badge-text: #93c5fd;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    padding: 32px 20px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 24px;
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--badge-bg);
+    color: var(--badge-text);
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  h1 {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  p.subtitle {
+    color: var(--muted);
+    font-size: 15px;
+    margin-top: 4px;
+  }
+
+  .controls {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    background: var(--surface);
+    padding: 12px 18px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+
+  .controls label {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  input[type="range"] {
+    cursor: pointer;
+  }
+
+  button {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 6px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  button:hover {
+    border-color: var(--accent);
+  }
+
+  .editor-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 36px;
+  }
+
+  .editor-section h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  textarea {
+    width: 100%;
+    min-height: 90px;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 18px;
+    resize: vertical;
+    outline: none;
+    font-family: inherit;
+  }
+  textarea:focus {
+    border-color: var(--accent);
+  }
+
+  .presets {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+
+  .preset-btn {
+    font-size: 12px;
+    padding: 4px 10px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+    gap: 24px;
+  }
+
+  @media (max-width: 600px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+  }
+
+  .card-title {
+    font-size: 17px;
+    font-weight: 700;
+  }
+
+  .card-spec {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .specimen-char-strip {
+    font-size: 26px;
+    letter-spacing: 2px;
+    word-break: break-all;
+    padding: 10px;
+    background: var(--bg);
+    border-radius: 8px;
+    border: 1px dashed var(--border);
+  }
+
+  .specimen-text {
+    line-height: 1.45;
+    word-break: break-word;
+  }
+
+  /* Specific font styles */
+  .sans-reg { font-family: 'Pontic Sans', sans-serif; font-weight: 400; font-style: normal; }
+  .sans-it  { font-family: 'Pontic Sans', sans-serif; font-weight: 400; font-style: italic; }
+  .sans-bld { font-family: 'Pontic Sans', sans-serif; font-weight: 700; font-style: normal; }
+  .sans-bi  { font-family: 'Pontic Sans', sans-serif; font-weight: 700; font-style: italic; }
+
+  .serif-reg { font-family: 'Pontic Serif', serif; font-weight: 400; font-style: normal; }
+  .serif-it  { font-family: 'Pontic Serif', serif; font-weight: 400; font-style: italic; }
+  .serif-bld { font-family: 'Pontic Serif', serif; font-weight: 700; font-style: normal; }
+  .serif-bi  { font-family: 'Pontic Serif', serif; font-weight: 700; font-style: italic; }
+
+  .downloads {
+    margin-top: 48px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+  }
+
+  .downloads h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  .download-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 12px;
+  }
+
+  .download-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .download-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+</style>
+</head>
+<body data-theme="light">
+
+<header>
+  <div>
+    <span class="badge">Релиз 6.0</span>
+    <h1>Шрифты Pontic Sans & Pontic Serif</h1>
+    <p class="subtitle">Тестирование полной ручной калибровки диакритики (проф. Дмитрий Иванович)</p>
+  </div>
+  <button id="themeToggle" onclick="toggleTheme()">Темная тема</button>
+</header>
+
+<div class="controls">
+  <label>
+    Размер текста: <span id="sizeVal">24px</span>
+    <input type="range" id="sizeSlider" min="14" max="72" value="24" oninput="updateSize(this.value)">
+  </label>
+</div>
+
+<div class="editor-section">
+  <h3>Интерактивный ввод для проверки</h3>
+  <textarea id="liveInput" oninput="updateLiveText(this.value)">Τ' εμόν η καρδία πονεί για τ' εσόν το χατήρι. Έναν άμον έτονε κι άλλον 'κ' έτονε σ̌' αούτο το χωρίον. Σ̌κύλος, τσ̌αΐρα, ζ̌ουράφα, ξ̌ύλον, ψ̌ύλλα, γ̆αϊδούρι, α̤γγείον, ο̤μμάτια, ά̤λλος, ό̤λος.</textarea>
+  <div class="presets">
+    <span style="font-size: 12px; color: var(--muted); align-self: center;">Примеры:</span>
+    <button class="preset-btn" onclick="setPreset('caron')">Все шипящие с гачеком: σ̌ ς̌ ζ̌ ξ̌ ψ̌ χ̌ κ̌ Σ̌ Ζ̌ Ξ̌ Ψ̌ Χ̌ Κ̌</button>
+    <button class="preset-btn" onclick="setPreset('dots')">Гласные с диерезисом снизу: α̤ ο̤ ά̤ ό̤ Α̤ Ο̤ Ά̤ Ό̤</button>
+    <button class="preset-btn" onclick="setPreset('elision')">Элизия и артикли: τ' εμόν, τ' αδέλφια, τ' ομμάτια</button>
+  </div>
+</div>
+
+<div class="grid">
+
+  <!-- Pontic Sans Regular -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Pontic Sans Regular</div>
+      <div class="card-spec">v6.0 • wght=400</div>
+    </div>
+    <div class="specimen-char-strip sans-reg">
+      σ̌ ς̌ ζ̌ ξ̌ ψ̌ χ̌ κ̌ γ̆ α̤ ο̤ ά̤ ό̤ Σ̌ Ζ̌ Ξ̌ Ψ̌ Χ̌ Κ̌ Γ̆
+    </div>
+    <div class="specimen-text sans-reg live-target" style="font-size: 24px;"></div>
+  </div>
+
+  <!-- Pontic Sans Italic -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Pontic Sans Italic</div>
+      <div class="card-spec">v6.0 • wght=400 italic</div>
+    </div>
+    <div class="specimen-char-strip sans-it">
+      σ̌ ς̌ ζ̌ ξ̌ ψ̌ χ̌ κ̌ γ̆ α̤ ο̤ ά̤ ό̤ Σ̌ Ζ̌ Ξ̌ Ψ̌ Χ̌ Κ̌ Γ̆
+    </div>
+    <div class="specimen-text sans-it live-target" style="font-size: 24px;"></div>
+  </div>
+
+  <!-- Pontic Sans Bold -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Pontic Sans Bold</div>
+      <div class="card-spec">v6.0 • wght=700</div>
+    </div>
+    <div class="specimen-char-strip sans-bld">
+      σ̌ ς̌ ζ̌ ξ̌ ψ̌ χ̌ κ̌ γ̆ α̤ ο̤ ά̤ ό̤ Σ̌ Ζ̌ Ξ̌ Ψ̌ Χ̌ Κ̌ Γ̆
+    </div>
+    <div class="specimen-text sans-bld live-target" style="font-size: 24px;"></div>
+  </div>
+
+  <!-- Pontic Sans Bold Italic -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Pontic Sans Bold Italic</div>
+      <div class="card-spec">v6.0 • wght=700 italic</div>
+    </div>
+    <div class="specimen-char-strip sans-bi">
+      σ̌ ς̌ ζ̌ ξ̌ ψ̌ χ̌ κ̌ γ̆ α̤ ο̤ ά̤ ό̤ Σ̌ Ζ̌ Ξ̌ Ψ̌ Χ̌ Κ̌ Γ̆
+    </div>
+    <div class="specimen-text sans-bi live-target" style="font-size: 24px;"></div>
+  </div>
+
+  <!-- Pontic Serif Regular -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Pontic Serif Regular</div>
+      <div class="card-spec">v6.0 • wght=400</div>
+    </div>
+    <div class="specimen-char-strip serif-reg">
+      σ̌ ς̌ ζ̌ ξ̌ ψ̌ χ̌ κ̌ γ̆ α̤ ο̤ ά̤ ό̤ Σ̌ Ζ̌ Ξ̌ Ψ̌ Χ̌ Κ̌ Γ̆
+    </div>
+    <div class="specimen-text serif-reg live-target" style="font-size: 24px;"></div>
+  </div>
+
+  <!-- Pontic Serif Italic -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Pontic Serif Italic</div>
+      <div class="card-spec">v6.0 • wght=400 italic</div>
+    </div>
+    <div class="specimen-char-strip serif-it">
+      σ̌ ς̌ ζ̌ ξ̌ ψ̌ χ̌ κ̌ γ̆ α̤ ο̤ ά̤ ό̤ Σ̌ Ζ̌ Ξ̌ Ψ̌ Χ̌ Κ̌ Γ̆
+    </div>
+    <div class="specimen-text serif-it live-target" style="font-size: 24px;"></div>
+  </div>
+
+  <!-- Pontic Serif Bold -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Pontic Serif Bold</div>
+      <div class="card-spec">v6.0 • wght=700</div>
+    </div>
+    <div class="specimen-char-strip serif-bld">
+      σ̌ ς̌ ζ̌ ξ̌ ψ̌ χ̌ κ̌ γ̆ α̤ ο̤ ά̤ ό̤ Σ̌ Ζ̌ Ξ̌ Ψ̌ Χ̌ Κ̌ Γ̆
+    </div>
+    <div class="specimen-text serif-bld live-target" style="font-size: 24px;"></div>
+  </div>
+
+  <!-- Pontic Serif Bold Italic -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Pontic Serif Bold Italic</div>
+      <div class="card-spec">v6.0 • wght=700 italic</div>
+    </div>
+    <div class="specimen-char-strip serif-bi">
+      σ̌ ς̌ ζ̌ ξ̌ ψ̌ χ̌ κ̌ γ̆ α̤ ο̤ ά̤ ό̤ Σ̌ Ζ̌ Ξ̌ Ψ̌ Χ̌ Κ̌ Γ̆
+    </div>
+    <div class="specimen-text serif-bi live-target" style="font-size: 24px;"></div>
+  </div>
+
+</div>
+
+<div class="downloads">
+  <h2>Файлы шрифтов v6.0 для установки</h2>
+  <div class="download-list">
+    <a class="download-btn" href="font/PonticSans-Regular.ttf" download>Pontic Sans Regular <span>TTF</span></a>
+    <a class="download-btn" href="font/PonticSans-Italic.ttf" download>Pontic Sans Italic <span>TTF</span></a>
+    <a class="download-btn" href="font/PonticSans-Bold.ttf" download>Pontic Sans Bold <span>TTF</span></a>
+    <a class="download-btn" href="font/PonticSans-BoldItalic.ttf" download>Pontic Sans Bold Italic <span>TTF</span></a>
+    <a class="download-btn" href="font/PonticSerif-Regular.ttf" download>Pontic Serif Regular <span>TTF</span></a>
+    <a class="download-btn" href="font/PonticSerif-Italic.ttf" download>Pontic Serif Italic <span>TTF</span></a>
+    <a class="download-btn" href="font/PonticSerif-Bold.ttf" download>Pontic Serif Bold <span>TTF</span></a>
+    <a class="download-btn" href="font/PonticSerif-BoldItalic.ttf" download>Pontic Serif Bold Italic <span>TTF</span></a>
+  </div>
+</div>
+
+<script>
+  function updateLiveText(txt) {
+    document.querySelectorAll('.live-target').forEach(el => {
+      el.textContent = txt;
+    });
+  }
+
+  function updateSize(sz) {
+    document.getElementById('sizeVal').textContent = sz + 'px';
+    document.querySelectorAll('.live-target').forEach(el => {
+      el.style.fontSize = sz + 'px';
+    });
+  }
+
+  function setPreset(type) {
+    const input = document.getElementById('liveInput');
+    if (type === 'caron') {
+      input.value = "σ̌ ς̌ ζ̌ ξ̌ ψ̌ χ̌ κ̌ Σ̌ Ζ̌ Ξ̌ Ψ̌ Χ̌ Κ̌ — σ̌κύλος, τσ̌αΐρα, ζ̌ουράφα, ξ̌ύλον, ψ̌ύλλα";
+    } else if (type === 'dots') {
+      input.value = "α̤ ο̤ ά̤ ό̤ Α̤ Ο̤ Ά̤ Ό̤ — α̤γγείον, ο̤μμάτια, ά̤λλος, ό̤λος";
+    } else if (type === 'elision') {
+      input.value = "τ' εμόν, τ' εσόν, τ' αδέλφια, τ' ομμάτια, τ' άλογον";
+    }
+    updateLiveText(input.value);
+  }
+
+  function toggleTheme() {
+    const b = document.body;
+    const isDark = b.getAttribute('data-theme') === 'dark';
+    b.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    document.getElementById('themeToggle').textContent = isDark ? 'Темная тема' : 'Светлая тема';
+  }
+
+  // Init
+  updateLiveText(document.getElementById('liveInput').value);
+</script>
+
+</body>
+</html>
