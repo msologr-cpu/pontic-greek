@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Извлечение данных о GPOS-якорях для редактора Pontoskey.
+Извлечение данных о GPOS-якорях шрифтов Pontic.
 Формирует anchors.json по спецификации раздела 2.1 мастер-промпта.
 """
 
@@ -250,7 +250,7 @@ def extract_font_data(font_path):
 def main():
     script_dir = os.path.dirname(os.path.abspath(__file__))
     font_dir = script_dir
-    data_dir = "/Users/solomon/Projects/pontos-world/pontoskey/data"
+    data_dir = script_dir
     os.makedirs(data_dir, exist_ok=True)
 
     result = {
