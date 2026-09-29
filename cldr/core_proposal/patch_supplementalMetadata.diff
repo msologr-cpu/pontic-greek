@@ -1,0 +1,5 @@
+--- a/common/supplemental/supplementalMetadata.xml
++++ b/common/supplemental/supplementalMetadata.xml
+@@ -100,3 +100,3 @@
+ 			pa_Arab_PK pa_Guru_IN pap_AW pap_CW pcm_NG pl_PL prg_001 ps_AF pt_PT
++			pa_Arab_PK pa_Guru_IN pap_AW pap_CW pcm_NG pl_PL pnt_GR prg_001 ps_AF pt_PT

@@ -1,0 +1,6 @@
+--- a/common/supplemental/attributeValueValidity.xml
++++ b/common/supplemental/attributeValueValidity.xml
+@@ -82,3 +82,3 @@
+-				 pap pi pis pms
++				 pap pi pis pms pnt
+ 				 quc
