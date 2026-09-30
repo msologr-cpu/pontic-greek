@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-09-29T20:35:50Z",
+  "generatedAt": "2026-09-30T18:09:59Z",
   "sourceFontsVersion": "6.0",
   "fonts": {
     "PonticSans-Regular": {
@@ -392,7 +392,7 @@
         "03C8": {
           "char": "ψ",
           "top": {
-            "x": 373,
+            "x": 374,
             "y": 760,
             "origin": "computed",
             "visualCenterX": 373
@@ -1210,7 +1210,7 @@
         "03C2": {
           "char": "ς",
           "top": {
-            "x": 269,
+            "x": 291,
             "y": 556,
             "origin": "computed",
             "visualCenterX": 281
@@ -1255,7 +1255,7 @@
         "03C8": {
           "char": "ψ",
           "top": {
-            "x": 403,
+            "x": 404,
             "y": 760,
             "origin": "computed",
             "visualCenterX": 415
@@ -1414,7 +1414,7 @@
         "0396": {
           "char": "Ζ",
           "top": {
-            "x": 362,
+            "x": 374,
             "y": 714,
             "origin": "computed",
             "visualCenterX": 344
@@ -1444,7 +1444,7 @@
         "039E": {
           "char": "Ξ",
           "top": {
-            "x": 381,
+            "x": 397,
             "y": 714,
             "origin": "computed",
             "visualCenterX": 361
@@ -1469,7 +1469,7 @@
         "03A3": {
           "char": "Σ",
           "top": {
-            "x": 372,
+            "x": 390,
             "y": 714,
             "origin": "computed",
             "visualCenterX": 356
@@ -1479,7 +1479,7 @@
         "03A7": {
           "char": "Χ",
           "top": {
-            "x": 395,
+            "x": 404,
             "y": 714,
             "origin": "computed",
             "visualCenterX": 398
@@ -1494,7 +1494,7 @@
         "03A8": {
           "char": "Ψ",
           "top": {
-            "x": 531,
+            "x": 542,
             "y": 714,
             "origin": "computed",
             "visualCenterX": 528
@@ -1534,7 +1534,7 @@
         "03B3": {
           "char": "γ",
           "top": {
-            "x": 279,
+            "x": 293,
             "y": 546,
             "origin": "computed",
             "visualCenterX": 283
@@ -1614,7 +1614,7 @@
         "03BE": {
           "char": "ξ",
           "top": {
-            "x": 363,
+            "x": 390,
             "y": 760,
             "origin": "computed",
             "visualCenterX": 351
@@ -1639,7 +1639,7 @@
         "03C2": {
           "char": "ς",
           "top": {
-            "x": 346,
+            "x": 359,
             "y": 556,
             "origin": "computed",
             "visualCenterX": 300
@@ -1649,7 +1649,7 @@
         "03C3": {
           "char": "σ",
           "top": {
-            "x": 404,
+            "x": 456,
             "y": 546,
             "origin": "computed",
             "visualCenterX": 369
@@ -1679,7 +1679,7 @@
         "03C7": {
           "char": "χ",
           "top": {
-            "x": 361,
+            "x": 380,
             "y": 553,
             "origin": "computed",
             "visualCenterX": 342
@@ -1689,7 +1689,7 @@
         "03C8": {
           "char": "ψ",
           "top": {
-            "x": 504,
+            "x": 513,
             "y": 760,
             "origin": "computed",
             "visualCenterX": 500
