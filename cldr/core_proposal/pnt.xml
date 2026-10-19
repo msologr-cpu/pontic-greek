@@ -10,8 +10,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<languages>
-			<language type="pnt">Ποντιακά</language>
+			<language type="pnt">Το ποντεϊκόν η γλώσσα</language>
+			<language type="pnt" alt="short">Ποντεϊκά</language>
+			<language type="pnt" alt="variant">Ρωμαίικα</language>
 		</languages>
+		<scripts>
+			<script type="Grek">Το ελενικόν η γραφή</script>
+		</scripts>
+		<territories>
+			<territory type="GR">Η Ελλάδα</territory>
+			<territory type="RU">Η Ρουσία</territory>
+			<territory type="TR">Η Τουρκία</territory>
+			<territory type="DE">Η Γερμανία</territory>
+			<territory type="US">Η Αμερική</territory>
+			<territory type="GB">Η Αγγλία</territory>
+		</territories>
+		<localeDisplayPattern>
+			<localePattern>{0} ({1})</localePattern>
+			<localeSeparator>{0}, {1}</localeSeparator>
+		</localeDisplayPattern>
 	</localeDisplayNames>
 	<layout>
 		<orientation>
@@ -25,5 +42,61 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters type="index">[Α Β Γ Δ Ε Ζ Η Θ Ι Κ Λ Μ Ν Ξ Ο Π Ρ Σ Τ Υ Φ Χ Ψ Ω]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[\- ‐‑ , . % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐‑ – — , ; \: ! . … ' ’ &quot; « » ( ) \[ \] § @ * / \\ \&amp;]</exemplarCharacters>
+		<delimiters>
+			<quotationStart>«</quotationStart>
+			<quotationEnd>»</quotationEnd>
+			<alternateQuotationStart>“</alternateQuotationStart>
+			<alternateQuotationEnd>”</alternateQuotationEnd>
+		</delimiters>
 	</characters>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="wide">
+							<month type="1">ο Καλαντάτρς</month>
+							<month type="2">ο Κούντουρον</month>
+							<month type="3">ο Μάρτς</month>
+							<month type="4">ο Απρίλτς</month>
+							<month type="5">ο Καλομηνάς</month>
+							<month type="6">ο Κερασινόν</month>
+							<month type="7">ο Χορτοθέρτς</month>
+							<month type="8">ο Αλωνάρτς</month>
+							<month type="9">ο Σταυρίτες</month>
+							<month type="10">ο Τρυγομηνάς</month>
+							<month type="11">ο Αεργίτες</month>
+							<month type="12">ο Χριστιαννάρτς</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="wide">
+							<day type="sun">η Κερεκή</day>
+							<day type="mon">η Δευτέρα</day>
+							<day type="tue">η Τρίτ’</day>
+							<day type="wed">η Τετράδ</day>
+							<day type="thu">η Πέφτ’</day>
+							<day type="fri">η Παρασ̌κευή</day>
+							<day type="sat">η Σάββα</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">πριν το μεσημέρ</dayPeriod>
+							<dayPeriod type="pm">μετά το μεσημέρ</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+				<dateTimeFormats>
+					<intervalFormats>
+						<intervalFormatFallback>ας {0} ους {1}</intervalFormatFallback>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
 </ldml>
