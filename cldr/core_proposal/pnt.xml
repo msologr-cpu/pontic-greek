@@ -9,6 +9,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="pnt"/>
 	</identity>
 	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern>{0} ({1})</localePattern>
+			<localeSeparator>{0}, {1}</localeSeparator>
+		</localeDisplayPattern>
 		<languages>
 			<language type="pnt">Το ποντεϊκόν η γλώσσα</language>
 			<language type="pnt" alt="short">Ποντεϊκά</language>
@@ -25,10 +29,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="US">Η Αμερική</territory>
 			<territory type="GB">Η Αγγλία</territory>
 		</territories>
-		<localeDisplayPattern>
-			<localePattern>{0} ({1})</localePattern>
-			<localeSeparator>{0}, {1}</localeSeparator>
-		</localeDisplayPattern>
 	</localeDisplayNames>
 	<layout>
 		<orientation>
@@ -42,13 +42,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters type="index">[Α Β Γ Δ Ε Ζ Η Θ Ι Κ Λ Μ Ν Ξ Ο Π Ρ Σ Τ Υ Φ Χ Ψ Ω]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[\- ‐‑ , . % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐‑ – — , ; \: ! . … ' ’ &quot; « » ( ) \[ \] § @ * / \\ \&amp;]</exemplarCharacters>
-		<delimiters>
-			<quotationStart>«</quotationStart>
-			<quotationEnd>»</quotationEnd>
-			<alternateQuotationStart>“</alternateQuotationStart>
-			<alternateQuotationEnd>”</alternateQuotationEnd>
-		</delimiters>
 	</characters>
+	<delimiters>
+		<quotationStart>«</quotationStart>
+		<quotationEnd>»</quotationEnd>
+		<alternateQuotationStart>“</alternateQuotationStart>
+		<alternateQuotationEnd>”</alternateQuotationEnd>
+	</delimiters>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
