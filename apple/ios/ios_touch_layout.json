@@ -1,0 +1,2842 @@
+{
+  "locale": "pnt",
+  "bcp47": "pnt-Grek-GR",
+  "name": "Pontic Greek",
+  "autonym": "Ποντιακά",
+  "version": "6.1",
+  "normalization": "NFC",
+  "shiftBehavior": {
+    "singleTap": "Auto-returns from 'shift' to 'default' after character insertion; preserves 'shift' during pending pre-fix dead keys (tonos U+0301, Pontic U+030C/U+0306/U+0324).",
+    "doubleTap": "Engages persistent 'caps' lock layer until Shift is tapped again."
+  },
+  "localizedSystemKeyLabels": {
+    "space": "Διάστημα",
+    "return": "Επιστροφή",
+    "returnVariants": {
+      "search": "Αναζήτηση",
+      "go": "Μετάβαση",
+      "send": "Αποστολή",
+      "done": "Τέλος",
+      "next": "Επόμενο",
+      "route": "Διαδρομή"
+    },
+    "cancel": "Άκυρο"
+  },
+  "devices": {
+    "iphone": {
+      "default": [
+        [
+          {
+            "id": "K_E",
+            "label": "ε",
+            "longPressAlternates": [
+              {
+                "id": "T_EPSILON_TONOS",
+                "output": "έ"
+              }
+            ]
+          },
+          {
+            "id": "K_R",
+            "label": "ρ"
+          },
+          {
+            "id": "K_T",
+            "label": "τ"
+          },
+          {
+            "id": "K_Y",
+            "label": "υ",
+            "longPressAlternates": [
+              {
+                "id": "T_UPSILON_TONOS",
+                "output": "ύ"
+              },
+              {
+                "id": "T_UPSILON_DIALYTIKA",
+                "output": "ϋ"
+              },
+              {
+                "id": "T_UPSILON_DIALYTIKA_TONOS",
+                "output": "ΰ"
+              }
+            ]
+          },
+          {
+            "id": "K_U",
+            "label": "θ"
+          },
+          {
+            "id": "K_I",
+            "label": "ι",
+            "longPressAlternates": [
+              {
+                "id": "T_IOTA_TONOS",
+                "output": "ί"
+              },
+              {
+                "id": "T_IOTA_DIALYTIKA",
+                "output": "ϊ"
+              },
+              {
+                "id": "T_IOTA_DIALYTIKA_TONOS",
+                "output": "ΐ"
+              }
+            ]
+          },
+          {
+            "id": "K_O",
+            "label": "ο",
+            "longPressAlternates": [
+              {
+                "id": "T_OMICRON_TONOS",
+                "output": "ό"
+              },
+              {
+                "id": "T_OMICRON_DBELOW",
+                "output": "ο̤"
+              },
+              {
+                "id": "T_OMICRON_TONOS_DBELOW",
+                "output": "ό̤"
+              }
+            ]
+          },
+          {
+            "id": "K_P",
+            "label": "π"
+          },
+          {
+            "id": "T_TONOS",
+            "label": "΄",
+            "longPressAlternates": [
+              {
+                "id": "T_PONTIC_DK",
+                "output": "ˇ"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "id": "K_A",
+            "label": "α",
+            "longPressAlternates": [
+              {
+                "id": "T_ALPHA_TONOS",
+                "output": "ά"
+              },
+              {
+                "id": "T_ALPHA_DBELOW",
+                "output": "α̤"
+              },
+              {
+                "id": "T_ALPHA_TONOS_DBELOW",
+                "output": "ά̤"
+              }
+            ]
+          },
+          {
+            "id": "K_S",
+            "label": "σ",
+            "longPressAlternates": [
+              {
+                "id": "T_SIGMA_CARON",
+                "output": "σ̌"
+              },
+              {
+                "id": "T_SIGMA_FINAL",
+                "output": "ς"
+              },
+              {
+                "id": "T_SIGMA_FINAL_CARON",
+                "output": "ς̌"
+              }
+            ]
+          },
+          {
+            "id": "K_D",
+            "label": "δ"
+          },
+          {
+            "id": "K_F",
+            "label": "φ"
+          },
+          {
+            "id": "K_G",
+            "label": "γ",
+            "longPressAlternates": [
+              {
+                "id": "T_GAMMA_BREVE",
+                "output": "γ̆"
+              }
+            ]
+          },
+          {
+            "id": "K_H",
+            "label": "η",
+            "longPressAlternates": [
+              {
+                "id": "T_ETA_TONOS",
+                "output": "ή"
+              }
+            ]
+          },
+          {
+            "id": "K_J",
+            "label": "ξ",
+            "longPressAlternates": [
+              {
+                "id": "T_XI_CARON",
+                "output": "ξ̌"
+              }
+            ]
+          },
+          {
+            "id": "K_K",
+            "label": "κ",
+            "longPressAlternates": [
+              {
+                "id": "T_KAPPA_CARON",
+                "output": "κ̌"
+              }
+            ]
+          },
+          {
+            "id": "K_L",
+            "label": "λ"
+          }
+        ],
+        [
+          {
+            "id": "K_SHIFT",
+            "label": "*Shift*",
+            "widthWeight": 130,
+            "nextLayer": "shift"
+          },
+          {
+            "id": "K_Z",
+            "label": "ζ",
+            "longPressAlternates": [
+              {
+                "id": "T_ZETA_CARON",
+                "output": "ζ̌"
+              }
+            ]
+          },
+          {
+            "id": "K_X",
+            "label": "χ",
+            "longPressAlternates": [
+              {
+                "id": "T_CHI_CARON",
+                "output": "χ̌"
+              }
+            ]
+          },
+          {
+            "id": "K_C",
+            "label": "ψ",
+            "longPressAlternates": [
+              {
+                "id": "T_PSI_CARON",
+                "output": "ψ̌"
+              }
+            ]
+          },
+          {
+            "id": "K_V",
+            "label": "ω",
+            "longPressAlternates": [
+              {
+                "id": "T_OMEGA_TONOS",
+                "output": "ώ"
+              }
+            ]
+          },
+          {
+            "id": "K_B",
+            "label": "β"
+          },
+          {
+            "id": "K_N",
+            "label": "ν"
+          },
+          {
+            "id": "K_M",
+            "label": "μ"
+          },
+          {
+            "id": "K_BKSP",
+            "label": "*BkSp*",
+            "widthWeight": 130
+          }
+        ],
+        [
+          {
+            "id": "K_NUMLOCK",
+            "label": "*123*",
+            "widthWeight": 100,
+            "nextLayer": "numeric"
+          },
+          {
+            "id": "K_LOPT",
+            "label": "*Menu*",
+            "widthWeight": 100
+          },
+          {
+            "id": "T_COMMA",
+            "label": ",",
+            "widthWeight": 85,
+            "longPressAlternates": [
+              {
+                "id": "T_SEMICOLON",
+                "output": ";"
+              },
+              {
+                "id": "T_COLON",
+                "output": ":"
+              },
+              {
+                "id": "T_LPAREN",
+                "output": "("
+              },
+              {
+                "id": "T_RPAREN",
+                "output": ")"
+              },
+              {
+                "id": "T_HYPHEN",
+                "output": "-"
+              },
+              {
+                "id": "T_SLASH",
+                "output": "/"
+              }
+            ]
+          },
+          {
+            "id": "K_SPACE",
+            "label": "",
+            "widthWeight": 280
+          },
+          {
+            "id": "T_APOSTROPHE",
+            "label": "'",
+            "widthWeight": 85,
+            "longPressAlternates": [
+              {
+                "id": "T_RSQUOTE",
+                "output": "’"
+              },
+              {
+                "id": "T_DQUOTE",
+                "output": "\""
+              },
+              {
+                "id": "T_LGUILL",
+                "output": "«"
+              },
+              {
+                "id": "T_RGUILL",
+                "output": "»"
+              }
+            ]
+          },
+          {
+            "id": "T_PERIOD",
+            "label": ".",
+            "widthWeight": 85,
+            "longPressAlternates": [
+              {
+                "id": "T_QUESTION",
+                "output": "?"
+              },
+              {
+                "id": "T_EXCLAIM",
+                "output": "!"
+              },
+              {
+                "id": "T_ELLIPSIS",
+                "output": "…"
+              }
+            ]
+          },
+          {
+            "id": "K_ENTER",
+            "label": "*Enter*",
+            "widthWeight": 100
+          }
+        ]
+      ],
+      "shift": [
+        [
+          {
+            "id": "K_E",
+            "label": "Ε",
+            "longPressAlternates": [
+              {
+                "id": "T_EPSILON_TONOS_UC",
+                "output": "Έ"
+              }
+            ]
+          },
+          {
+            "id": "K_R",
+            "label": "Ρ"
+          },
+          {
+            "id": "K_T",
+            "label": "Τ"
+          },
+          {
+            "id": "K_Y",
+            "label": "Υ",
+            "longPressAlternates": [
+              {
+                "id": "T_UPSILON_TONOS_UC",
+                "output": "Ύ"
+              },
+              {
+                "id": "T_UPSILON_DIALYTIKA_UC",
+                "output": "Ϋ"
+              }
+            ]
+          },
+          {
+            "id": "K_U",
+            "label": "Θ"
+          },
+          {
+            "id": "K_I",
+            "label": "Ι",
+            "longPressAlternates": [
+              {
+                "id": "T_IOTA_TONOS_UC",
+                "output": "Ί"
+              },
+              {
+                "id": "T_IOTA_DIALYTIKA_UC",
+                "output": "Ϊ"
+              }
+            ]
+          },
+          {
+            "id": "K_O",
+            "label": "Ο",
+            "longPressAlternates": [
+              {
+                "id": "T_OMICRON_TONOS_UC",
+                "output": "Ό"
+              },
+              {
+                "id": "T_OMICRON_DBELOW_UC",
+                "output": "Ο̤"
+              },
+              {
+                "id": "T_OMICRON_TONOS_DBELOW_UC",
+                "output": "Ό̤"
+              }
+            ]
+          },
+          {
+            "id": "K_P",
+            "label": "Π"
+          },
+          {
+            "id": "T_TONOS",
+            "label": "΄",
+            "longPressAlternates": [
+              {
+                "id": "T_PONTIC_DK",
+                "output": "ˇ"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "id": "K_A",
+            "label": "Α",
+            "longPressAlternates": [
+              {
+                "id": "T_ALPHA_TONOS_UC",
+                "output": "Ά"
+              },
+              {
+                "id": "T_ALPHA_DBELOW_UC",
+                "output": "Α̤"
+              },
+              {
+                "id": "T_ALPHA_TONOS_DBELOW_UC",
+                "output": "Ά̤"
+              }
+            ]
+          },
+          {
+            "id": "K_S",
+            "label": "Σ",
+            "longPressAlternates": [
+              {
+                "id": "T_SIGMA_CARON_UC",
+                "output": "Σ̌"
+              }
+            ]
+          },
+          {
+            "id": "K_D",
+            "label": "Δ"
+          },
+          {
+            "id": "K_F",
+            "label": "Φ"
+          },
+          {
+            "id": "K_G",
+            "label": "Γ",
+            "longPressAlternates": [
+              {
+                "id": "T_GAMMA_BREVE_UC",
+                "output": "Γ̆"
+              }
+            ]
+          },
+          {
+            "id": "K_H",
+            "label": "Η",
+            "longPressAlternates": [
+              {
+                "id": "T_ETA_TONOS_UC",
+                "output": "Ή"
+              }
+            ]
+          },
+          {
+            "id": "K_J",
+            "label": "Ξ",
+            "longPressAlternates": [
+              {
+                "id": "T_XI_CARON_UC",
+                "output": "Ξ̌"
+              }
+            ]
+          },
+          {
+            "id": "K_K",
+            "label": "Κ",
+            "longPressAlternates": [
+              {
+                "id": "T_KAPPA_CARON_UC",
+                "output": "Κ̌"
+              }
+            ]
+          },
+          {
+            "id": "K_L",
+            "label": "Λ"
+          }
+        ],
+        [
+          {
+            "id": "K_SHIFT",
+            "label": "*Shifted*",
+            "widthWeight": 130,
+            "nextLayer": "default"
+          },
+          {
+            "id": "K_Z",
+            "label": "Ζ",
+            "longPressAlternates": [
+              {
+                "id": "T_ZETA_CARON_UC",
+                "output": "Ζ̌"
+              }
+            ]
+          },
+          {
+            "id": "K_X",
+            "label": "Χ",
+            "longPressAlternates": [
+              {
+                "id": "T_CHI_CARON_UC",
+                "output": "Χ̌"
+              }
+            ]
+          },
+          {
+            "id": "K_C",
+            "label": "Ψ",
+            "longPressAlternates": [
+              {
+                "id": "T_PSI_CARON_UC",
+                "output": "Ψ̌"
+              }
+            ]
+          },
+          {
+            "id": "K_V",
+            "label": "Ω",
+            "longPressAlternates": [
+              {
+                "id": "T_OMEGA_TONOS_UC",
+                "output": "Ώ"
+              }
+            ]
+          },
+          {
+            "id": "K_B",
+            "label": "Β"
+          },
+          {
+            "id": "K_N",
+            "label": "Ν"
+          },
+          {
+            "id": "K_M",
+            "label": "Μ"
+          },
+          {
+            "id": "K_BKSP",
+            "label": "*BkSp*",
+            "widthWeight": 130
+          }
+        ],
+        [
+          {
+            "id": "K_NUMLOCK",
+            "label": "*123*",
+            "widthWeight": 100,
+            "nextLayer": "numeric"
+          },
+          {
+            "id": "K_LOPT",
+            "label": "*Menu*",
+            "widthWeight": 100
+          },
+          {
+            "id": "T_COMMA_S",
+            "label": ",",
+            "widthWeight": 85,
+            "longPressAlternates": [
+              {
+                "id": "T_SEMICOLON_S",
+                "output": ";"
+              },
+              {
+                "id": "T_COLON_S",
+                "output": ":"
+              },
+              {
+                "id": "T_LPAREN_S",
+                "output": "("
+              },
+              {
+                "id": "T_RPAREN_S",
+                "output": ")"
+              },
+              {
+                "id": "T_HYPHEN_S",
+                "output": "-"
+              },
+              {
+                "id": "T_SLASH_S",
+                "output": "/"
+              }
+            ]
+          },
+          {
+            "id": "K_SPACE",
+            "label": "",
+            "widthWeight": 280
+          },
+          {
+            "id": "T_APOSTROPHE_S",
+            "label": "'",
+            "widthWeight": 85,
+            "longPressAlternates": [
+              {
+                "id": "T_RSQUOTE_S",
+                "output": "’"
+              },
+              {
+                "id": "T_DQUOTE_S",
+                "output": "\""
+              },
+              {
+                "id": "T_LGUILL_S",
+                "output": "«"
+              },
+              {
+                "id": "T_RGUILL_S",
+                "output": "»"
+              }
+            ]
+          },
+          {
+            "id": "T_PERIOD_S",
+            "label": ".",
+            "widthWeight": 85,
+            "longPressAlternates": [
+              {
+                "id": "T_QUESTION_S",
+                "output": "?"
+              },
+              {
+                "id": "T_EXCLAIM_S",
+                "output": "!"
+              },
+              {
+                "id": "T_ELLIPSIS_S",
+                "output": "…"
+              }
+            ]
+          },
+          {
+            "id": "K_ENTER",
+            "label": "*Enter*",
+            "widthWeight": 100
+          }
+        ]
+      ],
+      "numeric": [
+        [
+          {
+            "id": "K_1",
+            "label": "1"
+          },
+          {
+            "id": "K_2",
+            "label": "2"
+          },
+          {
+            "id": "K_3",
+            "label": "3"
+          },
+          {
+            "id": "K_4",
+            "label": "4"
+          },
+          {
+            "id": "K_5",
+            "label": "5"
+          },
+          {
+            "id": "K_6",
+            "label": "6"
+          },
+          {
+            "id": "K_7",
+            "label": "7"
+          },
+          {
+            "id": "K_8",
+            "label": "8"
+          },
+          {
+            "id": "K_9",
+            "label": "9"
+          },
+          {
+            "id": "K_0",
+            "label": "0"
+          }
+        ],
+        [
+          {
+            "id": "T_HYPHEN",
+            "label": "-"
+          },
+          {
+            "id": "T_SLASH",
+            "label": "/"
+          },
+          {
+            "id": "T_COLON2",
+            "label": ":"
+          },
+          {
+            "id": "T_SEMICOLON2",
+            "label": ";"
+          },
+          {
+            "id": "T_LPAREN",
+            "label": "("
+          },
+          {
+            "id": "T_RPAREN",
+            "label": ")"
+          },
+          {
+            "id": "T_EURO",
+            "label": "€",
+            "longPressAlternates": [
+              {
+                "id": "T_DOLLAR",
+                "output": "$"
+              },
+              {
+                "id": "T_RUBLE",
+                "output": "₽"
+              },
+              {
+                "id": "T_POUND",
+                "output": "£"
+              }
+            ]
+          },
+          {
+            "id": "T_AMPERSAND",
+            "label": "&"
+          },
+          {
+            "id": "T_AT",
+            "label": "@"
+          },
+          {
+            "id": "T_DQUOTE",
+            "label": "\"",
+            "longPressAlternates": [
+              {
+                "id": "T_LQUOTE",
+                "output": "„"
+              },
+              {
+                "id": "T_RQUOTE",
+                "output": "“"
+              },
+              {
+                "id": "T_RQUOTE2",
+                "output": "”"
+              },
+              {
+                "id": "T_LGUILL",
+                "output": "«"
+              },
+              {
+                "id": "T_RGUILL",
+                "output": "»"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "id": "K_NUMLOCK",
+            "label": "*Symbol*",
+            "widthWeight": 130,
+            "nextLayer": "symbol"
+          },
+          {
+            "id": "T_PERIOD2",
+            "label": "."
+          },
+          {
+            "id": "T_COMMA2",
+            "label": ","
+          },
+          {
+            "id": "T_QUESTION2",
+            "label": "?"
+          },
+          {
+            "id": "T_EXCLAIM2",
+            "label": "!"
+          },
+          {
+            "id": "T_SQUOTE",
+            "label": "'"
+          },
+          {
+            "id": "K_BKSP",
+            "label": "*BkSp*",
+            "widthWeight": 130
+          }
+        ],
+        [
+          {
+            "id": "K_NUMLOCK",
+            "label": "*αβγ*",
+            "widthWeight": 130,
+            "nextLayer": "default"
+          },
+          {
+            "id": "K_LOPT",
+            "label": "*Menu*",
+            "widthWeight": 100
+          },
+          {
+            "id": "K_SPACE",
+            "label": "",
+            "widthWeight": 400
+          },
+          {
+            "id": "K_PERIOD",
+            "label": "."
+          },
+          {
+            "id": "K_ENTER",
+            "label": "*Enter*",
+            "widthWeight": 130
+          }
+        ]
+      ],
+      "symbol": [
+        [
+          {
+            "id": "T_LBRKT",
+            "label": "["
+          },
+          {
+            "id": "T_RBRKT",
+            "label": "]"
+          },
+          {
+            "id": "T_LBRACE",
+            "label": "{"
+          },
+          {
+            "id": "T_RBRACE",
+            "label": "}"
+          },
+          {
+            "id": "T_HASH",
+            "label": "#"
+          },
+          {
+            "id": "T_PERCENT",
+            "label": "%"
+          },
+          {
+            "id": "T_CARET",
+            "label": "^"
+          },
+          {
+            "id": "T_STAR",
+            "label": "*"
+          },
+          {
+            "id": "T_PLUS",
+            "label": "+"
+          },
+          {
+            "id": "T_EQUALS",
+            "label": "="
+          }
+        ],
+        [
+          {
+            "id": "T_UNDERSCORE",
+            "label": "_"
+          },
+          {
+            "id": "T_BACKSLASH",
+            "label": "\\"
+          },
+          {
+            "id": "T_PIPE",
+            "label": "|"
+          },
+          {
+            "id": "T_TILDE",
+            "label": "~"
+          },
+          {
+            "id": "T_LT",
+            "label": "<"
+          },
+          {
+            "id": "T_GT",
+            "label": ">"
+          },
+          {
+            "id": "T_DOLLAR2",
+            "label": "$"
+          },
+          {
+            "id": "T_POUND2",
+            "label": "£"
+          },
+          {
+            "id": "T_YEN",
+            "label": "¥"
+          },
+          {
+            "id": "T_BULLET",
+            "label": "•"
+          }
+        ],
+        [
+          {
+            "id": "K_NUMLOCK",
+            "label": "*123*",
+            "widthWeight": 130,
+            "nextLayer": "numeric"
+          },
+          {
+            "id": "T_PERIOD3",
+            "label": "."
+          },
+          {
+            "id": "T_COMMA3",
+            "label": ","
+          },
+          {
+            "id": "T_QUESTION3",
+            "label": "?"
+          },
+          {
+            "id": "T_EXCLAIM3",
+            "label": "!"
+          },
+          {
+            "id": "T_SQUOTE2",
+            "label": "'"
+          },
+          {
+            "id": "K_BKSP",
+            "label": "*BkSp*",
+            "widthWeight": 130
+          }
+        ],
+        [
+          {
+            "id": "K_NUMLOCK",
+            "label": "*αβγ*",
+            "widthWeight": 130,
+            "nextLayer": "default"
+          },
+          {
+            "id": "K_LOPT",
+            "label": "*Menu*",
+            "widthWeight": 100
+          },
+          {
+            "id": "K_SPACE",
+            "label": "",
+            "widthWeight": 400
+          },
+          {
+            "id": "K_PERIOD",
+            "label": "."
+          },
+          {
+            "id": "K_ENTER",
+            "label": "*Enter*",
+            "widthWeight": 130
+          }
+        ]
+      ],
+      "caps": [
+        [
+          {
+            "id": "K_E",
+            "label": "Ε",
+            "modifierLayer": "shift",
+            "longPressAlternates": [
+              {
+                "id": "T_EPSILON_TONOS_UC",
+                "output": "Έ",
+                "modifierLayer": "shift"
+              }
+            ]
+          },
+          {
+            "id": "K_R",
+            "label": "Ρ",
+            "modifierLayer": "shift"
+          },
+          {
+            "id": "K_T",
+            "label": "Τ",
+            "modifierLayer": "shift"
+          },
+          {
+            "id": "K_Y",
+            "label": "Υ",
+            "modifierLayer": "shift",
+            "longPressAlternates": [
+              {
+                "id": "T_UPSILON_TONOS_UC",
+                "output": "Ύ",
+                "modifierLayer": "shift"
+              },
+              {
+                "id": "T_UPSILON_DIALYTIKA_UC",
+                "output": "Ϋ",
+                "modifierLayer": "shift"
+              }
+            ]
+          },
+          {
+            "id": "K_U",
+            "label": "Θ",
+            "modifierLayer": "shift"
+          },
+          {
+            "id": "K_I",
+            "label": "Ι",
+            "modifierLayer": "shift",
+            "longPressAlternates": [
+              {
+                "id": "T_IOTA_TONOS_UC",
+                "output": "Ί",
+                "modifierLayer": "shift"
+              },
+              {
+                "id": "T_IOTA_DIALYTIKA_UC",
+                "output": "Ϊ",
+                "modifierLayer": "shift"
+              }
+            ]
+          },
+          {
+            "id": "K_O",
+            "label": "Ο",
+            "modifierLayer": "shift",
+            "longPressAlternates": [
+              {
+                "id": "T_OMICRON_TONOS_UC",
+                "output": "Ό",
+                "modifierLayer": "shift"
+              },
+              {
+                "id": "T_OMICRON_DBELOW_UC",
+                "output": "Ο̤",
+                "modifierLayer": "shift"
+              },
+              {
+                "id": "T_OMICRON_TONOS_DBELOW_UC",
+                "output": "Ό̤",
+                "modifierLayer": "shift"
+              }
+            ]
+          },
+          {
+            "id": "K_P",
+            "label": "Π",
+            "modifierLayer": "shift"
+          },
+          {
+            "id": "T_TONOS",
+            "label": "΄",
+            "modifierLayer": "shift",
+            "longPressAlternates": [
+              {
+                "id": "T_PONTIC_DK",
+                "output": "ˇ",
+                "modifierLayer": "shift"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "id": "K_A",
+            "label": "Α",
+            "modifierLayer": "shift",
+            "longPressAlternates": [
+              {
+                "id": "T_ALPHA_TONOS_UC",
+                "output": "Ά",
+                "modifierLayer": "shift"
+              },
+              {
+                "id": "T_ALPHA_DBELOW_UC",
+                "output": "Α̤",
+                "modifierLayer": "shift"
+              },
+              {
+                "id": "T_ALPHA_TONOS_DBELOW_UC",
+                "output": "Ά̤",
+                "modifierLayer": "shift"
+              }
+            ]
+          },
+          {
+            "id": "K_S",
+            "label": "Σ",
+            "modifierLayer": "shift",
+            "longPressAlternates": [
+              {
+                "id": "T_SIGMA_CARON_UC",
+                "output": "Σ̌",
+                "modifierLayer": "shift"
+              }
+            ]
+          },
+          {
+            "id": "K_D",
+            "label": "Δ",
+            "modifierLayer": "shift"
+          },
+          {
+            "id": "K_F",
+            "label": "Φ",
+            "modifierLayer": "shift"
+          },
+          {
+            "id": "K_G",
+            "label": "Γ",
+            "modifierLayer": "shift",
+            "longPressAlternates": [
+              {
+                "id": "T_GAMMA_BREVE_UC",
+                "output": "Γ̆",
+                "modifierLayer": "shift"
+              }
+            ]
+          },
+          {
+            "id": "K_H",
+            "label": "Η",
+            "modifierLayer": "shift",
+            "longPressAlternates": [
+              {
+                "id": "T_ETA_TONOS_UC",
+                "output": "Ή",
+                "modifierLayer": "shift"
+              }
+            ]
+          },
+          {
+            "id": "K_J",
+            "label": "Ξ",
+            "modifierLayer": "shift",
+            "longPressAlternates": [
+              {
+                "id": "T_XI_CARON_UC",
+                "output": "Ξ̌",
+                "modifierLayer": "shift"
+              }
+            ]
+          },
+          {
+            "id": "K_K",
+            "label": "Κ",
+            "modifierLayer": "shift",
+            "longPressAlternates": [
+              {
+                "id": "T_KAPPA_CARON_UC",
+                "output": "Κ̌",
+                "modifierLayer": "shift"
+              }
+            ]
+          },
+          {
+            "id": "K_L",
+            "label": "Λ",
+            "modifierLayer": "shift"
+          }
+        ],
+        [
+          {
+            "id": "K_SHIFT",
+            "label": "*ShiftedLock*",
+            "widthWeight": 130,
+            "nextLayer": "default"
+          },
+          {
+            "id": "K_Z",
+            "label": "Ζ",
+            "modifierLayer": "shift",
+            "longPressAlternates": [
+              {
+                "id": "T_ZETA_CARON_UC",
+                "output": "Ζ̌",
+                "modifierLayer": "shift"
+              }
+            ]
+          },
+          {
+            "id": "K_X",
+            "label": "Χ",
+            "modifierLayer": "shift",
+            "longPressAlternates": [
+              {
+                "id": "T_CHI_CARON_UC",
+                "output": "Χ̌",
+                "modifierLayer": "shift"
+              }
+            ]
+          },
+          {
+            "id": "K_C",
+            "label": "Ψ",
+            "modifierLayer": "shift",
+            "longPressAlternates": [
+              {
+                "id": "T_PSI_CARON_UC",
+                "output": "Ψ̌",
+                "modifierLayer": "shift"
+              }
+            ]
+          },
+          {
+            "id": "K_V",
+            "label": "Ω",
+            "modifierLayer": "shift",
+            "longPressAlternates": [
+              {
+                "id": "T_OMEGA_TONOS_UC",
+                "output": "Ώ",
+                "modifierLayer": "shift"
+              }
+            ]
+          },
+          {
+            "id": "K_B",
+            "label": "Β",
+            "modifierLayer": "shift"
+          },
+          {
+            "id": "K_N",
+            "label": "Ν",
+            "modifierLayer": "shift"
+          },
+          {
+            "id": "K_M",
+            "label": "Μ",
+            "modifierLayer": "shift"
+          },
+          {
+            "id": "K_BKSP",
+            "label": "*BkSp*",
+            "widthWeight": 130
+          }
+        ],
+        [
+          {
+            "id": "K_NUMLOCK",
+            "label": "*123*",
+            "widthWeight": 100,
+            "nextLayer": "numeric"
+          },
+          {
+            "id": "K_LOPT",
+            "label": "*Menu*",
+            "widthWeight": 100
+          },
+          {
+            "id": "T_COMMA_S",
+            "label": ",",
+            "widthWeight": 85,
+            "modifierLayer": "shift",
+            "longPressAlternates": [
+              {
+                "id": "T_SEMICOLON_S",
+                "output": ";",
+                "modifierLayer": "shift"
+              },
+              {
+                "id": "T_COLON_S",
+                "output": ":",
+                "modifierLayer": "shift"
+              },
+              {
+                "id": "T_LPAREN_S",
+                "output": "(",
+                "modifierLayer": "shift"
+              },
+              {
+                "id": "T_RPAREN_S",
+                "output": ")",
+                "modifierLayer": "shift"
+              },
+              {
+                "id": "T_HYPHEN_S",
+                "output": "-",
+                "modifierLayer": "shift"
+              },
+              {
+                "id": "T_SLASH_S",
+                "output": "/",
+                "modifierLayer": "shift"
+              }
+            ]
+          },
+          {
+            "id": "K_SPACE",
+            "label": "",
+            "widthWeight": 280,
+            "modifierLayer": "shift"
+          },
+          {
+            "id": "T_APOSTROPHE_S",
+            "label": "'",
+            "widthWeight": 85,
+            "modifierLayer": "shift",
+            "longPressAlternates": [
+              {
+                "id": "T_RSQUOTE_S",
+                "output": "’",
+                "modifierLayer": "shift"
+              },
+              {
+                "id": "T_DQUOTE_S",
+                "output": "\"",
+                "modifierLayer": "shift"
+              },
+              {
+                "id": "T_LGUILL_S",
+                "output": "«",
+                "modifierLayer": "shift"
+              },
+              {
+                "id": "T_RGUILL_S",
+                "output": "»",
+                "modifierLayer": "shift"
+              }
+            ]
+          },
+          {
+            "id": "T_PERIOD_S",
+            "label": ".",
+            "widthWeight": 85,
+            "modifierLayer": "shift",
+            "longPressAlternates": [
+              {
+                "id": "T_QUESTION_S",
+                "output": "?",
+                "modifierLayer": "shift"
+              },
+              {
+                "id": "T_EXCLAIM_S",
+                "output": "!",
+                "modifierLayer": "shift"
+              },
+              {
+                "id": "T_ELLIPSIS_S",
+                "output": "…",
+                "modifierLayer": "shift"
+              }
+            ]
+          },
+          {
+            "id": "K_ENTER",
+            "label": "*Enter*",
+            "widthWeight": 100
+          }
+        ]
+      ]
+    },
+    "ipad": {
+      "default": [
+        [
+          {
+            "id": "K_W",
+            "label": "ς",
+            "longPressAlternates": [
+              {
+                "id": "T_SIGMA_FINAL_CARON",
+                "output": "ς̌"
+              }
+            ]
+          },
+          {
+            "id": "K_E",
+            "label": "ε",
+            "longPressAlternates": [
+              {
+                "id": "T_EPSILON_TONOS",
+                "output": "έ"
+              }
+            ]
+          },
+          {
+            "id": "K_R",
+            "label": "ρ"
+          },
+          {
+            "id": "K_T",
+            "label": "τ"
+          },
+          {
+            "id": "K_Y",
+            "label": "υ",
+            "longPressAlternates": [
+              {
+                "id": "T_UPSILON_TONOS",
+                "output": "ύ"
+              },
+              {
+                "id": "T_UPSILON_DIALYTIKA",
+                "output": "ϋ"
+              },
+              {
+                "id": "T_UPSILON_DIALYTIKA_TONOS",
+                "output": "ΰ"
+              }
+            ]
+          },
+          {
+            "id": "K_U",
+            "label": "θ"
+          },
+          {
+            "id": "K_I",
+            "label": "ι",
+            "longPressAlternates": [
+              {
+                "id": "T_IOTA_TONOS",
+                "output": "ί"
+              },
+              {
+                "id": "T_IOTA_DIALYTIKA",
+                "output": "ϊ"
+              },
+              {
+                "id": "T_IOTA_DIALYTIKA_TONOS",
+                "output": "ΐ"
+              }
+            ]
+          },
+          {
+            "id": "K_O",
+            "label": "ο",
+            "longPressAlternates": [
+              {
+                "id": "T_OMICRON_TONOS",
+                "output": "ό"
+              },
+              {
+                "id": "T_OMICRON_DBELOW",
+                "output": "ο̤"
+              },
+              {
+                "id": "T_OMICRON_TONOS_DBELOW",
+                "output": "ό̤"
+              }
+            ]
+          },
+          {
+            "id": "K_P",
+            "label": "π"
+          },
+          {
+            "id": "T_TONOS",
+            "label": "΄",
+            "longPressAlternates": [
+              {
+                "id": "T_PONTIC_DK",
+                "output": "ˇ"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "id": "K_A",
+            "label": "α",
+            "longPressAlternates": [
+              {
+                "id": "T_ALPHA_TONOS",
+                "output": "ά"
+              },
+              {
+                "id": "T_ALPHA_DBELOW",
+                "output": "α̤"
+              },
+              {
+                "id": "T_ALPHA_TONOS_DBELOW",
+                "output": "ά̤"
+              }
+            ]
+          },
+          {
+            "id": "K_S",
+            "label": "σ",
+            "longPressAlternates": [
+              {
+                "id": "T_SIGMA_CARON",
+                "output": "σ̌"
+              },
+              {
+                "id": "T_SIGMA_FINAL",
+                "output": "ς"
+              },
+              {
+                "id": "T_SIGMA_FINAL_CARON",
+                "output": "ς̌"
+              }
+            ]
+          },
+          {
+            "id": "K_D",
+            "label": "δ"
+          },
+          {
+            "id": "K_F",
+            "label": "φ"
+          },
+          {
+            "id": "K_G",
+            "label": "γ",
+            "longPressAlternates": [
+              {
+                "id": "T_GAMMA_BREVE",
+                "output": "γ̆"
+              }
+            ]
+          },
+          {
+            "id": "K_H",
+            "label": "η",
+            "longPressAlternates": [
+              {
+                "id": "T_ETA_TONOS",
+                "output": "ή"
+              }
+            ]
+          },
+          {
+            "id": "K_J",
+            "label": "ξ",
+            "longPressAlternates": [
+              {
+                "id": "T_XI_CARON",
+                "output": "ξ̌"
+              }
+            ]
+          },
+          {
+            "id": "K_K",
+            "label": "κ",
+            "longPressAlternates": [
+              {
+                "id": "T_KAPPA_CARON",
+                "output": "κ̌"
+              }
+            ]
+          },
+          {
+            "id": "K_L",
+            "label": "λ"
+          },
+          {
+            "id": "T_APOSTROPHE",
+            "label": "'"
+          }
+        ],
+        [
+          {
+            "id": "K_SHIFT",
+            "label": "*Shift*",
+            "widthWeight": 150,
+            "nextLayer": "shift"
+          },
+          {
+            "id": "K_Z",
+            "label": "ζ",
+            "longPressAlternates": [
+              {
+                "id": "T_ZETA_CARON",
+                "output": "ζ̌"
+              }
+            ]
+          },
+          {
+            "id": "K_X",
+            "label": "χ",
+            "longPressAlternates": [
+              {
+                "id": "T_CHI_CARON",
+                "output": "χ̌"
+              }
+            ]
+          },
+          {
+            "id": "K_C",
+            "label": "ψ",
+            "longPressAlternates": [
+              {
+                "id": "T_PSI_CARON",
+                "output": "ψ̌"
+              }
+            ]
+          },
+          {
+            "id": "K_V",
+            "label": "ω",
+            "longPressAlternates": [
+              {
+                "id": "T_OMEGA_TONOS",
+                "output": "ώ"
+              }
+            ]
+          },
+          {
+            "id": "K_B",
+            "label": "β"
+          },
+          {
+            "id": "K_N",
+            "label": "ν"
+          },
+          {
+            "id": "K_M",
+            "label": "μ"
+          },
+          {
+            "id": "K_BKSP",
+            "label": "*BkSp*",
+            "widthWeight": 150
+          }
+        ],
+        [
+          {
+            "id": "K_NUMLOCK",
+            "label": "*123*",
+            "widthWeight": 100,
+            "nextLayer": "numeric"
+          },
+          {
+            "id": "K_LOPT",
+            "label": "*Menu*",
+            "widthWeight": 100
+          },
+          {
+            "id": "T_COMMA",
+            "label": ",",
+            "widthWeight": 85,
+            "longPressAlternates": [
+              {
+                "id": "T_SEMICOLON",
+                "output": ";"
+              },
+              {
+                "id": "T_COLON",
+                "output": ":"
+              },
+              {
+                "id": "T_LPAREN",
+                "output": "("
+              },
+              {
+                "id": "T_RPAREN",
+                "output": ")"
+              },
+              {
+                "id": "T_HYPHEN",
+                "output": "-"
+              },
+              {
+                "id": "T_SLASH",
+                "output": "/"
+              }
+            ]
+          },
+          {
+            "id": "K_SPACE",
+            "label": "",
+            "widthWeight": 280
+          },
+          {
+            "id": "T_APOSTROPHE",
+            "label": "'",
+            "widthWeight": 85,
+            "longPressAlternates": [
+              {
+                "id": "T_RSQUOTE",
+                "output": "’"
+              },
+              {
+                "id": "T_DQUOTE",
+                "output": "\""
+              },
+              {
+                "id": "T_LGUILL",
+                "output": "«"
+              },
+              {
+                "id": "T_RGUILL",
+                "output": "»"
+              }
+            ]
+          },
+          {
+            "id": "T_PERIOD",
+            "label": ".",
+            "widthWeight": 85,
+            "longPressAlternates": [
+              {
+                "id": "T_QUESTION",
+                "output": "?"
+              },
+              {
+                "id": "T_EXCLAIM",
+                "output": "!"
+              },
+              {
+                "id": "T_ELLIPSIS",
+                "output": "…"
+              }
+            ]
+          },
+          {
+            "id": "K_ENTER",
+            "label": "*Enter*",
+            "widthWeight": 100
+          }
+        ]
+      ],
+      "shift": [
+        [
+          {
+            "id": "K_E",
+            "label": "Ε",
+            "longPressAlternates": [
+              {
+                "id": "T_EPSILON_TONOS_UC",
+                "output": "Έ"
+              }
+            ]
+          },
+          {
+            "id": "K_R",
+            "label": "Ρ"
+          },
+          {
+            "id": "K_T",
+            "label": "Τ"
+          },
+          {
+            "id": "K_Y",
+            "label": "Υ",
+            "longPressAlternates": [
+              {
+                "id": "T_UPSILON_TONOS_UC",
+                "output": "Ύ"
+              },
+              {
+                "id": "T_UPSILON_DIALYTIKA_UC",
+                "output": "Ϋ"
+              }
+            ]
+          },
+          {
+            "id": "K_U",
+            "label": "Θ"
+          },
+          {
+            "id": "K_I",
+            "label": "Ι",
+            "longPressAlternates": [
+              {
+                "id": "T_IOTA_TONOS_UC",
+                "output": "Ί"
+              },
+              {
+                "id": "T_IOTA_DIALYTIKA_UC",
+                "output": "Ϊ"
+              }
+            ]
+          },
+          {
+            "id": "K_O",
+            "label": "Ο",
+            "longPressAlternates": [
+              {
+                "id": "T_OMICRON_TONOS_UC",
+                "output": "Ό"
+              },
+              {
+                "id": "T_OMICRON_DBELOW_UC",
+                "output": "Ο̤"
+              },
+              {
+                "id": "T_OMICRON_TONOS_DBELOW_UC",
+                "output": "Ό̤"
+              }
+            ]
+          },
+          {
+            "id": "K_P",
+            "label": "Π"
+          },
+          {
+            "id": "T_TONOS",
+            "label": "΄",
+            "longPressAlternates": [
+              {
+                "id": "T_PONTIC_DK",
+                "output": "ˇ"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "id": "K_A",
+            "label": "Α",
+            "longPressAlternates": [
+              {
+                "id": "T_ALPHA_TONOS_UC",
+                "output": "Ά"
+              },
+              {
+                "id": "T_ALPHA_DBELOW_UC",
+                "output": "Α̤"
+              },
+              {
+                "id": "T_ALPHA_TONOS_DBELOW_UC",
+                "output": "Ά̤"
+              }
+            ]
+          },
+          {
+            "id": "K_S",
+            "label": "Σ",
+            "longPressAlternates": [
+              {
+                "id": "T_SIGMA_CARON_UC",
+                "output": "Σ̌"
+              }
+            ]
+          },
+          {
+            "id": "K_D",
+            "label": "Δ"
+          },
+          {
+            "id": "K_F",
+            "label": "Φ"
+          },
+          {
+            "id": "K_G",
+            "label": "Γ",
+            "longPressAlternates": [
+              {
+                "id": "T_GAMMA_BREVE_UC",
+                "output": "Γ̆"
+              }
+            ]
+          },
+          {
+            "id": "K_H",
+            "label": "Η",
+            "longPressAlternates": [
+              {
+                "id": "T_ETA_TONOS_UC",
+                "output": "Ή"
+              }
+            ]
+          },
+          {
+            "id": "K_J",
+            "label": "Ξ",
+            "longPressAlternates": [
+              {
+                "id": "T_XI_CARON_UC",
+                "output": "Ξ̌"
+              }
+            ]
+          },
+          {
+            "id": "K_K",
+            "label": "Κ",
+            "longPressAlternates": [
+              {
+                "id": "T_KAPPA_CARON_UC",
+                "output": "Κ̌"
+              }
+            ]
+          },
+          {
+            "id": "K_L",
+            "label": "Λ"
+          },
+          {
+            "id": "T_APOSTROPHE",
+            "label": "'"
+          }
+        ],
+        [
+          {
+            "id": "K_SHIFT",
+            "label": "*Shifted*",
+            "widthWeight": 150,
+            "nextLayer": "default"
+          },
+          {
+            "id": "K_Z",
+            "label": "Ζ",
+            "longPressAlternates": [
+              {
+                "id": "T_ZETA_CARON_UC",
+                "output": "Ζ̌"
+              }
+            ]
+          },
+          {
+            "id": "K_X",
+            "label": "Χ",
+            "longPressAlternates": [
+              {
+                "id": "T_CHI_CARON_UC",
+                "output": "Χ̌"
+              }
+            ]
+          },
+          {
+            "id": "K_C",
+            "label": "Ψ",
+            "longPressAlternates": [
+              {
+                "id": "T_PSI_CARON_UC",
+                "output": "Ψ̌"
+              }
+            ]
+          },
+          {
+            "id": "K_V",
+            "label": "Ω",
+            "longPressAlternates": [
+              {
+                "id": "T_OMEGA_TONOS_UC",
+                "output": "Ώ"
+              }
+            ]
+          },
+          {
+            "id": "K_B",
+            "label": "Β"
+          },
+          {
+            "id": "K_N",
+            "label": "Ν"
+          },
+          {
+            "id": "K_M",
+            "label": "Μ"
+          },
+          {
+            "id": "K_BKSP",
+            "label": "*BkSp*",
+            "widthWeight": 150
+          }
+        ],
+        [
+          {
+            "id": "K_NUMLOCK",
+            "label": "*123*",
+            "widthWeight": 100,
+            "nextLayer": "numeric"
+          },
+          {
+            "id": "K_LOPT",
+            "label": "*Menu*",
+            "widthWeight": 100
+          },
+          {
+            "id": "T_COMMA_S",
+            "label": ",",
+            "widthWeight": 85,
+            "longPressAlternates": [
+              {
+                "id": "T_SEMICOLON_S",
+                "output": ";"
+              },
+              {
+                "id": "T_COLON_S",
+                "output": ":"
+              },
+              {
+                "id": "T_LPAREN_S",
+                "output": "("
+              },
+              {
+                "id": "T_RPAREN_S",
+                "output": ")"
+              },
+              {
+                "id": "T_HYPHEN_S",
+                "output": "-"
+              },
+              {
+                "id": "T_SLASH_S",
+                "output": "/"
+              }
+            ]
+          },
+          {
+            "id": "K_SPACE",
+            "label": "",
+            "widthWeight": 280
+          },
+          {
+            "id": "T_APOSTROPHE_S",
+            "label": "'",
+            "widthWeight": 85,
+            "longPressAlternates": [
+              {
+                "id": "T_RSQUOTE_S",
+                "output": "’"
+              },
+              {
+                "id": "T_DQUOTE_S",
+                "output": "\""
+              },
+              {
+                "id": "T_LGUILL_S",
+                "output": "«"
+              },
+              {
+                "id": "T_RGUILL_S",
+                "output": "»"
+              }
+            ]
+          },
+          {
+            "id": "T_PERIOD_S",
+            "label": ".",
+            "widthWeight": 85,
+            "longPressAlternates": [
+              {
+                "id": "T_QUESTION_S",
+                "output": "?"
+              },
+              {
+                "id": "T_EXCLAIM_S",
+                "output": "!"
+              },
+              {
+                "id": "T_ELLIPSIS_S",
+                "output": "…"
+              }
+            ]
+          },
+          {
+            "id": "K_ENTER",
+            "label": "*Enter*",
+            "widthWeight": 100
+          }
+        ]
+      ],
+      "numeric": [
+        [
+          {
+            "id": "K_1",
+            "label": "1"
+          },
+          {
+            "id": "K_2",
+            "label": "2"
+          },
+          {
+            "id": "K_3",
+            "label": "3"
+          },
+          {
+            "id": "K_4",
+            "label": "4"
+          },
+          {
+            "id": "K_5",
+            "label": "5"
+          },
+          {
+            "id": "K_6",
+            "label": "6"
+          },
+          {
+            "id": "K_7",
+            "label": "7"
+          },
+          {
+            "id": "K_8",
+            "label": "8"
+          },
+          {
+            "id": "K_9",
+            "label": "9"
+          },
+          {
+            "id": "K_0",
+            "label": "0"
+          }
+        ],
+        [
+          {
+            "id": "T_HYPHEN",
+            "label": "-"
+          },
+          {
+            "id": "T_SLASH",
+            "label": "/"
+          },
+          {
+            "id": "T_COLON2",
+            "label": ":"
+          },
+          {
+            "id": "T_SEMICOLON2",
+            "label": ";"
+          },
+          {
+            "id": "T_LPAREN",
+            "label": "("
+          },
+          {
+            "id": "T_RPAREN",
+            "label": ")"
+          },
+          {
+            "id": "T_EURO",
+            "label": "€",
+            "longPressAlternates": [
+              {
+                "id": "T_DOLLAR",
+                "output": "$"
+              },
+              {
+                "id": "T_RUBLE",
+                "output": "₽"
+              },
+              {
+                "id": "T_POUND",
+                "output": "£"
+              }
+            ]
+          },
+          {
+            "id": "T_AMPERSAND",
+            "label": "&"
+          },
+          {
+            "id": "T_AT",
+            "label": "@"
+          },
+          {
+            "id": "T_DQUOTE",
+            "label": "\"",
+            "longPressAlternates": [
+              {
+                "id": "T_LQUOTE",
+                "output": "„"
+              },
+              {
+                "id": "T_RQUOTE",
+                "output": "“"
+              },
+              {
+                "id": "T_RQUOTE2",
+                "output": "”"
+              },
+              {
+                "id": "T_LGUILL",
+                "output": "«"
+              },
+              {
+                "id": "T_RGUILL",
+                "output": "»"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "id": "K_NUMLOCK",
+            "label": "*Symbol*",
+            "widthWeight": 130,
+            "nextLayer": "symbol"
+          },
+          {
+            "id": "T_PERIOD2",
+            "label": "."
+          },
+          {
+            "id": "T_COMMA2",
+            "label": ","
+          },
+          {
+            "id": "T_QUESTION2",
+            "label": "?"
+          },
+          {
+            "id": "T_EXCLAIM2",
+            "label": "!"
+          },
+          {
+            "id": "T_SQUOTE",
+            "label": "'"
+          },
+          {
+            "id": "K_BKSP",
+            "label": "*BkSp*",
+            "widthWeight": 130
+          }
+        ],
+        [
+          {
+            "id": "K_NUMLOCK",
+            "label": "*αβγ*",
+            "widthWeight": 130,
+            "nextLayer": "default"
+          },
+          {
+            "id": "K_LOPT",
+            "label": "*Menu*",
+            "widthWeight": 100
+          },
+          {
+            "id": "K_SPACE",
+            "label": "",
+            "widthWeight": 500
+          },
+          {
+            "id": "K_PERIOD",
+            "label": "."
+          },
+          {
+            "id": "K_ENTER",
+            "label": "*Enter*",
+            "widthWeight": 130
+          }
+        ]
+      ],
+      "symbol": [
+        [
+          {
+            "id": "T_LBRKT",
+            "label": "["
+          },
+          {
+            "id": "T_RBRKT",
+            "label": "]"
+          },
+          {
+            "id": "T_LBRACE",
+            "label": "{"
+          },
+          {
+            "id": "T_RBRACE",
+            "label": "}"
+          },
+          {
+            "id": "T_HASH",
+            "label": "#"
+          },
+          {
+            "id": "T_PERCENT",
+            "label": "%"
+          },
+          {
+            "id": "T_CARET",
+            "label": "^"
+          },
+          {
+            "id": "T_STAR",
+            "label": "*"
+          },
+          {
+            "id": "T_PLUS",
+            "label": "+"
+          },
+          {
+            "id": "T_EQUALS",
+            "label": "="
+          }
+        ],
+        [
+          {
+            "id": "T_UNDERSCORE",
+            "label": "_"
+          },
+          {
+            "id": "T_BACKSLASH",
+            "label": "\\"
+          },
+          {
+            "id": "T_PIPE",
+            "label": "|"
+          },
+          {
+            "id": "T_TILDE",
+            "label": "~"
+          },
+          {
+            "id": "T_LT",
+            "label": "<"
+          },
+          {
+            "id": "T_GT",
+            "label": ">"
+          },
+          {
+            "id": "T_DOLLAR2",
+            "label": "$"
+          },
+          {
+            "id": "T_POUND2",
+            "label": "£"
+          },
+          {
+            "id": "T_YEN",
+            "label": "¥"
+          },
+          {
+            "id": "T_BULLET",
+            "label": "•"
+          }
+        ],
+        [
+          {
+            "id": "K_NUMLOCK",
+            "label": "*123*",
+            "widthWeight": 130,
+            "nextLayer": "numeric"
+          },
+          {
+            "id": "T_PERIOD3",
+            "label": "."
+          },
+          {
+            "id": "T_COMMA3",
+            "label": ","
+          },
+          {
+            "id": "T_QUESTION3",
+            "label": "?"
+          },
+          {
+            "id": "T_EXCLAIM3",
+            "label": "!"
+          },
+          {
+            "id": "T_SQUOTE2",
+            "label": "'"
+          },
+          {
+            "id": "K_BKSP",
+            "label": "*BkSp*",
+            "widthWeight": 130
+          }
+        ],
+        [
+          {
+            "id": "K_NUMLOCK",
+            "label": "*αβγ*",
+            "widthWeight": 130,
+            "nextLayer": "default"
+          },
+          {
+            "id": "K_LOPT",
+            "label": "*Menu*",
+            "widthWeight": 100
+          },
+          {
+            "id": "K_SPACE",
+            "label": "",
+            "widthWeight": 500
+          },
+          {
+            "id": "K_PERIOD",
+            "label": "."
+          },
+          {
+            "id": "K_ENTER",
+            "label": "*Enter*",
+            "widthWeight": 130
+          }
+        ]
+      ],
+      "caps": [
+        [
+          {
+            "id": "K_E",
+            "label": "Ε",
+            "modifierLayer": "shift",
+            "longPressAlternates": [
+              {
+                "id": "T_EPSILON_TONOS_UC",
+                "output": "Έ",
+                "modifierLayer": "shift"
+              }
+            ]
+          },
+          {
+            "id": "K_R",
+            "label": "Ρ",
+            "modifierLayer": "shift"
+          },
+          {
+            "id": "K_T",
+            "label": "Τ",
+            "modifierLayer": "shift"
+          },
+          {
+            "id": "K_Y",
+            "label": "Υ",
+            "modifierLayer": "shift",
+            "longPressAlternates": [
+              {
+                "id": "T_UPSILON_TONOS_UC",
+                "output": "Ύ",
+                "modifierLayer": "shift"
+              },
+              {
+                "id": "T_UPSILON_DIALYTIKA_UC",
+                "output": "Ϋ",
+                "modifierLayer": "shift"
+              }
+            ]
+          },
+          {
+            "id": "K_U",
+            "label": "Θ",
+            "modifierLayer": "shift"
+          },
+          {
+            "id": "K_I",
+            "label": "Ι",
+            "modifierLayer": "shift",
+            "longPressAlternates": [
+              {
+                "id": "T_IOTA_TONOS_UC",
+                "output": "Ί",
+                "modifierLayer": "shift"
+              },
+              {
+                "id": "T_IOTA_DIALYTIKA_UC",
+                "output": "Ϊ",
+                "modifierLayer": "shift"
+              }
+            ]
+          },
+          {
+            "id": "K_O",
+            "label": "Ο",
+            "modifierLayer": "shift",
+            "longPressAlternates": [
+              {
+                "id": "T_OMICRON_TONOS_UC",
+                "output": "Ό",
+                "modifierLayer": "shift"
+              },
+              {
+                "id": "T_OMICRON_DBELOW_UC",
+                "output": "Ο̤",
+                "modifierLayer": "shift"
+              },
+              {
+                "id": "T_OMICRON_TONOS_DBELOW_UC",
+                "output": "Ό̤",
+                "modifierLayer": "shift"
+              }
+            ]
+          },
+          {
+            "id": "K_P",
+            "label": "Π",
+            "modifierLayer": "shift"
+          },
+          {
+            "id": "T_TONOS",
+            "label": "΄",
+            "modifierLayer": "shift",
+            "longPressAlternates": [
+              {
+                "id": "T_PONTIC_DK",
+                "output": "ˇ",
+                "modifierLayer": "shift"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "id": "K_A",
+            "label": "Α",
+            "modifierLayer": "shift",
+            "longPressAlternates": [
+              {
+                "id": "T_ALPHA_TONOS_UC",
+                "output": "Ά",
+                "modifierLayer": "shift"
+              },
+              {
+                "id": "T_ALPHA_DBELOW_UC",
+                "output": "Α̤",
+                "modifierLayer": "shift"
+              },
+              {
+                "id": "T_ALPHA_TONOS_DBELOW_UC",
+                "output": "Ά̤",
+                "modifierLayer": "shift"
+              }
+            ]
+          },
+          {
+            "id": "K_S",
+            "label": "Σ",
+            "modifierLayer": "shift",
+            "longPressAlternates": [
+              {
+                "id": "T_SIGMA_CARON_UC",
+                "output": "Σ̌",
+                "modifierLayer": "shift"
+              }
+            ]
+          },
+          {
+            "id": "K_D",
+            "label": "Δ",
+            "modifierLayer": "shift"
+          },
+          {
+            "id": "K_F",
+            "label": "Φ",
+            "modifierLayer": "shift"
+          },
+          {
+            "id": "K_G",
+            "label": "Γ",
+            "modifierLayer": "shift",
+            "longPressAlternates": [
+              {
+                "id": "T_GAMMA_BREVE_UC",
+                "output": "Γ̆",
+                "modifierLayer": "shift"
+              }
+            ]
+          },
+          {
+            "id": "K_H",
+            "label": "Η",
+            "modifierLayer": "shift",
+            "longPressAlternates": [
+              {
+                "id": "T_ETA_TONOS_UC",
+                "output": "Ή",
+                "modifierLayer": "shift"
+              }
+            ]
+          },
+          {
+            "id": "K_J",
+            "label": "Ξ",
+            "modifierLayer": "shift",
+            "longPressAlternates": [
+              {
+                "id": "T_XI_CARON_UC",
+                "output": "Ξ̌",
+                "modifierLayer": "shift"
+              }
+            ]
+          },
+          {
+            "id": "K_K",
+            "label": "Κ",
+            "modifierLayer": "shift",
+            "longPressAlternates": [
+              {
+                "id": "T_KAPPA_CARON_UC",
+                "output": "Κ̌",
+                "modifierLayer": "shift"
+              }
+            ]
+          },
+          {
+            "id": "K_L",
+            "label": "Λ",
+            "modifierLayer": "shift"
+          },
+          {
+            "id": "T_APOSTROPHE",
+            "label": "'",
+            "modifierLayer": "shift"
+          }
+        ],
+        [
+          {
+            "id": "K_SHIFT",
+            "label": "*ShiftedLock*",
+            "widthWeight": 150,
+            "nextLayer": "default"
+          },
+          {
+            "id": "K_Z",
+            "label": "Ζ",
+            "modifierLayer": "shift",
+            "longPressAlternates": [
+              {
+                "id": "T_ZETA_CARON_UC",
+                "output": "Ζ̌",
+                "modifierLayer": "shift"
+              }
+            ]
+          },
+          {
+            "id": "K_X",
+            "label": "Χ",
+            "modifierLayer": "shift",
+            "longPressAlternates": [
+              {
+                "id": "T_CHI_CARON_UC",
+                "output": "Χ̌",
+                "modifierLayer": "shift"
+              }
+            ]
+          },
+          {
+            "id": "K_C",
+            "label": "Ψ",
+            "modifierLayer": "shift",
+            "longPressAlternates": [
+              {
+                "id": "T_PSI_CARON_UC",
+                "output": "Ψ̌",
+                "modifierLayer": "shift"
+              }
+            ]
+          },
+          {
+            "id": "K_V",
+            "label": "Ω",
+            "modifierLayer": "shift",
+            "longPressAlternates": [
+              {
+                "id": "T_OMEGA_TONOS_UC",
+                "output": "Ώ",
+                "modifierLayer": "shift"
+              }
+            ]
+          },
+          {
+            "id": "K_B",
+            "label": "Β",
+            "modifierLayer": "shift"
+          },
+          {
+            "id": "K_N",
+            "label": "Ν",
+            "modifierLayer": "shift"
+          },
+          {
+            "id": "K_M",
+            "label": "Μ",
+            "modifierLayer": "shift"
+          },
+          {
+            "id": "K_BKSP",
+            "label": "*BkSp*",
+            "widthWeight": 150
+          }
+        ],
+        [
+          {
+            "id": "K_NUMLOCK",
+            "label": "*123*",
+            "widthWeight": 100,
+            "nextLayer": "numeric"
+          },
+          {
+            "id": "K_LOPT",
+            "label": "*Menu*",
+            "widthWeight": 100
+          },
+          {
+            "id": "T_COMMA_S",
+            "label": ",",
+            "widthWeight": 85,
+            "modifierLayer": "shift",
+            "longPressAlternates": [
+              {
+                "id": "T_SEMICOLON_S",
+                "output": ";",
+                "modifierLayer": "shift"
+              },
+              {
+                "id": "T_COLON_S",
+                "output": ":",
+                "modifierLayer": "shift"
+              },
+              {
+                "id": "T_LPAREN_S",
+                "output": "(",
+                "modifierLayer": "shift"
+              },
+              {
+                "id": "T_RPAREN_S",
+                "output": ")",
+                "modifierLayer": "shift"
+              },
+              {
+                "id": "T_HYPHEN_S",
+                "output": "-",
+                "modifierLayer": "shift"
+              },
+              {
+                "id": "T_SLASH_S",
+                "output": "/",
+                "modifierLayer": "shift"
+              }
+            ]
+          },
+          {
+            "id": "K_SPACE",
+            "label": "",
+            "widthWeight": 280,
+            "modifierLayer": "shift"
+          },
+          {
+            "id": "T_APOSTROPHE_S",
+            "label": "'",
+            "widthWeight": 85,
+            "modifierLayer": "shift",
+            "longPressAlternates": [
+              {
+                "id": "T_RSQUOTE_S",
+                "output": "’",
+                "modifierLayer": "shift"
+              },
+              {
+                "id": "T_DQUOTE_S",
+                "output": "\"",
+                "modifierLayer": "shift"
+              },
+              {
+                "id": "T_LGUILL_S",
+                "output": "«",
+                "modifierLayer": "shift"
+              },
+              {
+                "id": "T_RGUILL_S",
+                "output": "»",
+                "modifierLayer": "shift"
+              }
+            ]
+          },
+          {
+            "id": "T_PERIOD_S",
+            "label": ".",
+            "widthWeight": 85,
+            "modifierLayer": "shift",
+            "longPressAlternates": [
+              {
+                "id": "T_QUESTION_S",
+                "output": "?",
+                "modifierLayer": "shift"
+              },
+              {
+                "id": "T_EXCLAIM_S",
+                "output": "!",
+                "modifierLayer": "shift"
+              },
+              {
+                "id": "T_ELLIPSIS_S",
+                "output": "…",
+                "modifierLayer": "shift"
+              }
+            ]
+          },
+          {
+            "id": "K_ENTER",
+            "label": "*Enter*",
+            "widthWeight": 100
+          }
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,69 @@
+Pontic Greek (pnt / pnt-Grek-GR) — QA & Acceptance Test Corpus (v6.1)
+==========================================================================
+Strict Unicode Normalization Form C (NFC) · Zero Private Use Area Codepoints
+
+1. Canonical Lowercase Repertoire (Must Match Exact Codepoints & Optical GPOS)
+--------------------------------------------------------------------------
+ζ̌  = U+03B6 U+030C  (Greek Small Letter Zeta + Combining Caron)
+σ̌  = U+03C3 U+030C  (Greek Small Letter Sigma + Combining Caron)
+ς̌  = U+03C2 U+030C  (Greek Small Letter Final Sigma + Combining Caron)
+χ̌  = U+03C7 U+030C  (Greek Small Letter Chi + Combining Caron)
+ξ̌  = U+03BE U+030C  (Greek Small Letter Xi + Combining Caron)
+ψ̌  = U+03C8 U+030C  (Greek Small Letter Psi + Combining Caron)
+κ̌  = U+03BA U+030C  (Greek Small Letter Kappa + Combining Caron)
+γ̆  = U+03B3 U+0306  (Greek Small Letter Gamma + Combining Breve)
+α̤  = U+03B1 U+0324  (Greek Small Letter Alpha + Combining Diaeresis Below)
+ο̤  = U+03BF U+0324  (Greek Small Letter Omicron + Combining Diaeresis Below)
+ά̤  = U+03AC U+0324  (Greek Small Letter Alpha with Tonos + Combining Diaeresis Below)
+ό̤  = U+03CC U+0324  (Greek Small Letter Omicron with Tonos + Combining Diaeresis Below)
+
+2. Canonical Uppercase Repertoire
+---------------------------------
+Ζ̌  = U+0396 U+030C
+Σ̌  = U+03A3 U+030C
+Χ̌  = U+03A7 U+030C
+Ξ̌  = U+039E U+030C
+Ψ̌  = U+03A8 U+030C
+Κ̌  = U+039A U+030C
+Γ̆  = U+0393 U+0306
+Α̤  = U+0391 U+0324
+Ο̤  = U+039F U+0324
+Ά̤  = U+0386 U+0324
+Ό̤  = U+038C U+0324
+
+3. macOS Hardware (.keylayout) Dead-Key State Sequences
+-------------------------------------------------------
+- `/` + `ζ`           -> `ζ̌` (U+03B6 U+030C)
+- `/` + `Q` (ς)       -> `ς̌` (U+03C2 U+030C)
+- `/` + `Shift+S`     -> `Σ̌` (U+03A3 U+030C)
+- `/` + `γ`           -> `γ̆` (U+03B3 U+0306)
+- `/` + `α`           -> `α̤` (U+03B1 U+0324)
+- `/` + `;` + `α`     -> `ά̤` (U+03AC U+0324)
+- `;` + `/` + `α`     -> `ά̤` (U+03AC U+0324) [bi-directional dead-key chaining]
+- `/` + `;` + `Shift+A` -> `Ά̤` (U+0386 U+0324)
+- `/` + `Space`       -> `/ `
+- `/` + `Escape`      -> `/` (terminator)
+- `Cmd+C`, `Cmd+V`, `Cmd+X`, `Cmd+A`, `Cmd+Z` while Pontic Greek active -> Native OS shortcuts preserved
+
+4. iOS / Mobile Touch Keyboard Sequences (Auto-Shift & Caps Lock)
+-----------------------------------------------------------------
+- Single-tap Shift -> tap Π -> o -> ν -> τ -> ο -> ς
+  Expected output: "Πόντος" (after adding tonos on ο); layer automatically returns to lowercase after Π.
+- Single-tap Shift -> long-press Ζ -> Ζ̌ -> tap α -> ν
+  Expected output: "Ζ̌αν"; layer returns to lowercase after Ζ̌.
+- Single-tap Shift -> tap ΄ (dead key stays shifted) -> tap Α
+  Expected output: "Ά"; layer returns to lowercase after Α.
+- Single-tap Shift -> long-press ΄ -> ˇ (stays shifted) -> tap ΄ (stays shifted) -> tap Α
+  Expected output: "Ά̤"; layer returns to lowercase after Α.
+- Double-tap Shift (Caps Lock) -> Α, Β, Γ, Space, comma, Ζ̌ -> tap Shift to unlock -> α
+  Expected output: "ΑΒΓ ,Ζ̌α"; stays in Caps Lock until manually unlocked.
+- Long-press σ -> verify popup contains [σ̌, ς, ς̌].
+
+5. Linguistic & Typographic Sample Texts (Prof. D. I. Zimov / Literary Corpus)
+------------------------------------------------------------------------------
+- Τ' εμόν η καρδία πονεί για τ' εσόν το χατήρι.
+- Έναν άμον έτονε κι άλλον 'κ' έτονε σ̌' αούτο το χωρίον.
+- Σ̌κύλος, τσ̌αΐρα, ζ̌ουράφα, ξ̌ύλον, ψ̌ύλλα, γ̆αϊδούρι, α̤γγείον, ο̤μμάτια, ά̤λλος, ό̤λος.
+- Καλώς ορίστε σην πατρίδαν, σον Πόντον τ' εμέτερον.
+- Ά̤νθρωπος, Ό̤νομα, Σ̌τάν, Χ̌άλασμα, Κ̌εφάλι, Γ̆ομάρ, Ξ̌ενιτεία, Ψ̌ήφομαν.
+- Ας 11 ους 15 τι Τρυγομηνά 2026 · Ποντιακά (Ελλάδα) · η Παρασ̌κευή · η Κερεκή.

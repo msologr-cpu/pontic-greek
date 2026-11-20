@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright © 2026 Pontic Greek Keyboard Project (https://github.com/msologr-cpu/pontic-greek)
+  SPDX-License-Identifier: Unicode-3.0
+  Pontic Greek Keyboard Layout for Unicode CLDR (UTS #35 Part 7: Keyboards 3.0)
+  Locale: pnt (Pontic Greek, ISO 639-3)
+-->
+<keyboard3 xmlns="https://schemas.unicode.org/cldr/45/keyboard3" conformsTo="45" locale="pnt">
+  <version number="6.0.0" />
+  <info author="Maxim Solomonidi, Prof. D.I. Zimov" name="Pontic Greek" layout="QWERTY" indicator="PNT" />
+
+  <displays>
+    <display output="\m{tonos}" display="´" />
+    <display output="\m{dialytika}" display="¨" />
+    <display output="\m{pontic}" display="/" />
+    <display keyId="to-shift" display="⇧" />
+    <display keyId="to-base" display="⇩" />
+  </displays>
+
+  <keys>
+    <import base="cldr" path="45/keys-Zyyy-punctuation.xml" />
+    <import base="cldr" path="45/keys-Zyyy-currency.xml" />
+
+    <!-- Dead keys -->
+    <key id="mark-tonos" output="\m{tonos}" />
+    <key id="mark-dialytika" output="\m{dialytika}" />
+    <key id="mark-pontic" output="\m{pontic}" />
+
+    <!-- Pontic combined NFC character targets (for mobile longpress and direct lookup) -->
+    <!-- Caron letters (U+030C) -->
+    <key id="zeta-caron" output="ζ\u{030C}" />
+    <key id="chi-caron" output="χ\u{030C}" />
+    <key id="sigma-caron" output="σ\u{030C}" />
+    <key id="sigma-final-caron" output="ς\u{030C}" />
+    <key id="kappa-caron" output="κ\u{030C}" />
+    <key id="xi-caron" output="ξ\u{030C}" />
+    <key id="psi-caron" output="ψ\u{030C}" />
+    <key id="gamma-breve" output="γ\u{0306}" />
+
+    <key id="Zeta-caron" output="Ζ\u{030C}" />
+    <key id="Chi-caron" output="Χ\u{030C}" />
+    <key id="Sigma-caron" output="Σ\u{030C}" />
+    <key id="Kappa-caron" output="Κ\u{030C}" />
+    <key id="Xi-caron" output="Ξ\u{030C}" />
+    <key id="Psi-caron" output="Ψ\u{030C}" />
+    <key id="Gamma-breve" output="Γ\u{0306}" />
+
+    <!-- Diaeresis below letters (U+0324) -->
+    <key id="alpha-dbelow" output="α\u{0324}" />
+    <key id="omicron-dbelow" output="ο\u{0324}" />
+    <key id="Alpha-dbelow" output="Α\u{0324}" />
+    <key id="Omicron-dbelow" output="Ο\u{0324}" />
+
+    <!-- Stressed vowels with diaeresis below (NFC: U+03AC/U+03CC + U+0324) -->
+    <key id="alpha-tonos-dbelow" output="ά\u{0324}" />
+    <key id="omicron-tonos-dbelow" output="ό\u{0324}" />
+    <key id="Alpha-tonos-dbelow" output="Ά\u{0324}" />
+    <key id="Omicron-tonos-dbelow" output="Ό\u{0324}" />
+
+    <!-- Base lowercase letters with mobile longpress definitions -->
+    <key id="alpha" output="α" longPressKeyIds="alpha-tonos alpha-dbelow alpha-tonos-dbelow" />
+    <key id="beta" output="β" />
+    <key id="gamma" output="γ" longPressKeyIds="gamma-breve" />
+    <key id="delta" output="δ" />
+    <key id="epsilon" output="ε" longPressKeyIds="epsilon-tonos" />
+    <key id="zeta" output="ζ" longPressKeyIds="zeta-caron" />
+    <key id="eta" output="η" longPressKeyIds="eta-tonos" />
+    <key id="theta" output="θ" />
+    <key id="iota" output="ι" longPressKeyIds="iota-tonos iota-dialytika iota-dialytika-tonos" />
+    <key id="kappa" output="κ" longPressKeyIds="kappa-caron" />
+    <key id="lambda" output="λ" />
+    <key id="mu" output="μ" />
+    <key id="nu" output="ν" />
+    <key id="xi" output="ξ" longPressKeyIds="xi-caron" />
+    <key id="omicron" output="ο" longPressKeyIds="omicron-tonos omicron-dbelow omicron-tonos-dbelow" />
+    <key id="pi" output="π" />
+    <key id="rho" output="ρ" />
+    <key id="sigma" output="σ" longPressKeyIds="sigma-caron sigma-final sigma-final-caron" />
+    <key id="sigma-final" output="ς" longPressKeyIds="sigma-final-caron" />
+    <key id="tau" output="τ" />
+    <key id="upsilon" output="υ" longPressKeyIds="upsilon-tonos upsilon-dialytika upsilon-dialytika-tonos" />
+    <key id="phi" output="φ" />
+    <key id="chi" output="χ" longPressKeyIds="chi-caron" />
+    <key id="psi" output="ψ" longPressKeyIds="psi-caron" />
+    <key id="omega" output="ω" longPressKeyIds="omega-tonos" />
+
+    <!-- Uppercase base letters with mobile longpress definitions -->
+    <key id="Alpha" output="Α" longPressKeyIds="Alpha-tonos Alpha-dbelow Alpha-tonos-dbelow" />
+    <key id="Beta" output="Β" />
+    <key id="Gamma" output="Γ" longPressKeyIds="Gamma-breve" />
+    <key id="Delta" output="Δ" />
+    <key id="Epsilon" output="Ε" longPressKeyIds="Epsilon-tonos" />
+    <key id="Zeta" output="Ζ" longPressKeyIds="Zeta-caron" />
+    <key id="Eta" output="Η" longPressKeyIds="Eta-tonos" />
+    <key id="Theta" output="Θ" />
+    <key id="Iota" output="Ι" longPressKeyIds="Iota-tonos Iota-dialytika" />
+    <key id="Kappa" output="Κ" longPressKeyIds="Kappa-caron" />
+    <key id="Lambda" output="Λ" />
+    <key id="Mu" output="Μ" />
+    <key id="Nu" output="Ν" />
+    <key id="Xi" output="Ξ" longPressKeyIds="Xi-caron" />
+    <key id="Omicron" output="Ο" longPressKeyIds="Omicron-tonos Omicron-dbelow Omicron-tonos-dbelow" />
+    <key id="Pi" output="Π" />
+    <key id="Rho" output="Ρ" />
+    <key id="Sigma" output="Σ" longPressKeyIds="Sigma-caron" />
+    <key id="Tau" output="Τ" />
+    <key id="Upsilon" output="Υ" longPressKeyIds="Upsilon-tonos Upsilon-dialytika" />
+    <key id="Phi" output="Φ" />
+    <key id="Chi" output="Χ" longPressKeyIds="Chi-caron" />
+    <key id="Psi" output="Ψ" longPressKeyIds="Psi-caron" />
+    <key id="Omega" output="Ω" longPressKeyIds="Omega-tonos" />
+
+    <!-- Standard Greek Tonos & Dialytika precomposed letters -->
+    <key id="alpha-tonos" output="ά" />
+    <key id="epsilon-tonos" output="έ" />
+    <key id="eta-tonos" output="ή" />
+    <key id="iota-tonos" output="ί" />
+    <key id="iota-dialytika" output="ϊ" />
+    <key id="iota-dialytika-tonos" output="ΐ" />
+    <key id="omicron-tonos" output="ό" />
+    <key id="upsilon-tonos" output="ύ" />
+    <key id="upsilon-dialytika" output="ϋ" />
+    <key id="upsilon-dialytika-tonos" output="ΰ" />
+    <key id="omega-tonos" output="ώ" />
+
+    <key id="Alpha-tonos" output="Ά" />
+    <key id="Epsilon-tonos" output="Έ" />
+    <key id="Eta-tonos" output="Ή" />
+    <key id="Iota-tonos" output="Ί" />
+    <key id="Iota-dialytika" output="Ϊ" />
+    <key id="Omicron-tonos" output="Ό" />
+    <key id="Upsilon-tonos" output="Ύ" />
+    <key id="Upsilon-dialytika" output="Ϋ" />
+    <key id="Omega-tonos" output="Ώ" />
+
+    <key id="greek-q" output=";" />
+    <key id="greek-colon" output=":" />
+    <key id="dialytika-tonos" output="΅" />
+
+    <!-- Touch layer switching keys -->
+    <key id="to-shift" layerId="shift" />
+    <key id="to-base" layerId="base" />
+  </keys>
+
+  <!-- Hardware US ANSI layout (13, 13, 11, 10, 1 scanCodes matching Keyman & macOS) -->
+  <layers formId="us">
+    <layer modifiers="none">
+      <row keys="grave 1 2 3 4 5 6 7 8 9 0 hyphen equal" />
+      <row keys="greek-q sigma-final epsilon rho tau upsilon theta iota omicron pi open-square close-square backslash" />
+      <row keys="alpha sigma delta phi gamma eta xi kappa lambda mark-tonos apos" />
+      <row keys="zeta chi psi omega beta nu mu comma period mark-pontic" />
+      <row keys="space" />
+    </layer>
+
+    <layer modifiers="shift">
+      <row keys="tilde bang at hash dollar percent caret amp asterisk open-paren close-paren underscore plus" />
+      <row keys="greek-colon dialytika-tonos Epsilon Rho Tau Upsilon Theta Iota Omicron Pi open-curly close-curly pipe" />
+      <row keys="Alpha Sigma Delta Phi Gamma Eta Xi Kappa Lambda mark-dialytika double-quote" />
+      <row keys="Zeta Chi Psi Omega Beta Nu Mu open-angle close-angle question" />
+      <row keys="space" />
+    </layer>
+  </layers>
+
+  <!-- Mobile 3-row touch layout (matching Keyman pontic_greek v6.0) -->
+  <layers formId="touch">
+    <layer id="base">
+      <row keys="epsilon rho tau upsilon theta iota omicron pi mark-tonos" />
+      <row keys="alpha sigma delta phi gamma eta xi kappa lambda" />
+      <row keys="to-shift zeta chi psi omega beta nu mu mark-pontic" />
+      <row keys="apos comma space period" />
+    </layer>
+
+    <layer id="shift">
+      <row keys="Epsilon Rho Tau Upsilon Theta Iota Omicron Pi mark-dialytika" />
+      <row keys="Alpha Sigma Delta Phi Gamma Eta Xi Kappa Lambda" />
+      <row keys="to-base Zeta Chi Psi Omega Beta Nu Mu mark-pontic" />
+      <row keys="double-quote comma space period" />
+    </layer>
+  </layers>
+
+  <transforms type="simple">
+    <transformGroup>
+      <!-- Standard Greek Tonos transforms -->
+      <transform from="\m{tonos}α" to="ά" />
+      <transform from="\m{tonos}ε" to="έ" />
+      <transform from="\m{tonos}η" to="ή" />
+      <transform from="\m{tonos}ι" to="ί" />
+      <transform from="\m{tonos}ο" to="ό" />
+      <transform from="\m{tonos}υ" to="ύ" />
+      <transform from="\m{tonos}ω" to="ώ" />
+      <transform from="\m{tonos}Α" to="Ά" />
+      <transform from="\m{tonos}Ε" to="Έ" />
+      <transform from="\m{tonos}Η" to="Ή" />
+      <transform from="\m{tonos}Ι" to="Ί" />
+      <transform from="\m{tonos}Ο" to="Ό" />
+      <transform from="\m{tonos}Υ" to="Ύ" />
+      <transform from="\m{tonos}Ω" to="Ώ" />
+      <transform from="\m{tonos}ϊ" to="ΐ" />
+      <transform from="\m{tonos}ϋ" to="ΰ" />
+      <transform from="\m{tonos} " to="΄" />
+      <transform from="\m{tonos}\m{tonos}" to="΄" />
+
+      <!-- Standard Greek Dialytika transforms -->
+      <transform from="\m{dialytika}ι" to="ϊ" />
+      <transform from="\m{dialytika}υ" to="ϋ" />
+      <transform from="\m{dialytika}Ι" to="Ϊ" />
+      <transform from="\m{dialytika}Υ" to="Ϋ" />
+      <transform from="\m{dialytika} " to="¨" />
+      <transform from="\m{dialytika}\m{dialytika}" to="¨" />
+
+      <!-- Combined Pontic + Tonos (both dead-key entry orders supported) -->
+      <transform from="\m{pontic}\m{tonos}α" to="ά\u{0324}" />
+      <transform from="\m{tonos}\m{pontic}α" to="ά\u{0324}" />
+      <transform from="\m{pontic}\m{tonos}ο" to="ό\u{0324}" />
+      <transform from="\m{tonos}\m{pontic}ο" to="ό\u{0324}" />
+      <transform from="\m{pontic}\m{tonos}Α" to="Ά\u{0324}" />
+      <transform from="\m{tonos}\m{pontic}Α" to="Ά\u{0324}" />
+      <transform from="\m{pontic}\m{tonos}Ο" to="Ό\u{0324}" />
+      <transform from="\m{tonos}\m{pontic}Ο" to="Ό\u{0324}" />
+
+      <!-- Pontic dead-key transforms (NFC output) -->
+      <transform from="\m{pontic}ζ" to="ζ\u{030C}" />
+      <transform from="\m{pontic}χ" to="χ\u{030C}" />
+      <transform from="\m{pontic}σ" to="σ\u{030C}" />
+      <transform from="\m{pontic}ς" to="ς\u{030C}" />
+      <transform from="\m{pontic}κ" to="κ\u{030C}" />
+      <transform from="\m{pontic}ξ" to="ξ\u{030C}" />
+      <transform from="\m{pontic}ψ" to="ψ\u{030C}" />
+      <transform from="\m{pontic}γ" to="γ\u{0306}" />
+      <transform from="\m{pontic}α" to="α\u{0324}" />
+      <transform from="\m{pontic}ο" to="ο\u{0324}" />
+
+      <transform from="\m{pontic}Ζ" to="Ζ\u{030C}" />
+      <transform from="\m{pontic}Χ" to="Χ\u{030C}" />
+      <transform from="\m{pontic}Σ" to="Σ\u{030C}" />
+      <transform from="\m{pontic}Κ" to="Κ\u{030C}" />
+      <transform from="\m{pontic}Ξ" to="Ξ\u{030C}" />
+      <transform from="\m{pontic}Ψ" to="Ψ\u{030C}" />
+      <transform from="\m{pontic}Γ" to="Γ\u{0306}" />
+      <transform from="\m{pontic}Α" to="Α\u{0324}" />
+      <transform from="\m{pontic}Ο" to="Ο\u{0324}" />
+
+      <transform from="\m{pontic} " to="/" />
+      <transform from="\m{pontic}\m{pontic}" to="/" />
+    </transformGroup>
+
+    <!-- Fallback cleanup: preserve literal dead-key characters before non-combinable keys -->
+    <transformGroup>
+      <transform from="\m{pontic}(.)" to="/$1" />
+      <transform from="\m{tonos}(.)" to="΄$1" />
+      <transform from="\m{dialytika}(.)" to="¨$1" />
+    </transformGroup>
+  </transforms>
+</keyboard3>
