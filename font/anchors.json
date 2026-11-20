@@ -18,49 +18,49 @@
             "x": 0,
             "y": 536
           },
-          "note": "гачек / caron"
+          "note": "caron (U+030C)"
         },
         "0306": {
           "anchor": {
             "x": 1,
             "y": 536
           },
-          "note": "бреве / breve"
+          "note": "breve (U+0306)"
         },
         "0324": {
           "anchor": {
             "x": -1,
             "y": 0
           },
-          "note": "две точки снизу / diaeresis below"
+          "note": "diaeresis below (U+0324)"
         },
         "0331": {
           "anchor": {
             "x": 0,
             "y": 0
           },
-          "note": "черта снизу / macron below"
+          "note": "macron below (U+0331)"
         },
         "0307": {
           "anchor": {
             "x": 0,
             "y": 536
           },
-          "note": "точка сверху / dot above"
+          "note": "dot above (U+0307)"
         },
         "0301": {
           "anchor": {
             "x": -272,
             "y": 536
           },
-          "note": "тонос / acute"
+          "note": "tonos / acute (U+0301)"
         },
         "0308": {
           "anchor": {
             "x": -1,
             "y": 536
           },
-          "note": "диалитика / diaeresis"
+          "note": "dialytika / diaeresis (U+0308)"
         }
       },
       "bases": {
@@ -447,49 +447,49 @@
             "x": 76,
             "y": 536
           },
-          "note": "гачек / caron"
+          "note": "caron (U+030C)"
         },
         "0306": {
           "anchor": {
             "x": 66,
             "y": 536
           },
-          "note": "бреве / breve"
+          "note": "breve (U+0306)"
         },
         "0324": {
           "anchor": {
             "x": -51,
             "y": 0
           },
-          "note": "две точки снизу / diaeresis below"
+          "note": "diaeresis below (U+0324)"
         },
         "0331": {
           "anchor": {
             "x": -56,
             "y": 0
           },
-          "note": "черта снизу / macron below"
+          "note": "macron below (U+0331)"
         },
         "0307": {
           "anchor": {
             "x": 59,
             "y": 536
           },
-          "note": "точка сверху / dot above"
+          "note": "dot above (U+0307)"
         },
         "0301": {
           "anchor": {
             "x": -191,
             "y": 536
           },
-          "note": "тонос / acute"
+          "note": "tonos / acute (U+0301)"
         },
         "0308": {
           "anchor": {
             "x": 58,
             "y": 536
           },
-          "note": "диалитика / diaeresis"
+          "note": "dialytika / diaeresis (U+0308)"
         }
       },
       "bases": {
@@ -881,49 +881,49 @@
             "x": -4,
             "y": 546
           },
-          "note": "гачек / caron"
+          "note": "caron (U+030C)"
         },
         "0306": {
           "anchor": {
             "x": 1,
             "y": 546
           },
-          "note": "бреве / breve"
+          "note": "breve (U+0306)"
         },
         "0324": {
           "anchor": {
             "x": -1,
             "y": 0
           },
-          "note": "две точки снизу / diaeresis below"
+          "note": "diaeresis below (U+0324)"
         },
         "0331": {
           "anchor": {
             "x": 0,
             "y": 0
           },
-          "note": "черта снизу / macron below"
+          "note": "macron below (U+0331)"
         },
         "0307": {
           "anchor": {
             "x": 0,
             "y": 546
           },
-          "note": "точка сверху / dot above"
+          "note": "dot above (U+0307)"
         },
         "0301": {
           "anchor": {
             "x": -283,
             "y": 546
           },
-          "note": "тонос / acute"
+          "note": "tonos / acute (U+0301)"
         },
         "0308": {
           "anchor": {
             "x": -1,
             "y": 546
           },
-          "note": "диалитика / diaeresis"
+          "note": "dialytika / diaeresis (U+0308)"
         }
       },
       "bases": {
@@ -1310,49 +1310,49 @@
             "x": 75,
             "y": 546
           },
-          "note": "гачек / caron"
+          "note": "caron (U+030C)"
         },
         "0306": {
           "anchor": {
             "x": 65,
             "y": 546
           },
-          "note": "бреве / breve"
+          "note": "breve (U+0306)"
         },
         "0324": {
           "anchor": {
             "x": -56,
             "y": 0
           },
-          "note": "две точки снизу / diaeresis below"
+          "note": "diaeresis below (U+0324)"
         },
         "0331": {
           "anchor": {
             "x": -57,
             "y": 0
           },
-          "note": "черта снизу / macron below"
+          "note": "macron below (U+0331)"
         },
         "0307": {
           "anchor": {
             "x": 59,
             "y": 546
           },
-          "note": "точка сверху / dot above"
+          "note": "dot above (U+0307)"
         },
         "0301": {
           "anchor": {
             "x": -171,
             "y": 546
           },
-          "note": "тонос / acute"
+          "note": "tonos / acute (U+0301)"
         },
         "0308": {
           "anchor": {
             "x": 58,
             "y": 546
           },
-          "note": "диалитика / diaeresis"
+          "note": "dialytika / diaeresis (U+0308)"
         }
       },
       "bases": {
@@ -1744,49 +1744,49 @@
             "x": -292,
             "y": 536
           },
-          "note": "гачек / caron"
+          "note": "caron (U+030C)"
         },
         "0306": {
           "anchor": {
             "x": 0,
             "y": 536
           },
-          "note": "бреве / breve"
+          "note": "breve (U+0306)"
         },
         "0324": {
           "anchor": {
             "x": 0,
             "y": 0
           },
-          "note": "две точки снизу / diaeresis below"
+          "note": "diaeresis below (U+0324)"
         },
         "0331": {
           "anchor": {
             "x": 0,
             "y": 0
           },
-          "note": "черта снизу / macron below"
+          "note": "macron below (U+0331)"
         },
         "0307": {
           "anchor": {
             "x": 0,
             "y": 536
           },
-          "note": "точка сверху / dot above"
+          "note": "dot above (U+0307)"
         },
         "0301": {
           "anchor": {
             "x": -245,
             "y": 536
           },
-          "note": "тонос / acute"
+          "note": "tonos / acute (U+0301)"
         },
         "0308": {
           "anchor": {
             "x": 0,
             "y": 536
           },
-          "note": "диалитика / diaeresis"
+          "note": "dialytika / diaeresis (U+0308)"
         }
       },
       "bases": {
@@ -2153,49 +2153,49 @@
             "x": 74,
             "y": 536
           },
-          "note": "гачек / caron"
+          "note": "caron (U+030C)"
         },
         "0306": {
           "anchor": {
             "x": 71,
             "y": 536
           },
-          "note": "бреве / breve"
+          "note": "breve (U+0306)"
         },
         "0324": {
           "anchor": {
             "x": -50,
             "y": 0
           },
-          "note": "две точки снизу / diaeresis below"
+          "note": "diaeresis below (U+0324)"
         },
         "0331": {
           "anchor": {
             "x": -62,
             "y": 0
           },
-          "note": "черта снизу / macron below"
+          "note": "macron below (U+0331)"
         },
         "0307": {
           "anchor": {
             "x": 68,
             "y": 536
           },
-          "note": "точка сверху / dot above"
+          "note": "dot above (U+0307)"
         },
         "0301": {
           "anchor": {
             "x": -190,
             "y": 536
           },
-          "note": "тонос / acute"
+          "note": "tonos / acute (U+0301)"
         },
         "0308": {
           "anchor": {
             "x": 54,
             "y": 536
           },
-          "note": "диалитика / diaeresis"
+          "note": "dialytika / diaeresis (U+0308)"
         }
       },
       "bases": {
@@ -2542,49 +2542,49 @@
             "x": -312,
             "y": 536
           },
-          "note": "гачек / caron"
+          "note": "caron (U+030C)"
         },
         "0306": {
           "anchor": {
             "x": -1,
             "y": 536
           },
-          "note": "бреве / breve"
+          "note": "breve (U+0306)"
         },
         "0324": {
           "anchor": {
             "x": 0,
             "y": 0
           },
-          "note": "две точки снизу / diaeresis below"
+          "note": "diaeresis below (U+0324)"
         },
         "0331": {
           "anchor": {
             "x": 0,
             "y": 0
           },
-          "note": "черта снизу / macron below"
+          "note": "macron below (U+0331)"
         },
         "0307": {
           "anchor": {
             "x": 1,
             "y": 536
           },
-          "note": "точка сверху / dot above"
+          "note": "dot above (U+0307)"
         },
         "0301": {
           "anchor": {
             "x": -245,
             "y": 536
           },
-          "note": "тонос / acute"
+          "note": "tonos / acute (U+0301)"
         },
         "0308": {
           "anchor": {
             "x": -1,
             "y": 536
           },
-          "note": "диалитика / diaeresis"
+          "note": "dialytika / diaeresis (U+0308)"
         }
       },
       "bases": {
@@ -2951,49 +2951,49 @@
             "x": 75,
             "y": 536
           },
-          "note": "гачек / caron"
+          "note": "caron (U+030C)"
         },
         "0306": {
           "anchor": {
             "x": 57,
             "y": 536
           },
-          "note": "бреве / breve"
+          "note": "breve (U+0306)"
         },
         "0324": {
           "anchor": {
             "x": -41,
             "y": 0
           },
-          "note": "две точки снизу / diaeresis below"
+          "note": "diaeresis below (U+0324)"
         },
         "0331": {
           "anchor": {
             "x": -48,
             "y": 0
           },
-          "note": "черта снизу / macron below"
+          "note": "macron below (U+0331)"
         },
         "0307": {
           "anchor": {
             "x": 61,
             "y": 536
           },
-          "note": "точка сверху / dot above"
+          "note": "dot above (U+0307)"
         },
         "0301": {
           "anchor": {
             "x": -241,
             "y": 536
           },
-          "note": "тонос / acute"
+          "note": "tonos / acute (U+0301)"
         },
         "0308": {
           "anchor": {
             "x": 56,
             "y": 536
           },
-          "note": "диалитика / diaeresis"
+          "note": "dialytika / diaeresis (U+0308)"
         }
       },
       "bases": {

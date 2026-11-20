@@ -1,5 +1,6 @@
-
-# Личная переписка — НИКОГДА не публикуется
+# Private correspondence and drafts — never commit
 private/
 ПИСЬМО*.md
 РУКОВОДСТВО_ДИ*.md
+ОТВЕТ_*.txt
+COVER_LETTER_*.md

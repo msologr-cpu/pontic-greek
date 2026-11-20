@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Понтийская Греческая Раскладка — Таблица Соответствий</title>
+<title>Pontic Greek Keyboard — Key Mapping &amp; Dead-Key Reference</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap');
 
@@ -326,27 +326,27 @@
 <body>
 
 <div class="header">
-  <h1>Понтийская Греческая Раскладка <span class="badge">АЛЬФА</span></h1>
-  <p>Таблица соответствий клавиш · Инструкция по вводу · macOS · Июнь 2026</p>
+  <h1>Pontic Greek Keyboard Layout <span class="badge">v6.1</span></h1>
+  <p>Hardware Key Mapping Table · Unified `/` Dead-Key Reference · macOS / Windows / Keyman</p>
 </div>
 
 <!-- ══════════════════════════════════════════════════════════════ -->
-<h2>Таблица соответствий клавиш</h2>
+<h2>Hardware Key Mapping Table</h2>
 <p style="color:var(--muted);font-size:13px;margin-bottom:12px;">
-  Показан ввод без нажатия Shift (нижний регистр) / с Shift (верхний регистр).
-  <strong style="color:var(--gold)">Золотой фон</strong> = понтийские изменения (отличие от стандартной греческой).
+  Shows unshifted (lowercase) / Shift (uppercase) output per physical key.
+  <strong style="color:var(--gold)">Gold highlight</strong> = unified Pontic dead key (extending Modern Greek).
 </p>
 
 <div class="table-wrap">
 <table>
   <thead>
     <tr>
-      <th>Физическая<br>клавиша</th>
-      <th>🇬🇧 Английский<br><small>lo / SHIFT</small></th>
-      <th>🇷🇺 Русский<br><small>lo / SHIFT</small></th>
-      <th>🇬🇷 Греческий<br><small>lo / SHIFT</small></th>
-      <th>🏔 Понтийский<br><small>lo / SHIFT</small></th>
-      <th>Примечание</th>
+      <th>Physical<br>Key</th>
+      <th>EN QWERTY<br><small>lo / SHIFT</small></th>
+      <th>RU Physical Ref<br><small>lo / SHIFT</small></th>
+      <th>EL Greek<br><small>lo / SHIFT</small></th>
+      <th>PNT Pontic Greek<br><small>lo / SHIFT</small></th>
+      <th>Notes</th>
     </tr>
   </thead>
   <tbody>
@@ -386,9 +386,9 @@
     <tr>
       <td><span class="key-label">4–0</span></td>
       <td><div class="cell-pair"><span class="lo">4 5 6 7 8 9 0</span></div></td>
-      <td><span class="same">аналогично</span></td>
-      <td><span class="same">аналогично</span></td>
-      <td class="col-pontic"><span class="same">аналогично</span></td>
+      <td><span class="same">same</span></td>
+      <td><span class="same">same</span></td>
+      <td class="col-pontic"><span class="same">same</span></td>
       <td></td>
     </tr>
     <tr>
@@ -591,21 +591,17 @@
       <td><span class="key-label">; :</span></td>
       <td><div class="cell-pair"><span class="lo">;</span><span class="up">:</span></div></td>
       <td><div class="cell-pair"><span class="lo">ж</span><span class="up">Ж</span></div></td>
-      <td><div class="cell-pair"><span class="lo" style="color:var(--accent)">΄</span><span class="up" style="color:var(--accent)">΄</span></div><div class="note-tag" style="color:var(--accent)">мёртв.клав.</div></td>
-      <td class="col-pontic"><div class="cell-pair"><span class="lo" style="color:var(--accent)">΄</span><span class="up" style="color:var(--accent)">΄</span></div><div class="note-tag" style="color:var(--accent)">тонос (греч.)</div></td>
-      <td>Стандартный тонос ΄ как в греческом</td>
+      <td><div class="cell-pair"><span class="lo" style="color:var(--accent)">΄</span><span class="up" style="color:var(--accent)">¨</span></div><div class="note-tag" style="color:var(--accent)">dead key</div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo" style="color:var(--accent)">΄</span><span class="up" style="color:var(--accent)">¨</span></div><div class="note-tag" style="color:var(--accent)">tonos / dialytika</div></td>
+      <td>Standard Greek tonos (<code>;</code>) &amp; dialytika (<code>:</code>)</td>
     </tr>
-    <!-- PONTIC SPECIAL: apostrophe -->
-    <tr class="pontic-special">
+    <tr>
       <td><span class="key-label">' "</span></td>
       <td><div class="cell-pair"><span class="lo">'</span><span class="up">"</span></div></td>
       <td><div class="cell-pair"><span class="lo">э</span><span class="up">Э</span></div></td>
       <td><div class="cell-pair"><span class="lo">'</span><span class="up">"</span></div></td>
-      <td class="col-pontic">
-        <span class="dead-key">ˇ</span>
-        <div class="note-tag">★ ГАЧЕК</div>
-      </td>
-      <td style="color:var(--gold);font-size:12px;font-weight:600;">Понтийская клавиша<br>ζ̌ χ̌ σ̌ κ̌ ξ̌ ψ̌</td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">'</span><span class="up">"</span></div></td>
+      <td>Apostrophe preserved for Pontic elision (e.g., <code>τ' εμόν</code>)</td>
     </tr>
 
     <!-- ── Bottom row ── -->
@@ -665,56 +661,48 @@
       <td class="col-pontic"><div class="cell-pair"><span class="lo">μ</span><span class="up">Μ</span></div></td>
       <td></td>
     </tr>
-    <!-- PONTIC SPECIAL: comma (shift = breve) -->
-    <tr class="pontic-special">
+    <tr>
       <td><span class="key-label">, &lt;</span></td>
       <td><div class="cell-pair"><span class="lo">,</span><span class="up">&lt;</span></div></td>
       <td><div class="cell-pair"><span class="lo">б</span><span class="up">Б</span></div></td>
-      <td><div class="cell-pair"><span class="lo">,</span><span class="up">,</span></div></td>
-      <td class="col-pontic">
-        <div class="cell-pair">
-          <span class="lo">,</span>
-          <span class="dead-key green" style="font-size:14px">˘</span>
-        </div>
-        <div class="note-tag" style="color:var(--green)">★ БРЕВЕ (Shift+,)</div>
-      </td>
-      <td style="color:var(--green);font-size:12px;font-weight:600;">Shift+, → бреве<br>γ̆ Γ̆</td>
+      <td><div class="cell-pair"><span class="lo">,</span><span class="up">&lt;</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">,</span><span class="up">&lt;</span></div></td>
+      <td>Standard punctuation (Windows also offers an optional 3-key <code>, . /</code> variant)</td>
     </tr>
     <tr>
       <td><span class="key-label">. &gt;</span></td>
       <td><div class="cell-pair"><span class="lo">.</span><span class="up">&gt;</span></div></td>
       <td><div class="cell-pair"><span class="lo">ю</span><span class="up">Ю</span></div></td>
-      <td><div class="cell-pair"><span class="lo">.</span><span class="up">¨</span></div></td>
-      <td class="col-pontic"><div class="cell-pair"><span class="lo">.</span><span class="up">¨</span></div></td>
+      <td><div class="cell-pair"><span class="lo">.</span><span class="up">&gt;</span></div></td>
+      <td class="col-pontic"><div class="cell-pair"><span class="lo">.</span><span class="up">&gt;</span></div></td>
       <td></td>
     </tr>
-    <!-- PONTIC SPECIAL: slash (dot-below) -->
+    <!-- PONTIC SPECIAL: unified slash dead key -->
     <tr class="pontic-special">
       <td><span class="key-label">/ ?</span></td>
       <td><div class="cell-pair"><span class="lo">/</span><span class="up">?</span></div></td>
       <td><div class="cell-pair"><span class="lo">.</span><span class="up">,</span></div></td>
       <td><div class="cell-pair"><span class="lo">/</span><span class="up">?</span></div></td>
       <td class="col-pontic">
-        <span class="dead-key purple">̤</span>
-        <div class="note-tag" style="color:var(--purple)">★ ДВЕ ТОЧКИ</div>
+        <span class="dead-key">/</span>
+        <div class="note-tag">PONTIC DEAD KEY</div>
       </td>
-      <td style="color:var(--purple);font-size:12px;font-weight:600;">Понтийская клавиша<br>α̤ ο̤ Α̤ Ο̤</td>
+      <td style="color:var(--gold);font-size:12px;font-weight:600;">Unified Pontic key (<code>Shift+/ = ?</code>)<br>ζ̌ χ̌ σ̌ ς̌ κ̌ ξ̌ ψ̌ · γ̆ · α̤ ο̤ ά̤ ό̤</td>
     </tr>
   </tbody>
 </table>
 </div>
 
 <div class="legend">
-  <div class="legend-item"><div class="legend-dot" style="background:var(--gold);opacity:.6"></div> Понтийское изменение (3 клавиши)</div>
-  <div class="legend-item"><div class="legend-dot" style="background:var(--accent);opacity:.5"></div> Стандартная мёртвая клавиша греческого</div>
-  <div class="legend-item"><div class="legend-dot" style="background:rgba(255,255,255,.06);border:1px solid var(--border)"></div> Без изменений от греческой раскладки</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--gold);opacity:.6"></div> Unified Pontic dead key (<code>/</code>)</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--accent);opacity:.5"></div> Standard Greek dead keys (<code>;</code> tonos, <code>:</code> dialytika)</div>
+  <div class="legend-item"><div class="legend-dot" style="background:rgba(255,255,255,.06);border:1px solid var(--border)"></div> Unchanged from Standard Modern Greek</div>
 </div>
 
 <!-- ══════════════════════════════════════════════════════════════ -->
-<h2>Как набирать понтийские символы</h2>
+<h2>How to Type Pontic Characters</h2>
 <p style="color:var(--muted);font-size:13px;margin-bottom:16px;">
-  <strong>Мёртвая клавиша</strong> — это клавиша, которая сама по себе ничего не печатает, а ждёт следующего нажатия.
-  Сначала нажмите мёртвую клавишу, потом — нужную букву.
+  A <strong>dead key</strong> waits silently for the following letter and automatically applies the right Unicode combining mark for that consonant or vowel. Press <code>/</code> followed by Space to emit a literal <code>/</code>.
 </p>
 
 <div class="dead-grid">
@@ -724,37 +712,38 @@
     <div class="dead-card-title">
       <div class="key-big gold">ˇ</div>
       <div class="info">
-        <strong>Гачек (Caron)</strong>
-        <span>Клавиша <code>'</code> (апостроф) — на любом слое</span>
+        <strong>Caron (<code>U+030C</code>) via <code>/</code></strong>
+        <span>Press <code>/</code> then consonant (also with Shift for uppercase)</span>
       </div>
     </div>
     <ul class="combo-list">
-      <li><span class="kk">'</span><span class="arr">+</span><span class="kk">Z (ζ)</span><span class="arr">→</span><span class="result gold">ζ̌</span><span class="result-name">зета с гачеком</span></li>
-      <li><span class="kk">'</span><span class="arr">+</span><span class="kk">X (χ)</span><span class="arr">→</span><span class="result gold">χ̌</span><span class="result-name">хи с гачеком</span></li>
-      <li><span class="kk">'</span><span class="arr">+</span><span class="kk">S (σ)</span><span class="arr">→</span><span class="result gold">σ̌</span><span class="result-name">сигма с гачеком</span></li>
-      <li><span class="kk">'</span><span class="arr">+</span><span class="kk">K (κ)</span><span class="arr">→</span><span class="result gold">κ̌</span><span class="result-name">каппа с гачеком</span></li>
-      <li><span class="kk">'</span><span class="arr">+</span><span class="kk">J (ξ)</span><span class="arr">→</span><span class="result gold">ξ̌</span><span class="result-name">кси с гачеком</span></li>
-      <li><span class="kk">'</span><span class="arr">+</span><span class="kk">C (ψ)</span><span class="arr">→</span><span class="result gold">ψ̌</span><span class="result-name">пси с гачеком</span></li>
-      <li><span class="kk">Shift+'</span><span class="arr">+</span><span class="kk">Shift+Z</span><span class="arr">→</span><span class="result gold">Ζ̌</span><span class="result-name">верхний регистр</span></li>
-      <li><span class="kk">'</span><span class="arr">+</span><span class="kk">Пробел</span><span class="arr">→</span><span class="result gold">ˇ</span><span class="result-name">сам символ</span></li>
+      <li><span class="kk">/</span><span class="arr">+</span><span class="kk">Z (ζ)</span><span class="arr">→</span><span class="result gold">ζ̌</span><span class="result-name">zeta with caron</span></li>
+      <li><span class="kk">/</span><span class="arr">+</span><span class="kk">X (χ)</span><span class="arr">→</span><span class="result gold">χ̌</span><span class="result-name">chi with caron</span></li>
+      <li><span class="kk">/</span><span class="arr">+</span><span class="kk">S (σ)</span><span class="arr">→</span><span class="result gold">σ̌</span><span class="result-name">sigma with caron</span></li>
+      <li><span class="kk">/</span><span class="arr">+</span><span class="kk">Q/W (ς)</span><span class="arr">→</span><span class="result gold">ς̌</span><span class="result-name">final sigma with caron</span></li>
+      <li><span class="kk">/</span><span class="arr">+</span><span class="kk">K (κ)</span><span class="arr">→</span><span class="result gold">κ̌</span><span class="result-name">kappa with caron</span></li>
+      <li><span class="kk">/</span><span class="arr">+</span><span class="kk">J (ξ)</span><span class="arr">→</span><span class="result gold">ξ̌</span><span class="result-name">xi with caron</span></li>
+      <li><span class="kk">/</span><span class="arr">+</span><span class="kk">C (ψ)</span><span class="arr">→</span><span class="result gold">ψ̌</span><span class="result-name">psi with caron</span></li>
+      <li><span class="kk">/</span><span class="arr">+</span><span class="kk">Shift+Z</span><span class="arr">→</span><span class="result gold">Ζ̌</span><span class="result-name">uppercase forms</span></li>
     </ul>
   </div>
 
-  <!-- Card 2: Dot below -->
+  <!-- Card 2: Diaeresis Below -->
   <div class="dead-card">
     <div class="dead-card-title">
       <div class="key-big purp">̤</div>
       <div class="info">
-        <strong>Две точки снизу (Dot Below)</strong>
-        <span>Клавиша <code>/</code> (слэш) — «секретная» клавиша</span>
+        <strong>Diaeresis Below (<code>U+0324</code>) via <code>/</code></strong>
+        <span>Press <code>/</code> then <code>α</code> or <code>ο</code> (combine with <code>;</code> for tonos)</span>
       </div>
     </div>
     <ul class="combo-list">
-      <li><span class="kk">/</span><span class="arr">+</span><span class="kk">A (α)</span><span class="arr">→</span><span class="result purp">α̤</span><span class="result-name">альфа с точками</span></li>
-      <li><span class="kk">/</span><span class="arr">+</span><span class="kk">O (ο)</span><span class="arr">→</span><span class="result purp">ο̤</span><span class="result-name">омикрон с точками</span></li>
-      <li><span class="kk">/</span><span class="arr">+</span><span class="kk">Shift+A</span><span class="arr">→</span><span class="result purp">Α̤</span><span class="result-name">верхний регистр</span></li>
-      <li><span class="kk">/</span><span class="arr">+</span><span class="kk">Shift+O</span><span class="arr">→</span><span class="result purp">Ο̤</span><span class="result-name">верхний регистр</span></li>
-      <li><span class="kk">/</span><span class="arr">+</span><span class="kk">Пробел</span><span class="arr">→</span><span class="result purp">̤</span><span class="result-name">сам символ</span></li>
+      <li><span class="kk">/</span><span class="arr">+</span><span class="kk">A (α)</span><span class="arr">→</span><span class="result purp">α̤</span><span class="result-name">alpha with diaeresis below</span></li>
+      <li><span class="kk">/</span><span class="arr">+</span><span class="kk">O (ο)</span><span class="arr">→</span><span class="result purp">ο̤</span><span class="result-name">omicron with diaeresis below</span></li>
+      <li><span class="kk">/</span><span class="arr">+</span><span class="kk">; + α</span><span class="arr">→</span><span class="result purp">ά̤</span><span class="result-name">stressed alpha + diaeresis below</span></li>
+      <li><span class="kk">/</span><span class="arr">+</span><span class="kk">; + ο</span><span class="arr">→</span><span class="result purp">ό̤</span><span class="result-name">stressed omicron + diaeresis below</span></li>
+      <li><span class="kk">/</span><span class="arr">+</span><span class="kk">Shift+A/O</span><span class="arr">→</span><span class="result purp">Α̤ Ο̤</span><span class="result-name">uppercase forms</span></li>
+      <li><span class="kk">/</span><span class="arr">+</span><span class="kk">Space</span><span class="arr">→</span><span class="result purp">/</span><span class="result-name">literal slash</span></li>
     </ul>
   </div>
 
@@ -763,14 +752,13 @@
     <div class="dead-card-title">
       <div class="key-big grn">˘</div>
       <div class="info">
-        <strong>Бреве (Breve)</strong>
-        <span>Клавиши <code>Shift + ,</code></span>
+        <strong>Breve (<code>U+0306</code>) via <code>/</code></strong>
+        <span>Press <code>/</code> then <code>γ</code> or <code>Γ</code></span>
       </div>
     </div>
     <ul class="combo-list">
-      <li><span class="kk">Shift+,</span><span class="arr">+</span><span class="kk">G (γ)</span><span class="arr">→</span><span class="result grn">γ̆</span><span class="result-name">гамма с бреве</span></li>
-      <li><span class="kk">Shift+,</span><span class="arr">+</span><span class="kk">Shift+G</span><span class="arr">→</span><span class="result grn">Γ̆</span><span class="result-name">верхний регистр</span></li>
-      <li><span class="kk">Shift+,</span><span class="arr">+</span><span class="kk">Пробел</span><span class="arr">→</span><span class="result grn">˘</span><span class="result-name">сам символ</span></li>
+      <li><span class="kk">/</span><span class="arr">+</span><span class="kk">G (γ)</span><span class="arr">→</span><span class="result grn">γ̆</span><span class="result-name">gamma with breve</span></li>
+      <li><span class="kk">/</span><span class="arr">+</span><span class="kk">Shift+G</span><span class="arr">→</span><span class="result grn">Γ̆</span><span class="result-name">uppercase gamma with breve</span></li>
     </ul>
   </div>
 
@@ -779,56 +767,59 @@
     <div class="dead-card-title">
       <div class="key-big blue">΄</div>
       <div class="info">
-        <strong>Тонос (стандартный греческий)</strong>
-        <span>Клавиша <code>;</code> (точка с запятой)</span>
+        <strong>Tonos (Standard Greek Accent)</strong>
+        <span>Key <code>;</code> (semicolon) · Dialytika on <code>Shift + ;</code></span>
       </div>
     </div>
     <ul class="combo-list">
-      <li><span class="kk">;</span><span class="arr">+</span><span class="kk">A (α)</span><span class="arr">→</span><span class="result blue">ά</span><span class="result-name">альфа с ударением</span></li>
-      <li><span class="kk">;</span><span class="arr">+</span><span class="kk">E (ε)</span><span class="arr">→</span><span class="result blue">έ</span><span class="result-name">эпсилон</span></li>
-      <li><span class="kk">;</span><span class="arr">+</span><span class="kk">H (η)</span><span class="arr">→</span><span class="result blue">ή</span><span class="result-name">эта</span></li>
-      <li><span class="kk">;</span><span class="arr">+</span><span class="kk">I (ι)</span><span class="arr">→</span><span class="result blue">ί</span><span class="result-name">йота</span></li>
-      <li><span class="kk">;</span><span class="arr">+</span><span class="kk">O (ο)</span><span class="arr">→</span><span class="result blue">ό</span><span class="result-name">омикрон</span></li>
-      <li><span class="kk">;</span><span class="arr">+</span><span class="kk">Y (υ)</span><span class="arr">→</span><span class="result blue">ύ</span><span class="result-name">ипсилон</span></li>
-      <li><span class="kk">;</span><span class="arr">+</span><span class="kk">V (ω)</span><span class="arr">→</span><span class="result blue">ώ</span><span class="result-name">омега</span></li>
-      <li><span class="kk">;</span><span class="arr">+</span><span class="kk">Пробел</span><span class="arr">→</span><span class="result blue">΄</span><span class="result-name">сам символ</span></li>
+      <li><span class="kk">;</span><span class="arr">+</span><span class="kk">A (α)</span><span class="arr">→</span><span class="result blue">ά</span><span class="result-name">alpha tonos</span></li>
+      <li><span class="kk">;</span><span class="arr">+</span><span class="kk">E (ε)</span><span class="arr">→</span><span class="result blue">έ</span><span class="result-name">epsilon tonos</span></li>
+      <li><span class="kk">;</span><span class="arr">+</span><span class="kk">H (η)</span><span class="arr">→</span><span class="result blue">ή</span><span class="result-name">eta tonos</span></li>
+      <li><span class="kk">;</span><span class="arr">+</span><span class="kk">I (ι)</span><span class="arr">→</span><span class="result blue">ί</span><span class="result-name">iota tonos</span></li>
+      <li><span class="kk">;</span><span class="arr">+</span><span class="kk">O (ο)</span><span class="arr">→</span><span class="result blue">ό</span><span class="result-name">omicron tonos</span></li>
+      <li><span class="kk">;</span><span class="arr">+</span><span class="kk">Y (υ)</span><span class="arr">→</span><span class="result blue">ύ</span><span class="result-name">upsilon tonos</span></li>
+      <li><span class="kk">;</span><span class="arr">+</span><span class="kk">V (ω)</span><span class="arr">→</span><span class="result blue">ώ</span><span class="result-name">omega tonos</span></li>
+      <li><span class="kk">:</span><span class="arr">+</span><span class="kk">ι / υ</span><span class="arr">→</span><span class="result blue">ϊ ϋ</span><span class="result-name">dialytika</span></li>
     </ul>
   </div>
 
 </div>
 
 <!-- ══════════════════════════════════════════════════════════════ -->
-<h2>Быстрая шпаргалка — все понтийские символы</h2>
+<h2>Quick Cheat Sheet — All Pontic Sequences</h2>
 
 <div class="cheat">
-  <div class="cheat-cat">Гачек ˇ → нажать ' потом букву</div>
+  <div class="cheat-cat">Caron ˇ → press / then letter (or Shift+letter)</div>
   <div class="cheat-row">
-    <span class="cheat-item"><span class="kk">'</span>+<span class="kk">ζ</span> <span class="arr">→</span> ζ̌</span>
-    <span class="cheat-item"><span class="kk">'</span>+<span class="kk">χ</span> <span class="arr">→</span> χ̌</span>
-    <span class="cheat-item"><span class="kk">'</span>+<span class="kk">σ</span> <span class="arr">→</span> σ̌</span>
-    <span class="cheat-item"><span class="kk">'</span>+<span class="kk">κ</span> <span class="arr">→</span> κ̌</span>
-    <span class="cheat-item"><span class="kk">'</span>+<span class="kk">ξ</span> <span class="arr">→</span> ξ̌</span>
-    <span class="cheat-item"><span class="kk">'</span>+<span class="kk">ψ</span> <span class="arr">→</span> ψ̌</span>
+    <span class="cheat-item"><span class="kk">/</span>+<span class="kk">ζ</span> <span class="arr">→</span> ζ̌</span>
+    <span class="cheat-item"><span class="kk">/</span>+<span class="kk">χ</span> <span class="arr">→</span> χ̌</span>
+    <span class="cheat-item"><span class="kk">/</span>+<span class="kk">σ</span> <span class="arr">→</span> σ̌</span>
+    <span class="cheat-item"><span class="kk">/</span>+<span class="kk">ς</span> <span class="arr">→</span> ς̌</span>
+    <span class="cheat-item"><span class="kk">/</span>+<span class="kk">κ</span> <span class="arr">→</span> κ̌</span>
+    <span class="cheat-item"><span class="kk">/</span>+<span class="kk">ξ</span> <span class="arr">→</span> ξ̌</span>
+    <span class="cheat-item"><span class="kk">/</span>+<span class="kk">ψ</span> <span class="arr">→</span> ψ̌</span>
   </div>
   <div class="cheat-row" style="font-size:13px;color:var(--muted)">
-    <span class="cheat-item">Ζ̌ Χ̌ Σ̌ Κ̌ Ξ̌ Ψ̌ — то же с Shift</span>
+    <span class="cheat-item">Ζ̌ Χ̌ Σ̌ Κ̌ Ξ̌ Ψ̌ — with Shift</span>
   </div>
 
-  <div class="cheat-cat">Две точки снизу ̤ → нажать / потом букву</div>
+  <div class="cheat-cat">Diaeresis Below ̤ → press / then vowel (add ; for stress)</div>
   <div class="cheat-row">
     <span class="cheat-item"><span class="kk">/</span>+<span class="kk">α</span> <span class="arr">→</span> α̤</span>
     <span class="cheat-item"><span class="kk">/</span>+<span class="kk">ο</span> <span class="arr">→</span> ο̤</span>
+    <span class="cheat-item"><span class="kk">/</span>+<span class="kk">;</span>+<span class="kk">α</span> <span class="arr">→</span> ά̤</span>
+    <span class="cheat-item"><span class="kk">/</span>+<span class="kk">;</span>+<span class="kk">ο</span> <span class="arr">→</span> ό̤</span>
     <span class="cheat-item"><span class="kk">/</span>+<span class="kk">Α</span> <span class="arr">→</span> Α̤</span>
     <span class="cheat-item"><span class="kk">/</span>+<span class="kk">Ο</span> <span class="arr">→</span> Ο̤</span>
   </div>
 
-  <div class="cheat-cat">Бреве ˘ → нажать Shift+, потом букву</div>
+  <div class="cheat-cat">Breve ˘ → press / then γ / Γ</div>
   <div class="cheat-row">
-    <span class="cheat-item"><span class="kk">Shift+,</span>+<span class="kk">γ</span> <span class="arr">→</span> γ̆</span>
-    <span class="cheat-item"><span class="kk">Shift+,</span>+<span class="kk">Γ</span> <span class="arr">→</span> Γ̆</span>
+    <span class="cheat-item"><span class="kk">/</span>+<span class="kk">γ</span> <span class="arr">→</span> γ̆</span>
+    <span class="cheat-item"><span class="kk">/</span>+<span class="kk">Γ</span> <span class="arr">→</span> Γ̆</span>
   </div>
 
-  <div class="cheat-cat">Тонос ΄ (ударение) → нажать ; потом гласную</div>
+  <div class="cheat-cat">Tonos ΄ → press ; then vowel</div>
   <div class="cheat-row">
     <span class="cheat-item"><span class="kk">;</span>+<span class="kk">α</span> <span class="arr">→</span> ά</span>
     <span class="cheat-item"><span class="kk">;</span>+<span class="kk">ε</span> <span class="arr">→</span> έ</span>
@@ -841,17 +832,17 @@
 </div>
 
 <!-- ══════════════════════════════════════════════════════════════ -->
-<h2>Установка на macOS</h2>
+<h2>macOS Installation</h2>
 <div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:20px;font-size:14px;line-height:2">
-  <p><strong>Шаг 1.</strong> Откройте Терминал и выполните:</p>
-  <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 14px;font-size:13px;margin:8px 0;overflow-x:auto">cd /путь/к/папке/pontic
+  <p><strong>Step 1.</strong> Open Terminal and run:</p>
+  <pre style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 14px;font-size:13px;margin:8px 0;overflow-x:auto">cd /path/to/pontic-greek
 bash install_macos.sh</pre>
-  <p><strong>Шаг 2.</strong> Системные настройки → Клавиатура → Источники ввода → <strong>[+]</strong> → Другой → <strong>Pontic Greek</strong></p>
-  <p><strong>Шаг 3.</strong> Переключение: <kbd>Cmd+Space</kbd> или значок в меню-баре</p>
+  <p><strong>Step 2.</strong> System Settings -> Keyboard -> Text Input -> Input Sources -> <strong>[+]</strong> -> Others -> <strong>Pontic Greek</strong></p>
+  <p><strong>Step 3.</strong> Switch layouts: <kbd>Cmd+Space</kbd> or the menu bar input switcher</p>
 </div>
 
 <div style="text-align:center;color:var(--muted);font-size:12px;margin-top:32px;padding-top:16px;border-top:1px solid var(--border)">
-  Понтийская Греческая Раскладка · macOS · Альфа-версия · Июнь 2026
+  Pontic Greek Keyboard Layout · Unified v6.1 Reference · macOS / Windows / Keyman
 </div>
 
 </body>

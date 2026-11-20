@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # =============================================================================
-# Установщик Понтийской Греческой раскладки и шрифтов v6.0 для macOS
+# Installer for Pontic Greek Keyboard Layout & Fonts v6.0 on macOS
 # Pontic Greek Keyboard Layout & Fonts v6.0 — macOS Installer
 # =============================================================================
 set -euo pipefail
@@ -20,26 +20,26 @@ NC='\033[0m'
 
 echo ""
 echo "============================================================"
-echo "  Установка: Понтийская раскладка и шрифты v6.0 для macOS"
-echo "  Pontic Greek Keyboard Layout & Fonts v6.0"
+echo "  Installer: Pontic Greek Keyboard Layout & Fonts for macOS"
+echo "  Target OS: macOS Sonoma / Sequoia / Tahoe (Unified / Dead Key)"
 echo "============================================================"
 echo ""
 
-# 1. Проверяем раскладку
+# 1. Verify and install keyboard layout
 if [ ! -f "$SOURCE" ]; then
-  echo -e "${RED}Ошибка:${NC} файл не найден: $SOURCE"
+  echo -e "${RED}Error:${NC} layout file not found: $SOURCE"
   exit 1
 fi
 
 mkdir -p "$KEYBOARD_DIR"
 cp "$SOURCE" "$KEYBOARD_DIR/$LAYOUT_DST"
-echo -e "${GREEN}✓${NC} Раскладка скопирована в: $KEYBOARD_DIR/$LAYOUT_DST"
+echo -e "${GREEN}✓${NC} Keyboard layout copied to: $KEYBOARD_DIR/$LAYOUT_DST"
 
 if plutil -lint "$KEYBOARD_DIR/$LAYOUT_DST" > /dev/null 2>&1; then
-  echo -e "${GREEN}✓${NC} XML раскладки прошёл валидацию"
+  echo -e "${GREEN}✓${NC} Keyboard layout XML validation passed"
 fi
 
-# 2. Устанавливаем шрифты v6.0
+# 2. Install Pontic Sans & Serif v6.0 fonts
 mkdir -p "$FONT_DIR"
 FONT_COUNT=0
 for f in "$SCRIPT_DIR"/font/Pontic*.ttf; do
@@ -48,26 +48,26 @@ for f in "$SCRIPT_DIR"/font/Pontic*.ttf; do
     FONT_COUNT=$((FONT_COUNT + 1))
   fi
 done
-echo -e "${GREEN}✓${NC} Установлено шрифтов v6.0: $FONT_COUNT файлов в $FONT_DIR"
+echo -e "${GREEN}✓${NC} Installed $FONT_COUNT v6.0 font files into $FONT_DIR"
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo -e "${YELLOW}КАК ВКЛЮЧИТЬ РАСКЛАДКУ В macOS:${NC}"
+echo -e "${YELLOW}HOW TO ENABLE THE KEYBOARD IN macOS:${NC}"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
-echo "1. Откройте: Системные настройки (System Settings)"
-echo "   → Клавиатура (Keyboard)"
-echo "   → Источники ввода (Input Sources)"
-echo "   → Редактировать... (Edit...)"
-echo "   → нажмите [ + ] внизу слева"
+echo "1. Open: System Settings"
+echo "   -> Keyboard"
+echo "   -> Input Sources"
+echo "   -> Edit..."
+echo "   -> click [ + ] at bottom left"
 echo ""
-echo "2. Выберите язык: Другой (Other) или Греческий"
-echo "   В списке найдите: Pontic Greek"
-echo "   Нажмите: Добавить (Add)"
+echo "2. Select category: Others (bottom of list) or Greek"
+echo "   Find in list: Pontic Greek"
+echo "   Click: Add"
 echo ""
-echo "3. Переключение языка: Cmd + Space или глобус (Fn)"
+echo "3. Switch input sources with Cmd + Space or Globe (Fn)"
 echo ""
-echo -e "${CYAN}Шрифты Pontic Sans & Serif v6.0 уже установлены в систему!${NC}"
-echo "Они сразу доступны во всех приложениях (Pages, Word, TextEdit, браузер)."
+echo -e "${CYAN}Pontic Sans & Pontic Serif v6.0 fonts are now installed!${NC}"
+echo "They are immediately available across Pages, Microsoft Word, TextEdit, and browsers."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""

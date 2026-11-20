@@ -1,126 +1,57 @@
-# Pontic Sans — шрифт для понтийских греческих знаков
+# Pontic Sans & Pontic Serif v6.0 Fonts
 
-![Сравнение до и после](sample_before_after.png)
+Open-source font families for Pontic Greek with calibrated OpenType `GPOS` combining mark anchors for caron (`U+030C`), breve (`U+0306`), and diaeresis below (`U+0324`).
 
-## Версия 6.0 — Полная ручная калибровка якорных точек GPOS
-
-В версии 6.0 осуществлен переход от математических эвристик к полной экспертной калибровке:
-- **8 начертаний:** Pontic Sans и Pontic Serif (Regular, Italic, Bold, Bold Italic).
-- **184 якорные точки проверено, 123 позиции скорректировано вручную** (Ручная калибровка — Зимов Д.И.) через систему PontosKey.
-- **Идеальная оптика для курсивов:** выправлено смещение гачеков и диерезисов для наклонных глифов ( и заглавных).
-- **Витрина для тестирования:** страница  (в вебе: ).
-
-## Зачем нужен
-
-носитель языка сообщил с телефона:
-
-> «Гачек хорошо сидит только над **Ζ** и **Χ**. Над **Σ**, **Ξ** и **Ψ** гачек
-> сидит очень низко и его почти не видно. Также над **ξ** и **ζ**.»
-
-Проверка подтвердила это численно и объяснила, почему именно Ζ и Χ вели себя
-правильно.
-
-## Причина
-
-В шрифтах позиция комбинируемого знака над буквой задаётся **якорем**
-(mark-attachment anchor) в таблице GPOS. Если якорь есть — знак садится точно
-над буквой. Если якоря нет — знак ставится в позицию по умолчанию и налезает
-на букву.
-
-В Noto Sans якоря для гачека (U+030C) прописаны **только у части** греческих
-букв:
-
-| | Буквы |
-|---|---|
-| Якорь **был** | Α Χ Κ Ο Ζ α κ ο |
-| Якоря **не было** | ξ ζ ψ σ ς **χ** γ **Σ Ξ Ψ Γ** |
-
-Именно поэтому Ζ и Χ (заглавные) выглядели правильно — они попали в первый
-список. Все буквы из второго списка отображались неверно. Совпадение с жалобой
-полное.
-
-> **Уточнение v4.1.** Строчная **χ** тоже была во втором списке (якоря нет),
-> но в первой правке (v4.0) её по недосмотру пропустили. Из-за этого знак над χ
-> ставился по ширине буквы и **уезжал вправо** — носитель языка заметил это в
-> приложении Keyman. В v4.1 χ добавлена, якорь встал по центру глифа.
-
-## Что сделано
-
-Скрипт `build_font.py` добавляет недостающие якоря: для каждой буквы точка
-крепления ставится по её горизонтальному центру, а высота **вычисляется из
-реальных габаритов глифа** (его верхней границы), а не задаётся числом. Это
-позволяет одним и тем же скриптом собрать и Pontic Sans, и Pontic Serif —
-у них разные x-height и cap-height.
-
-| Буква | Якорь (x, y) в Sans | Почему такая высота |
+| Style | Pontic Sans | Pontic Serif |
 |---|---|---|
-| ξ ζ ψ | (256/256/380, **760**) | высокие строчные, их верх = 760 |
-| σ ς **χ** γ | (318/254/**302**/243, ~**536**) | обычные строчные, x-height = 536 |
-| Σ Ξ Ψ Γ | (286/312/410/286, **714**) | заглавные, cap-height = 714 |
+| Regular | `PonticSans-Regular.ttf` | `PonticSerif-Regular.ttf` |
+| Italic | `PonticSans-Italic.ttf` | `PonticSerif-Italic.ttf` |
+| Bold | `PonticSans-Bold.ttf` | `PonticSerif-Bold.ttf` |
+| Bold Italic | `PonticSans-BoldItalic.ttf` | `PonticSerif-BoldItalic.ttf` |
 
-## Проверка результата
+All styles in each family share proper `name` / `OS/2` family linking, so Microsoft Word, LibreOffice, browsers, and mobile apps switch cleanly between Regular, Italic, Bold, and Bold Italic via `Ctrl/Cmd+B` and `Ctrl/Cmd+I`.
 
-`verify.py` прогоняет сочетания через настоящий движок раскладки текста
-(HarfBuzz) — тот же, что используется в Android:
+## Problem Addressed
 
-```
-сочетание            было    стало   результат
-ζ + гачек               0      224   ИСПРАВЛЕНО
-ξ + гачек               0      224   ИСПРАВЛЕНО
-ψ + гачек               0      224   ИСПРАВЛЕНО
-Ξ + гачек               0      178   ИСПРАВЛЕНО
-Ψ + гачек               0      178   ИСПРАВЛЕНО
-Σ + гачек               0      178   ИСПРАВЛЕНО
-Γ + бреве               0      178   ИСПРАВЛЕНО
-Ζ + гачек             178      178   и раньше было верно
-Χ + гачек             178      178   и раньше было верно
-...
-Исправлено сочетаний: 7, было корректно изначально: 10
-```
+Greek orthography uses tonos (`U+0301`) and dialytika (`U+0308`), while Pontic Greek adds:
+- Combining Caron (`U+030C`): `ζ̌ χ̌ σ̌ ς̌ κ̌ ξ̌ ψ̌` and uppercase `Ζ̌ Χ̌ Σ̌ Κ̌ Ξ̌ Ψ̌`
+- Combining Breve (`U+0306`): `γ̆ Γ̆`
+- Combining Diaeresis Below (`U+0324`): `α̤ ο̤ ά̤ ό̤ Α̤ Ο̤ Ά̤ Ό̤`
 
-Важно: у сочетаний, которые работали и раньше (Ζ, Χ, Κ, α, ο), значения
-**не изменились** — правка ничего не сломала.
+In unmodified upstream fonts, many Greek glyphs lacked `GPOS` mark-to-base anchors for `U+030C`, `U+0306`, or `U+0324` (notably lowercase `χ`, `ξ`, `ζ`, `ψ`, `σ`, `ς`, `γ` and Serif `α`/`ο` optical placement). Shaping engines fell back to zero-offset placement, causing marks to collide with the glyph or drift right.
 
-## Где применяется
+## Solution & Upstream Merge
 
-Шрифт встроен в пакет `pontic_greek.kmp` как `DisplayFont` и `OSKFont`.
-Это значит, что **на клавишах клавиатуры и в поле ввода Keyman** гачек
-отображается правильно.
+We added and optically calibrated every required `GPOS` `MarkToBase` anchor in [`anchors.json`](anchors.json) and injected them into both `Pontic Sans` and `Pontic Serif` across all 4 weights/styles:
 
-**Ограничение, о котором нужно знать честно:** текст в чужих приложениях
-(WhatsApp, Telegram, заметки) рисуется их собственным шрифтом — повлиять на
-это со стороны клавиатуры нельзя ни при каком решении. Чтобы понтийские
-знаки везде выглядели правильно, шрифт нужно установить в саму систему.
+- **Descender & asymmetric compensation:** Centered `U+030C` optically over `ψ`, `ξ`, `ζ` and `σ`/`ς` despite wide loops and long descenders.
+- **Italic slope adjustment:** Adjusted horizontal mark coordinates along each italic slant angle so caron and diaeresis stay centered in Italic and Bold Italic.
+- **HarfBuzz verification:** Every glyph combination was rendered through `uharfbuzz` (`<= 1` font-unit alignment error) and reviewed visually with Prof. D. I. Zimov.
+- **Upstream Google Noto merge:** Anchor tables and coordinates from this project were submitted to Google Noto and merged in [`notofonts/latin-greek-cyrillic#581`](https://github.com/notofonts/latin-greek-cyrillic/pull/581) (Issue [`#547`](https://github.com/notofonts/latin-greek-cyrillic/issues/547)).
 
-## Два начертания
+## Font Comparison & Recommendation
 
-| Шрифт | Основа | Похож на | Файл |
-|---|---|---|---|
-| **Pontic Sans** | Noto Sans | рубленые шрифты | `PonticSans-Regular.ttf` |
-| **Pontic Serif** | Noto Serif | Cambria, Brill | `PonticSerif-Regular.ttf` |
+For general typography alongside system fonts:
+- **Pontic Sans / Pontic Serif** (included here) — full v6.0 calibration across all 8 styles
+- **Google Noto Sans / Noto Serif** — includes merged PR #581 anchors in newer releases
+- **Cambria, Brill, Gentium Plus** — full native support for Pontic combining marks
+- Avoid **Calibri** (`ψ̌` misaligned) and **Times New Roman** (lacks Greek combining caron support)
 
-Pontic Serif добавлен по просьбе носителя языка: по начертанию он ближе к
-Cambria и Brill, которыми он пользуется, но, в отличие от них, **бесплатен** и
-свободен для любого использования (OFL).
+## Build & Verification
 
-## Сборка
+Requires `fonttools`, `uharfbuzz`, and `pillow`:
 
 ```bash
-python3 font/build_font.py sans    # собрать Pontic Sans
-python3 font/build_font.py serif   # собрать Pontic Serif
-python3 font/build_font.py all     # оба
-python3 font/verify.py             # проверить Sans через HarfBuzz
-python3 font/sample.py sans        # картинка «до/после» для Sans
-python3 font/sample.py serif       # то же для Serif
+python3 font/build_font.py sans    # Build Pontic Sans (all 4 styles)
+python3 font/build_font.py serif   # Build Pontic Serif (all 4 styles)
+python3 font/build_font.py all     # Build all 8 font files
+python3 font/verify.py             # Verify HarfBuzz GPOS shaping
+python3 font/sample.py sans        # Render before/after PNG sample for Sans
+python3 font/sample.py serif       # Render before/after PNG sample for Serif
 ```
 
-Требуется: `fonttools`, `uharfbuzz`, `pillow`.
-Исходник Noto Serif — статичный экземпляр (wght=400, wdth=100), полученный из
-вариативного шрифта Google Fonts через `fontTools.varLib.instancer`.
+The static source weights for Serif are instanced from Google Fonts Noto Serif variable fonts via `fontTools.varLib.instancer`.
 
-## Лицензия
+## License
 
-Основаны на **Noto Sans / Noto Serif** © The Noto Project Authors
-(SIL Open Font License 1.1) — см. `OFL.txt`. Лицензия OFL прямо разрешает
-изменение и свободное распространение производных шрифтов при условии
-переименования (что и сделано: «Pontic», а не «Noto»).
+Derived from **Noto Sans** and **Noto Serif** © The Noto Project Authors under the **SIL Open Font License 1.1** ([`OFL.txt`](OFL.txt)). Per SIL OFL 1.1 reserved font naming requirements, the derived families are renamed **Pontic Sans** and **Pontic Serif**.

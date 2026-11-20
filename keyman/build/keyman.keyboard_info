@@ -1,40 +1,35 @@
 {
   "id": "pontic_greek",
   "name": "Pontic Greek",
+  "description": "Pontic Greek keyboard with caron (ˇ), breve (˘), and diaeresis below (̤) support for iOS, Android, macOS, Windows, Linux, and Web. Includes embedded Pontic Sans v6.0 font, mobile auto-shift, and Caps Lock.",
   "license": "mit",
-  "authorName": "Pontic Greek Community",
-  "description": "<p>Понтийская греческая клавиатура с поддержкой гачека (ˇ), бреве (˘) и двух точек снизу. Для iPhone, Android и десктопов.</p>",
+  "version": "6.1",
+  "minKeymanVersion": "15.0",
   "languages": {
     "pnt": {
-      "examples": [],
-      "languageName": "Pontic",
-      "displayName": "Pontic"
+      "font": {
+        "family": "Pontic Sans",
+        "source": [
+          "PonticSans-Regular.ttf"
+        ]
+      }
     },
-    "el": {
-      "examples": [],
-      "languageName": "Greek",
-      "displayName": "Greek"
-    }
+    "el": {}
   },
-  "lastModifiedDate": "2026-07-24T09:12:52.000Z",
-  "packageFilename": "pontic_greek.kmp",
-  "packageFileSize": 302573,
-  "jsFilename": "pontic_greek.js",
-  "jsFileSize": 44672,
-  "packageIncludes": [
-    "welcome",
-    "fonts"
-  ],
-  "version": "5.0",
-  "encodings": [
-    "unicode"
-  ],
   "platformSupport": {
-    "mobileWeb": "full",
+    "windows": "full",
+    "macos": "full",
+    "linux": "full",
     "desktopWeb": "full",
+    "ios": "full",
     "android": "full",
-    "ios": "full"
+    "mobileWeb": "full"
   },
-  "minKeymanVersion": "10.0",
-  "helpLink": "https://help.keyman.com/keyboard/pontic_greek"
+  "packageFilename": "pontic_greek.kmp",
+  "packageFileSize": 312574,
+  "jsFilename": "pontic_greek.js",
+  "jsFileSize": 57374,
+  "sourcePath": "release/p/pontic_greek",
+  "authorName": "Pontic Greek Keyboard Project",
+  "lastModifiedDate": "2026-11-20T00:00:00Z"
 }

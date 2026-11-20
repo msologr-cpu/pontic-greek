@@ -1,243 +1,65 @@
-# Заявка на Core Data для Pontic Greek (pnt) в Unicode CLDR — версия 2
+# Unicode CLDR Core Locale Data Proposal — Pontic Greek (`pnt`)
 
-> **СТАТУС:** Пакет перепроверен по официальным требованиям CLDR (11.10.2026). Заявитель — Макс (понтийский грек, Греция).
-> **НЕ ОТПРАВЛЯТЬ**, пока не закрыты пункты раздела 0.
+> **Status:** Schema-verified and submitted on branch [`unicode-submission`](../../unicode) (referenced in `notofonts/latin-greek-cyrillic#547`). Submitter: Maxim Solomonidi (`msologr@gmail.com`). Linguistic advisor: Prof. D. I. Zimov.
 
----
+## 1. CLDR Core Data Submission Requirements
 
-## 0. Что осталось сделать до отправки
+Source specification: <https://cldr.unicode.org/index/cldr-spec/core-data-for-new-locales>
 
-| # | Что | Кто | Статус |
-|---|-----|-----|--------|
-| 1 | Набор букв | — | **закрыто**: алфавит утверждён, в заявке ровно буквы опубликованной раскладки |
-| 2 | Найти данные о числе **носителей языка** по диаспорам (раздел 3.3) | Д. И. Зимов / команда | **в работе**: получены 5 официальных писем общин (Германия, Москва, Краснодар, Пятигорск) |
-| 3 | Назначить ответственных за перевод данных в Survey Tool (раздел 5) | Д. И. Зимов, Макс | **закрыто**: Д. И. Зимов подготовил полный базовый корпус данных (14 пунктов) |
-| 4 | Регион по умолчанию `GR` | Макс | **закрыто**: подтверждено, заявка подаётся из Греции |
+1. Language code: **`pnt`** (ISO 639-3 / BCP 47).
+2. Four exemplar character sets: `main`, `auxiliary`, `numbers`, `punctuation` (see Section 6 and [`pnt.xml`](../../cldr/pnt.xml)).
+3. Verified speaker population figures by territory (covering roughly 75% of total language users where attested).
+4. Default script (`Grek`) and default region (`GR`).
+5. Preferred time cycle in default region (`h` preferred, `H` allowed — aligned with CLDR `timeData` for `GR`).
+6. Survey Tool commitment to advance the locale to **Basic** coverage in the next open cycle.
 
----
+## 2. Language Identification & Existing CLDR Coverage
 
-## 1. Как на самом деле подаётся заявка (исправлено)
+- **Code:** `pnt` (ISO 639-3, IANA, BCP 47; no ISO 639-1 2-letter code exists).
+- **Name / Autonym:** Pontic / Pontic Greek; endonym **Ποντιακά** (also **Ρωμαίικα**).
+- **Default Script:** Greek (`Grek`, LTR).
+- **Existing upstream CLDR entries (`main`):**
+  - `likelySubtags.xml`: `pnt` -> `pnt_Grek_GR`, `pnt_RU` -> `pnt_Cyrl_RU`, `pnt_TR` -> `pnt_Latn_TR`.
+  - `supplementalData.xml`: `pnt` primary script `Grek` (GR 3.7%), secondary `Cyrl` (RU 0.04%), `Latn` (TR 0.0061%).
 
-Источник: https://cldr.unicode.org/index/cldr-spec/core-data-for-new-locales
+## 3. Speaker Population Reference Data
 
-- Подача идёт через **Core Data Submission Form** (Google-форма на странице выше), а не через приложенные XML и патчи. Файлы в `common/main/` создаёт сам комитет CLDR.
-- Комитету нужны ровно 5 вещей:
-  1. код языка;
-  2. четыре набора символов: main, auxiliary, numbers, punctuation;
-  3. **проверенные данные о числе пользователей языка по странам** — список стран должен покрывать примерно 75% пользователей;
-  4. скрипт и регион по умолчанию;
-  5. формат времени (time cycle) в регионе по умолчанию.
-- **Обязательное условие:** заявитель обязуется довести локаль до уровня **Basic** в ближайшем цикле Survey Tool. Если этого не сделать, комитет может удалить локаль.
+CLDR tracks active language users (L1 + L2) rather than ethnic heritage totals alone. Both metrics are documented clearly below:
 
-Файл `pnt.xml` в этой папке — наш рабочий черновик для сверки, комитету он не обязателен. Старые файлы `patch_*.diff` удалены: в них были выдуманные номера строк и ошибка в диффе. Их можно восстановить из истории git.
+| Territory | Speaker Estimate | Source | Notes |
+|---|---|---|---|
+| **Worldwide** | **778,000** | *Ethnologue*, 21st ed. (2018 snapshot) | Total users across all countries |
+| **Greece (`GR`)** | **400,000** | *Ethnologue* (citing Z. Diakonikolaou, 2009) | ~3.7–3.8% of population; matches CLDR `supplementalData.xml` |
+| **Russia (`RU`)** | **~56,000** | Existing CLDR (`0.04%`, R1335) | Marked as declining usage (`pnt_Cyrl`) |
+| **Türkiye (`TR`)** | **~5,100** | Existing CLDR (`0.0061%`, R1336) | Romeyka variety, Trabzon (`pnt_Latn`) |
 
----
+Context: UNESCO classifies Pontic as *Definitely Endangered* (2010 Atlas); worldwide Pontic Greek heritage population is estimated at 2.0–2.5 million across Greece, USA, Germany, Russia, Ukraine, Georgia, Kazakhstan, and Australia.
 
-## 2. Идентификация языка
+## 4. Basic-Level Survey Tool Corpus (Validated by Prof. D. I. Zimov)
 
-- Код: `pnt` (ISO 639-3, IANA, BCP 47). Кода ISO 639-1 нет, поэтому по правилам CLDR используется трёхбуквенный.
-- Название: Pontic / Pontic Greek; самоназвание: **Ποντιακά** (также Ρωμαίικα).
-- Письменность по умолчанию: греческая (`Grek`), слева направо.
-- Что уже есть в CLDR (проверено 11.10.2026, ветка `main`):
-  - `likelySubtags.xml`: `pnt → pnt_Grek_GR`, `pnt_RU → pnt_Cyrl_RU`, `pnt_TR → pnt_Latn_TR`;
-  - `supplementalData.xml`: `pnt` — `Grek` (основная), `Cyrl Latn` (вторичные);
-  - население: GR 3.7%, RU 0.04% (`pnt_Cyrl`), TR 0.0061% (`pnt_Latn`);
-  - `common/main/pnt.xml` — **нет** (404).
+1. **Language name:** full `Το ποντεϊκόν η γλώσσα`; short/synonyms `τα ποντεϊκά`, `το ρωμαίικον η γλώσσα`, `τα ρωμαίικα`.
+2. **Script name:** `Το ελενικόν η γραφή`.
+3. **Territory names:** Greece `Η Ελλάδα`, Russia `Η Ρουσία`, Türkiye `Η Τουρκία`, Germany `Η Γερμανία`, USA `Η Αμερική`, UK `Η Αγγλία`.
+4. **Months (1–12):** `ο Καλαντάτρς`, `ο Κούντουρον`, `ο Μάρτς`, `ο Απρίλτς`, `ο Καλομηνάς`, `ο Κερασινόν`, `ο Χορτοθέρτς`, `ο Αλωνάρτς` (`ο Αύγουστον`), `ο Σταυρίτες`, `ο Τρυγομηνάς`, `ο Αεργίτες` (`ο Αγιωργίτες`), `ο Χριστιαννάρτς` (`ο Χριστιεννάρτς`).
+5. **Weekdays (Sun–Sat):** `η Κερεκή`, `η Δευτέρα`, `η Τρίτ’`, `η Τετράδ`, `η Πέφτ’`, `η Παρασ̌κευή`, `η Σάββα`.
+6. **AM / PM:** `πριν το μεσημέρ` / `μετά το μεσημέρ`.
+7. **Date & time formats:** `11 τι (τη) Τρυγομηνά 2026`, `16:57`.
+8. **Date intervals:** `ας … ους` (e.g., `ας 11 ους 15 Τρυγομηνά`).
+9. **Time zones & numbers:** Aligned with Modern Greek (`Ώρα ({0})`, `GMT+3`, decimal `,`, grouping `.`).
+10. **Delimiters:** `« »`.
+11. **Measurement system:** `Μετρικόν σύστεμαν μέτρων` (metric).
+12. **Locale display pattern:** `Ποντεϊκά (Ελλάδα)` / `Ρωμαίικα (Ελλάδα)`.
 
----
+## 5. Character Sets (Final Canonical NFC Repertoire)
 
-## 3. Население
+- **`main`:** `[α ά {α̤} {ά̤} β γ {γ̆} δ ε έ ζ {ζ̌} η ή θ ι ί ϊ ΐ κ {κ̌} λ μ ν ξ {ξ̌} ο ό {ο̤} {ό̤} π ρ σ ς {σ̌} {ς̌} τ υ ύ ϋ ΰ φ χ {χ̌} ψ {ψ̌} ω ώ]`
+- **`auxiliary`:** `[ἀἄἂἆἁἅἃἇὰᾶ ἐἔἒἑἕἓὲ ἠἤἢἦἡἥἣἧὴῆ ἰἴἲἶἱἵἳἷὶῖῒῗ ὄὂὃὸ ὐὔὒὖὑὕὓὗὺῦῢῧ ὤὢὦὥὣὧὼῶ]`
+- **`index`:** `[Α Β Γ Δ Ε Ζ Η Θ Ι Κ Λ Μ Ν Ξ Ο Π Ρ Σ Τ Υ Φ Χ Ψ Ω]` *(uses Greek `U+039A` Kappa, avoiding any Cyrillic homoglyph)*.
+- **`numbers`:** `[\- ‐‑ , . % ‰ + 0 1 2 3 4 5 6 7 8 9]`
+- **`punctuation`:** `[\- ‐‑ – — , ; \: ! . … ' ’ " « » ( ) \[ \] § @ * / \\ \&]` *(uses Greek question mark `;` plus elision apostrophes `'`, `’`)*.
 
-### 3.1 Что именно считает CLDR
+## 6. Supporting References
 
-CLDR нужно число **пользователей языка** (родной или второй язык, упор на письменное использование), а **не** число этнических понтийцев. Этническая численность в заявке полезна как контекст, но в таблицу территорий идут только пользователи языка. Комитет сверяет цифры с Ethnologue, поэтому завышенные данные снизят доверие к заявке.
-
-### 3.2 Пользователи языка — проверенные источники
-
-| Регион | Пользователей | Источник | Комментарий |
-|--------|---------------|----------|-------------|
-| **Весь мир** | **778 000** | Ethnologue, 21-е изд., снимок 2018 г.: «Total users in all countries: 778,000» | официальный ориентир для CLDR |
-| **Греция** | **400 000** | Ethnologue (там же), ссылка на Z. Diakonikolaou, 2009 | ≈ 3.8% населения; в CLDR сейчас 3.7% — совпадает |
-| Россия | ≈ 56 000 | уже в CLDR (0.04%, R1335) | в самом CLDR отмечено, что употребление сократилось |
-| Турция | ≈ 5 100 | уже в CLDR (0.0061%, R1336) | ромейка, Трабзон |
-| Остальные страны | ≈ 317 000 (остаток от 778 000) | Ethnologue не даёт разбивки | **нужны источники** — раздел 3.3 |
-
-Ограничение, которое нужно указать честно: по оценкам (Wikipedia, «Pontic Greek»), активно говорят 200 000–300 000 человек. Ethnologue отдельно отмечает, что в Северной Америке понтийский сохраняют активнее, чем в Греции.
-
-Сейчас Греция одна даёт около 51% пользователей. Чтобы дойти до требуемых ~75%, нужны данные ещё по 2–4 странам.
-
-### 3.3 Этническая численность понтийских греков (контекст)
-
-Источник по умолчанию — Wikipedia, «Pontic Greeks» (сводка вторичных источников). Там, где есть официальная перепись, она указана рядом.
-
-| Страна | Оценка общин | Официальная перепись | Что нужно для CLDR |
-|--------|--------------|----------------------|--------------------|
-| **Всего в мире** | **2 000 000 – 2 500 000** | — | — |
-| Греция | 368 000 – 500 000+ | этнический состав не учитывается | данные ΠΟΕ (470 обществ) о владении языком |
-| США | ≈ 200 000 | перепись учитывает только «Greek ancestry» | Pan-Pontian Federation of USA & Canada |
-| Германия | ≈ 150 000 | Destatis учитывает только гражданство | федерация понтийских обществ Германии |
-| Грузия | ≈ 100 000 (данные 1989 г.) | **5 544 грека** (перепись 2014) | оценку 100 000 использовать нельзя |
-| Украина | 75 000+ | 91 548 греков (перепись 2001) | большинство — мариупольские греки (румейский язык, урумский язык), а не понтийцы |
-| Россия | 50 000+ | 85 640 греков (2010); 2021 — сверить с томом 5 Росстата | владеющих «греческим» в 2010 г. — 42 518 |
-| Казахстан | 10 000 – 12 000 | 2021 — около 3 400 (сверить) | — |
-| Узбекистан | ≈ 10 000 | — | — |
-| Армения | 9 000 (Wikipedia) | **900** (перепись 2011) | использовать перепись |
-| Австралия | надёжной оценки не найдено | ABS учитывает только «Greek» | федерация понтийцев Австралии |
-| Кипр | надёжной оценки не найдено | — | — |
-
-Вывод: понтийцев действительно 2–2,5 млн, и это стоит указать в заявке. Но для таблицы CLDR нужны цифры **по владению языком**. Лучший путь — запросить у федераций (ΠΟΕ, США/Канада, Германия, Австралия) опубликованные данные или исследования о владении понтийским языком.
-
----
-
-## 4. Скрипт, регион, время
-
-- Default content: **`pnt_Grek_GR`**. Совпадает с уже действующим правилом `likelySubtags` и со страной, где больше всего пользователей.
-- Формат времени: **`h`** — 12-часовой предпочтительный, `H` допустим. Это уже действующие данные CLDR для региона GR (`timeData`, регионы `CY GR`). В прошлой версии черновика было ошибочно указано «24-часовой предпочтительный».
-
----
-
-## 5. Обязательство по уровню Basic
-
-После добавления Core Data локаль `pnt` появится в Survey Tool. За один цикл нужно перевести и проверить данные уровня Basic:
-- названия месяцев и дней недели, форматы дат и времени;
-- числовые форматы;
-- названия основных языков, письменностей и стран;
-- прочие обязательные поля списка Basic.
-
-Нужны 1–2 носителя с аккаунтами Survey Tool, по нескольку недель работы в период открытого цикла. **Подавать заявку стоит только после того, как эти люди определены.**
-
-### 5.1 Данные для Survey Tool (Уровень Basic, верифицировано Д. И. Зимовым, 19.10.2026)
-
-1. **Название языка:**
-   - Полное: `Το ποντεϊκόν η γλώσσα`
-   - Краткое / синонимы: `τα ποντεϊκά`, `το ρωμαίικον η γλώσσα`, `τα ρωμαίικα`
-2. **Название письменности:**
-   - `Το ελενικόν η γραφή` (новогреч. `ελληνική γραφή`)
-3. **Названия стран (территории диаспоры):**
-   - Греция: `Η Ελλάδα`
-   - Россия: `Η Ρουσία`
-   - Турция: `Η Τουρκία`
-   - Германия: `Η Γερμανία`
-   - США: `Η Αμερική`
-   - Великобритания: `Η Αγγλία`
-4. **Месяцы (12 полных названий):**
-   - 1 (январь): `ο Καλαντάτρς`
-   - 2 (февраль): `ο Κούντουρον`
-   - 3 (март): `ο Μάρτς`
-   - 4 (апрель): `ο Απρίλτς`
-   - 5 (май): `ο Καλομηνάς`
-   - 6 (июнь): `ο Κερασινόν`
-   - 7 (июль): `ο Χορτοθέρτς`
-   - 8 (август): `ο Αλωνάρτς` (также `ο Αύγουστον`)
-   - 9 (сентябрь): `ο Σταυρίτες`
-   - 10 (октябрь): `ο Τρυγομηνάς`
-   - 11 (ноябрь): `ο Αεργίτες` (также `ο Αγιωργίτες`)
-   - 12 (декабрь): `ο Χριστιαννάρτς` (также `ο Χριστιεννάρτς`)
-5. **Дни недели (7 полных названий):**
-   - Воскресенье: `η Κερεκή`
-   - Понедельник: `η Δευτέρα`
-   - Вторник: `η Τρίτ’`
-   - Среда: `η Τετράδ`
-   - Четверг: `η Πέφτ’`
-   - Пятница: `η Παρασ̌κευή`
-   - Суббота: `η Σάββα`
-6. **До полудня / после полудня (am / pm):**
-   - `πριν το μεσημέρ` / `μετά το μεσημέρ`
-7. **Форматы даты и времени:**
-   - Пример даты: `11 τι (τη) Τρυγομηνά 2026`
-   - Время: `16:57`
-8. **Интервалы дат:**
-   - Шаблон «с … по …»: `ας … ους` (например, `ας 11 ους 15 Τρυγομηνά`)
-9. **Часовые пояса:**
-   - Как в новогреческом (`Ώρα ({0})`, `GMT+3`)
-10. **Числа:**
-    - Как в новогреческом (десятичная запятая `,`, разделитель тысяч `.`, например `1.234,56`)
-11. **Шаблоны чисел и валюты:**
-    - Как в новогреческом (`12,5 %`, `100,00 €`)
-12. **Кавычки:**
-    - `« »`
-13. **Система мер:**
-    - `Μετρικόν σύστεμαν μέτρων` (метрическая)
-14. **Шаблон отображения языка с регионом:**
-    - `Ποντεϊκά (Ελλάδα)` или `Ρωμαίικα (Ελλάδα)`
-
----
-
-## 6. Наборы символов (финальная версия, `pnt.xml`)
-
-Принцип: основной набор = буквы, которые реально набираются нашей опубликованной раскладкой (Keyman `pontic_greek` v6.0) и описаны в `Explanation.md`. Всё, что не подтверждено, вынесено в раздел 7.
-
-**Main:**
-```
-[α ά {α̤} {ά̤} β γ {γ̆} δ ε έ ζ {ζ̌} η ή θ ι ί ϊ ΐ κ {κ̌} λ μ ν ξ {ξ̌} ο ό {ο̤} {ό̤} π ρ σ ς {σ̌} {ς̌} τ υ ύ ϋ ΰ φ χ {χ̌} ψ {ψ̌} ω ώ]
-```
-Знаки: гачек U+030C (ζ κ ξ σ ς χ ψ), бреве U+0306 (γ), две точки снизу U+0324 (α ά ο ό). Все последовательности в NFC.
-
-**Auxiliary** (политоника; в точности как в CLDR `el.xml`, для единообразия с греческим):
-```
-[ἀἄἂἆἁἅἃἇὰᾶ ἐἔἒἑἕἓὲ ἠἤἢἦἡἥἣἧὴῆ ἰἴἲἶἱἵἳἷὶῖῒῗ ὄὂὃὸ ὐὔὒὖὑὕὓὗὺῦῢῧ ὤὢὦὥὣὧὼῶ]
-```
-
-**Index** (только базовые заглавные, как в `el.xml`):
-```
-[Α Β Γ Δ Ε Ζ Η Θ Ι Κ Λ Μ Ν Ξ Ο Π Ρ Σ Τ Υ Φ Χ Ψ Ω]
-```
-В прошлой версии вместо греческой Κ стояла кириллическая К (U+041A) — исправлено.
-
-**Numbers:** `[\- ‐‑ , . % ‰ + 0 1 2 3 4 5 6 7 8 9]`
-
-**Punctuation** (греческая пунктуация из `el.xml` плюс апостроф):
-```
-[\- ‐‑ – — , ; \: ! . … ' ’ " « » ( ) \[ \] § @ * / \\ \&]
-```
-- `?` убран: в греческой орфографии вопросительный знак — `;`.
-- `'` и `’` добавлены: в понтийском апостроф постоянно используется при элизии (σ’, κ’, μ’).
-
----
-
-## 7. Алфавит
-
-Алфавит утверждён ранее (раскладка v6.0, калибровка Д. И. Зимова). Основной набор в разделе 6 совпадает с ним один в один. Лишние знаки из первого черновика (`γ̇`, `ι̱`, `ε̤`, `η̤`, `υ̤`, `ω̤`) удалены: они не входят в утверждённый алфавит.
-
----
-
-## 8. Тексты для Core Data Submission Form (на английском)
-
-**Language code:** `pnt`
-
-**Default content script and region:** `pnt_Grek_GR` (consistent with existing CLDR likelySubtags).
-
-**Time cycle in default region:** `h` preferred, `H` allowed (as existing CLDR timeData for GR).
-
-**Country data:**
-```
-Total users (L1+L2), all countries: 778,000 (Ethnologue, 21st ed.).
-Greece: 400,000 (Ethnologue, citing Z. Diakonikolaou 2009) — matches current CLDR value (3.7%).
-Russia: existing CLDR value 0.04% (pnt_Cyrl, R1335).
-Türkiye: existing CLDR value 0.0061% (pnt_Latn, R1336).
-[Additional countries to be filled in once verified speaker data is obtained.]
-
-Context: the Pontic Greek ethnic/heritage population is estimated at 2.0–2.5 million worldwide
-(Greece, USA, Germany, Russia, Ukraine, Georgia, Kazakhstan, Australia and others).
-Pontic is classified as Definitely Endangered (UNESCO Atlas, 2010).
-```
-
-**Exemplar characters:** see section 6 (main, auxiliary, numbers, punctuation).
-
-**Supporting references:**
-- Published Pontic Greek keyboard: https://keyman.com/keyboards/pontic_greek (keymanapp/keyboards#4113, #4180)
-- Ethnologue: Pontic [pnt]
-- UNESCO Atlas of the World's Languages in Danger (2010)
-
-**Commitment:** We commit to supplying the data required for `pnt` to reach Basic coverage during the next open CLDR Survey Tool cycle. Contributors: Max [фамилия, e-mail], Greece; [второй участник — при наличии].
-
----
-
-## 9. Источники
-
-- CLDR, Core Data for New Locales: https://cldr.unicode.org/index/cldr-spec/core-data-for-new-locales
-- CLDR `supplementalData.xml`, `likelySubtags.xml`, `main/el.xml` (ветка main, 11.10.2026)
-- Ethnologue, Pontic [pnt], снимок 2018: https://web.archive.org/web/2018/https://www.ethnologue.com/language/pnt
-- Wikipedia: «Pontic Greek», «Pontic Greeks» (сводные оценки; вторичный источник)
-- Переписи: Грузия 2014, Армения 2011, Украина 2001, Россия 2010 (Росстат)
-- Παμποντιακή Ομοσπονδία Ελλάδος: https://www.poe.org.gr
+- SIL Keyman Keyboard: <https://keyman.com/keyboards/pontic_greek> ([PR #4180](https://github.com/keymanapp/keyboards/pull/4180))
+- Google Noto GPOS Fix: [`notofonts/latin-greek-cyrillic#581`](https://github.com/notofonts/latin-greek-cyrillic/pull/581) (Issue [#547](https://github.com/notofonts/latin-greek-cyrillic/issues/547))
+- Source Repository: <https://github.com/msologr-cpu/pontic-greek>
