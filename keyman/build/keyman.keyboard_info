@@ -26,10 +26,10 @@
     "mobileWeb": "full"
   },
   "packageFilename": "pontic_greek.kmp",
-  "packageFileSize": 312574,
+  "packageFileSize": 312312,
   "jsFilename": "pontic_greek.js",
-  "jsFileSize": 57374,
+  "jsFileSize": 45548,
   "sourcePath": "release/p/pontic_greek",
   "authorName": "Pontic Greek Keyboard Project",
-  "lastModifiedDate": "2026-11-20T00:00:00Z"
+  "lastModifiedDate": "2026-11-24T00:00:00Z"
 }
